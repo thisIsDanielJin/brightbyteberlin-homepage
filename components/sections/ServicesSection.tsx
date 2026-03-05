@@ -34,7 +34,7 @@ interface BentoCardProps {
 }
 
 function BentoCard({ service, layout, index }: BentoCardProps) {
-  const Icon = iconMap[service.icon] || HiCode;
+  const Icon = iconMap[service.icon] || HiCodeBracket;
 
   return (
     <motion.div
