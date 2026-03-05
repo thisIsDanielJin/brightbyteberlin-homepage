@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { inter, satoshi } from "@/lib/fonts";
+import { outfit, spaceGrotesk } from "@/lib/fonts";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import "./globals.css";
@@ -47,7 +47,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${inter.variable} ${satoshi.variable} antialiased bg-bg-primary`}
+        className={`${outfit.variable} ${spaceGrotesk.variable} ${outfit.className} antialiased bg-bg-primary`}
       >
         <Header />
         <main>{children}</main>

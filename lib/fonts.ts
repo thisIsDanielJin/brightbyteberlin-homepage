@@ -12,7 +12,3 @@ export const spaceGrotesk = Space_Grotesk({
   display: "swap",
   weight: ["400", "500", "700"],
 });
-
-// Keep these aliases so layout.tsx imports stay clean
-export const inter = outfit;
-export const satoshi = spaceGrotesk;
