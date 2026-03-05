@@ -7,7 +7,8 @@ import { HiArrowTopRightOnSquare } from "react-icons/hi2";
 
 export function ProjectsSection() {
   return (
-    <Section id="projects" background="secondary">
+    <Section id="projects" background="secondary" blendFrom="primary" className="relative overflow-hidden">
+      <div className="relative z-10">
       <SectionHeader
         title="Work That Delivers"
         subtitle="Recent projects that helped businesses grow their online presence"
@@ -69,6 +70,7 @@ export function ProjectsSection() {
           </StaggerItem>
         ))}
       </StaggerContainer>
+      </div>
     </Section>
   );
 }

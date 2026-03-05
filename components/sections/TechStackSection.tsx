@@ -100,18 +100,8 @@ function MarqueeRow({
 
 export function TechStackSection() {
   return (
-    <Section id="tech" background="primary" containerSize="full" className="!pb-16 md:!pb-20">
+    <Section id="tech" background="primary" blendFrom="secondary" containerSize="full" className="!pb-16 md:!pb-20">
       <div className="relative">
-        {/* Subtle dot grid */}
-        <div
-          className="absolute inset-0 opacity-[0.03] pointer-events-none"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle, rgba(251, 191, 36, 0.8) 1px, transparent 1px)",
-            backgroundSize: "32px 32px",
-          }}
-        />
-
         {/* Center glow */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-bright/[0.03] rounded-full blur-[100px] pointer-events-none" />
 

@@ -10,6 +10,7 @@ interface SectionProps {
   className?: string;
   containerSize?: "sm" | "md" | "lg" | "xl" | "full";
   background?: "primary" | "secondary" | "bright";
+  blendFrom?: "primary" | "secondary";
   children: React.ReactNode;
   animate?: boolean;
 }
@@ -20,11 +21,17 @@ const bgStyles = {
   bright: "bg-bg-bright section-bright",
 };
 
+const bgColors = {
+  primary: "#09090B",
+  secondary: "#18181B",
+};
+
 export function Section({
   id,
   className,
   containerSize = "xl",
   background = "primary",
+  blendFrom,
   children,
   animate = true,
 }: SectionProps) {
@@ -42,13 +49,21 @@ export function Section({
     <Wrapper
       id={id}
       className={cn(
-        "section-padding",
+        "section-padding relative",
         bgStyles[background],
         className
       )}
       {...wrapperProps}
     >
-      <Container size={containerSize}>{children}</Container>
+      {blendFrom && (
+        <div
+          className="absolute top-0 left-0 right-0 h-32 pointer-events-none z-[1]"
+          style={{
+            background: `linear-gradient(to bottom, ${bgColors[blendFrom]} 0%, transparent 100%)`,
+          }}
+        />
+      )}
+      <Container size={containerSize} className={blendFrom ? "relative z-[2]" : undefined}>{children}</Container>
     </Wrapper>
   );
 }

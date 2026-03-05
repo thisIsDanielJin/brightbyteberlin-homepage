@@ -15,7 +15,8 @@ const highlights = [
 
 export function AboutSection() {
   return (
-    <Section id="about" background="secondary">
+    <Section id="about" background="secondary" blendFrom="primary" className="relative overflow-hidden">
+      <div className="relative z-10">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         {/* Image */}
         <ScrollReveal variants={fadeInLeft}>
@@ -72,6 +73,7 @@ export function AboutSection() {
             </ul>
           </div>
         </ScrollReveal>
+      </div>
       </div>
     </Section>
   );

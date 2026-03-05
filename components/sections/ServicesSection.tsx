@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Section, SectionHeader } from "@/components/layout/Section";
+import { Section } from "@/components/layout/Section";
 import { services } from "@/data/services";
 import { IconType } from "react-icons";
 import {
@@ -11,6 +11,7 @@ import {
   HiSparkles,
 } from "react-icons/hi2";
 import { cn } from "@/lib/utils";
+import { fadeInUp, viewportConfig } from "@/lib/motion";
 
 const iconMap: Record<string, IconType> = {
   HiCode: HiCodeBracket,
@@ -57,14 +58,17 @@ function BentoCard({ service, layout, index }: BentoCardProps) {
         <div className="absolute top-0 right-0 w-24 h-24 bg-bright/10 rounded-full blur-2xl opacity-0 group-hover:opacity-50 transition-opacity duration-500 -translate-y-1/2 translate-x-1/2" />
 
         <div className="relative z-10 h-full flex flex-col">
-          {/* Icon */}
-          <motion.div
-            whileHover={{ scale: 1.1, rotate: 5 }}
-            transition={{ type: "spring", stiffness: 400 }}
-            className="flex-shrink-0 w-11 h-11 rounded-xl bg-gradient-to-br from-bright/20 to-bright/5 flex items-center justify-center border border-bright/20 group-hover:border-bright/40 transition-colors group-hover:shadow-lg group-hover:shadow-bright/20 mb-4"
-          >
-            <Icon className="w-5 h-5 text-bright" />
-          </motion.div>
+          {/* Icon + number */}
+          <div className="flex items-start justify-between mb-4">
+            <motion.div
+              whileHover={{ scale: 1.1, rotate: 5 }}
+              transition={{ type: "spring", stiffness: 400 }}
+              className="flex-shrink-0 w-11 h-11 rounded-xl bg-gradient-to-br from-bright/20 to-bright/5 flex items-center justify-center border border-bright/20 group-hover:border-bright/40 transition-colors group-hover:shadow-lg group-hover:shadow-bright/20"
+            >
+              <Icon className="w-5 h-5 text-bright" />
+            </motion.div>
+            <span className="text-sm font-mono text-white/20">0{index + 1}</span>
+          </div>
 
           {/* Title */}
           <h3 className="text-lg font-bold text-text-primary group-hover:text-bright transition-colors duration-300 mb-2">
@@ -99,22 +103,41 @@ function BentoCard({ service, layout, index }: BentoCardProps) {
 
 export function ServicesSection() {
   return (
-    <Section id="services" background="primary">
-      <SectionHeader
-        title="How I Help You Shine"
-        subtitle="Everything you need to stand out online and convert visitors into customers"
-      />
+    <Section id="services" background="primary" className="relative overflow-hidden">
+      {/* Radial glow */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/3 w-[900px] h-[500px] bg-bright/[0.06] rounded-full blur-[120px] pointer-events-none" />
 
-      {/* Magic Bento Grid - 2x2 */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {services.map((service, index) => (
-          <BentoCard
-            key={service.id}
-            service={service}
-            layout={bentoLayout[index] || bentoLayout[0]}
-            index={index}
-          />
-        ))}
+      <div className="relative z-10">
+        {/* Section label + header */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportConfig}
+          variants={fadeInUp}
+          className="text-center mb-12 md:mb-16"
+        >
+          <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-bright/15 bg-bright/[0.06] text-[11px] font-medium text-bright uppercase tracking-widest mb-5">
+            Services
+          </span>
+          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl text-text-primary">
+            How I Help You Shine
+          </h2>
+          <p className="mt-4 text-lg max-w-2xl mx-auto text-text-secondary">
+            Everything you need to stand out online and convert visitors into customers
+          </p>
+        </motion.div>
+
+        {/* Magic Bento Grid - 2x2 */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {services.map((service, index) => (
+            <BentoCard
+              key={service.id}
+              service={service}
+              layout={bentoLayout[index] || bentoLayout[0]}
+              index={index}
+            />
+          ))}
+        </div>
       </div>
     </Section>
   );
