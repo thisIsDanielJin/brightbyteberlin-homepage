@@ -73,8 +73,8 @@
   --color-accent: #FBBF24;
   --color-electric: #F59E0B;
 
-  --font-sans: var(--font-inter);
-  --font-heading: var(--font-satoshi);
+  --font-sans: var(--font-outfit);
+  --font-heading: var(--font-space-grotesk);
 }
 
 /* =================================
@@ -88,13 +88,13 @@ html {
 body {
   background: var(--color-bg-primary);
   color: var(--color-text-primary);
-  font-family: var(--font-inter), system-ui, sans-serif;
+  font-family: var(--font-outfit), system-ui, sans-serif;
   line-height: 1.7;
   overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-satoshi), system-ui, sans-serif;
+  font-family: var(--font-space-grotesk), system-ui, sans-serif;
   font-weight: 700;
   line-height: 1.1;
   color: var(--color-text-primary);

@@ -1,16 +1,18 @@
-import { Inter } from "next/font/google";
+import { Space_Grotesk, Outfit } from "next/font/google";
 
-export const inter = Inter({
+export const outfit = Outfit({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-outfit",
   display: "swap",
 });
 
-// Using Inter as fallback for Satoshi (geometric sans)
-// To use actual Satoshi, download from fontshare.com and uncomment localFont
-export const satoshi = Inter({
+export const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
-  variable: "--font-satoshi",
+  variable: "--font-space-grotesk",
   display: "swap",
-  weight: ["400", "500", "700", "900"],
+  weight: ["400", "500", "700"],
 });
+
+// Keep these aliases so layout.tsx imports stay clean
+export const inter = outfit;
+export const satoshi = spaceGrotesk;
