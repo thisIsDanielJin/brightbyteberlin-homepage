@@ -104,17 +104,15 @@ export function Header() {
               </Link>
 
               {/* Desktop Navigation */}
-              <div className="hidden lg:flex items-center gap-8">
+              <div className="hidden lg:flex items-center gap-1">
                 {navLinks.map((link) => (
                   <Link
                     key={link.href}
                     href={link.href}
                     className={cn(
-                      "text-sm font-medium transition-all",
-                      "text-text-secondary hover:text-text-primary",
-                      "relative after:absolute after:bottom-[-4px] after:left-0 after:h-0.5 after:w-0",
-                      "after:bg-bright after:transition-all after:duration-300",
-                      "hover:after:w-full"
+                      "relative px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200",
+                      "text-text-muted hover:text-text-primary",
+                      "hover:bg-white/[0.06]"
                     )}
                   >
                     {link.label}
