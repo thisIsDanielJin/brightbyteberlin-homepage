@@ -1,7 +1,7 @@
 "use client";
 
-import { Section } from "@/components/layout/Section";
-import { ScrollReveal } from "@/components/animations/ScrollReveal";
+import { Section } from "@/components/layout/Section/Section";
+import { ScrollReveal } from "@/components/animations/ScrollReveal/ScrollReveal";
 import { fadeInLeft, fadeInRight } from "@/lib/motion";
 import { HiCheckCircle } from "react-icons/hi2";
 import Image from "next/image";

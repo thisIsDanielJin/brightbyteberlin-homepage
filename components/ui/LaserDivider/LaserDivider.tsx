@@ -1,6 +1,6 @@
 "use client";
 
-import { LaserFlow } from "@/components/animations/LaserFlow";
+import { LaserFlow } from "@/components/animations/LaserFlow/LaserFlow";
 
 export function LaserDivider() {
   return (

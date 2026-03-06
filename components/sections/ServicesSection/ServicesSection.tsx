@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Section } from "@/components/layout/Section";
+import { Section } from "@/components/layout/Section/Section";
 import { services } from "@/data/services";
 import { IconType } from "react-icons";
 import {

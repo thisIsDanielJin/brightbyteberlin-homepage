@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 import { footerLinks } from "@/data/navigation";
-import { Container } from "@/components/ui/Container";
+import { Container } from "@/components/ui/Container/Container";
 import Link from "next/link";
 import { HiEnvelope } from "react-icons/hi2";
 import { FaLinkedinIn, FaGithub } from "react-icons/fa";

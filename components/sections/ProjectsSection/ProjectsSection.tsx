@@ -1,7 +1,7 @@
 "use client";
 
-import { Section, SectionHeader } from "@/components/layout/Section";
-import { StaggerContainer, StaggerItem } from "@/components/animations/StaggerContainer";
+import { Section, SectionHeader } from "@/components/layout/Section/Section";
+import { StaggerContainer, StaggerItem } from "@/components/animations/StaggerContainer/StaggerContainer";
 import { featuredProjects } from "@/data/projects";
 import { HiArrowTopRightOnSquare } from "react-icons/hi2";
 

@@ -3,7 +3,7 @@
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import { fadeInUp, viewportConfig } from "@/lib/motion";
-import { Container } from "@/components/ui/Container";
+import { Container } from "@/components/ui/Container/Container";
 
 interface SectionProps {
   id?: string;

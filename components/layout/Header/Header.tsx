@@ -4,8 +4,8 @@ import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 import { navLinks } from "@/data/navigation";
-import { Container } from "@/components/ui/Container";
-import { Button } from "@/components/ui/Button";
+import { Container } from "@/components/ui/Container/Container";
+import { Button } from "@/components/ui/Button/Button";
 import { HiBars3, HiXMark } from "react-icons/hi2";
 import Link from "next/link";
 

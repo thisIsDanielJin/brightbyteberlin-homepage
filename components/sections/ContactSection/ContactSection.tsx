@@ -2,9 +2,9 @@
 
 import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
-import { Button } from "@/components/ui/Button";
+import { Button } from "@/components/ui/Button/Button";
 import { fadeInUp, staggerContainer } from "@/lib/motion";
-import { GradualBlurOnScroll } from "@/components/animations/GradualBlur";
+import { GradualBlurOnScroll } from "@/components/animations/GradualBlur/GradualBlur";
 import {
     HiEnvelope,
     HiArrowTopRightOnSquare,
@@ -13,7 +13,7 @@ import {
 import { FaLinkedinIn } from "react-icons/fa";
 
 // Dynamically import LightRays to avoid SSR issues with WebGL
-const LightRays = dynamic(() => import("@/components/reactbits/LightRays"), {
+const LightRays = dynamic(() => import("@/components/reactbits/LightRays/LightRays"), {
     ssr: false,
 });
 

@@ -1,8 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Section } from "@/components/layout/Section";
-import { GradualBlurOnScroll } from "@/components/animations/GradualBlur";
+import { Section } from "@/components/layout/Section/Section";
+import { GradualBlurOnScroll } from "@/components/animations/GradualBlur/GradualBlur";
 import {
   HiSparkles,
   HiRocketLaunch,
@@ -10,7 +10,7 @@ import {
   HiCpuChip,
 } from "react-icons/hi2";
 import { HiTrendingUp } from "react-icons/hi";
-import ShinyText from "@/components/reactbits/ShinyText";
+import ShinyText from "@/components/reactbits/ShinyText/ShinyText";
 import { cn } from "@/lib/utils";
 
 const aiFeatures = [

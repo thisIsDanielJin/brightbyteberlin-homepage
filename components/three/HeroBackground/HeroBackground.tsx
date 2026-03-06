@@ -4,7 +4,7 @@ import dynamic from "next/dynamic";
 import { Suspense, useState, useEffect } from "react";
 import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
 
-const Scene = dynamic(() => import("@/components/three/Scene").then((mod) => mod.Scene), {
+const Scene = dynamic(() => import("@/components/three/Scene/Scene").then((mod) => mod.Scene), {
   ssr: false,
   loading: () => null,
 });

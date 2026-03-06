@@ -1,8 +1,8 @@
 "use client";
 
-import { Section, SectionHeader } from "@/components/layout/Section";
-import { Accordion, AccordionItem } from "@/components/ui/Accordion";
-import { ScrollReveal } from "@/components/animations/ScrollReveal";
+import { Section, SectionHeader } from "@/components/layout/Section/Section";
+import { Accordion, AccordionItem } from "@/components/ui/Accordion/Accordion";
+import { ScrollReveal } from "@/components/animations/ScrollReveal/ScrollReveal";
 import { faqItems } from "@/data/faq";
 
 export function FAQSection() {

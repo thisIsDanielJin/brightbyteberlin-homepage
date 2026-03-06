@@ -2,16 +2,16 @@
 
 import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
-import { Container } from "@/components/ui/Container";
-import { Button } from "@/components/ui/Button";
+import { Container } from "@/components/ui/Container/Container";
+import { Button } from "@/components/ui/Button/Button";
 import { fadeInUp, staggerContainer } from "@/lib/motion";
-import { GradualBlur } from "@/components/animations/GradualBlur";
+import { GradualBlur } from "@/components/animations/GradualBlur/GradualBlur";
 import Link from "next/link";
 import { HiArrowRight } from "react-icons/hi2";
 
 // Dynamically import Grainient to avoid SSR issues with WebGL
 const Grainient = dynamic(
-  () => import("@/components/reactbits/Grainient"),
+  () => import("@/components/reactbits/Grainient/Grainient"),
   { ssr: false }
 );
 
