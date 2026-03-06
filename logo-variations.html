@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BrightByte Berlin — Logo Variations v2</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #09090B; color: #FAFAFA; font-family: system-ui, sans-serif; padding: 40px; }
+  h1 { text-align: center; margin-bottom: 12px; font-size: 24px; }
+  .subtitle { text-align: center; color: #71717A; margin-bottom: 60px; font-size: 13px; }
+  .section-title { font-size: 12px; color: #FBBF24; margin-bottom: 32px; padding-bottom: 10px; border-bottom: 1px solid rgba(251,191,36,0.15); text-transform: uppercase; letter-spacing: 0.1em; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 40px; margin-bottom: 80px; }
+  .logo-card { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+  .logo-frame { background: radial-gradient(ellipse at 50% 40%, #1a1a1e 0%, #09090B 70%); border: 1px solid rgba(255,255,255,0.04); border-radius: 24px; padding: 48px; display: flex; align-items: center; justify-content: center; width: 100%; aspect-ratio: 1; position: relative; overflow: hidden; }
+  .logo-frame::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(ellipse at 50% 50%, rgba(251,191,36,0.03) 0%, transparent 60%); pointer-events: none; }
+  .label { font-size: 11px; color: #71717A; text-align: center; letter-spacing: 0.03em; }
+</style>
+</head>
+<body>
+
+<h1>BrightByte Berlin — Logo Variations v2</h1>
+<p class="subtitle">Closer to the reference: 3D depth, metallic gold, volumetric light</p>
+
+<!-- ============================================ -->
+<!-- DIRECTION 1: INTERLOCKING BB MONOGRAM        -->
+<!-- ============================================ -->
+
+<h2 class="section-title">Direction 1 — Interlocking BB Monogram</h2>
+
+<div class="grid">
+
+  <!-- V1: 3D Interlocking BB with bevels -->
+  <div class="logo-card">
+    <div class="logo-frame">
+      <svg width="220" height="220" viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <!-- Gold metallic gradients -->
+          <linearGradient id="goldFace" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#E8C547" />
+            <stop offset="25%" stop-color="#F5D97E" />
+            <stop offset="45%" stop-color="#D4A824" />
+            <stop offset="65%" stop-color="#F0D060" />
+            <stop offset="85%" stop-color="#C49520" />
+            <stop offset="100%" stop-color="#8B6914" />
+          </linearGradient>
+          <linearGradient id="goldEdgeLight" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#FBE9A0" />
+            <stop offset="100%" stop-color="#C49520" />
+          </linearGradient>
+          <linearGradient id="goldEdgeDark" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#A07818" />
+            <stop offset="100%" stop-color="#5C430A" />
+          </linearGradient>
+          <linearGradient id="goldBevel" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#F5D97E" />
+            <stop offset="50%" stop-color="#D4A824" />
+            <stop offset="100%" stop-color="#8B6914" />
+          </linearGradient>
+          <filter id="shadow1">
+            <feDropShadow dx="2" dy="4" stdDeviation="6" flood-color="#000" flood-opacity="0.5" />
+          </filter>
+          <filter id="innerGlow">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur" />
+            <feFlood flood-color="#FBE9A0" flood-opacity="0.3" />
+            <feComposite in2="blur" operator="in" />
+            <feMerge>
+              <feMergeNode />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+        </defs>
+
+        <!-- Back B (right, behind) — darker to show depth -->
+        <g filter="url(#shadow1)" opacity="0.9">
+          <!-- Main body -->
+          <path d="M85 35 L85 185 L130 185 C155 185 172 168 172 148 C172 133 163 121 150 116 C160 110 168 98 168 84 C168 62 152 47 132 47 L97 47 Z" fill="url(#goldEdgeDark)" />
+          <!-- Front face offset for 3D -->
+          <path d="M80 30 L80 180 L125 180 C150 180 167 163 167 143 C167 128 158 116 145 111 C155 105 163 93 163 79 C163 57 147 42 127 42 L80 42 Z" fill="url(#goldFace)" />
+          <!-- Top bevel -->
+          <path d="M80 30 L85 35 L85 47 L80 42 Z" fill="#FBE9A0" opacity="0.4" />
+          <path d="M80 42 L127 42 L132 47 L85 47 Z" fill="#FBE9A0" opacity="0.5" />
+          <!-- Cutout for B bumps -->
+          <path d="M100 56 L120 56 C135 56 145 66 145 79 C145 92 135 102 120 102 L100 102 Z" fill="#1a1a1e" opacity="0.7" />
+          <path d="M100 120 L123 120 C140 120 150 131 150 143 C150 156 140 166 123 166 L100 166 Z" fill="#1a1a1e" opacity="0.7" />
+        </g>
+
+        <!-- Front B (left, in front) — brighter, full metallic -->
+        <g filter="url(#shadow1)">
+          <!-- 3D side edge -->
+          <path d="M55 40 L60 35 L60 185 L55 190 Z" fill="url(#goldEdgeLight)" />
+          <path d="M55 190 L60 185 L120 185 L115 190 Z" fill="url(#goldEdgeDark)" />
+          <!-- Main face -->
+          <path d="M45 30 L45 180 L100 180 C128 180 148 162 148 140 C148 124 138 111 124 106 C135 99 143 86 143 72 C143 48 125 30 100 30 Z" fill="url(#goldFace)" />
+          <!-- Top edge bevel -->
+          <path d="M45 30 L100 30 L105 25 L50 25 Z" fill="#FBE9A0" opacity="0.6" />
+          <path d="M45 30 L50 25 L50 175 L45 180 Z" fill="#FBE9A0" opacity="0.3" />
+          <!-- Right edge bevel -->
+          <path d="M148 140 L153 135 L153 67 L148 72 Z" fill="url(#goldEdgeDark)" opacity="0.6" />
+          <!-- Inner B cutouts (negative space) -->
+          <path d="M68 48 L95 48 C112 48 123 58 123 72 C123 86 112 96 95 96 L68 96 Z" fill="#121215" />
+          <path d="M68 112 L100 112 C119 112 130 123 130 138 C130 153 119 164 100 164 L68 164 Z" fill="#12121A" />
+          <!-- Metallic highlight stripe -->
+          <path d="M50 40 L50 170" stroke="url(#goldEdgeLight)" stroke-width="1.5" opacity="0.5" />
+          <!-- Specular highlight -->
+          <ellipse cx="90" cy="55" rx="30" ry="8" fill="white" opacity="0.08" />
+        </g>
+      </svg>
+    </div>
+    <span class="label">V1 — Interlocking 3D BB (close to ref)</span>
+  </div>
+
+  <!-- V2: Single beveled B with metallic sheen -->
+  <div class="logo-card">
+    <div class="logo-frame">
+      <svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="g2face" x1="0" y1="0" x2="200" y2="200" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#F5E2A0" />
+            <stop offset="20%" stop-color="#E8C547" />
+            <stop offset="40%" stop-color="#D4A824" />
+            <stop offset="60%" stop-color="#F0D060" />
+            <stop offset="80%" stop-color="#C49520" />
+            <stop offset="100%" stop-color="#7A5C0F" />
+          </linearGradient>
+          <linearGradient id="g2dark" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#8B6914" />
+            <stop offset="100%" stop-color="#3D2B08" />
+          </linearGradient>
+          <filter id="drop2">
+            <feDropShadow dx="3" dy="5" stdDeviation="8" flood-color="#000" flood-opacity="0.6" />
+          </filter>
+        </defs>
+
+        <g filter="url(#drop2)">
+          <!-- Outer B shape -->
+          <path d="M40 20 L40 180 L110 180 C145 180 168 158 168 132 C168 114 157 99 140 92 C153 84 162 69 162 52 C162 28 140 20 115 20 Z" fill="url(#g2face)" />
+          <!-- 3D depth on bottom -->
+          <path d="M40 180 L44 184 L114 184 C148 184 172 162 172 136 L168 132 C168 158 145 180 110 180 Z" fill="url(#g2dark)" />
+          <!-- 3D depth on right -->
+          <path d="M168 132 L172 136 L172 56 L168 52 Z" fill="url(#g2dark)" opacity="0.7" />
+          <!-- 3D depth on right curve top -->
+          <path d="M162 52 L166 48 C166 28 144 16 119 16 L115 20 C140 20 162 28 162 52 Z" fill="#FBE9A0" opacity="0.3" />
+          <!-- Top bevel -->
+          <path d="M40 20 L44 16 L119 16 L115 20 Z" fill="#FBE9A0" opacity="0.5" />
+          <path d="M40 20 L44 16 L44 184 L40 180 Z" fill="#FBE9A0" opacity="0.25" />
+
+          <!-- Inner cutouts -->
+          <path d="M68 42 L108 42 C125 42 138 53 138 66 C138 79 125 90 108 90 L68 90 Z" fill="#0e0e11" />
+          <path d="M68 108 L107 108 C128 108 142 120 142 136 C142 152 128 164 107 164 L68 164 Z" fill="#0e0e11" />
+
+          <!-- Specular highlights -->
+          <path d="M48 30 L48 90 L52 90 L52 30 Z" fill="white" opacity="0.1" />
+          <ellipse cx="100" cy="35" rx="40" ry="6" fill="white" opacity="0.06" />
+          <!-- Middle bar highlight -->
+          <path d="M68 93 L130 93 L130 105 L68 105 Z" fill="url(#g2face)" opacity="0.3" />
+        </g>
+      </svg>
+    </div>
+    <span class="label">V2 — Beveled B Monogram</span>
+  </div>
+
+  <!-- V3: Intertwined BB with perspective -->
+  <div class="logo-card">
+    <div class="logo-frame">
+      <svg width="220" height="220" viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="g3a" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#FBE9A0" />
+            <stop offset="30%" stop-color="#E8C547" />
+            <stop offset="60%" stop-color="#C49520" />
+            <stop offset="100%" stop-color="#7A5C0F" />
+          </linearGradient>
+          <linearGradient id="g3b" x1="1" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#F5D97E" />
+            <stop offset="40%" stop-color="#D4A824" />
+            <stop offset="70%" stop-color="#A07818" />
+            <stop offset="100%" stop-color="#5C430A" />
+          </linearGradient>
+          <filter id="drop3">
+            <feDropShadow dx="2" dy="3" stdDeviation="5" flood-color="#000" flood-opacity="0.5" />
+          </filter>
+        </defs>
+
+        <g filter="url(#drop3)">
+          <!-- Left B — front layer -->
+          <path d="M30 28 L30 192 L90 192 C118 192 138 174 138 152 C138 136 128 123 114 117 C125 110 133 97 133 82 C133 58 115 42 90 42 L42 42 Z" fill="url(#g3a)" />
+          <!-- Depth side -->
+          <path d="M30 28 L36 24 L36 188 L30 192 Z" fill="#FBE9A0" opacity="0.35" />
+          <path d="M30 28 L36 24 L96 24 L90 28 Z" fill="#FBE9A0" opacity="0.5" />
+          <!-- Cutouts -->
+          <path d="M54 56 L86 56 C102 56 113 66 113 80 C113 94 102 104 86 104 L54 104 Z" fill="#0d0d10" />
+          <path d="M54 128 L88 128 C106 128 118 139 118 154 C118 169 106 180 88 180 L54 180 Z" fill="#0d0d10" />
+
+          <!-- Right B — interleaved behind on top, in front on bottom -->
+          <!-- Top portion (behind left B) -->
+          <path d="M82 42 L82 110 L142 110 C158 110 168 98 168 84 C168 62 152 42 130 42 Z" fill="url(#g3b)" opacity="0.75" />
+          <!-- Bottom portion (in front of left B) -->
+          <path d="M82 117 L82 192 L140 192 C168 192 188 174 188 152 C188 132 170 117 145 117 Z" fill="url(#g3b)" />
+          <!-- Right B cutout bottom -->
+          <path d="M102 132 L138 132 C154 132 166 143 166 156 C166 169 154 180 138 180 L102 180 Z" fill="#0d0d10" />
+          <!-- Right B depth -->
+          <path d="M188 152 L192 148 L192 120 L188 117 Z" fill="#5C430A" opacity="0.6" />
+
+          <!-- Intersection overlay — where they cross -->
+          <rect x="82" y="104" width="52" height="13" rx="2" fill="url(#g3a)" opacity="0.6" />
+        </g>
+
+        <!-- Subtle ambient reflection -->
+        <ellipse cx="110" cy="200" rx="60" ry="6" fill="#FBBF24" opacity="0.04" />
+      </svg>
+    </div>
+    <span class="label">V3 — Intertwined BB with depth</span>
+  </div>
+
+</div>
+
+<!-- ============================================ -->
+<!-- DIRECTION 2: GLOWING CUBE                    -->
+<!-- ============================================ -->
+
+<h2 class="section-title">Direction 2 — Glowing Cube with Light Spill</h2>
+
+<div class="grid">
+
+  <!-- V4: Realistic gold cube with light pouring out -->
+  <div class="logo-card">
+    <div class="logo-frame">
+      <svg width="240" height="240" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="c1top" x1="60" y1="40" x2="180" y2="40">
+            <stop offset="0%" stop-color="#F5E2A0" />
+            <stop offset="30%" stop-color="#E8C547" />
+            <stop offset="60%" stop-color="#D4A824" />
+            <stop offset="100%" stop-color="#C49520" />
+          </linearGradient>
+          <linearGradient id="c1left" x1="40" y1="80" x2="80" y2="190">
+            <stop offset="0%" stop-color="#D4A824" />
+            <stop offset="40%" stop-color="#B8920E" />
+            <stop offset="100%" stop-color="#6B4F0C" />
+          </linearGradient>
+          <linearGradient id="c1right" x1="180" y1="80" x2="160" y2="190">
+            <stop offset="0%" stop-color="#C49520" />
+            <stop offset="30%" stop-color="#A07818" />
+            <stop offset="100%" stop-color="#4A370A" />
+          </linearGradient>
+          <!-- Light glow -->
+          <radialGradient id="lightGlow" cx="0.85" cy="0.75" r="0.6">
+            <stop offset="0%" stop-color="#FFF5D4" stop-opacity="0.9" />
+            <stop offset="30%" stop-color="#FBBF24" stop-opacity="0.6" />
+            <stop offset="60%" stop-color="#FBBF24" stop-opacity="0.2" />
+            <stop offset="100%" stop-color="#FBBF24" stop-opacity="0" />
+          </radialGradient>
+          <filter id="bigGlow">
+            <feGaussianBlur stdDeviation="12" />
+          </filter>
+          <filter id="medGlow">
+            <feGaussianBlur stdDeviation="6" />
+          </filter>
+          <filter id="softGlow">
+            <feGaussianBlur stdDeviation="3" />
+          </filter>
+          <filter id="cubeShadow">
+            <feDropShadow dx="3" dy="6" stdDeviation="10" flood-color="#000" flood-opacity="0.5" />
+          </filter>
+          <!-- Brushed metal texture approximation -->
+          <pattern id="brushed" width="4" height="4" patternUnits="userSpaceOnUse">
+            <line x1="0" y1="0" x2="4" y2="0" stroke="white" stroke-width="0.3" opacity="0.03" />
+            <line x1="0" y1="2" x2="4" y2="2" stroke="black" stroke-width="0.2" opacity="0.05" />
+          </pattern>
+        </defs>
+
+        <!-- Large volumetric light spill (behind cube) -->
+        <ellipse cx="190" cy="170" rx="70" ry="50" fill="#FBBF24" opacity="0.12" filter="url(#bigGlow)" />
+        <ellipse cx="185" cy="165" rx="45" ry="35" fill="#FDE68A" opacity="0.15" filter="url(#medGlow)" />
+
+        <!-- Light rays emanating from crack -->
+        <g opacity="0.5">
+          <line x1="170" y1="140" x2="220" y2="120" stroke="#FDE68A" stroke-width="3" opacity="0.3" filter="url(#softGlow)" />
+          <line x1="172" y1="155" x2="230" y2="148" stroke="#FDE68A" stroke-width="4" opacity="0.35" filter="url(#softGlow)" />
+          <line x1="170" y1="170" x2="225" y2="178" stroke="#FDE68A" stroke-width="3" opacity="0.25" filter="url(#softGlow)" />
+          <line x1="168" y1="182" x2="210" y2="200" stroke="#FDE68A" stroke-width="2.5" opacity="0.2" filter="url(#softGlow)" />
+        </g>
+
+        <g filter="url(#cubeShadow)">
+          <!-- Top face -->
+          <path d="M120 45 L190 85 L120 120 L50 85 Z" fill="url(#c1top)" />
+          <!-- Brushed texture on top -->
+          <path d="M120 45 L190 85 L120 120 L50 85 Z" fill="url(#brushed)" />
+          <!-- Top highlight edge -->
+          <path d="M120 45 L190 85 L188 83 L120 47 Z" fill="white" opacity="0.1" />
+          <path d="M120 45 L50 85 L52 83 L120 47 Z" fill="white" opacity="0.15" />
+
+          <!-- Left face -->
+          <path d="M50 85 L120 120 L120 200 L50 165 Z" fill="url(#c1left)" />
+          <path d="M50 85 L120 120 L120 200 L50 165 Z" fill="url(#brushed)" />
+          <!-- Left edge highlight -->
+          <path d="M50 85 L52 85 L52 163 L50 165 Z" fill="white" opacity="0.08" />
+
+          <!-- Right face (partial — broken corner) -->
+          <path d="M190 85 L120 120 L120 170 L155 152 L155 135 L175 125 L190 133 Z" fill="url(#c1right)" />
+          <path d="M190 85 L120 120 L120 170 L155 152 L155 135 L175 125 L190 133 Z" fill="url(#brushed)" />
+
+          <!-- Broken corner piece (detached, falling) -->
+          <g transform="translate(4, 6) rotate(8, 170, 175)">
+            <path d="M155 155 L175 145 L190 153 L190 180 L172 192 L155 183 Z" fill="url(#c1right)" opacity="0.85" />
+          </g>
+
+          <!-- Light pouring through the crack -->
+          <path d="M120 170 L155 152 L155 135 L175 125 L190 133 L190 153 L175 145 L155 155 L155 183 L120 200 Z" fill="url(#lightGlow)" />
+          <!-- Extra bright center of light -->
+          <ellipse cx="165" cy="155" rx="15" ry="20" fill="#FFF5D4" opacity="0.4" filter="url(#softGlow)" />
+
+          <!-- Molten gold pooling at base -->
+          <ellipse cx="172" cy="198" rx="22" ry="8" fill="#FBBF24" opacity="0.5" filter="url(#softGlow)" />
+          <ellipse cx="172" cy="198" rx="14" ry="5" fill="#FDE68A" opacity="0.6" />
+        </g>
+
+        <!-- Floor reflection -->
+        <ellipse cx="120" cy="210" rx="70" ry="8" fill="#FBBF24" opacity="0.03" filter="url(#bigGlow)" />
+      </svg>
+    </div>
+    <span class="label">V4 — Gold cube with light spill (close to ref)</span>
+  </div>
+
+  <!-- V5: Intact cube with internal glow -->
+  <div class="logo-card">
+    <div class="logo-frame">
+      <svg width="220" height="220" viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="c2t" x1="50" y1="40" x2="170" y2="40">
+            <stop offset="0%" stop-color="#F5E2A0" />
+            <stop offset="50%" stop-color="#D4A824" />
+            <stop offset="100%" stop-color="#B8920E" />
+          </linearGradient>
+          <linearGradient id="c2l" x1="40" y1="80" x2="60" y2="185">
+            <stop offset="0%" stop-color="#C49520" />
+            <stop offset="100%" stop-color="#5C430A" />
+          </linearGradient>
+          <linearGradient id="c2r" x1="180" y1="80" x2="160" y2="185">
+            <stop offset="0%" stop-color="#A07818" />
+            <stop offset="100%" stop-color="#3D2B08" />
+          </linearGradient>
+          <filter id="innerLight">
+            <feGaussianBlur stdDeviation="8" />
+          </filter>
+          <filter id="ds2">
+            <feDropShadow dx="2" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.5" />
+          </filter>
+          <pattern id="brush2" width="3" height="3" patternUnits="userSpaceOnUse">
+            <line x1="0" y1="0" x2="3" y2="0" stroke="white" stroke-width="0.2" opacity="0.04" />
+          </pattern>
+        </defs>
+
+        <!-- Ambient glow beneath -->
+        <ellipse cx="110" cy="195" rx="55" ry="10" fill="#FBBF24" opacity="0.06" filter="url(#innerLight)" />
+
+        <g filter="url(#ds2)">
+          <!-- Top -->
+          <path d="M110 40 L180 80 L110 115 L40 80 Z" fill="url(#c2t)" />
+          <path d="M110 40 L180 80 L110 115 L40 80 Z" fill="url(#brush2)" />
+          <path d="M110 40 L40 80 L42 78 L110 42 Z" fill="white" opacity="0.12" />
+          <!-- Left -->
+          <path d="M40 80 L110 115 L110 190 L40 155 Z" fill="url(#c2l)" />
+          <path d="M40 80 L110 115 L110 190 L40 155 Z" fill="url(#brush2)" />
+          <!-- Right -->
+          <path d="M180 80 L110 115 L110 190 L180 155 Z" fill="url(#c2r)" />
+          <path d="M180 80 L110 115 L110 190 L180 155 Z" fill="url(#brush2)" />
+          <!-- Edge highlights -->
+          <path d="M40 80 L42 80 L42 153 L40 155 Z" fill="white" opacity="0.06" />
+          <path d="M180 80 L178 80 L178 153 L180 155 Z" fill="white" opacity="0.03" />
+          <!-- Seam glow — light leaking from edges -->
+          <line x1="110" y1="115" x2="110" y2="190" stroke="#FDE68A" stroke-width="1.5" opacity="0.15" />
+          <line x1="110" y1="115" x2="40" y2="80" stroke="#FDE68A" stroke-width="1" opacity="0.08" />
+          <line x1="110" y1="115" x2="180" y2="80" stroke="#FDE68A" stroke-width="1" opacity="0.06" />
+          <!-- Internal glow showing through -->
+          <ellipse cx="110" cy="140" rx="25" ry="30" fill="#FBBF24" opacity="0.06" filter="url(#innerLight)" />
+        </g>
+      </svg>
+    </div>
+    <span class="label">V5 — Sealed cube, inner glow</span>
+  </div>
+
+  <!-- V6: Cube cracked open from top -->
+  <div class="logo-card">
+    <div class="logo-frame">
+      <svg width="220" height="220" viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="c3t" x1="40" y1="40" x2="180" y2="40">
+            <stop offset="0%" stop-color="#F5E2A0" />
+            <stop offset="50%" stop-color="#D4A824" />
+            <stop offset="100%" stop-color="#B8920E" />
+          </linearGradient>
+          <linearGradient id="c3l" x1="40" y1="80" x2="60" y2="185">
+            <stop offset="0%" stop-color="#C49520" />
+            <stop offset="100%" stop-color="#5C430A" />
+          </linearGradient>
+          <linearGradient id="c3r" x1="180" y1="80" x2="160" y2="185">
+            <stop offset="0%" stop-color="#A07818" />
+            <stop offset="100%" stop-color="#3D2B08" />
+          </linearGradient>
+          <filter id="upGlow"><feGaussianBlur stdDeviation="10" /></filter>
+          <filter id="upGlowSm"><feGaussianBlur stdDeviation="4" /></filter>
+          <filter id="ds3"><feDropShadow dx="2" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.5" /></filter>
+        </defs>
+
+        <!-- Upward light beam -->
+        <path d="M90 80 L110 10 L130 80 Z" fill="#FDE68A" opacity="0.12" filter="url(#upGlow)" />
+        <path d="M100 80 L110 30 L120 80 Z" fill="#FFF5D4" opacity="0.2" filter="url(#upGlowSm)" />
+        <!-- Scattered light particles upward -->
+        <circle cx="105" cy="35" r="2" fill="#FDE68A" opacity="0.4" />
+        <circle cx="118" cy="25" r="1.5" fill="#FDE68A" opacity="0.3" />
+        <circle cx="98" cy="50" r="1" fill="#FDE68A" opacity="0.5" />
+        <circle cx="125" cy="45" r="1.5" fill="#FDE68A" opacity="0.35" />
+
+        <g filter="url(#ds3)">
+          <!-- Top face — split open -->
+          <path d="M110 70 L40 80 L105 110 Z" fill="url(#c3t)" />
+          <path d="M110 70 L180 80 L115 110 Z" fill="url(#c3t)" opacity="0.9" />
+          <!-- Gap in top -->
+          <path d="M105 110 L110 70 L115 110 Z" fill="#FFF5D4" opacity="0.5" />
+          <!-- Left face -->
+          <path d="M40 80 L105 110 L105 190 L40 160 Z" fill="url(#c3l)" />
+          <!-- Right face -->
+          <path d="M180 80 L115 110 L115 190 L180 160 Z" fill="url(#c3r)" />
+          <!-- Front crack seam with light -->
+          <line x1="105" y1="110" x2="105" y2="190" stroke="#FDE68A" stroke-width="1" opacity="0.2" />
+          <line x1="115" y1="110" x2="115" y2="190" stroke="#FDE68A" stroke-width="1" opacity="0.2" />
+          <rect x="105" y="110" width="10" height="80" fill="#FBBF24" opacity="0.08" filter="url(#upGlowSm)" />
+          <!-- Edge highlights -->
+          <path d="M40 80 L42 80 L42 158 L40 160 Z" fill="white" opacity="0.06" />
+        </g>
+      </svg>
+    </div>
+    <span class="label">V6 — Cube cracked open, light escaping up</span>
+  </div>
+
+</div>
+
+</body>
+</html>
