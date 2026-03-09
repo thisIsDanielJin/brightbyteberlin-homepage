@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { outfit, spaceGrotesk } from "@/lib/fonts";
 import { Header } from "@/components/layout/Header/Header";
 import { Footer } from "@/components/layout/Footer/Footer";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.scss";
 
 export const metadata: Metadata = {
@@ -71,6 +72,7 @@ export default function RootLayout({
         <Header />
         <main>{children}</main>
         <Footer />
+        <SpeedInsights />
       </body>
     </html>
   );
