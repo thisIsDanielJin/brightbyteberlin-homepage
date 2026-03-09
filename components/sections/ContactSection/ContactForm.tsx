@@ -83,7 +83,7 @@ export function ContactForm() {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
             transition={{ duration: 0.3 }}
-            className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 text-center"
+            className="bg-[#0A0A0C]/90 backdrop-blur-md border border-white/10 rounded-2xl p-8 text-center"
           >
             <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-bright/20 flex items-center justify-center">
               <svg
@@ -116,7 +116,7 @@ export function ContactForm() {
             transition={{ duration: 0.3 }}
             onSubmit={handleSubmit}
             noValidate
-            className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 sm:p-8 space-y-5"
+            className="bg-[#0A0A0C]/90 backdrop-blur-md border border-white/10 rounded-2xl p-6 sm:p-8 space-y-5"
           >
             {/* Honeypot — hidden from real users */}
             <div className="absolute -left-[9999px]" aria-hidden="true">

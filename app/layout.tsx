@@ -21,6 +21,9 @@ export const metadata: Metadata = {
   authors: [{ name: "Daniel Jin Wodke" }],
   alternates: {
     canonical: "/",
+    types: {
+      "application/rss+xml": "/blog/feed.xml",
+    },
   },
   icons: {
     apple: "/apple-touch-icon.png",

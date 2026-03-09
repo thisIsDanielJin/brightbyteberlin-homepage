@@ -139,6 +139,20 @@ export function ContactSection() {
                             ))}
                         </motion.div>
 
+                        {/* Availability badge */}
+                        <motion.div
+                            variants={fadeInUp}
+                            className="inline-flex items-center gap-2.5 rounded-lg border border-emerald-500/30 bg-emerald-500/10 px-4 py-2.5 mb-8"
+                        >
+                            <span className="relative flex h-2.5 w-2.5">
+                                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" style={{ animationDuration: '2s' }} />
+                                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-400" />
+                            </span>
+                            <span className="text-sm font-medium text-emerald-300">
+                                Available for new projects
+                            </span>
+                        </motion.div>
+
                         {/* Alternative contact links */}
                         <motion.div
                             variants={fadeInUp}

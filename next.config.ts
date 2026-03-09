@@ -5,6 +5,14 @@ const withBundleAnalyzer = process.env.ANALYZE === "true"
   : (config: NextConfig) => config;
 
 const nextConfig: NextConfig = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "cdn.sanity.io",
+      },
+    ],
+  },
   experimental: {
     optimizePackageImports: [
       "react-icons",

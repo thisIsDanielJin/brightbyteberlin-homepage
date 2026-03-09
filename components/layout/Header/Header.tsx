@@ -126,15 +126,12 @@ export function Header() {
               </div>
 
               {/* Desktop CTA */}
-              <div className="hidden lg:block">
-                <Button
-                  size="sm"
-                  className="rounded-lg"
-                  asChild
-                >
-                  <Link href="#contact">
-                    Get Started
-                  </Link>
+              <div className="hidden lg:flex items-center gap-3">
+                <Button size="sm" variant="outline" className="rounded-lg" asChild>
+                  <Link href="/blog">Blog</Link>
+                </Button>
+                <Button size="sm" className="rounded-lg" asChild>
+                  <Link href="/#contact">Get Started</Link>
                 </Button>
               </div>
 

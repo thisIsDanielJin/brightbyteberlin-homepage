@@ -52,6 +52,19 @@ export function MobileMenu({
                     </Link>
                   </motion.div>
                 ))}
+                <motion.div
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: navLinks.length * 0.05 }}
+                >
+                  <Link
+                    href="/blog"
+                    onClick={onClose}
+                    className="block py-4 text-lg font-semibold text-text-primary hover:text-bright transition-colors border-b border-white/5"
+                  >
+                    Blog
+                  </Link>
+                </motion.div>
               </nav>
 
               <div className="pt-6">
@@ -60,7 +73,7 @@ export function MobileMenu({
                   onClick={onClose}
                   asChild
                 >
-                  <Link href="#contact">
+                  <Link href="/#contact">
                     Get Started
                   </Link>
                 </Button>
