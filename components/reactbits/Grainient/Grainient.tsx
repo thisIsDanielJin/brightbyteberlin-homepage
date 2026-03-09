@@ -153,9 +153,41 @@ const Grainient: React.FC<GrainientProps> = ({
 }) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [hasWebGL, setHasWebGL] = useState(true);
+  const isVisibleRef = useRef(true);
+  const isTabVisibleRef = useRef(true);
+  const rafIdRef = useRef<number>(0);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const rendererRef = useRef<any>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const programRef = useRef<any>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const meshRef = useRef<any>(null);
+  const t0Ref = useRef<number>(0);
+
+  // Page Visibility API
+  useEffect(() => {
+    const handleVisibilityChange = () => {
+      isTabVisibleRef.current = !document.hidden;
+      if (!document.hidden && rendererRef.current && programRef.current && meshRef.current) {
+        // Resume loop
+        cancelAnimationFrame(rafIdRef.current);
+        const loop = (t: number) => {
+          if (!isVisibleRef.current || !isTabVisibleRef.current) return;
+          (programRef.current!.uniforms.iTime as { value: number }).value = (t - t0Ref.current) * 0.001;
+          rendererRef.current!.render({ scene: meshRef.current });
+          rafIdRef.current = requestAnimationFrame(loop);
+        };
+        rafIdRef.current = requestAnimationFrame(loop);
+      }
+    };
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    return () => document.removeEventListener('visibilitychange', handleVisibilityChange);
+  }, []);
 
   useEffect(() => {
     if (!containerRef.current) return;
+
+    let cleanupFn: (() => void) | undefined;
 
     // Dynamically import ogl to avoid SSR issues
     import('ogl').then(({ Renderer, Program, Mesh, Triangle }) => {
@@ -211,6 +243,11 @@ const Grainient: React.FC<GrainientProps> = ({
 
         const mesh = new Mesh(gl, { geometry, program });
 
+        // Store refs for visibility-based resume
+        rendererRef.current = renderer;
+        programRef.current = program;
+        meshRef.current = mesh;
+
         const setSize = () => {
           const rect = container.getBoundingClientRect();
           const width = Math.max(1, Math.floor(rect.width));
@@ -225,18 +262,37 @@ const Grainient: React.FC<GrainientProps> = ({
         ro.observe(container);
         setSize();
 
-        let raf = 0;
-        const t0 = performance.now();
+        t0Ref.current = performance.now();
         const loop = (t: number) => {
-          (program.uniforms.iTime as { value: number }).value = (t - t0) * 0.001;
+          if (!isVisibleRef.current || !isTabVisibleRef.current) return;
+          (program.uniforms.iTime as { value: number }).value = (t - t0Ref.current) * 0.001;
           renderer.render({ scene: mesh });
-          raf = requestAnimationFrame(loop);
+          rafIdRef.current = requestAnimationFrame(loop);
         };
-        raf = requestAnimationFrame(loop);
+        rafIdRef.current = requestAnimationFrame(loop);
 
-        return () => {
-          cancelAnimationFrame(raf);
+        // IntersectionObserver to pause when off-screen
+        const observer = new IntersectionObserver(
+          (entries) => {
+            const wasVisible = isVisibleRef.current;
+            isVisibleRef.current = entries[0].isIntersecting;
+            // Resume loop if becoming visible
+            if (!wasVisible && isVisibleRef.current && isTabVisibleRef.current) {
+              cancelAnimationFrame(rafIdRef.current);
+              rafIdRef.current = requestAnimationFrame(loop);
+            }
+          },
+          { threshold: 0.05 }
+        );
+        observer.observe(container);
+
+        cleanupFn = () => {
+          cancelAnimationFrame(rafIdRef.current);
+          observer.disconnect();
           ro.disconnect();
+          rendererRef.current = null;
+          programRef.current = null;
+          meshRef.current = null;
           try {
             container.removeChild(canvas);
           } catch {
@@ -250,6 +306,10 @@ const Grainient: React.FC<GrainientProps> = ({
     }).catch(() => {
       setHasWebGL(false);
     });
+
+    return () => {
+      cleanupFn?.();
+    };
   }, [
     timeSpeed,
     colorBalance,

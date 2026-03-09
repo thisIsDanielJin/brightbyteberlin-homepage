@@ -57,7 +57,44 @@ const LightRays = ({
   const meshRef = useRef<Mesh | null>(null);
   const cleanupFunctionRef = useRef<(() => void) | null>(null);
   const [isVisible, setIsVisible] = useState(false);
+  const isTabVisibleRef = useRef(true);
   const observerRef = useRef<IntersectionObserver | null>(null);
+
+  // Page Visibility API - pause when tab is hidden
+  useEffect(() => {
+    const handleVisibilityChange = () => {
+      isTabVisibleRef.current = !document.hidden;
+      if (!document.hidden && animationIdRef.current === null && rendererRef.current && meshRef.current) {
+        // Resume loop
+        const u = uniformsRef.current;
+        const renderer = rendererRef.current;
+        const mesh = meshRef.current;
+        if (!u) return;
+        const loop = (t: number) => {
+          if (!isTabVisibleRef.current) {
+            animationIdRef.current = null;
+            return;
+          }
+          u.iTime.value = t * 0.001;
+          if (followMouse && mouseInfluence > 0.0) {
+            const smoothing = 0.92;
+            smoothMouseRef.current.x = smoothMouseRef.current.x * smoothing + mouseRef.current.x * (1 - smoothing);
+            smoothMouseRef.current.y = smoothMouseRef.current.y * smoothing + mouseRef.current.y * (1 - smoothing);
+            u.mousePos.value = [smoothMouseRef.current.x, smoothMouseRef.current.y];
+          }
+          try {
+            renderer.render({ scene: mesh });
+            animationIdRef.current = requestAnimationFrame(loop);
+          } catch {
+            return;
+          }
+        };
+        animationIdRef.current = requestAnimationFrame(loop);
+      }
+    };
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    return () => document.removeEventListener('visibilitychange', handleVisibilityChange);
+  }, [followMouse, mouseInfluence]);
 
   useEffect(() => {
     if (!containerRef.current) return;
@@ -267,6 +304,11 @@ void main() {
           return;
         }
 
+        if (!isTabVisibleRef.current) {
+          animationIdRef.current = null;
+          return;
+        }
+
         uniforms.iTime.value = t * 0.001;
 
         if (followMouse && mouseInfluence > 0.0) {
@@ -382,18 +424,25 @@ void main() {
   ]);
 
   useEffect(() => {
+    if (!followMouse) return;
+
+    let rafPending = false;
+
     const handleMouseMove = (e: MouseEvent) => {
-      if (!containerRef.current || !rendererRef.current) return;
-      const rect = containerRef.current.getBoundingClientRect();
-      const x = (e.clientX - rect.left) / rect.width;
-      const y = (e.clientY - rect.top) / rect.height;
-      mouseRef.current = { x, y };
+      if (rafPending || !containerRef.current || !rendererRef.current) return;
+      rafPending = true;
+      requestAnimationFrame(() => {
+        rafPending = false;
+        if (!containerRef.current) return;
+        const rect = containerRef.current.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width;
+        const y = (e.clientY - rect.top) / rect.height;
+        mouseRef.current = { x, y };
+      });
     };
 
-    if (followMouse) {
-      window.addEventListener('mousemove', handleMouseMove);
-      return () => window.removeEventListener('mousemove', handleMouseMove);
-    }
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
   }, [followMouse]);
 
   return <div ref={containerRef} className={`light-rays-container ${className}`.trim()} />;

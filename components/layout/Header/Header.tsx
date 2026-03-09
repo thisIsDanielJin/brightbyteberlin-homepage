@@ -1,13 +1,19 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import dynamic from "next/dynamic";
 import { cn } from "@/lib/utils";
-import { motion, AnimatePresence } from "framer-motion";
 import { navLinks } from "@/data/navigation";
 import { Container } from "@/components/ui/Container/Container";
 import { Button } from "@/components/ui/Button/Button";
 import { HiBars3, HiXMark } from "react-icons/hi2";
 import Link from "next/link";
+
+// Lazy-load mobile menu (contains framer-motion AnimatePresence)
+const MobileMenu = dynamic(
+  () => import("./MobileMenu").then((mod) => mod.MobileMenu),
+  { ssr: false }
+);
 
 // D1 Pixel Cluster Logo
 function PixelClusterLogo({ className, inverted = false }: { className?: string; inverted?: boolean }) {
@@ -151,64 +157,11 @@ export function Header() {
         </div>
       </header>
 
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-40 lg:hidden"
-          >
-            <div
-              className="absolute inset-0 bg-black/60 backdrop-blur-sm"
-              onClick={() => setIsMobileMenuOpen(false)}
-            />
-
-            <motion.div
-              initial={{ x: "100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "100%" }}
-              transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              className="absolute right-0 top-0 h-full w-full max-w-sm bg-bg-secondary/95 backdrop-blur-xl shadow-2xl border-l border-white/10"
-            >
-              <div className="flex flex-col h-full pt-24 pb-8 px-8">
-                <nav className="flex-1 space-y-1">
-                  {navLinks.map((link, index) => (
-                    <motion.div
-                      key={link.href}
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: index * 0.05 }}
-                    >
-                      <Link
-                        href={link.href}
-                        onClick={() => setIsMobileMenuOpen(false)}
-                        className="block py-4 text-lg font-semibold text-text-primary hover:text-bright transition-colors border-b border-white/5"
-                      >
-                        {link.label}
-                      </Link>
-                    </motion.div>
-                  ))}
-                </nav>
-
-                <div className="pt-6">
-                  <Button
-                    className="w-full"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    asChild
-                  >
-                    <Link href="#contact">
-                      Get Started
-                    </Link>
-                  </Button>
-                </div>
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {/* Mobile Menu — lazy loaded, only imports framer-motion when needed */}
+      <MobileMenu
+        isOpen={isMobileMenuOpen}
+        onClose={() => setIsMobileMenuOpen(false)}
+      />
     </>
   );
 }

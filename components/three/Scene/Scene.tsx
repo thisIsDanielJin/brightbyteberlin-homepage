@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useMemo } from "react";
+import { useRef, useMemo, useState, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Float } from "@react-three/drei";
 import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
@@ -22,7 +22,7 @@ function SpotlightBeam() {
     <group ref={meshRef} position={[0, 3, 0]}>
       {/* Main spotlight cone */}
       <mesh rotation={[Math.PI, 0, 0]}>
-        <coneGeometry args={[4, 8, 64, 1, true]} />
+        <coneGeometry args={[4, 8, 32, 1, true]} />
         <meshBasicMaterial
           color="#FFB800"
           transparent
@@ -34,7 +34,7 @@ function SpotlightBeam() {
 
       {/* Inner brighter cone */}
       <mesh rotation={[Math.PI, 0, 0]}>
-        <coneGeometry args={[2.5, 7, 64, 1, true]} />
+        <coneGeometry args={[2.5, 7, 32, 1, true]} />
         <meshBasicMaterial
           color="#FFD666"
           transparent
@@ -46,7 +46,7 @@ function SpotlightBeam() {
 
       {/* Core bright cone */}
       <mesh rotation={[Math.PI, 0, 0]}>
-        <coneGeometry args={[1.2, 6, 64, 1, true]} />
+        <coneGeometry args={[1.2, 6, 32, 1, true]} />
         <meshBasicMaterial
           color="#FFFFFF"
           transparent
@@ -72,7 +72,7 @@ function LightSource() {
       <group position={[0, 3.5, 0]}>
         {/* Outer glow */}
         <mesh>
-          <sphereGeometry args={[0.8, 32, 32]} />
+          <sphereGeometry args={[0.8, 16, 16]} />
           <meshBasicMaterial
             color="#FFD666"
             transparent
@@ -82,7 +82,7 @@ function LightSource() {
 
         {/* Inner bright core */}
         <mesh>
-          <sphereGeometry args={[0.5, 32, 32]} />
+          <sphereGeometry args={[0.5, 16, 16]} />
           <meshBasicMaterial
             color="#FFFFFF"
             transparent
@@ -92,7 +92,7 @@ function LightSource() {
 
         {/* Lens flare rings */}
         <mesh rotation={[Math.PI / 2, 0, 0]}>
-          <ringGeometry args={[1, 1.2, 64]} />
+          <ringGeometry args={[1, 1.2, 32]} />
           <meshBasicMaterial
             color="#FFB800"
             transparent
@@ -112,7 +112,7 @@ function LightParticles() {
 
   const particles = useMemo(() => {
     const temp = [];
-    for (let i = 0; i < 40; i++) {
+    for (let i = 0; i < 20; i++) {
       const angle = Math.random() * Math.PI * 2;
       const radius = Math.random() * 2;
       const y = Math.random() * -6;
@@ -170,7 +170,7 @@ function GroundGlow() {
 
   return (
     <mesh ref={meshRef} rotation={[-Math.PI / 2, 0, 0]} position={[0, -4, 0]}>
-      <circleGeometry args={[4, 64]} />
+      <circleGeometry args={[4, 32]} />
       <meshBasicMaterial
         color="#FFB800"
         transparent
@@ -181,20 +181,57 @@ function GroundGlow() {
   );
 }
 
-export function Scene() {
-  return (
-    <Canvas
-      dpr={[1, 2]}
-      camera={{ position: [0, 0, 10], fov: 50 }}
-      gl={{ antialias: true, alpha: true }}
-    >
-      <ambientLight intensity={0.2} />
-      <pointLight position={[0, 5, 0]} intensity={2} color="#FFB800" distance={15} />
+// Inner component that triggers invalidation on each frame
+function FrameInvalidator({ isActive }: { isActive: boolean }) {
+  useFrame(({ invalidate }) => {
+    if (isActive) {
+      invalidate();
+    }
+  });
+  return null;
+}
 
-      <SpotlightBeam />
-      <LightSource />
-      <LightParticles />
-      <GroundGlow />
-    </Canvas>
+export function Scene() {
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+  const [isTabVisible, setIsTabVisible] = useState(true);
+
+  useEffect(() => {
+    const el = wrapperRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      (entries) => setIsVisible(entries[0].isIntersecting),
+      { threshold: 0.05 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const handleVisibility = () => setIsTabVisible(!document.hidden);
+    document.addEventListener('visibilitychange', handleVisibility);
+    return () => document.removeEventListener('visibilitychange', handleVisibility);
+  }, []);
+
+  const isActive = isVisible && isTabVisible;
+
+  return (
+    <div ref={wrapperRef} style={{ width: '100%', height: '100%' }}>
+      <Canvas
+        dpr={[1, 2]}
+        camera={{ position: [0, 0, 10], fov: 50 }}
+        gl={{ antialias: true, alpha: true }}
+        frameloop="demand"
+      >
+        <FrameInvalidator isActive={isActive} />
+        <ambientLight intensity={0.2} />
+        <pointLight position={[0, 5, 0]} intensity={2} color="#FFB800" distance={15} />
+
+        <SpotlightBeam />
+        <LightSource />
+        <LightParticles />
+        <GroundGlow />
+      </Canvas>
+    </div>
   );
 }

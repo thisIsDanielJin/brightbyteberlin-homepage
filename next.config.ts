@@ -1,6 +1,18 @@
 import type { NextConfig } from "next";
 
+const withBundleAnalyzer = process.env.ANALYZE === "true"
+  ? require("@next/bundle-analyzer")({ enabled: true })
+  : (config: NextConfig) => config;
+
 const nextConfig: NextConfig = {
+  experimental: {
+    optimizePackageImports: [
+      "react-icons",
+      "framer-motion",
+      "three",
+      "@react-three/drei",
+    ],
+  },
   async headers() {
     return [
       {
@@ -20,4 +32,4 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default nextConfig;
+export default withBundleAnalyzer(nextConfig);

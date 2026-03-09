@@ -1,9 +1,6 @@
-"use client";
-
 import { cn } from "@/lib/utils";
-import { motion } from "framer-motion";
-import { fadeInUp, viewportConfig } from "@/lib/motion";
 import { Container } from "@/components/ui/Container/Container";
+import { AnimatedSection } from "./AnimatedSection";
 import { type IconType } from "react-icons";
 
 interface SectionProps {
@@ -38,26 +35,14 @@ export function Section({
   children,
   animate = true,
 }: SectionProps) {
-  const Wrapper = animate ? motion.section : "section";
-  const wrapperProps = animate
-    ? {
-        initial: "hidden",
-        whileInView: "visible",
-        viewport: viewportConfig,
-        variants: fadeInUp,
-      }
-    : {};
+  const sectionClassName = cn(
+    "section-padding relative overflow-hidden",
+    bgStyles[background],
+    className
+  );
 
-  return (
-    <Wrapper
-      id={id}
-      className={cn(
-        "section-padding relative overflow-hidden",
-        bgStyles[background],
-        className
-      )}
-      {...wrapperProps}
-    >
+  const inner = (
+    <>
       {blendFrom && (
         <div
           className="absolute top-0 left-0 right-0 h-24 pointer-events-none z-[1]"
@@ -75,7 +60,21 @@ export function Section({
         />
       )}
       <Container size={containerSize} className={(blendFrom || blendTo) ? "relative z-[2]" : undefined}>{children}</Container>
-    </Wrapper>
+    </>
+  );
+
+  if (animate) {
+    return (
+      <AnimatedSection id={id} className={sectionClassName}>
+        {inner}
+      </AnimatedSection>
+    );
+  }
+
+  return (
+    <section id={id} className={sectionClassName}>
+      {inner}
+    </section>
   );
 }
 
