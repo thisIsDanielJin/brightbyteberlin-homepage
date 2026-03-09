@@ -4,25 +4,11 @@ import { fileURLToPath } from "url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const outPath = path.join(__dirname, "..", "public", "og-image.png");
-const cubeImagePath = path.join(
-  __dirname,
-  "..",
-  "public",
-  "images",
-  "Screenshot 2026-03-05 at 21.59.24.png"
-);
 
 const WIDTH = 1200;
 const HEIGHT = 630;
 const color = "#FBBF24";
 
-// Resize cube image to fit the right portion
-const cubeSize = 380;
-const cubeImage = await sharp(cubeImagePath)
-  .resize(cubeSize, cubeSize, { fit: "cover" })
-  .toBuffer();
-
-// Create text SVG overlay
 const textSvg = `
 <svg width="${WIDTH}" height="${HEIGHT}" xmlns="http://www.w3.org/2000/svg">
   <defs>
@@ -32,9 +18,9 @@ const textSvg = `
       <stop offset="50%" stop-color="#0a0a0a"/>
       <stop offset="100%" stop-color="#111111"/>
     </linearGradient>
-    <!-- Ambient glow from cube area -->
-    <radialGradient id="cubeGlow" cx="78%" cy="50%" r="35%">
-      <stop offset="0%" stop-color="${color}" stop-opacity="0.08"/>
+    <!-- Ambient glow from logo area -->
+    <radialGradient id="logoGlow" cx="78%" cy="50%" r="35%">
+      <stop offset="0%" stop-color="${color}" stop-opacity="0.12"/>
       <stop offset="100%" stop-color="${color}" stop-opacity="0"/>
     </radialGradient>
     <!-- Subtle top-left accent -->
@@ -46,13 +32,13 @@ const textSvg = `
 
   <!-- Background -->
   <rect width="${WIDTH}" height="${HEIGHT}" fill="url(#bg)"/>
-  <rect width="${WIDTH}" height="${HEIGHT}" fill="url(#cubeGlow)"/>
+  <rect width="${WIDTH}" height="${HEIGHT}" fill="url(#logoGlow)"/>
   <rect width="${WIDTH}" height="${HEIGHT}" fill="url(#accent)"/>
 
   <!-- Subtle border -->
   <rect x="1" y="1" width="${WIDTH - 2}" height="${HEIGHT - 2}" rx="0" fill="none" stroke="${color}" stroke-opacity="0.1" stroke-width="1"/>
 
-  <!-- Pixel Cluster Logo (small) -->
+  <!-- Pixel Cluster Logo (small, next to brand name) -->
   <g transform="translate(80, 160) scale(2.5)">
     <rect x="4" y="4" width="6" height="6" rx="1" fill="${color}" opacity="0.35"/>
     <rect x="12" y="4" width="6" height="6" rx="1" fill="${color}" opacity="0.55"/>
@@ -61,6 +47,17 @@ const textSvg = `
     <rect x="20" y="12" width="6" height="6" rx="1" fill="${color}" opacity="0.75"/>
     <rect x="12" y="20" width="6" height="6" rx="1" fill="${color}" opacity="0.45"/>
     <rect x="20" y="20" width="6" height="6" rx="1" fill="${color}" opacity="0.85"/>
+  </g>
+
+  <!-- Pixel Cluster Logo (large, right side) -->
+  <g transform="translate(790, 115) scale(12)">
+    <rect x="4" y="4" width="6" height="6" rx="1" fill="${color}" opacity="0.3"/>
+    <rect x="12" y="4" width="6" height="6" rx="1" fill="${color}" opacity="0.5"/>
+    <rect x="4" y="12" width="6" height="6" rx="1" fill="${color}" opacity="0.6"/>
+    <rect x="12" y="12" width="6" height="6" rx="1" fill="${color}" opacity="1"/>
+    <rect x="20" y="12" width="6" height="6" rx="1" fill="${color}" opacity="0.7"/>
+    <rect x="12" y="20" width="6" height="6" rx="1" fill="${color}" opacity="0.4"/>
+    <rect x="20" y="20" width="6" height="6" rx="1" fill="${color}" opacity="0.8"/>
   </g>
 
   <!-- Brand name -->
@@ -85,15 +82,7 @@ const textSvg = `
 </svg>
 `;
 
-// Composite: base SVG + cube image on the right
 await sharp(Buffer.from(textSvg))
-  .composite([
-    {
-      input: cubeImage,
-      left: WIDTH - cubeSize - 100,
-      top: Math.round((HEIGHT - cubeSize) / 2),
-    },
-  ])
   .png()
   .toFile(outPath);
 
