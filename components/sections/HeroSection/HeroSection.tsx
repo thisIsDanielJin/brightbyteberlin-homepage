@@ -2,7 +2,6 @@ import dynamic from "next/dynamic";
 import { Container } from "@/components/ui/Container/Container";
 import { Button } from "@/components/ui/Button/Button";
 import Link from "next/link";
-import { HiArrowRight } from "react-icons/hi2";
 import styles from "./HeroSection.module.scss";
 
 // Heavy client components — lazy loaded, not blocking LCP
@@ -10,8 +9,8 @@ const Grainient = dynamic(
   () => import("@/components/reactbits/Grainient/Grainient")
 );
 
-const BrowserMockup = dynamic(
-  () => import("./BrowserMockup")
+const DesktopBrowserMockup = dynamic(
+  () => import("./DesktopBrowserMockup")
 );
 
 function HeroWords({ words, className }: { words: string[]; className: string }) {
@@ -29,8 +28,8 @@ function HeroWords({ words, className }: { words: string[]; className: string })
 export function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden bg-bg-primary">
-      {/* Grainient Background */}
-      <div className="absolute inset-0 opacity-45">
+      {/* Grainient Background — desktop only (WebGL too heavy for mobile) */}
+      <div className="hidden md:block absolute inset-0 opacity-45">
         <Grainient
           color1="#FBBF24"
           color2="#F59E0B"
@@ -48,6 +47,18 @@ export function HeroSection() {
           warpFrequency={5.0}
         />
       </div>
+
+      {/* Lightweight CSS fallback for mobile */}
+      <div
+        className="md:hidden absolute inset-0 opacity-45"
+        style={{
+          background: `
+            radial-gradient(ellipse 120% 80% at 30% 0%, rgba(251, 191, 36, 0.35) 0%, transparent 60%),
+            radial-gradient(ellipse 80% 60% at 50% 50%, rgba(245, 158, 11, 0.15) 0%, transparent 60%),
+            #0a0a0a
+          `
+        }}
+      />
 
       {/* Dark gradient overlay for text readability */}
       <div
@@ -112,7 +123,9 @@ export function HeroSection() {
               <Button size="lg" className="btn-glow" asChild>
                 <Link href="#contact">
                   Start Your Project
-                  <HiArrowRight className="w-5 h-5" />
+                  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path fillRule="evenodd" d="M12.97 3.97a.75.75 0 0 1 1.06 0l7.5 7.5a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 1 1-1.06-1.06l6.22-6.22H3a.75.75 0 0 1 0-1.5h16.19l-6.22-6.22a.75.75 0 0 1 0-1.06Z" clipRule="evenodd" />
+                  </svg>
                 </Link>
               </Button>
               <Button variant="outline" size="lg" className="border-white/20 text-text-primary hover:bg-white/10" asChild>
@@ -141,15 +154,15 @@ export function HeroSection() {
             </div>
           </div>
 
-          {/* Right side - Browser Mockup (client component, lazy loaded) */}
+          {/* Right side - Browser Mockup (desktop only, viewport-gated) */}
           <div className="hidden lg:block">
-            <BrowserMockup />
+            <DesktopBrowserMockup />
           </div>
         </div>
       </Container>
 
       {/* Scroll indicator — CSS animated */}
-      <div className={`${styles.scrollIndicator} absolute bottom-10 left-1/2 -translate-x-1/2`}>
+      <div className={`${styles.scrollIndicator} absolute bottom-4 md:bottom-10 left-1/2 -translate-x-1/2`}>
         <div className={`${styles.scrollBob} flex flex-col items-center text-text-muted`}>
           <span className="text-xs font-medium mb-3 uppercase tracking-widest">Scroll</span>
           <div className="w-6 h-10 rounded-full border border-white/20 flex justify-center pt-2">
