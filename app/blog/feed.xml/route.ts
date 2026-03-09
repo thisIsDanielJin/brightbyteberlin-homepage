@@ -12,17 +12,17 @@ export async function GET() {
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>BrightByte Berlin Blog</title>
-    <link>https://brightbyte.berlin/blog</link>
+    <link>https://brightbyte-berlin.com/blog</link>
     <description>Web development tutorials, performance tips, and framework guides from BrightByte Berlin.</description>
     <language>en</language>
-    <atom:link href="https://brightbyte.berlin/blog/feed.xml" rel="self" type="application/rss+xml"/>
+    <atom:link href="https://brightbyte-berlin.com/blog/feed.xml" rel="self" type="application/rss+xml"/>
     ${posts
       .map(
         (post) => `
     <item>
       <title><![CDATA[${post.title}]]></title>
-      <link>https://brightbyte.berlin/blog/${post.slug}</link>
-      <guid isPermaLink="true">https://brightbyte.berlin/blog/${post.slug}</guid>
+      <link>https://brightbyte-berlin.com/blog/${post.slug}</link>
+      <guid isPermaLink="true">https://brightbyte-berlin.com/blog/${post.slug}</guid>
       <description><![CDATA[${post.excerpt}]]></description>
       <pubDate>${new Date(post.publishedAt).toUTCString()}</pubDate>
       ${post.category ? `<category>${post.category.title}</category>` : ""}

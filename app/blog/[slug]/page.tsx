@@ -36,7 +36,7 @@ export async function generateMetadata({
     openGraph: {
       title: `${post.seoTitle || post.title} | BrightByte Berlin`,
       description: post.seoDescription || post.excerpt,
-      url: `https://brightbyte.berlin/blog/${slug}`,
+      url: `https://brightbyte-berlin.com/blog/${slug}`,
       type: "article",
       publishedTime: post.publishedAt,
       images: post.coverImage?.asset?.url

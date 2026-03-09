@@ -11,16 +11,16 @@ export function BlogPostJsonLd({ post }: { post: Post }) {
     author: {
       "@type": "Person",
       name: "Daniel Jin Wodke",
-      url: "https://brightbyte.berlin",
+      url: "https://brightbyte-berlin.com",
     },
     publisher: {
       "@type": "Organization",
       name: "BrightByte Berlin",
-      url: "https://brightbyte.berlin",
+      url: "https://brightbyte-berlin.com",
     },
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `https://brightbyte.berlin/blog/${post.slug}`,
+      "@id": `https://brightbyte-berlin.com/blog/${post.slug}`,
     },
   };
 

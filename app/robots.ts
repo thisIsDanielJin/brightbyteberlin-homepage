@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: ["/studio"],
     },
-    sitemap: "https://brightbyte.berlin/sitemap.xml",
+    sitemap: "https://brightbyte-berlin.com/sitemap.xml",
   };
 }

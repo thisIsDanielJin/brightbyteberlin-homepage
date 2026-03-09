@@ -5,7 +5,7 @@ import { Footer } from "@/components/layout/Footer/Footer";
 import "./globals.scss";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://brightbyte.berlin"),
+  metadataBase: new URL("https://brightbyte-berlin.com"),
   title: "BrightByte Berlin | Websites That Get You Found",
   description:
     "Stand out online and grow your business. BrightByte Berlin builds high-performance websites that help small businesses get found, build trust, and convert visitors into customers.",
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://brightbyte.berlin",
+    url: "https://brightbyte-berlin.com",
     siteName: "BrightByte Berlin",
     title: "BrightByte Berlin | Stand Out. Get Found. Grow.",
     description:

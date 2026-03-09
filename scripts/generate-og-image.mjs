@@ -80,7 +80,7 @@ const textSvg = `
 
   <!-- URL at bottom -->
   <text x="80" y="${HEIGHT - 50}" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="16" font-weight="500" fill="${color}" opacity="0.6">
-    brightbyte.berlin
+    brightbyte-berlin.com
   </text>
 </svg>
 `;

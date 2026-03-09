@@ -32,7 +32,7 @@ export async function generateMetadata({
     openGraph: {
       title: `${project.title} | BrightByte Berlin`,
       description: project.description,
-      url: `https://brightbyte.berlin/projects/${id}`,
+      url: `https://brightbyte-berlin.com/projects/${id}`,
     },
   };
 }

@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     title: "Blog | BrightByte Berlin",
     description:
       "Web development tutorials, performance tips, and framework guides.",
-    url: "https://brightbyte.berlin/blog",
+    url: "https://brightbyte-berlin.com/blog",
   },
 };
 

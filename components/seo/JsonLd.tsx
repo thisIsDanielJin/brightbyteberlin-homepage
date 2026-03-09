@@ -6,7 +6,7 @@ export function JsonLd() {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     name: "BrightByte Berlin",
-    url: "https://brightbyte.berlin",
+    url: "https://brightbyte-berlin.com",
     email: "contact@brightbyte.berlin",
     founder: {
       "@type": "Person",
@@ -47,7 +47,7 @@ export function JsonLd() {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: "BrightByte Berlin",
-    url: "https://brightbyte.berlin",
+    url: "https://brightbyte-berlin.com",
     description:
       "Websites that help small businesses stand out online and convert visitors into customers.",
     publisher: {
