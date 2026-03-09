@@ -107,7 +107,7 @@ export function ServicesSection() {
   return (
     <Section id="services" background="primary" className="relative overflow-hidden">
       {/* Radial glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/3 w-[900px] h-[500px] bg-bright/[0.06] rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-bright/[0.04] rounded-full blur-[120px] pointer-events-none" />
 
       <div className="relative z-10">
         {/* Section label + header */}

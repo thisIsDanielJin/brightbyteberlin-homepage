@@ -2,12 +2,19 @@
 
 import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
-import { Button } from "@/components/ui/Button/Button";
 import { fadeInUp, staggerContainer } from "@/lib/motion";
 import { GradualBlurOnScroll } from "@/components/animations/GradualBlur/GradualBlur";
+
+// Lazy-load form — it's below the fold and not needed for initial paint
+const ContactForm = dynamic(
+    () => import("@/components/sections/ContactSection/ContactForm").then((m) => m.ContactForm),
+    { ssr: false }
+);
 import {
     HiEnvelope,
-    HiArrowTopRightOnSquare,
+    HiClock,
+    HiShieldCheck,
+    HiGlobeAlt,
 } from "react-icons/hi2";
 import { FaLinkedinIn } from "react-icons/fa";
 
@@ -15,6 +22,12 @@ import { FaLinkedinIn } from "react-icons/fa";
 const LightRays = dynamic(() => import("@/components/reactbits/LightRays/LightRays"), {
     ssr: false,
 });
+
+const trustSignals = [
+    { icon: HiClock, text: "Usually reply within 24 hours" },
+    { icon: HiShieldCheck, text: "Your data stays private" },
+    { icon: HiGlobeAlt, text: "Based in Berlin, available worldwide" },
+];
 
 export function ContactSection() {
     return (
@@ -68,88 +81,99 @@ export function ContactSection() {
             />
 
             <div className="container-max relative z-10 py-20">
-                <motion.div
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true }}
-                    variants={staggerContainer}
-                    className="max-w-4xl mx-auto text-center"
-                >
-                    {/* Tagline */}
-                    <motion.p
-                        variants={fadeInUp}
-                        className="text-bright font-semibold text-lg mb-4"
-                    >
-                        Now it&apos;s your turn
-                    </motion.p>
-
-                    {/* Main headline with Gradual Blur */}
-                    <motion.h2
-                        variants={fadeInUp}
-                        className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-8 text-white"
-                    >
-                        <span className="block">
-                            <GradualBlurOnScroll text="Time to" delay={0.1} />
-                        </span>
-                        <span className="block text-bright">
-                            <GradualBlurOnScroll
-                                text="shine"
-                                delay={0.3}
-                                blur="lg"
-                            />
-                        </span>
-                    </motion.h2>
-
-                    {/* Subheadline */}
-                    <motion.p
-                        variants={fadeInUp}
-                        className="text-xl text-white/70 mb-12 max-w-xl mx-auto leading-relaxed"
-                    >
-                        Let&apos;s build a website that puts your business in
-                        the spotlight and turns visitors into loyal customers.
-                    </motion.p>
-
-                    {/* CTAs */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+                    {/* LEFT COLUMN: Emotional CTA + Trust Signals */}
                     <motion.div
-                        variants={fadeInUp}
-                        className="flex flex-col sm:flex-row gap-5 justify-center"
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        variants={staggerContainer}
                     >
-                        <Button
-                            size="lg"
-                            className="bg-bright text-text-dark hover:bg-bright-hover shadow-xl shadow-bright/30"
-                            asChild
+                        {/* Tagline */}
+                        <motion.p
+                            variants={fadeInUp}
+                            className="text-bright font-semibold text-lg mb-4"
                         >
-                            <a href="mailto:contact@brightbyte.berlin">
-                                <HiEnvelope className="w-5 h-5" />
-                                Get in Touch
-                            </a>
-                        </Button>
+                            Now it&apos;s your turn
+                        </motion.p>
 
-                        <Button
-                            variant="outline"
-                            size="lg"
-                            className="border-white/30 text-white hover:bg-white/10"
-                            asChild
+                        {/* Main headline with Gradual Blur */}
+                        <motion.h2
+                            variants={fadeInUp}
+                            className="text-5xl sm:text-6xl md:text-7xl lg:text-7xl xl:text-8xl font-bold tracking-tight mb-6 text-white"
                         >
+                            <span className="block">
+                                <GradualBlurOnScroll text="Time to" delay={0.1} />
+                            </span>
+                            <span className="block text-bright">
+                                <GradualBlurOnScroll
+                                    text="shine"
+                                    delay={0.3}
+                                    blur="lg"
+                                />
+                            </span>
+                        </motion.h2>
+
+                        {/* Subheadline */}
+                        <motion.p
+                            variants={fadeInUp}
+                            className="text-xl text-white/70 mb-10 max-w-lg leading-relaxed"
+                        >
+                            Let&apos;s build a website that puts your business in
+                            the spotlight and turns visitors into loyal customers.
+                        </motion.p>
+
+                        {/* Trust signals */}
+                        <motion.div
+                            variants={fadeInUp}
+                            className="space-y-3 mb-10"
+                        >
+                            {trustSignals.map(({ icon: Icon, text }) => (
+                                <div
+                                    key={text}
+                                    className="flex items-center gap-3 text-white/60"
+                                >
+                                    <Icon className="w-5 h-5 text-bright/70 shrink-0" />
+                                    <span className="text-sm">{text}</span>
+                                </div>
+                            ))}
+                        </motion.div>
+
+                        {/* Alternative contact links */}
+                        <motion.div
+                            variants={fadeInUp}
+                            className="flex items-center gap-6 text-sm text-white/50"
+                        >
+                            <span>Or reach out directly:</span>
+                            <a
+                                href="mailto:contact@brightbyte.berlin"
+                                className="inline-flex items-center gap-1.5 text-white/70 hover:text-bright transition-colors"
+                            >
+                                <HiEnvelope className="w-4 h-4" />
+                                Email
+                            </a>
                             <a
                                 href="https://linkedin.com/in/danieljinwodke"
                                 target="_blank"
                                 rel="noopener noreferrer"
+                                className="inline-flex items-center gap-1.5 text-white/70 hover:text-bright transition-colors"
                             >
-                                <FaLinkedinIn className="w-5 h-5" />
-                                Connect on LinkedIn
-                                <HiArrowTopRightOnSquare className="w-4 h-4" />
+                                <FaLinkedinIn className="w-3.5 h-3.5" />
+                                LinkedIn
                             </a>
-                        </Button>
+                        </motion.div>
                     </motion.div>
 
-                    {/* Location */}
-                    <motion.div variants={fadeInUp} className="mt-20">
-                        <p className="text-white/50 text-sm font-medium">
-                            Based in Berlin, Germany · Available worldwide
-                        </p>
+                    {/* RIGHT COLUMN: Contact Form */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6, delay: 0.2, ease: [0.25, 0.4, 0.25, 1] }}
+                    >
+                        <ContactForm />
                     </motion.div>
-                </motion.div>
+                </div>
             </div>
         </section>
     );

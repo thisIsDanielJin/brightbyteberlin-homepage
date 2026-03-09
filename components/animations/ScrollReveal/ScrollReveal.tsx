@@ -9,6 +9,8 @@ interface ScrollRevealProps {
   variants?: Variants;
   className?: string;
   delay?: number;
+  /** Skip initial="hidden" so above-the-fold content paints immediately (avoids LCP penalty). */
+  aboveFold?: boolean;
 }
 
 export function ScrollReveal({
@@ -16,6 +18,7 @@ export function ScrollReveal({
   variants = fadeInUp,
   className,
   delay = 0,
+  aboveFold = false,
 }: ScrollRevealProps) {
   const prefersReducedMotion = usePrefersReducedMotion();
 
@@ -25,7 +28,7 @@ export function ScrollReveal({
 
   return (
     <motion.div
-      initial="hidden"
+      initial={aboveFold ? "visible" : "hidden"}
       whileInView="visible"
       viewport={viewportConfig}
       variants={variants}

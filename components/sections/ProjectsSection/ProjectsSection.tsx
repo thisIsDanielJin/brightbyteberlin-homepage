@@ -4,6 +4,7 @@ import { Section, SectionHeader } from "@/components/layout/Section/Section";
 import { StaggerContainer, StaggerItem } from "@/components/animations/StaggerContainer/StaggerContainer";
 import { featuredProjects } from "@/data/projects";
 import { HiArrowTopRightOnSquare, HiStar, HiBriefcase } from "react-icons/hi2";
+import Link from "next/link";
 
 export function ProjectsSection() {
   return (
@@ -18,7 +19,7 @@ export function ProjectsSection() {
       <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {featuredProjects.map((project, index) => (
           <StaggerItem key={project.id}>
-            <div className="group relative bg-bg-card rounded-2xl overflow-hidden border-[1.5px] border-white/8 hover:border-2 hover:border-bright/30 transition-all duration-300">
+            <Link href={`/projects/${project.id}`} className="group relative bg-bg-card rounded-2xl overflow-hidden border-[1.5px] border-white/8 hover:border-2 hover:border-bright/30 transition-all duration-300 block">
               {/* Image placeholder */}
               <div className="relative aspect-[4/3] overflow-hidden">
                 <div className={cn(
@@ -84,7 +85,7 @@ export function ProjectsSection() {
                   </div>
                 )}
               </div>
-            </div>
+            </Link>
           </StaggerItem>
         ))}
       </StaggerContainer>

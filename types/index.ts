@@ -20,6 +20,9 @@ export interface Project {
   description: string;
   image: string;
   technologies: string[];
+  longDescription?: string;
+  highlights?: string[];
+  scope?: string[];
   url?: string;
   github?: string;
   featured?: boolean;
@@ -68,6 +71,15 @@ export interface ContactInfo {
   linkedin?: string;
   github?: string;
 }
+
+// Contact form types
+export interface ContactFormData {
+  name: string;
+  email: string;
+  message: string;
+}
+
+export type ContactFormState = "idle" | "submitting" | "success" | "error";
 
 // Section props
 export interface SectionProps {

@@ -7,7 +7,7 @@ import { faqItems } from "@/data/faq";
 
 export function FAQSection() {
   return (
-    <Section id="faq" background="secondary" className="relative overflow-hidden">
+    <Section id="faq" background="secondary" animate={false} className="relative overflow-hidden">
       <div className="relative z-10">
       <SectionHeader
         title="Common Questions"
