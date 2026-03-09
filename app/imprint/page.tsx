@@ -5,6 +5,9 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Impressum | BrightByte Berlin",
   description: "Impressum / Imprint — Legal disclosure for BrightByte Berlin.",
+  alternates: {
+    canonical: "/imprint",
+  },
 };
 
 export default function ImprintPage() {

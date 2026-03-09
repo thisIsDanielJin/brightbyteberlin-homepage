@@ -1,3 +1,4 @@
+import { JsonLd } from "@/components/seo/JsonLd";
 import { HeroSection } from "@/components/sections/HeroSection/HeroSection";
 import { ServicesSection } from "@/components/sections/ServicesSection/ServicesSection";
 import { AISection } from "@/components/sections/AISection/AISection";
@@ -10,6 +11,7 @@ import { ContactSection } from "@/components/sections/ContactSection/ContactSect
 export default function Home() {
   return (
     <>
+      <JsonLd />
       <HeroSection />
       <ServicesSection />
       <ProjectsSection />

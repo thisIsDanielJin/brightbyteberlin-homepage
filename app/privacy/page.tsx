@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: "Datenschutzerklärung | BrightByte Berlin",
   description:
     "Datenschutzerklärung / Privacy Policy — Data protection information for BrightByte Berlin.",
+  alternates: {
+    canonical: "/privacy",
+  },
 };
 
 export default function PrivacyPage() {

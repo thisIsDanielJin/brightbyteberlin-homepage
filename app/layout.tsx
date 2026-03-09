@@ -5,6 +5,7 @@ import { Footer } from "@/components/layout/Footer/Footer";
 import "./globals.scss";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://brightbyte.berlin"),
   title: "BrightByte Berlin | Websites That Get You Found",
   description:
     "Stand out online and grow your business. BrightByte Berlin builds high-performance websites that help small businesses get found, build trust, and convert visitors into customers.",
@@ -18,6 +19,12 @@ export const metadata: Metadata = {
     "Next.js",
   ],
   authors: [{ name: "Daniel Jin Wodke" }],
+  alternates: {
+    canonical: "/",
+  },
+  icons: {
+    apple: "/apple-touch-icon.png",
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -26,12 +33,21 @@ export const metadata: Metadata = {
     title: "BrightByte Berlin | Stand Out. Get Found. Grow.",
     description:
       "Websites that help small businesses stand out online and convert visitors into customers.",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "BrightByte Berlin",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "BrightByte Berlin | Stand Out. Get Found. Grow.",
     description:
       "Websites that help small businesses stand out online and convert visitors into customers.",
+    images: ["/og-image.png"],
   },
   robots: {
     index: true,

@@ -44,3 +44,8 @@ next-env.d.ts
 /screenshots
 /test-results
 *.png
+
+# allow committed images
+!public/**/*.png
+!public/**/*.jpg
+!app/icon.png
