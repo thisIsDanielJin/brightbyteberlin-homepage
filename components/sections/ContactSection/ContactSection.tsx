@@ -8,7 +8,6 @@ import { GradualBlurOnScroll } from "@/components/animations/GradualBlur/Gradual
 import {
     HiEnvelope,
     HiArrowTopRightOnSquare,
-    HiSparkles,
 } from "react-icons/hi2";
 import { FaLinkedinIn } from "react-icons/fa";
 
@@ -27,7 +26,7 @@ export function ContactSection() {
             <div
                 className="absolute top-0 left-0 right-0 h-40 pointer-events-none"
                 style={{
-                    background: 'linear-gradient(to bottom, var(--color-bg-secondary) 0%, #0A0A0C 100%)'
+                    background: 'linear-gradient(to bottom, var(--color-bg-primary) 0%, #0A0A0C 100%)'
                 }}
             />
 
@@ -76,16 +75,6 @@ export function ContactSection() {
                     variants={staggerContainer}
                     className="max-w-4xl mx-auto text-center"
                 >
-                    {/* Icon */}
-                    <motion.div
-                        variants={fadeInUp}
-                        className="flex justify-center mb-8"
-                    >
-                        <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-bright to-electric flex items-center justify-center shadow-xl shadow-bright/30">
-                            <HiSparkles className="w-8 h-8 text-white" />
-                        </div>
-                    </motion.div>
-
                     {/* Tagline */}
                     <motion.p
                         variants={fadeInUp}
@@ -130,7 +119,7 @@ export function ContactSection() {
                             className="bg-bright text-text-dark hover:bg-bright-hover shadow-xl shadow-bright/30"
                             asChild
                         >
-                            <a href="mailto:hello@brightbyte.berlin">
+                            <a href="mailto:contact@brightbyte.berlin">
                                 <HiEnvelope className="w-5 h-5" />
                                 Get in Touch
                             </a>
@@ -157,7 +146,7 @@ export function ContactSection() {
                     {/* Location */}
                     <motion.div variants={fadeInUp} className="mt-20">
                         <p className="text-white/50 text-sm font-medium">
-                            Based in Berlin, Germany &bull; Available worldwide
+                            Based in Berlin, Germany · Available worldwide
                         </p>
                     </motion.div>
                 </motion.div>

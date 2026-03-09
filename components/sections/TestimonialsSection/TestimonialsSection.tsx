@@ -7,11 +7,11 @@ import { HiStar } from "react-icons/hi2";
 
 export function TestimonialsSection() {
   return (
-    <Section id="testimonials" background="primary" blendFrom="secondary" blendTo="secondary" className="relative overflow-hidden">
+    <Section id="testimonials" background="primary" className="relative overflow-hidden">
       <div className="relative z-10">
       <SectionHeader
         title="Results That Speak"
-        subtitle="Don't just take my word for it — hear from businesses I've helped"
+        subtitle="Don't just take my word for it. Hear from businesses I've helped"
       />
 
       <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-6">

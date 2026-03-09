@@ -23,6 +23,12 @@ export interface Project {
   url?: string;
   github?: string;
   featured?: boolean;
+  testimonial?: {
+    quote: string;
+    author: string;
+    role: string;
+    company?: string;
+  };
 }
 
 // Testimonial types

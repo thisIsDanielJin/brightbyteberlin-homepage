@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import { fadeInUp, viewportConfig } from "@/lib/motion";
 import { Container } from "@/components/ui/Container/Container";
+import { type IconType } from "react-icons";
 
 interface SectionProps {
   id?: string;
@@ -51,7 +52,7 @@ export function Section({
     <Wrapper
       id={id}
       className={cn(
-        "section-padding relative",
+        "section-padding relative overflow-hidden",
         bgStyles[background],
         className
       )}
@@ -84,6 +85,10 @@ interface SectionHeaderProps {
   centered?: boolean;
   className?: string;
   light?: boolean;
+  badge?: {
+    label: string;
+    icon?: IconType;
+  };
 }
 
 export function SectionHeader({
@@ -92,6 +97,7 @@ export function SectionHeader({
   centered = true,
   className,
   light = false,
+  badge,
 }: SectionHeaderProps) {
   return (
     <div
@@ -101,6 +107,14 @@ export function SectionHeader({
         className
       )}
     >
+      {badge && (
+        <div className={cn("mb-6", centered && "flex justify-center")}>
+          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-bright text-sm font-medium">
+            {badge.icon && <badge.icon className="w-4 h-4" />}
+            {badge.label}
+          </span>
+        </div>
+      )}
       <h2 className={cn(
         "text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl",
         light ? "text-text-dark" : "text-text-primary"

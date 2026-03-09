@@ -18,19 +18,19 @@ const aiFeatures = [
     icon: HiRocketLaunch,
     title: "Faster Delivery",
     description:
-      "AI-assisted development means your project launches sooner — without cutting corners on quality.",
+      "AI helps me write and test code faster, so your project launches sooner without cutting corners.",
   },
   {
     icon: HiSparkles,
     title: "Smarter Features",
     description:
-      "Add intelligent chatbots, personalization, and automation that engage visitors 24/7.",
+      "Chatbots, personalized content, automated workflows. Features that keep working even when you're not.",
   },
   {
     icon: HiTrendingUp,
-    title: "Better Conversions",
+    title: "Better Results",
     description:
-      "Data-driven insights and smart UX that turn more visitors into paying customers.",
+      "AI-informed design and content decisions that help turn more visitors into actual customers.",
   },
 ];
 
@@ -256,7 +256,7 @@ function TerminalMockup() {
 
 export function AISection() {
   return (
-    <Section id="ai" background="secondary" blendTo="primary">
+    <Section id="ai" background="primary">
       <div className="relative">
         {/* Dot grid background */}
         <div
@@ -292,7 +292,8 @@ export function AISection() {
               />
               <br />
               <span className="text-bright">
-                with <ShinyText text="AI" color="#FBBF24" shineColor="#FDE68A" speed={3} className="text-bright" />
+                <ShinyText text="with" color="#FBBF24" shineColor="#FDE68A" speed={3} className="text-bright" />{" "}
+                <ShinyText text="AI" color="#FBBF24" shineColor="#FDE68A" speed={3} className="text-bright" />
               </span>
             </h2>
 
@@ -303,9 +304,9 @@ export function AISection() {
               transition={{ duration: 0.5, delay: 0.3 }}
               className="text-text-secondary text-lg max-w-2xl mx-auto"
             >
-              I use AI at every step — from writing code to building smart
-              features into your website. You get faster results and a site that
-              actually works for you.
+              I use AI throughout my workflow, from writing code to building
+              features into your site. You get a faster turnaround and a site
+              that does more for your business.
             </motion.p>
           </div>
 

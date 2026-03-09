@@ -3,15 +3,16 @@
 import { Section, SectionHeader } from "@/components/layout/Section/Section";
 import { StaggerContainer, StaggerItem } from "@/components/animations/StaggerContainer/StaggerContainer";
 import { featuredProjects } from "@/data/projects";
-import { HiArrowTopRightOnSquare } from "react-icons/hi2";
+import { HiArrowTopRightOnSquare, HiStar, HiBriefcase } from "react-icons/hi2";
 
 export function ProjectsSection() {
   return (
-    <Section id="projects" background="secondary" blendFrom="primary" blendTo="primary" className="relative overflow-hidden">
+    <Section id="projects" background="secondary" className="relative overflow-hidden">
       <div className="relative z-10">
       <SectionHeader
         title="Work That Delivers"
         subtitle="Recent projects that helped businesses grow their online presence"
+        badge={{ label: "Projects", icon: HiBriefcase }}
       />
 
       <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -65,6 +66,23 @@ export function ProjectsSection() {
                     </span>
                   ))}
                 </div>
+
+                {project.testimonial && (
+                  <div className="mt-4 pt-4 border-t border-white/5">
+                    <div className="flex gap-0.5 mb-2">
+                      {Array.from({ length: 5 }).map((_, i) => (
+                        <HiStar key={i} className="w-3.5 h-3.5 text-bright" />
+                      ))}
+                    </div>
+                    <p className="text-sm italic text-text-secondary leading-relaxed mb-2">
+                      &ldquo;{project.testimonial.quote}&rdquo;
+                    </p>
+                    <p className="text-xs text-text-muted">
+                      {project.testimonial.author}, {project.testimonial.role}
+                      {project.testimonial.company && ` — ${project.testimonial.company}`}
+                    </p>
+                  </div>
+                )}
               </div>
             </div>
           </StaggerItem>

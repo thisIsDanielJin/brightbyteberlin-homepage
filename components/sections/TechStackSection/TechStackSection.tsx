@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Section } from "@/components/layout/Section/Section";
 import { IconType } from "react-icons";
+import { HiCommandLine } from "react-icons/hi2";
 import {
   SiReact,
   SiNextdotjs,
@@ -58,10 +59,10 @@ function MarqueeRow({
   const repeated = [...items, ...items, ...items, ...items];
 
   return (
-    <div className="group/marquee relative overflow-hidden">
+    <div className="group/marquee relative w-full overflow-clip">
       {/* Gradient edge fades */}
-      <div className="absolute left-0 top-0 bottom-0 w-24 md:w-40 bg-gradient-to-r from-bg-primary to-transparent z-10 pointer-events-none" />
-      <div className="absolute right-0 top-0 bottom-0 w-24 md:w-40 bg-gradient-to-l from-bg-primary to-transparent z-10 pointer-events-none" />
+      <div className="absolute left-0 top-0 bottom-0 w-24 md:w-40 bg-gradient-to-r from-bg-secondary to-transparent z-10 pointer-events-none" />
+      <div className="absolute right-0 top-0 bottom-0 w-24 md:w-40 bg-gradient-to-l from-bg-secondary to-transparent z-10 pointer-events-none" />
 
       <div
         className="flex gap-6 w-max group-hover/marquee:[animation-play-state:paused]"
@@ -100,7 +101,7 @@ function MarqueeRow({
 
 export function TechStackSection() {
   return (
-    <Section id="tech" background="primary" blendFrom="secondary" blendTo="secondary" containerSize="full" className="!pb-16 md:!pb-20">
+    <Section id="tech" background="secondary" containerSize="full" className="!pb-16 md:!pb-20">
       <div className="relative">
         {/* Center glow */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-bright/[0.03] rounded-full blur-[100px] pointer-events-none" />
@@ -108,15 +109,18 @@ export function TechStackSection() {
         <div className="relative z-10">
           {/* Header */}
           <div className="max-w-[1280px] mx-auto px-6 sm:px-8 mb-10 md:mb-14 text-center">
-            <motion.p
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="text-sm font-medium text-bright/60 uppercase tracking-widest mb-4"
+              className="flex justify-center mb-6"
             >
-              Tech Stack
-            </motion.p>
+              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-bright text-sm font-medium">
+                <HiCommandLine className="w-4 h-4" />
+                Tech Stack
+              </span>
+            </motion.div>
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}

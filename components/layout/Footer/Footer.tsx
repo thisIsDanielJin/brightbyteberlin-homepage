@@ -29,7 +29,7 @@ function PixelClusterLogo({ className }: { className?: string }) {
 const socialLinks = [
   {
     name: "Email",
-    href: "mailto:hello@brightbyte.berlin",
+    href: "mailto:contact@brightbyte.berlin",
     icon: HiEnvelope,
   },
   {
@@ -50,12 +50,12 @@ export function Footer() {
   return (
     <footer className="bg-bg-primary border-t border-white/5">
       <Container>
-        <div className="py-10 flex flex-col md:flex-row md:items-center md:justify-between gap-8">
+        <div className="py-12 flex flex-col md:flex-row md:justify-between gap-10 md:gap-16">
           {/* Brand + tagline */}
-          <div>
+          <div className="md:max-w-xs">
             <a
               href="/"
-              className="flex items-center gap-2 text-lg font-bold tracking-tight mb-2"
+              className="flex items-center gap-2 text-lg font-bold tracking-tight mb-3"
             >
               <span className="w-8 h-8 rounded-lg bg-gradient-to-br from-bright/10 to-electric/10 border border-bright/20 flex items-center justify-center">
                 <PixelClusterLogo />
@@ -66,48 +66,72 @@ export function Footer() {
                 <span className="text-text-muted font-normal ml-1 text-sm">Berlin</span>
               </span>
             </a>
-            <p className="text-text-muted text-sm max-w-xs">
+            <p className="text-text-muted text-sm max-w-xs mb-5">
               Websites that put your business in the spotlight.
             </p>
+            <div className="flex gap-3">
+              {socialLinks.map((social) => (
+                <a
+                  key={social.name}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={cn(
+                    "p-2.5 rounded-xl",
+                    "bg-white/5 hover:bg-bright hover:text-bg-primary",
+                    "transition-all duration-300 text-text-muted"
+                  )}
+                  aria-label={social.name}
+                >
+                  <social.icon className="h-4 w-4" />
+                </a>
+              ))}
+            </div>
           </div>
 
-          {/* Social */}
-          <div className="flex gap-3">
-            {socialLinks.map((social) => (
-              <a
-                key={social.name}
-                href={social.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={cn(
-                  "p-2.5 rounded-xl",
-                  "bg-white/5 hover:bg-bright hover:text-bg-primary",
-                  "transition-all duration-300 text-text-muted"
-                )}
-                aria-label={social.name}
-              >
-                <social.icon className="h-4 w-4" />
-              </a>
-            ))}
+          {/* Nav + Legal columns */}
+          <div className="flex gap-16 sm:gap-20">
+            {/* Navigation */}
+            <div>
+              <h3 className="text-sm font-semibold text-text-primary mb-4">Navigation</h3>
+              <ul className="space-y-2.5">
+                {footerLinks.main.map((link) => (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      className="text-sm text-text-muted hover:text-bright transition-colors"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Legal */}
+            <div>
+              <h3 className="text-sm font-semibold text-text-primary mb-4">Legal</h3>
+              <ul className="space-y-2.5">
+                {footerLinks.legal.map((link) => (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      className="text-sm text-text-muted hover:text-bright transition-colors"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
 
         {/* Bottom bar */}
-        <div className="py-5 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center gap-3">
+        <div className="py-5 border-t border-white/5 flex justify-center">
           <p className="text-text-muted text-xs">
             &copy; {currentYear} BrightByte Berlin. All rights reserved.
           </p>
-          <div className="flex gap-5 text-xs">
-            {footerLinks.legal.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="text-text-muted hover:text-bright transition-colors"
-              >
-                {link.label}
-              </Link>
-            ))}
-          </div>
         </div>
       </Container>
     </footer>

@@ -6,26 +6,30 @@ import { services } from "@/data/services";
 import { IconType } from "react-icons";
 import {
   HiCodeBracket,
-  HiComputerDesktop,
   HiCircleStack,
   HiSparkles,
+  HiLightBulb,
+  HiRocketLaunch,
+  HiWrenchScrewdriver,
 } from "react-icons/hi2";
 import { cn } from "@/lib/utils";
 import { fadeInUp, viewportConfig } from "@/lib/motion";
 
 const iconMap: Record<string, IconType> = {
   HiCode: HiCodeBracket,
-  HiTemplate: HiComputerDesktop,
   HiDatabase: HiCircleStack,
   HiSparkles,
+  HiLightBulb,
+  HiRocketLaunch,
 };
 
-// Bento grid layout configuration - 2x2 equal grid
+// Bento grid layout — 6-col grid: top 3 span 2 each, bottom 2 offset to center
 const bentoLayout = [
-  { colSpan: "md:col-span-1", size: "standard" },
-  { colSpan: "md:col-span-1", size: "standard" },
-  { colSpan: "md:col-span-1", size: "standard" },
-  { colSpan: "md:col-span-1", size: "standard" },
+  { colSpan: "md:col-span-1 lg:col-span-2", size: "standard" },
+  { colSpan: "md:col-span-1 lg:col-span-2", size: "standard" },
+  { colSpan: "md:col-span-1 lg:col-span-2", size: "standard" },
+  { colSpan: "md:col-span-1 lg:col-span-2 lg:col-start-2", size: "standard" },
+  { colSpan: "md:col-span-1 lg:col-span-2 lg:col-start-4", size: "standard" },
 ];
 
 interface BentoCardProps {
@@ -50,7 +54,7 @@ function BentoCard({ service, layout, index }: BentoCardProps) {
       <div className="absolute -inset-[1px] rounded-2xl bg-gradient-to-r from-bright/0 via-bright/30 to-bright/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
       {/* Card content */}
-      <div className="relative h-full bg-bg-card rounded-2xl border-[1.5px] border-white/8 overflow-hidden p-6 transition-all duration-500 hover:border-transparent hover:shadow-2xl hover:shadow-bright/10">
+      <div className="relative h-full bg-bg-card rounded-2xl border-[1.5px] border-white/8 overflow-hidden p-6 transition-colors duration-500 hover:border-transparent">
         {/* Background gradient on hover */}
         <div className="absolute inset-0 bg-gradient-to-br from-bright/5 via-transparent to-electric/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
@@ -60,13 +64,11 @@ function BentoCard({ service, layout, index }: BentoCardProps) {
         <div className="relative z-10 h-full flex flex-col">
           {/* Icon + number */}
           <div className="flex items-start justify-between mb-4">
-            <motion.div
-              whileHover={{ scale: 1.1, rotate: 5 }}
-              transition={{ type: "spring", stiffness: 400 }}
+            <div
               className="flex-shrink-0 w-11 h-11 rounded-xl bg-gradient-to-br from-bright/20 to-bright/5 flex items-center justify-center border border-bright/20 group-hover:border-bright/40 transition-colors group-hover:shadow-lg group-hover:shadow-bright/20"
             >
               <Icon className="w-5 h-5 text-bright" />
-            </motion.div>
+            </div>
             <span className="text-sm font-mono text-white/20">0{index + 1}</span>
           </div>
 
@@ -103,7 +105,7 @@ function BentoCard({ service, layout, index }: BentoCardProps) {
 
 export function ServicesSection() {
   return (
-    <Section id="services" background="primary" blendTo="secondary" className="relative overflow-hidden">
+    <Section id="services" background="primary" className="relative overflow-hidden">
       {/* Radial glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/3 w-[900px] h-[500px] bg-bright/[0.06] rounded-full blur-[120px] pointer-events-none" />
 
@@ -116,9 +118,12 @@ export function ServicesSection() {
           variants={fadeInUp}
           className="text-center mb-12 md:mb-16"
         >
-          <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-bright/15 bg-bright/[0.06] text-[11px] font-medium text-bright uppercase tracking-widest mb-5">
-            Services
-          </span>
+          <div className="flex justify-center mb-6">
+            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-bright text-sm font-medium">
+              <HiWrenchScrewdriver className="w-4 h-4" />
+              Services
+            </span>
+          </div>
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl text-text-primary">
             How I Help You Shine
           </h2>
@@ -127,8 +132,8 @@ export function ServicesSection() {
           </p>
         </motion.div>
 
-        {/* Magic Bento Grid - 2x2 */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {/* Magic Bento Grid - 3x2 */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-4">
           {services.map((service, index) => (
             <BentoCard
               key={service.id}

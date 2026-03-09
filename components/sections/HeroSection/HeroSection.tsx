@@ -21,13 +21,13 @@ function BrowserMockup() {
   return (
     <div className="relative w-full flex items-center justify-center py-8">
       {/* Ambient glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-bright/[0.06] rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[500px] bg-bright/[0.06] rounded-full blur-[120px] pointer-events-none" />
 
       <motion.div
         initial={{ opacity: 0, y: 40, rotateY: -4 }}
         animate={{ opacity: 1, y: 0, rotateY: 0 }}
         transition={{ duration: 1.2, delay: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
-        className="relative w-full max-w-md"
+        className="relative w-full max-w-lg"
         style={{ perspective: "1200px" }}
       >
         {/* Floating animation wrapper */}
@@ -36,17 +36,22 @@ function BrowserMockup() {
           transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
           style={{ transformStyle: "preserve-3d", transform: "rotateY(-8deg) rotateX(4deg)" }}
         >
-          {/* Browser shadow */}
-          <div className="absolute -inset-6 bg-bright/[0.07] rounded-3xl blur-3xl" />
-          {/* Glow border ring */}
-          <div className="absolute -inset-[1px] rounded-2xl bg-gradient-to-b from-bright/20 via-transparent to-bright/[0.06] pointer-events-none" />
+          {/* Browser shadow — layered for depth */}
+          <div className="absolute -inset-6 bg-bright/[0.09] rounded-3xl blur-3xl" />
+          <div className="absolute -inset-10 bg-bright/[0.04] rounded-[2rem] blur-[60px]" />
+          {/* Animated glow border ring */}
+          <motion.div
+            animate={{ opacity: [0.5, 1, 0.5] }}
+            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute -inset-[1px] rounded-2xl bg-gradient-to-b from-bright/25 via-bright/[0.06] to-bright/15 pointer-events-none"
+          />
 
-          <div className="relative rounded-2xl border border-white/[0.08] overflow-hidden bg-[#0C0C0E] shadow-2xl shadow-black/60">
-            {/* Shine sweep — fires after notification appears as a final flourish */}
+          <div className="relative rounded-2xl border border-white/[0.10] overflow-hidden bg-[#0C0C0E] shadow-2xl shadow-black/70" style={{ boxShadow: "0 25px 60px -12px rgba(0,0,0,0.7), 0 0 40px rgba(251,191,36,0.06)" }}>
+            {/* Shine sweep — periodic gleam across the browser */}
             <motion.div
               initial={{ x: "-100%", opacity: 0 }}
               animate={{ x: "200%", opacity: [0, 0.18, 0] }}
-              transition={{ duration: 1.8, delay: d + 2.6, ease: "easeInOut" }}
+              transition={{ duration: 1.8, delay: d + 2.6, ease: "easeInOut", repeat: Infinity, repeatDelay: 6 }}
               className="absolute inset-0 z-20 pointer-events-none"
               style={{
                 background: "linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.12) 50%, transparent 60%)",
@@ -61,7 +66,7 @@ function BrowserMockup() {
                 <div className="w-2.5 h-2.5 rounded-full bg-[#28C840]" />
               </div>
               <div className="flex-1 mx-3">
-                <div className="flex items-center gap-2 px-3 py-1 rounded-md bg-white/[0.05] max-w-[220px] mx-auto">
+                <div className="flex items-center gap-2 px-3 py-1 rounded-md bg-white/[0.05] max-w-[260px] mx-auto">
                   <svg className="w-2.5 h-2.5 text-green-400/70 shrink-0" viewBox="0 0 16 16" fill="currentColor">
                     <path fillRule="evenodd" d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16Zm.75-11.25a.75.75 0 0 0-1.5 0v2.5h-2.5a.75.75 0 0 0 0 1.5h2.5v2.5a.75.75 0 0 0 1.5 0v-2.5h2.5a.75.75 0 0 0 0-1.5h-2.5v-2.5Z" clipRule="evenodd" />
                   </svg>
@@ -88,7 +93,7 @@ function BrowserMockup() {
                   <div className="h-1.5 w-8 rounded-full bg-white/8" />
                   <div className="h-1.5 w-8 rounded-full bg-white/8" />
                 </div>
-                <div className="h-5 w-14 rounded-md bg-bright/50" />
+                <div className="h-5 w-14 rounded-md bg-white/[0.08]" />
               </motion.div>
 
               {/* Hero section of mock site */}
@@ -101,8 +106,8 @@ function BrowserMockup() {
                 >
                   <div className="h-1.5 w-20 rounded-full bg-bright/25 mb-3" />
                   <div className="space-y-1.5 mb-3">
-                    <div className="h-4 w-52 rounded bg-white/20" />
-                    <div className="h-4 w-36 rounded bg-white/12" />
+                    <div className="h-4.5 w-60 rounded bg-white/20" />
+                    <div className="h-4.5 w-40 rounded bg-white/12" />
                   </div>
                   <div className="h-1.5 w-44 rounded-full bg-white/[0.06]" />
                 </motion.div>
@@ -113,8 +118,8 @@ function BrowserMockup() {
                   transition={{ duration: 0.4, delay: d + 0.35 }}
                   className="flex gap-2 mb-5"
                 >
-                  <div className="h-7 w-24 rounded-lg bg-gradient-to-r from-bright to-electric flex items-center justify-center">
-                    <div className="h-1.5 w-14 rounded-full bg-black/30" />
+                  <div className="h-7 w-24 rounded-lg bg-white/[0.10] border border-white/[0.08] flex items-center justify-center">
+                    <div className="h-1.5 w-14 rounded-full bg-white/15" />
                   </div>
                   <div className="h-7 w-20 rounded-lg border border-white/10 bg-white/[0.02] flex items-center justify-center">
                     <div className="h-1.5 w-10 rounded-full bg-white/15" />
@@ -126,7 +131,7 @@ function BrowserMockup() {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: d + 0.55 }}
-                  className="h-24 rounded-xl bg-gradient-to-br from-bright/[0.06] via-white/[0.02] to-electric/[0.04] border border-white/[0.04] relative overflow-hidden px-4 py-3"
+                  className="h-28 rounded-xl bg-gradient-to-br from-bright/[0.06] via-white/[0.02] to-electric/[0.04] border border-white/[0.04] relative overflow-hidden px-4 py-3"
                 >
                   {/* Mini chart header */}
                   <div className="flex items-center justify-between mb-2">
@@ -134,20 +139,27 @@ function BrowserMockup() {
                     <div className="text-[8px] text-bright/60 font-mono">+27%</div>
                   </div>
                   {/* Mini bar chart */}
-                  <div className="flex items-end gap-[3px] h-10">
-                    {[35, 50, 40, 65, 55, 80, 70, 90, 75, 95, 85, 100].map((h, i) => (
-                      <motion.div
-                        key={i}
-                        initial={{ scaleY: 0 }}
-                        animate={{ scaleY: 1 }}
-                        transition={{ duration: 0.4, delay: d + 0.7 + i * 0.04 }}
-                        className="flex-1 rounded-sm origin-bottom"
-                        style={{
-                          height: `${h}%`,
-                          background: h >= 85 ? "rgba(251, 191, 36, 0.5)" : "rgba(255, 255, 255, 0.08)",
-                        }}
-                      />
-                    ))}
+                  <div className="flex items-end gap-[4px] h-14">
+                    {[35, 50, 40, 65, 55, 80, 70, 90, 75, 95, 85, 100].map((h, i, arr) => {
+                      const t = i / (arr.length - 1); // 0 (left) → 1 (right)
+                      const r = Math.round(255 * (0.08 + t * 0.92));
+                      const g = Math.round(255 * (0.08 + t * 0.67));
+                      const b = Math.round(255 * (0.08 + t * 0.06));
+                      const a = 0.12 + t * 0.45;
+                      return (
+                        <motion.div
+                          key={i}
+                          initial={{ scaleY: 0 }}
+                          animate={{ scaleY: 1 }}
+                          transition={{ duration: 0.4, delay: d + 0.7 + i * 0.04 }}
+                          className="flex-1 rounded-sm origin-bottom"
+                          style={{
+                            height: `${h}%`,
+                            background: `rgba(${r}, ${g}, ${b}, ${a})`,
+                          }}
+                        />
+                      );
+                    })}
                   </div>
                 </motion.div>
               </div>
@@ -247,17 +259,17 @@ function BrowserMockup() {
             initial={{ opacity: 0, scale: 0.8, x: 20 }}
             animate={{ opacity: 1, scale: 1, x: 0 }}
             transition={{ duration: 0.5, delay: d + 1.3, type: "spring", stiffness: 300 }}
-            className="absolute -right-6 top-20 px-3 py-2.5 rounded-xl bg-[#111113] border border-white/[0.08] shadow-xl shadow-black/50 backdrop-blur-sm"
+            className="absolute -right-6 top-20 px-5 py-3.5 rounded-xl bg-[#111113] border border-white/[0.08] shadow-xl shadow-black/50 backdrop-blur-sm"
           >
-            <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-lg bg-green-500/10 border border-green-500/20 flex items-center justify-center">
-                <svg className="w-4 h-4 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+            <div className="flex items-center gap-3">
+              <div className="w-11 h-11 rounded-lg bg-green-500/10 border border-green-500/20 flex items-center justify-center">
+                <svg className="w-5 h-5 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
                 </svg>
               </div>
               <div>
-                <div className="text-[9px] text-text-muted uppercase tracking-wider">Speed</div>
-                <div className="text-base font-bold text-green-400 leading-none">98</div>
+                <div className="text-xs text-text-muted uppercase tracking-wider font-medium">Speed</div>
+                <div className="text-2xl font-bold text-green-400 leading-none">98</div>
               </div>
             </div>
           </motion.div>
@@ -267,17 +279,17 @@ function BrowserMockup() {
             initial={{ opacity: 0, scale: 0.8, x: -20 }}
             animate={{ opacity: 1, scale: 1, x: 0 }}
             transition={{ duration: 0.5, delay: d + 1.6, type: "spring", stiffness: 300 }}
-            className="absolute -left-6 bottom-24 px-3 py-2.5 rounded-xl bg-[#111113] border border-white/[0.08] shadow-xl shadow-black/50 backdrop-blur-sm"
+            className="absolute -left-6 bottom-24 px-5 py-3.5 rounded-xl bg-[#111113] border border-white/[0.08] shadow-xl shadow-black/50 backdrop-blur-sm"
           >
-            <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-lg bg-bright/10 border border-bright/20 flex items-center justify-center">
-                <svg className="w-4 h-4 text-bright" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+            <div className="flex items-center gap-3">
+              <div className="w-11 h-11 rounded-lg bg-bright/10 border border-bright/20 flex items-center justify-center">
+                <svg className="w-5 h-5 text-bright" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941" />
                 </svg>
               </div>
               <div>
-                <div className="text-[9px] text-text-muted uppercase tracking-wider">SEO</div>
-                <div className="text-base font-bold text-bright leading-none">100</div>
+                <div className="text-xs text-text-muted uppercase tracking-wider font-medium">SEO</div>
+                <div className="text-2xl font-bold text-bright leading-none">100</div>
               </div>
             </div>
           </motion.div>
@@ -291,15 +303,15 @@ function BrowserMockup() {
           >
             {/* Subtle glow behind toast */}
             <div className="absolute -inset-4 bg-bright/[0.04] rounded-3xl blur-2xl pointer-events-none" />
-            <div className="relative flex items-center gap-3 pl-3.5 pr-5 py-3.5">
-              <div className="w-10 h-10 rounded-xl bg-bright/15 border border-bright/25 flex items-center justify-center shrink-0">
-                <svg className="w-5 h-5 text-bright" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <div className="relative flex items-center gap-3.5 pl-4 pr-6 py-4">
+              <div className="w-11 h-11 rounded-xl bg-bright/15 border border-bright/25 flex items-center justify-center shrink-0">
+                <svg className="w-5.5 h-5.5 text-bright" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
                 </svg>
               </div>
               <div>
-                <div className="text-[13px] font-semibold text-text-primary leading-tight">New lead received</div>
-                <div className="text-[10px] text-text-muted mt-0.5">via contact form — just now</div>
+                <div className="text-[15px] font-semibold text-text-primary leading-tight">New lead received</div>
+                <div className="text-[11px] text-text-muted mt-0.5">via contact form, just now</div>
               </div>
             </div>
             {/* Bright accent bar at bottom */}
@@ -424,8 +436,8 @@ export function HeroSection() {
             >
               {[
                 { value: "5+", label: "Years Experience" },
-                { value: "20+", label: "Projects Delivered" },
-                { value: "100%", label: "Happy Clients" },
+                { value: "<1s", label: "Load Times" },
+                { value: "100%", label: "Client Satisfaction" },
               ].map((stat) => (
                 <div key={stat.label} className="text-center lg:text-left">
                   <div className="text-3xl sm:text-4xl font-bold text-bright">

@@ -4,7 +4,7 @@ export const testimonials: Testimonial[] = [
   {
     id: "testimonial-1",
     quote:
-      "Daniel delivered exactly what we needed - a fast, beautiful website that our customers love. His attention to detail and technical expertise made the whole process smooth.",
+      "Daniel built us a website that actually brings in customers. It's fast, looks great on every device, and we get compliments on it all the time.",
     author: "Sarah M.",
     role: "Owner",
     company: "Local Cafe",
@@ -12,7 +12,7 @@ export const testimonials: Testimonial[] = [
   {
     id: "testimonial-2",
     quote:
-      "Working with Lume Web Studio was a great experience. The dashboard Daniel built has transformed how we analyze our business data. Highly recommended!",
+      "The dashboard Daniel built changed how we look at our business data. He understood what we needed and delivered it ahead of schedule.",
     author: "Michael K.",
     role: "CEO",
     company: "Tech Startup",
@@ -20,7 +20,7 @@ export const testimonials: Testimonial[] = [
   {
     id: "testimonial-3",
     quote:
-      "Professional, responsive, and delivers on time. Daniel understood our vision and translated it into a website that perfectly represents our brand.",
+      "Daniel took our rough ideas and turned them into a website that actually represents who we are. Easy to work with and always on time.",
     author: "Anna L.",
     role: "Marketing Director",
     company: "Design Agency",

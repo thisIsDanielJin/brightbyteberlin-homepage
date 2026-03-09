@@ -7,7 +7,7 @@ import { HiCheckCircle } from "react-icons/hi2";
 import Image from "next/image";
 
 const highlights = [
-  "B.Sc. Computer Science — TU Berlin & Seoul National University",
+  "B.Sc. Computer Science, TU Berlin & Seoul National University",
   "SAP Developer with enterprise experience",
   "Based in Berlin, working with clients worldwide",
   "Fluent in English and German",
@@ -15,7 +15,7 @@ const highlights = [
 
 export function AboutSection() {
   return (
-    <Section id="about" background="secondary" blendFrom="primary" className="relative overflow-hidden">
+    <Section id="about" background="secondary" className="relative overflow-hidden">
       <div className="relative z-10">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         {/* Image */}
@@ -34,10 +34,6 @@ export function AboutSection() {
               <div className="absolute inset-0 bg-gradient-to-t from-bg-primary/30 via-transparent to-transparent" />
             </div>
 
-            {/* Decorative elements */}
-            <div className="absolute -bottom-3 -right-3 w-24 h-24 bg-bright/20 rounded-xl -z-10 blur-xl" />
-            <div className="absolute -top-3 -left-3 w-16 h-16 bg-electric/20 rounded-lg -z-10 blur-xl" />
-
           </div>
         </ScrollReveal>
 
@@ -51,12 +47,12 @@ export function AboutSection() {
             <div className="space-y-5 text-text-secondary mb-10 text-lg leading-relaxed">
               <p>
                 I&apos;m a software developer in Berlin who helps small businesses
-                get found online. By day, I work as an SAP developer — and in my
-                spare time, I build websites that actually deliver results.
+                get found online. By day, I work as an SAP developer, and in my
+                spare time I build websites that actually deliver results.
               </p>
               <p>
                 I believe your website should work as hard as you do. It&apos;s not
-                just about looking good — it&apos;s about being <span className="text-bright">found</span>, building trust,
+                just about looking good. It&apos;s about being <span className="text-bright">found</span>, building trust,
                 and turning visitors into customers.
               </p>
             </div>
