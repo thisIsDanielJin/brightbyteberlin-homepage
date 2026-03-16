@@ -8,9 +8,9 @@ interface GlassCardProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 const intensityStyles = {
-  light: "bg-white/50 border-white/30",
-  medium: "bg-white/70 border-white/50",
-  strong: "bg-white/90 border-white/60",
+  light: "bg-white/50 border-black/[0.04]",
+  medium: "bg-white/70 border-black/[0.06]",
+  strong: "bg-white/90 border-black/[0.08]",
 };
 
 export const GlassCard = forwardRef<HTMLDivElement, GlassCardProps>(

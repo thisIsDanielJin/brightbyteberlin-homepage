@@ -15,13 +15,13 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 const variantStyles: Record<ButtonVariant, string> = {
   primary:
-    "bg-gradient-to-r from-bright to-bright-hover text-bg-primary font-bold hover:from-bright-hover hover:to-bright shadow-lg shadow-bright/20 hover:shadow-bright/30",
+    "bg-gradient-to-r from-bright to-bright-hover text-[#1A1A1A] font-bold hover:from-bright-hover hover:to-bright shadow-lg shadow-bright/20 hover:shadow-bright/30",
   secondary:
-    "bg-bg-elevated text-text-primary hover:bg-bg-card border border-white/10",
+    "bg-bg-elevated text-text-primary hover:bg-bg-card border border-black/[0.08]",
   ghost:
-    "bg-transparent text-text-primary hover:bg-white/5",
+    "bg-transparent text-text-primary hover:bg-black/[0.04]",
   outline:
-    "bg-transparent border border-white/20 text-text-primary hover:bg-white/5 hover:border-white/30",
+    "bg-transparent border border-black/[0.15] text-text-primary hover:bg-black/[0.04] hover:border-black/[0.2]",
 };
 
 const sizeStyles: Record<ButtonSize, string> = {

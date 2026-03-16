@@ -21,7 +21,7 @@ export function AboutSection() {
         {/* Image */}
         <ScrollReveal variants={fadeInLeft}>
           <div className="relative">
-            <div className="aspect-square max-w-md mx-auto rounded-2xl bg-bg-card border-[1.5px] border-white/8 overflow-hidden relative">
+            <div className="aspect-square max-w-md mx-auto rounded-2xl bg-bg-card border-[1.5px] border-black/[0.06] shadow-sm overflow-hidden relative">
               <Image
                 src="/images/daniel-profile.jpg"
                 alt="Daniel Jin Wodke"
@@ -31,7 +31,7 @@ export function AboutSection() {
                 priority
               />
               {/* Subtle gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-bg-primary/30 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-white/30 via-transparent to-transparent" />
             </div>
 
           </div>

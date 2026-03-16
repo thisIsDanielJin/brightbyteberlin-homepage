@@ -4,11 +4,6 @@ import { Button } from "@/components/ui/Button/Button";
 import Link from "next/link";
 import styles from "./HeroSection.module.scss";
 
-// Heavy client components — lazy loaded, not blocking LCP
-const Grainient = dynamic(
-  () => import("@/components/reactbits/Grainient/Grainient")
-);
-
 const DesktopBrowserMockup = dynamic(
   () => import("./DesktopBrowserMockup")
 );
@@ -28,43 +23,14 @@ function HeroWords({ words, className }: { words: string[]; className: string })
 export function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden bg-bg-primary">
-      {/* Grainient Background — desktop only (WebGL too heavy for mobile) */}
-      <div className="hidden md:block absolute inset-0 opacity-45">
-        <Grainient
-          color1="#FBBF24"
-          color2="#F59E0B"
-          color3="#0a0a0a"
-          colorBalance={-0.15}
-          centerX={0.3}
-          centerY={0.0}
-          zoom={0.9}
-          timeSpeed={0.12}
-          grainAmount={0.06}
-          contrast={1.2}
-          saturation={0.85}
-          warpStrength={1.0}
-          warpAmplitude={50}
-          warpFrequency={5.0}
-        />
-      </div>
-
-      {/* Lightweight CSS fallback for mobile */}
-      <div
-        className="md:hidden absolute inset-0 opacity-45"
-        style={{
-          background: `
-            radial-gradient(ellipse 120% 80% at 30% 0%, rgba(251, 191, 36, 0.35) 0%, transparent 60%),
-            radial-gradient(ellipse 80% 60% at 50% 50%, rgba(245, 158, 11, 0.15) 0%, transparent 60%),
-            #0a0a0a
-          `
-        }}
-      />
-
-      {/* Dark gradient overlay for text readability */}
+      {/* Warm ambient radial glow behind mockup area */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          background: 'linear-gradient(to right, rgba(10,10,10,0.6) 0%, rgba(10,10,10,0.2) 50%, transparent 75%)'
+          background: `
+            radial-gradient(ellipse 60% 50% at 65% 50%, rgba(251, 191, 36, 0.08) 0%, transparent 60%),
+            radial-gradient(ellipse 40% 30% at 30% 40%, rgba(251, 191, 36, 0.04) 0%, transparent 50%)
+          `
         }}
       />
 
@@ -79,13 +45,13 @@ export function HeroSection() {
         }}
       />
 
-      {/* Grid pattern overlay */}
+      {/* Grid pattern overlay — warm gray lines */}
       <div
-        className="absolute inset-0 opacity-[0.02]"
+        className="absolute inset-0 opacity-[0.03]"
         style={{
           backgroundImage: `
-            linear-gradient(rgba(251, 191, 36, 0.5) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(251, 191, 36, 0.5) 1px, transparent 1px)
+            linear-gradient(rgba(0, 0, 0, 0.15) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(0, 0, 0, 0.15) 1px, transparent 1px)
           `,
           backgroundSize: '60px 60px'
         }}
@@ -102,7 +68,7 @@ export function HeroSection() {
               <span className={`block text-text-primary ${styles.heroLine1}`}>
                 <HeroWords words={["Stand", "out."]} className={styles.heroLine1} />
               </span>
-              <span className={`block text-glow ${styles.heroLine2}`}>
+              <span className={`block text-bright ${styles.heroLine2}`}>
                 <HeroWords words={["Get", "found."]} className={styles.heroLine2} />
               </span>
               <span className={`block text-text-primary ${styles.heroLine3}`}>
@@ -128,7 +94,7 @@ export function HeroSection() {
                   </svg>
                 </Link>
               </Button>
-              <Button variant="outline" size="lg" className="border-white/20 text-text-primary hover:bg-white/10" asChild>
+              <Button variant="outline" size="lg" className="border-black/[0.15] text-text-primary hover:bg-black/[0.04]" asChild>
                 <Link href="#projects">See My Work</Link>
               </Button>
             </div>
@@ -165,7 +131,7 @@ export function HeroSection() {
       <div className={`${styles.scrollIndicator} absolute bottom-4 md:bottom-10 left-1/2 -translate-x-1/2`}>
         <div className={`${styles.scrollBob} flex flex-col items-center text-text-muted`}>
           <span className="text-xs font-medium mb-3 uppercase tracking-widest">Scroll</span>
-          <div className="w-6 h-10 rounded-full border border-white/20 flex justify-center pt-2">
+          <div className="w-6 h-10 rounded-full border border-black/[0.15] flex justify-center pt-2">
             <div className={`${styles.scrollDot} w-1 h-1 rounded-full bg-bright`} />
           </div>
         </div>

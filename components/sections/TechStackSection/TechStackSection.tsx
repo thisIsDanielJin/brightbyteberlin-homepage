@@ -29,7 +29,7 @@ interface TechItem {
 
 const row1: TechItem[] = [
   { name: "React", icon: SiReact, color: "#61DAFB" },
-  { name: "Next.js", icon: SiNextdotjs, color: "#FFFFFF" },
+  { name: "Next.js", icon: SiNextdotjs, color: "#000000" },
   { name: "TypeScript", icon: SiTypescript, color: "#3178C6" },
   { name: "Tailwind CSS", icon: SiTailwindcss, color: "#06B6D4" },
   { name: "Framer Motion", icon: SiFramer, color: "#0055FF" },
@@ -43,7 +43,7 @@ const row2: TechItem[] = [
   { name: "Kubernetes", icon: SiKubernetes, color: "#326CE5" },
   { name: "Git", icon: SiGit, color: "#F05032" },
   { name: "Figma", icon: SiFigma, color: "#F24E1E" },
-  { name: "Vercel", icon: SiVercel, color: "#FFFFFF" },
+  { name: "Vercel", icon: SiVercel, color: "#000000" },
   { name: "Docker", icon: SiDocker, color: "#2496ED" },
 ];
 
@@ -73,7 +73,7 @@ function MarqueeRow({
         {repeated.map((tech, i) => (
           <div
             key={`${tech.name}-${i}`}
-            className="group/item relative flex items-center gap-3 px-5 py-3 rounded-full border border-white/[0.06] bg-white/[0.02] hover:border-[var(--brand-color-dim)] transition-all duration-300 cursor-default shrink-0"
+            className="group/item relative flex items-center gap-3 px-5 py-3 rounded-full border border-black/[0.06] bg-black/[0.02] hover:border-[var(--brand-color-dim)] transition-all duration-300 cursor-default shrink-0"
             style={
               {
                 "--brand-color": tech.color,
@@ -116,7 +116,7 @@ export function TechStackSection() {
               transition={{ duration: 0.5 }}
               className="flex justify-center mb-6"
             >
-              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-bright text-sm font-medium">
+              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-black/[0.03] border border-black/[0.06] text-bright text-sm font-medium">
                 <HiCommandLine className="w-4 h-4" />
                 Tech Stack
               </span>

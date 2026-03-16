@@ -32,7 +32,7 @@ export function MobileMenu({
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ type: "spring", damping: 25, stiffness: 300 }}
-            className="absolute right-0 top-0 h-full w-full max-w-sm bg-bg-secondary/95 backdrop-blur-xl shadow-2xl border-l border-white/10"
+            className="absolute right-0 top-0 h-full w-full max-w-sm bg-bg-secondary/95 backdrop-blur-xl shadow-2xl border-l border-black/[0.06]"
           >
             <div className="flex flex-col h-full pt-24 pb-8 px-8">
               <nav className="flex-1 space-y-1">
@@ -46,7 +46,7 @@ export function MobileMenu({
                     <Link
                       href={link.href}
                       onClick={onClose}
-                      className="block py-4 text-lg font-semibold text-text-primary hover:text-bright transition-colors border-b border-white/5"
+                      className="block py-4 text-lg font-semibold text-text-primary hover:text-bright transition-colors border-b border-black/[0.06]"
                     >
                       {link.label}
                     </Link>
@@ -60,7 +60,7 @@ export function MobileMenu({
                   <Link
                     href="/blog"
                     onClick={onClose}
-                    className="block py-4 text-lg font-semibold text-text-primary hover:text-bright transition-colors border-b border-white/5"
+                    className="block py-4 text-lg font-semibold text-text-primary hover:text-bright transition-colors border-b border-black/[0.06]"
                   >
                     Blog
                   </Link>

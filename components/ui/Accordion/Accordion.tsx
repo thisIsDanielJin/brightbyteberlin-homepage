@@ -15,7 +15,7 @@ export function AccordionItem({ title, children, defaultOpen = false }: Accordio
   const [isOpen, setIsOpen] = useState(defaultOpen);
 
   return (
-    <div className="border-b border-white/5 last:border-none">
+    <div className="border-b border-black/[0.06] last:border-none">
       <button
         onClick={() => setIsOpen(!isOpen)}
         className={cn(
@@ -32,7 +32,7 @@ export function AccordionItem({ title, children, defaultOpen = false }: Accordio
           transition={{ duration: 0.2 }}
           className={cn(
             "w-8 h-8 rounded-lg flex items-center justify-center transition-colors",
-            isOpen ? "bg-bright/20 text-bright" : "bg-white/5 text-text-muted"
+            isOpen ? "bg-bright/20 text-bright" : "bg-black/[0.04] text-text-muted"
           )}
         >
           <HiChevronDown className="h-5 w-5" />
@@ -64,7 +64,7 @@ interface AccordionProps {
 
 export function Accordion({ children, className }: AccordionProps) {
   return (
-    <div className={cn("divide-y divide-white/5", className)}>
+    <div className={cn("divide-y divide-black/[0.06]", className)}>
       {children}
     </div>
   );

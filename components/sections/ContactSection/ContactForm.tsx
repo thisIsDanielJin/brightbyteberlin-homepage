@@ -68,7 +68,7 @@ export function ContactForm() {
   }
 
   const inputBase =
-    "w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/30 transition-all duration-200 outline-none";
+    "w-full bg-white border border-black/[0.08] rounded-xl px-4 py-3 text-text-primary placeholder:text-text-muted/50 transition-all duration-200 outline-none";
   const inputFocus =
     "focus:border-bright/50 focus:ring-2 focus:ring-bright/20";
   const inputError = "border-red-500/50 focus:border-red-500/50 focus:ring-red-500/20";
@@ -83,7 +83,7 @@ export function ContactForm() {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
             transition={{ duration: 0.3 }}
-            className="bg-[#0A0A0C]/90 backdrop-blur-md border border-white/10 rounded-2xl p-8 text-center"
+            className="bg-white/90 backdrop-blur-md border border-black/[0.08] rounded-2xl p-8 text-center shadow-lg"
           >
             <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-bright/20 flex items-center justify-center">
               <svg
@@ -100,10 +100,10 @@ export function ContactForm() {
                 />
               </svg>
             </div>
-            <h3 className="text-xl font-semibold text-white mb-2">
+            <h3 className="text-xl font-semibold text-text-primary mb-2">
               Message sent!
             </h3>
-            <p className="text-white/60">
+            <p className="text-text-secondary">
               I&apos;ll get back to you within 24 hours.
             </p>
           </motion.div>
@@ -116,7 +116,7 @@ export function ContactForm() {
             transition={{ duration: 0.3 }}
             onSubmit={handleSubmit}
             noValidate
-            className="bg-[#0A0A0C]/90 backdrop-blur-md border border-white/10 rounded-2xl p-6 sm:p-8 space-y-5"
+            className="bg-white/90 backdrop-blur-md border border-black/[0.08] rounded-2xl p-6 sm:p-8 space-y-5 shadow-lg"
           >
             {/* Honeypot — hidden from real users */}
             <div className="absolute -left-[9999px]" aria-hidden="true">
@@ -135,7 +135,7 @@ export function ContactForm() {
             <div>
               <label
                 htmlFor="contact-name"
-                className="block text-sm font-medium text-white/70 mb-1.5"
+                className="block text-sm font-medium text-text-secondary mb-1.5"
               >
                 Name
               </label>
@@ -161,7 +161,7 @@ export function ContactForm() {
             <div>
               <label
                 htmlFor="contact-email"
-                className="block text-sm font-medium text-white/70 mb-1.5"
+                className="block text-sm font-medium text-text-secondary mb-1.5"
               >
                 Email
               </label>
@@ -187,7 +187,7 @@ export function ContactForm() {
             <div>
               <label
                 htmlFor="contact-message"
-                className="block text-sm font-medium text-white/70 mb-1.5"
+                className="block text-sm font-medium text-text-secondary mb-1.5"
               >
                 Message
               </label>

@@ -54,7 +54,7 @@ function BentoCard({ service, layout, index }: BentoCardProps) {
       <div className="absolute -inset-[1px] rounded-2xl bg-gradient-to-r from-bright/0 via-bright/30 to-bright/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
       {/* Card content */}
-      <div className="relative h-full bg-bg-card rounded-2xl border-[1.5px] border-white/8 overflow-hidden p-6 transition-colors duration-500 hover:border-transparent">
+      <div className="relative h-full bg-bg-card rounded-2xl border-[1.5px] border-black/[0.06] shadow-sm overflow-hidden p-6 transition-colors duration-500 hover:border-transparent">
         {/* Background gradient on hover */}
         <div className="absolute inset-0 bg-gradient-to-br from-bright/5 via-transparent to-electric/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
@@ -69,7 +69,7 @@ function BentoCard({ service, layout, index }: BentoCardProps) {
             >
               <Icon className="w-5 h-5 text-bright" />
             </div>
-            <span className="text-sm font-mono text-white/20">0{index + 1}</span>
+            <span className="text-sm font-mono text-black/[0.15]">0{index + 1}</span>
           </div>
 
           {/* Title */}
@@ -84,12 +84,12 @@ function BentoCard({ service, layout, index }: BentoCardProps) {
 
           {/* Features */}
           {service.features && (
-            <div className="mt-4 pt-4 border-t border-white/5">
+            <div className="mt-4 pt-4 border-t border-black/[0.06]">
               <ul className="flex flex-wrap gap-1.5">
                 {service.features.map((feature) => (
                   <li
                     key={feature}
-                    className="text-xs px-2.5 py-1 rounded-full font-medium bg-white/5 text-text-muted border border-white/8 group-hover:bg-bright/10 group-hover:text-bright group-hover:border-bright/30 transition-all duration-300"
+                    className="text-xs px-2.5 py-1 rounded-full font-medium bg-black/[0.03] text-text-muted border border-black/[0.06] group-hover:bg-bright/10 group-hover:text-bright group-hover:border-bright/30 transition-all duration-300"
                   >
                     {feature}
                   </li>
@@ -119,7 +119,7 @@ export function ServicesSection() {
           className="text-center mb-12 md:mb-16"
         >
           <div className="flex justify-center mb-6">
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-bright text-sm font-medium">
+            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-black/[0.03] border border-black/[0.06] text-bright text-sm font-medium">
               <HiWrenchScrewdriver className="w-4 h-4" />
               Services
             </span>

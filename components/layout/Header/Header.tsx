@@ -86,7 +86,7 @@ export function Header() {
           className={cn(
             "transition-all duration-500 ease-out mx-auto border",
             isScrolled
-              ? "max-w-5xl rounded-2xl shadow-lg bg-bg-secondary/80 backdrop-blur-xl border-white/10 shadow-black/20"
+              ? "max-w-5xl rounded-2xl shadow-lg bg-bg-primary/85 backdrop-blur-xl border-black/[0.06] shadow-black/5"
               : "max-w-7xl bg-transparent border-transparent"
           )}
         >
@@ -117,7 +117,7 @@ export function Header() {
                     className={cn(
                       "relative px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200",
                       "text-text-muted hover:text-text-primary",
-                      "hover:bg-white/[0.06]"
+                      "hover:bg-black/[0.04]"
                     )}
                   >
                     {link.label}
@@ -138,7 +138,7 @@ export function Header() {
               {/* Mobile Menu Button */}
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="lg:hidden p-2.5 -mr-2 rounded-xl transition-colors text-text-primary hover:bg-white/10"
+                className="lg:hidden p-2.5 -mr-2 rounded-xl transition-colors text-text-primary hover:bg-black/[0.06]"
                 aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
                 aria-expanded={isMobileMenuOpen}
               >
