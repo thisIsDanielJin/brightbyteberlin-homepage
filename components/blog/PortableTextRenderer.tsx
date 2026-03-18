@@ -115,8 +115,8 @@ const components: PortableTextComponents = {
       );
     },
     codeBlock: ({ value }) => (
-      <div className="bg-bg-card border border-black/[0.06] rounded-xl overflow-hidden mb-6">
-        <div className="flex items-center justify-between px-4 py-2 border-b border-black/[0.06]">
+      <div className="bg-bg-card border border-white/8 rounded-xl overflow-hidden mb-6">
+        <div className="flex items-center justify-between px-4 py-2 border-b border-white/8">
           <span className="text-xs text-text-muted font-mono">
             {value.filename || value.language}
           </span>

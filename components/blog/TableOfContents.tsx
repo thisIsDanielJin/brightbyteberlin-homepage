@@ -44,7 +44,7 @@ export function TableOfContents({ body }: { body: PortableTextBlock[] }) {
   if (headings.length < 2) return null;
 
   return (
-    <nav className="bg-bg-card border border-black/[0.06] shadow-sm rounded-2xl p-6">
+    <nav className="bg-bg-card border border-white/8 rounded-2xl p-6">
       <h2 className="text-sm font-bold text-text-primary uppercase tracking-widest mb-4">
         Table of Contents
       </h2>

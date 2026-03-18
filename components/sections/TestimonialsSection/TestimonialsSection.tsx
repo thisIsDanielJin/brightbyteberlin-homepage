@@ -17,7 +17,7 @@ export function TestimonialsSection() {
       <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {testimonials.map((testimonial) => (
           <StaggerItem key={testimonial.id}>
-            <div className="h-full flex flex-col bg-bg-card rounded-2xl p-8 border-[1.5px] border-black/[0.06] shadow-sm hover:border-2 hover:border-bright/30 transition-all duration-300">
+            <div className="h-full flex flex-col bg-bg-card rounded-2xl p-8 border-[1.5px] border-white/8 hover:border-2 hover:border-bright/30 transition-all duration-300">
               {/* Stars */}
               <div className="flex gap-1 mb-5">
                 {[...Array(5)].map((_, i) => (
@@ -31,7 +31,7 @@ export function TestimonialsSection() {
               </blockquote>
 
               {/* Author */}
-              <div className="flex items-center gap-4 pt-5 border-t border-black/[0.06]">
+              <div className="flex items-center gap-4 pt-5 border-t border-white/5">
                 <div className="w-10 h-10 rounded-lg bg-bright/10 flex items-center justify-center">
                   <span className="text-sm font-bold text-bright">
                     {testimonial.author.charAt(0)}

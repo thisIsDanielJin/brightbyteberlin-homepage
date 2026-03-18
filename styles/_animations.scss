@@ -1,7 +1,6 @@
 /* =================================
    ANIMATIONS
    @keyframes and animation utility classes
-   Light Theme (reduced glow intensity)
    ================================= */
 
 @keyframes spotlight-pulse {
@@ -24,10 +23,10 @@
 
 @keyframes glow-pulse {
   0%, 100% {
-    box-shadow: 0 0 20px rgba(251, 191, 36, 0.15);
+    box-shadow: 0 0 20px rgba(251, 191, 36, 0.3);
   }
   50% {
-    box-shadow: 0 0 40px rgba(251, 191, 36, 0.25);
+    box-shadow: 0 0 40px rgba(251, 191, 36, 0.5);
   }
 }
 

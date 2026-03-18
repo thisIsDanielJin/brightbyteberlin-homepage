@@ -279,7 +279,7 @@ export function AISection() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-black/[0.03] border border-black/[0.06] text-bright text-sm font-medium mb-6"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-bright text-sm font-medium mb-6"
             >
               <HiCpuChip className="w-4 h-4" />
               AI-Powered Development
@@ -327,7 +327,7 @@ export function AISection() {
                   <div className="absolute -inset-[1px] rounded-2xl bg-gradient-to-r from-bright/0 via-bright/50 to-bright/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm" />
                   <div className="absolute -inset-[1px] rounded-2xl bg-gradient-to-r from-bright/0 via-bright/30 to-bright/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-                  <div className="relative flex gap-4 bg-bg-card rounded-2xl p-5 border-[1.5px] border-black/[0.06] shadow-sm hover:border-transparent transition-all duration-500 hover:shadow-2xl hover:shadow-bright/5">
+                  <div className="relative flex gap-4 bg-bg-card rounded-2xl p-5 border-[1.5px] border-white/8 hover:border-transparent transition-all duration-500 hover:shadow-2xl hover:shadow-bright/5">
                     {/* Background gradient on hover */}
                     <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-bright/5 via-transparent to-electric/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 

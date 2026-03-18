@@ -33,18 +33,18 @@ export function ContactSection() {
     return (
         <section
             id="contact"
-            className="min-h-screen flex items-center relative overflow-hidden bg-bg-secondary"
+            className="min-h-screen flex items-center relative overflow-hidden bg-[#0A0A0C]"
         >
             {/* Gradient transition from previous section */}
             <div
                 className="absolute top-0 left-0 right-0 h-40 pointer-events-none"
                 style={{
-                    background: 'linear-gradient(to bottom, var(--color-bg-primary) 0%, var(--color-bg-secondary) 100%)'
+                    background: 'linear-gradient(to bottom, var(--color-bg-primary) 0%, #0A0A0C 100%)'
                 }}
             />
 
-            {/* ReactBits LightRays Background — reduced intensity */}
-            <div className="absolute inset-0 pointer-events-none opacity-50">
+            {/* ReactBits LightRays Background */}
+            <div className="absolute inset-0 pointer-events-none">
                 <LightRays
                     raysOrigin="top-center"
                     raysColor="#FFD54F"
@@ -59,15 +59,24 @@ export function ContactSection() {
                 />
             </div>
 
-            {/* Warm gradient background */}
+            {/* Fallback gradient for when WebGL fails */}
             <div
                 className="absolute inset-0 pointer-events-none"
                 style={{
                     background: `
-            radial-gradient(ellipse 80% 60% at 50% 0%, rgba(251, 191, 36, 0.08) 0%, transparent 70%),
-            radial-gradient(ellipse 40% 30% at 30% 20%, rgba(251, 191, 36, 0.04) 0%, transparent 50%),
-            radial-gradient(ellipse 40% 30% at 70% 20%, rgba(217, 119, 6, 0.04) 0%, transparent 50%)
+            radial-gradient(ellipse 80% 60% at 50% 0%, rgba(251, 191, 36, 0.15) 0%, transparent 70%),
+            radial-gradient(ellipse 40% 30% at 30% 20%, rgba(251, 191, 36, 0.08) 0%, transparent 50%),
+            radial-gradient(ellipse 40% 30% at 70% 20%, rgba(245, 158, 11, 0.08) 0%, transparent 50%)
           `,
+                }}
+            />
+
+            {/* Subtle vignette for depth */}
+            <div
+                className="absolute inset-0 pointer-events-none"
+                style={{
+                    background:
+                        "radial-gradient(ellipse 80% 80% at 50% 50%, transparent 20%, rgba(0,0,0,0.4) 100%)",
                 }}
             />
 
@@ -91,7 +100,7 @@ export function ContactSection() {
                         {/* Main headline with Gradual Blur */}
                         <motion.h2
                             variants={fadeInUp}
-                            className="text-5xl sm:text-6xl md:text-7xl lg:text-7xl xl:text-8xl font-bold tracking-tight mb-6 text-text-primary"
+                            className="text-5xl sm:text-6xl md:text-7xl lg:text-7xl xl:text-8xl font-bold tracking-tight mb-6 text-white"
                         >
                             <span className="block">
                                 <GradualBlurOnScroll text="Time to" delay={0.1} />
@@ -108,7 +117,7 @@ export function ContactSection() {
                         {/* Subheadline */}
                         <motion.p
                             variants={fadeInUp}
-                            className="text-xl text-text-secondary mb-10 max-w-lg leading-relaxed"
+                            className="text-xl text-white/70 mb-10 max-w-lg leading-relaxed"
                         >
                             Let&apos;s build a website that puts your business in
                             the spotlight and turns visitors into loyal customers.
@@ -122,7 +131,7 @@ export function ContactSection() {
                             {trustSignals.map(({ icon: Icon, text }) => (
                                 <div
                                     key={text}
-                                    className="flex items-center gap-3 text-text-secondary"
+                                    className="flex items-center gap-3 text-white/60"
                                 >
                                     <Icon className="w-5 h-5 text-bright/70 shrink-0" />
                                     <span className="text-sm">{text}</span>
@@ -139,7 +148,7 @@ export function ContactSection() {
                                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" style={{ animationDuration: '2s' }} />
                                 <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-400" />
                             </span>
-                            <span className="text-sm font-medium text-emerald-600">
+                            <span className="text-sm font-medium text-emerald-300">
                                 Available for new projects
                             </span>
                         </motion.div>
@@ -147,12 +156,12 @@ export function ContactSection() {
                         {/* Alternative contact links */}
                         <motion.div
                             variants={fadeInUp}
-                            className="flex items-center gap-6 text-sm text-text-muted"
+                            className="flex items-center gap-6 text-sm text-white/50"
                         >
                             <span>Or reach out directly:</span>
                             <a
                                 href="mailto:contact@brightbyte.berlin"
-                                className="inline-flex items-center gap-1.5 text-text-secondary hover:text-bright transition-colors"
+                                className="inline-flex items-center gap-1.5 text-white/70 hover:text-bright transition-colors"
                             >
                                 <HiEnvelope className="w-4 h-4" />
                                 Email
@@ -161,7 +170,7 @@ export function ContactSection() {
                                 href="https://linkedin.com/in/danieljinwodke"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-flex items-center gap-1.5 text-text-secondary hover:text-bright transition-colors"
+                                className="inline-flex items-center gap-1.5 text-white/70 hover:text-bright transition-colors"
                             >
                                 <FaLinkedinIn className="w-3.5 h-3.5" />
                                 LinkedIn

@@ -1,7 +1,6 @@
 /* =================================
    LAYOUT
    Section padding, container, scrollbar, selection, focus-visible
-   Light Theme
    ================================= */
 
 /* Base styles */
@@ -51,18 +50,18 @@ body {
   }
 }
 
-/* Scrollbar (Light theme - warm grays) */
+/* Scrollbar (Dark theme) */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #F0EDE6;
+  background: var(--color-bg-secondary);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #D5D0C8;
+  background: var(--color-bg-elevated);
   border-radius: 4px;
 }
 

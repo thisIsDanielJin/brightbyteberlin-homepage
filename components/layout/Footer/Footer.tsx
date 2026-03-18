@@ -72,7 +72,7 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-bg-secondary border-t border-black/[0.06]">
+    <footer className="bg-bg-primary border-t border-white/5">
       <Container>
         <div className="py-12 flex flex-col md:flex-row md:justify-between gap-10 md:gap-16">
           {/* Brand + tagline */}
@@ -102,7 +102,7 @@ export function Footer() {
                   rel="noopener noreferrer"
                   className={cn(
                     "p-2.5 rounded-xl",
-                    "bg-black/[0.03] hover:bg-bright hover:text-[#1A1A1A]",
+                    "bg-white/5 hover:bg-bright hover:text-bg-primary",
                     "transition-all duration-300 text-text-muted"
                   )}
                   aria-label={social.name}
@@ -152,7 +152,7 @@ export function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="py-5 border-t border-black/[0.06] flex justify-center">
+        <div className="py-5 border-t border-white/5 flex justify-center">
           <p className="text-text-muted text-xs">
             &copy; {currentYear} BrightByte Berlin. All rights reserved.
           </p>

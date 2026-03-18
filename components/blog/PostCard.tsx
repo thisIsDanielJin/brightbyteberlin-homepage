@@ -14,7 +14,7 @@ export function PostCard({ post }: { post: PostCardType }) {
   return (
     <Link
       href={`/blog/${post.slug}`}
-      className="group block bg-bg-card border-[1.5px] border-black/[0.06] shadow-sm hover:border-bright/30 rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1"
+      className="group block bg-bg-card border-[1.5px] border-white/8 hover:border-bright/30 rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1"
     >
       {/* Cover image */}
       {post.coverImage?.asset?.url && (

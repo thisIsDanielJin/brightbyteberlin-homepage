@@ -21,8 +21,8 @@ const bgStyles = {
 };
 
 const bgColors = {
-  primary: "#FAFAF7",
-  secondary: "#F0EDE6",
+  primary: "#09090B",
+  secondary: "#18181B",
 };
 
 export function Section({
@@ -108,7 +108,7 @@ export function SectionHeader({
     >
       {badge && (
         <div className={cn("mb-6", centered && "flex justify-center")}>
-          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-black/[0.03] border border-black/[0.06] text-bright text-sm font-medium">
+          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-bright text-sm font-medium">
             {badge.icon && <badge.icon className="w-4 h-4" />}
             {badge.label}
           </span>

@@ -244,7 +244,7 @@ function BrowserMockup() {
             initial={{ opacity: 0, scale: 0.8, x: 20 }}
             animate={{ opacity: 1, scale: 1, x: 0 }}
             transition={{ duration: 0.5, delay: d + 1.3, type: "spring", stiffness: 300 }}
-            className="absolute -right-6 top-20 px-5 py-3.5 rounded-xl bg-[#111113] border border-white/[0.08] shadow-xl shadow-black/20 backdrop-blur-sm"
+            className="absolute -right-6 top-20 px-5 py-3.5 rounded-xl bg-[#111113] border border-white/[0.08] shadow-xl shadow-black/50 backdrop-blur-sm"
           >
             <div className="flex items-center gap-3">
               <div className="w-11 h-11 rounded-lg bg-green-500/10 border border-green-500/20 flex items-center justify-center">
@@ -264,7 +264,7 @@ function BrowserMockup() {
             initial={{ opacity: 0, scale: 0.8, x: -20 }}
             animate={{ opacity: 1, scale: 1, x: 0 }}
             transition={{ duration: 0.5, delay: d + 1.6, type: "spring", stiffness: 300 }}
-            className="absolute -left-6 bottom-24 px-5 py-3.5 rounded-xl bg-[#111113] border border-white/[0.08] shadow-xl shadow-black/20 backdrop-blur-sm"
+            className="absolute -left-6 bottom-24 px-5 py-3.5 rounded-xl bg-[#111113] border border-white/[0.08] shadow-xl shadow-black/50 backdrop-blur-sm"
           >
             <div className="flex items-center gap-3">
               <div className="w-11 h-11 rounded-lg bg-bright/10 border border-bright/20 flex items-center justify-center">

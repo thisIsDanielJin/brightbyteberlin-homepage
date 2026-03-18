@@ -19,7 +19,7 @@ export function ProjectsSection() {
       <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {featuredProjects.map((project, index) => (
           <StaggerItem key={project.id}>
-            <Link href={`/projects/${project.id}`} className="group relative bg-bg-card rounded-2xl overflow-hidden border-[1.5px] border-black/[0.06] shadow-sm hover:border-2 hover:border-bright/30 transition-all duration-300 block">
+            <Link href={`/projects/${project.id}`} className="group relative bg-bg-card rounded-2xl overflow-hidden border-[1.5px] border-white/8 hover:border-2 hover:border-bright/30 transition-all duration-300 block">
               {/* Image placeholder */}
               <div className="relative aspect-[4/3] overflow-hidden">
                 <div className={cn(
@@ -31,7 +31,7 @@ export function ProjectsSection() {
 
                 {/* Number */}
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-14 h-14 rounded-xl bg-white/70 backdrop-blur-sm flex items-center justify-center border border-black/[0.06]">
+                  <div className="w-14 h-14 rounded-xl bg-bg-primary/50 backdrop-blur-sm flex items-center justify-center border border-white/10">
                     <span className="text-2xl font-bold text-bright">
                       {index + 1}
                     </span>
@@ -40,7 +40,7 @@ export function ProjectsSection() {
 
                 {/* Hover overlay */}
                 <div className="absolute inset-0 bg-bright/90 opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center">
-                  <span className="flex items-center gap-2 text-[#1A1A1A] font-semibold">
+                  <span className="flex items-center gap-2 text-bg-primary font-semibold">
                     View Project
                     <HiArrowTopRightOnSquare className="w-4 h-4" />
                   </span>
@@ -61,7 +61,7 @@ export function ProjectsSection() {
                   {project.technologies.map((tech) => (
                     <span
                       key={tech}
-                      className="text-xs px-2.5 py-1 rounded-md bg-black/[0.03] text-text-muted"
+                      className="text-xs px-2.5 py-1 rounded-md bg-white/5 text-text-muted"
                     >
                       {tech}
                     </span>
@@ -69,7 +69,7 @@ export function ProjectsSection() {
                 </div>
 
                 {project.testimonial && (
-                  <div className="mt-4 pt-4 border-t border-black/[0.06]">
+                  <div className="mt-4 pt-4 border-t border-white/5">
                     <div className="flex gap-0.5 mb-2">
                       {Array.from({ length: 5 }).map((_, i) => (
                         <HiStar key={i} className="w-3.5 h-3.5 text-bright" />
