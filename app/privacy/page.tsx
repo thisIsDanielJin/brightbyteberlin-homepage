@@ -54,10 +54,10 @@ export default function PrivacyPage() {
               <p>
                 E-Mail:{" "}
                 <a
-                  href="mailto:contact@brightbyte.berlin"
+                  href="mailto:hello@brightbyte-berlin.com"
                   className="text-bright hover:underline"
                 >
-                  contact@brightbyte.berlin
+                  hello@brightbyte-berlin.com
                 </a>
               </p>
             </div>
@@ -169,10 +169,10 @@ export default function PrivacyPage() {
             </p>
             <p className="text-text-secondary leading-relaxed">
               <a
-                href="mailto:contact@brightbyte.berlin"
+                href="mailto:hello@brightbyte-berlin.com"
                 className="text-bright hover:underline"
               >
-                contact@brightbyte.berlin
+                hello@brightbyte-berlin.com
               </a>
             </p>
             <p className="text-text-secondary leading-relaxed mt-3">
@@ -225,10 +225,10 @@ export default function PrivacyPage() {
                 <p>
                   Email:{" "}
                   <a
-                    href="mailto:contact@brightbyte.berlin"
+                    href="mailto:hello@brightbyte-berlin.com"
                     className="text-bright hover:underline"
                   >
-                    contact@brightbyte.berlin
+                    hello@brightbyte-berlin.com
                   </a>
                 </p>
               </div>
@@ -337,10 +337,10 @@ export default function PrivacyPage() {
               </p>
               <p className="text-text-secondary leading-relaxed">
                 <a
-                  href="mailto:contact@brightbyte.berlin"
+                  href="mailto:hello@brightbyte-berlin.com"
                   className="text-bright hover:underline"
                 >
-                  contact@brightbyte.berlin
+                  hello@brightbyte-berlin.com
                 </a>
               </p>
               <p className="text-text-secondary leading-relaxed mt-3">

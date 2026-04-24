@@ -4,7 +4,7 @@ import { validateContactForm } from "@/lib/validation";
 import type { ContactFormData } from "@/types";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
-const CONTACT_EMAIL = process.env.CONTACT_EMAIL || "danielwodke25@gmail.com";
+const CONTACT_EMAIL = process.env.CONTACT_EMAIL || "hello@brightbyte-berlin.com";
 
 // In-memory rate limiter: IP → timestamps[]
 const rateLimitMap = new Map<string, number[]>();

@@ -44,10 +44,10 @@ export default function ImprintPage() {
               <p>
                 E-Mail:{" "}
                 <a
-                  href="mailto:contact@brightbyte.berlin"
+                  href="mailto:hello@brightbyte-berlin.com"
                   className="text-bright hover:underline"
                 >
-                  contact@brightbyte.berlin
+                  hello@brightbyte-berlin.com
                 </a>
               </p>
             </div>
@@ -135,10 +135,10 @@ export default function ImprintPage() {
                 <p>
                   Email:{" "}
                   <a
-                    href="mailto:contact@brightbyte.berlin"
+                    href="mailto:hello@brightbyte-berlin.com"
                     className="text-bright hover:underline"
                   >
-                    contact@brightbyte.berlin
+                    hello@brightbyte-berlin.com
                   </a>
                 </p>
               </div>

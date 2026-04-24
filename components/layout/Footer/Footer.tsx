@@ -53,7 +53,7 @@ function GitHubIcon(props: ComponentProps<"svg">) {
 const socialLinks = [
   {
     name: "Email",
-    href: "mailto:contact@brightbyte.berlin",
+    href: "mailto:hello@brightbyte-berlin.com",
     icon: EnvelopeIcon,
   },
   {

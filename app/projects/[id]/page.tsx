@@ -284,7 +284,7 @@ export default async function ProjectPage({
                 <Link href="/#contact">Get in Touch</Link>
               </Button>
               <Button variant="outline" asChild>
-                <a href="mailto:contact@brightbyte.berlin">Send an Email</a>
+                <a href="mailto:hello@brightbyte-berlin.com">Send an Email</a>
               </Button>
             </div>
           </div>

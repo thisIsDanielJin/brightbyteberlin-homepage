@@ -7,7 +7,7 @@ export function JsonLd() {
     "@type": "ProfessionalService",
     name: "BrightByte Berlin",
     url: "https://brightbyte-berlin.com",
-    email: "contact@brightbyte.berlin",
+    email: "hello@brightbyte-berlin.com",
     founder: {
       "@type": "Person",
       name: "Daniel Jin Wodke",

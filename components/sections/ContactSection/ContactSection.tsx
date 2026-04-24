@@ -160,7 +160,7 @@ export function ContactSection() {
                         >
                             <span>Or reach out directly:</span>
                             <a
-                                href="mailto:contact@brightbyte.berlin"
+                                href="mailto:hello@brightbyte-berlin.com"
                                 className="inline-flex items-center gap-1.5 text-white/70 hover:text-bright transition-colors"
                             >
                                 <HiEnvelope className="w-4 h-4" />
