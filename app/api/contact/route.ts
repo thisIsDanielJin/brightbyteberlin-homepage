@@ -62,7 +62,7 @@ export async function POST(request: NextRequest) {
 
     // Send email via Resend
     const { error } = await resend.emails.send({
-      from: "BrightByte Contact <onboarding@resend.dev>",
+      from: "BrightByte Contact <noreply@brightbyte-berlin.com>",
       to: CONTACT_EMAIL,
       replyTo: formData.email.trim(),
       subject: `New inquiry from ${formData.name.trim()}`,
