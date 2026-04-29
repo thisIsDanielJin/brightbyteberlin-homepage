@@ -1,0 +1,76 @@
+"use client";
+
+import { useRef, useState, useEffect } from "react";
+import { WORK } from "@/data/content";
+import { WorkImage } from "./WorkImage";
+import Link from "next/link";
+
+const C = {
+  bg: "#F5F1E8",
+  surface: "#FBF8F1",
+  ink: "#14130F",
+  sub: "#6B665C",
+  accent: "#6B3977",
+  accentBg: "#EDE5F0",
+  hair: "rgba(20,19,15,0.08)",
+  hairStrong: "rgba(20,19,15,0.14)",
+};
+
+export function WorkSection() {
+  const ref = useRef<HTMLDivElement>(null);
+  const [inView, setInView] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) { setInView(true); obs.disconnect(); } }, { threshold: 0.15 });
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+
+  return (
+    <section id="work" style={{ padding: "112px 56px", background: `linear-gradient(180deg, ${C.bg} 0%, #F3EFE5 100%)`, borderBottom: `1px solid ${C.hair}` }}>
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 2fr", gap: 48, marginBottom: 64, alignItems: "baseline" }}>
+        <div className="mono" style={{ fontSize: 11, color: C.sub, letterSpacing: "0.12em", textTransform: "uppercase" }}>04 · Selected work</div>
+        <div>
+          <h2 style={{ fontSize: 56, fontWeight: 500, color: C.ink, letterSpacing: "-0.03em", lineHeight: 1.02, marginBottom: 18 }}>
+            Recent <span className="serif" style={{ fontStyle: "italic", fontWeight: 400 }}>projects</span>.
+          </h2>
+          <p style={{ fontSize: 17, color: C.sub, maxWidth: 520, lineHeight: 1.6 }}>
+            A selection of work shipped in the past 12 months. Real businesses, real outcomes.
+          </p>
+        </div>
+      </div>
+      <div ref={ref} style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 24 }}>
+        {WORK.map((w, idx) => (
+          <div key={w.tag} style={{ background: C.surface, borderRadius: 16, overflow: "hidden", cursor: "pointer", opacity: inView ? 1 : 0, transform: inView ? "translateY(0)" : "translateY(24px)", transition: `opacity 1s cubic-bezier(0.16,1,0.3,1) ${idx * 0.18}s, transform 1s cubic-bezier(0.16,1,0.3,1) ${idx * 0.18}s`, border: `1px solid ${C.hair}` }}>
+            <div style={{ height: 240 }}><WorkImage tag={w.tag} /></div>
+            <div style={{ padding: 24 }}>
+              <div style={{ display: "flex", gap: 3, alignItems: "center", marginBottom: 10 }}>
+                {Array.from({ length: w.stars }).map((_, i) => (
+                  <span key={i} style={{ color: C.accent, fontSize: 16 }}>★</span>
+                ))}
+                <span className="mono" style={{ fontSize: 11, color: C.ink, fontWeight: 600, marginLeft: 6 }}>5.0</span>
+              </div>
+              <p style={{ fontSize: 13, color: C.sub, fontStyle: "italic", lineHeight: 1.55, marginBottom: 14 }}>{w.quote}</p>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 6 }}>
+                <h3 style={{ fontSize: 17, fontWeight: 600, color: C.ink, letterSpacing: "-0.02em" }}>{w.client}</h3>
+                <span style={{ fontSize: 13, color: C.accent, display: "inline-flex" }}>→</span>
+              </div>
+              <div className="mono" style={{ fontSize: 10, color: C.sub, letterSpacing: "0.04em", marginBottom: 12 }}>{w.kind}</div>
+              <div style={{ display: "inline-flex", alignItems: "center", gap: 6, padding: "4px 10px", background: C.accentBg, borderRadius: 99 }}>
+                <span style={{ width: 5, height: 5, borderRadius: "50%", background: C.accent }} />
+                <span className="mono" style={{ fontSize: 11, color: C.accent, fontWeight: 600 }}>{w.metric}</span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div style={{ marginTop: 48, display: "flex", justifyContent: "center" }}>
+        <Link href="/#work" className="outline-hover" style={{ padding: "12px 24px", border: `1px solid ${C.hairStrong}`, borderRadius: 99, fontSize: 14, fontWeight: 500, color: C.ink, display: "flex", alignItems: "center", gap: 8, cursor: "pointer", textDecoration: "none" }}>
+          See all 12 projects <span style={{ color: C.accent }}>→</span>
+        </Link>
+      </div>
+    </section>
+  );
+}

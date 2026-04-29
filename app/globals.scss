@@ -2,31 +2,30 @@
 
 /* =================================
    BRIGHTBYTE BERLIN - DESIGN SYSTEM
-   "Stand Out. Get Found. Grow."
-   Dark Theme - Elements that Shine
+   "Bone" Direction — Light theme with plum accent
    ================================= */
 
 @theme inline {
-  --color-background: var(--color-bg-primary);
-  --color-foreground: var(--color-text-primary);
+  --color-background: var(--color-bg);
+  --color-foreground: var(--color-ink);
 
-  --color-bg-primary: #09090B;
-  --color-bg-secondary: #18181B;
-  --color-bg-elevated: #27272A;
-  --color-bg-card: #1C1C1F;
-  --color-bg-bright: #FFFFFF;
-  --color-text-primary: #FAFAFA;
-  --color-text-secondary: #A1A1AA;
-  --color-text-muted: #71717A;
-  --color-text-dark: #09090B;
-  --color-bright: #FBBF24;
-  --color-bright-hover: #FCD34D;
-  --color-bright-soft: #FDE68A;
-  --color-accent: #FBBF24;
-  --color-electric: #F59E0B;
+  --color-bg: #F5F1E8;
+  --color-surface: #FBF8F1;
+  --color-surface-alt: #FFFFFF;
+  --color-ink: #14130F;
+  --color-ink-soft: #3A3833;
+  --color-sub: #6B665C;
+  --color-sub-light: #9A958A;
+  --color-accent: #6B3977;
+  --color-accent-soft: #C4ADCF;
+  --color-accent-bg: #EDE5F0;
+  --color-green: #16A34A;
+  --color-hair: rgba(20, 19, 15, 0.08);
+  --color-hair-strong: rgba(20, 19, 15, 0.14);
 
-  --font-sans: var(--font-outfit);
-  --font-heading: var(--font-space-grotesk);
+  --font-sans: var(--font-geist);
+  --font-mono: var(--font-geist-mono);
+  --font-serif: var(--font-fraunces);
 }
 
 /* Design System Partials */

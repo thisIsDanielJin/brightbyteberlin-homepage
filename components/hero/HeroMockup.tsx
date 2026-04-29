@@ -1,0 +1,140 @@
+"use client";
+
+import { EChartsDonut } from "./EChartsDonut";
+import { EChartsBar } from "./EChartsBar";
+
+const C = {
+  bg: "#F5F1E8",
+  surface: "#FBF8F1",
+  ink: "#14130F",
+  sub: "#6B665C",
+  subLight: "#9A958A",
+  accent: "#6B3977",
+  hair: "rgba(20,19,15,0.08)",
+};
+
+export function HeroMockup({ phase }: { phase: number }) {
+  return (
+    <div
+      style={{
+        borderRadius: 14,
+        overflow: "hidden",
+        border: `1px solid ${C.hair}`,
+        boxShadow: phase >= 4 ? "0 32px 64px -24px rgba(20,19,15,0.18), 0 0 0 1px rgba(20,19,15,0.04)" : "0 16px 40px -16px rgba(20,19,15,0.12)",
+        transform: phase >= 1 ? "scale(1)" : "scale(0.96)",
+        opacity: phase >= 1 ? 1 : 0,
+        transition: "all 0.8s cubic-bezier(0.16, 1, 0.3, 1)",
+      }}
+    >
+      {/* Chrome bar */}
+      <div style={{ background: "#2A2926", padding: "11px 18px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+          <div style={{ display: "flex", gap: 5 }}>
+            {["#FF5C5C", "#FFC83D", "#28C940"].map((c) => (
+              <div key={c} style={{ width: 8, height: 8, borderRadius: "50%", background: c }} />
+            ))}
+          </div>
+          <div style={{ marginLeft: 12, padding: "4px 14px", background: "rgba(251,248,241,0.08)", borderRadius: 6, display: "flex", alignItems: "center", gap: 6 }}>
+            <span style={{ width: 8, height: 8, borderRadius: "50%", border: "1.5px solid rgba(251,248,241,0.3)" }} />
+            <span className="mono" style={{ fontSize: 10, color: "rgba(251,248,241,0.5)", letterSpacing: "0.04em" }}>client-site.de</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Dashboard content */}
+      <div style={{ background: C.surface, padding: 0, minHeight: 380, position: "relative", overflow: "hidden", display: "flex", flexDirection: "column" }}>
+        {/* Nav skeleton */}
+        <div style={{
+          padding: "12px 24px", borderBottom: `1px solid ${C.hair}`, display: "flex", justifyContent: "space-between", alignItems: "center",
+          transform: phase >= 1 ? "translateY(0)" : "translateY(-20px)",
+          opacity: phase >= 1 ? 1 : 0,
+          transition: "all 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.1s",
+        }}>
+          <div style={{ width: 70, height: 9, borderRadius: 4, background: phase >= 2 ? C.ink : C.hair, transition: "background 0.6s" }} />
+          <div style={{ display: "flex", gap: 14 }}>
+            {[40, 32, 36].map((w, i) => (
+              <div key={i} style={{ width: w, height: 7, borderRadius: 3, background: phase >= 2 ? C.subLight : C.hair, transition: `background 0.6s ${i * 0.1}s` }} />
+            ))}
+          </div>
+        </div>
+
+        {/* 3-column grid */}
+        <div style={{ padding: "16px 20px 20px", display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 14, flex: 1, opacity: phase >= 1 ? 1 : 0, transform: phase >= 1 ? "translateY(0)" : "translateY(12px)", transition: "all 0.6s cubic-bezier(0.16,1,0.3,1) 0.2s" }}>
+
+          {/* Left — Mini site preview + KPIs */}
+          <div style={{ display: "flex", flexDirection: "column", gap: 10, opacity: phase >= 2 ? 1 : 0, transform: phase >= 2 ? "scale(1)" : "scale(0.95)", transition: "all 0.7s cubic-bezier(0.16,1,0.3,1) 0.1s" }}>
+            {/* Mini site preview */}
+            <div style={{ flex: "0 0 60%", background: C.bg, borderRadius: 10, border: `1px solid ${C.hair}`, overflow: "hidden", display: "flex", flexDirection: "column" }}>
+              {/* Mini chrome */}
+              <div style={{ padding: "6px 10px", background: "#F0ECE4", borderBottom: `1px solid ${C.hair}`, display: "flex", alignItems: "center", gap: 5 }}>
+                <div style={{ display: "flex", gap: 3 }}>
+                  {["#FF5C5C", "#FFC83D", "#28C940"].map((c) => (
+                    <div key={c} style={{ width: 5, height: 5, borderRadius: "50%", background: c }} />
+                  ))}
+                </div>
+                <div style={{ flex: 1, marginLeft: 6, height: 8, background: "rgba(20,19,15,0.06)", borderRadius: 4, display: "flex", alignItems: "center", paddingLeft: 4 }}>
+                  <span className="mono" style={{ fontSize: 6, color: C.subLight, letterSpacing: "0.02em" }}>client-site.de</span>
+                </div>
+              </div>
+              {/* Mini page content */}
+              <div style={{ padding: "10px 12px", flex: 1 }}>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 10 }}>
+                  <div style={{ width: 32, height: 5, borderRadius: 2, background: C.ink }} />
+                  <div style={{ display: "flex", gap: 6 }}>
+                    {[16, 12, 14].map((w, i) => (
+                      <div key={i} style={{ width: w, height: 3, borderRadius: 1, background: C.hair }} />
+                    ))}
+                  </div>
+                </div>
+                <div style={{ marginBottom: 8 }}>
+                  <div style={{ width: "80%", height: 7, borderRadius: 2, background: C.ink, marginBottom: 4, opacity: 0.8 }} />
+                  <div style={{ width: "55%", height: 7, borderRadius: 2, background: C.ink, marginBottom: 8, opacity: 0.6 }} />
+                  <div style={{ width: "90%", height: 4, borderRadius: 1, background: C.hair, marginBottom: 3 }} />
+                  <div style={{ width: "75%", height: 4, borderRadius: 1, background: C.hair, marginBottom: 8 }} />
+                  <div style={{ width: 48, height: 14, borderRadius: 99, background: C.accent, opacity: 0.8 }} />
+                </div>
+                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 4, marginTop: 8 }}>
+                  <div style={{ height: 24, borderRadius: 4, background: C.hair, opacity: 0.5 }} />
+                  <div style={{ height: 24, borderRadius: 4, background: C.hair, opacity: 0.5 }} />
+                </div>
+              </div>
+              {/* Status badge */}
+              <div style={{ padding: "5px 10px", borderTop: `1px solid ${C.hair}`, display: "flex", alignItems: "center", gap: 5 }}>
+                <span style={{ width: 5, height: 5, borderRadius: "50%", background: "#28A745", animation: "pulse 2s ease-in-out infinite" }} />
+                <span className="mono" style={{ fontSize: 7, color: C.sub, letterSpacing: "0.04em" }}>LIVE · 12 visitors</span>
+              </div>
+            </div>
+            {/* KPI cards */}
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 5, flex: 1 }}>
+              {([["SESSIONS", "12.4K", "+18%"], ["LEADS", "47", "+34%"], ["SPEED", "98", "/100"]] as const).map(([label, val, delta]) => (
+                <div key={label} style={{ background: C.bg, borderRadius: 6, padding: "10px 6px", border: `1px solid ${C.hair}`, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 3 }}>
+                  <div className="mono" style={{ fontSize: 11, color: C.sub, letterSpacing: "0.06em", fontWeight: 500 }}>{label}</div>
+                  <span style={{ fontSize: 24, fontWeight: 700, color: C.ink, letterSpacing: "-0.02em" }}>{val}</span>
+                  <span className="mono" style={{ fontSize: 11, fontWeight: 600, color: "#16A34A", background: "rgba(22,163,74,0.1)", padding: "2px 7px", borderRadius: 3 }}>{delta}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Middle — Donut chart */}
+          <div style={{ background: C.bg, borderRadius: 8, padding: "6px 8px 4px", border: `1px solid ${C.hair}`, display: "flex", flexDirection: "column", opacity: phase >= 3 ? 1 : 0, transform: phase >= 3 ? "translateY(0)" : "translateY(8px)", transition: "all 0.7s cubic-bezier(0.16,1,0.3,1)" }}>
+            <EChartsDonut />
+          </div>
+
+          {/* Right — Bar chart */}
+          <div style={{ background: C.bg, borderRadius: 8, padding: "6px 8px 4px", border: `1px solid ${C.hair}`, display: "flex", flexDirection: "column", opacity: phase >= 3 ? 1 : 0, transform: phase >= 3 ? "translateY(0)" : "translateY(8px)", transition: "all 0.7s cubic-bezier(0.16,1,0.3,1) 0.1s" }}>
+            <EChartsBar />
+          </div>
+        </div>
+      </div>
+
+      {/* Keyframe for pulse animation */}
+      <style dangerouslySetInnerHTML={{ __html: `
+        @keyframes pulse {
+          0%, 100% { opacity:1; transform:scale(1); }
+          50% { opacity:0.5; transform:scale(0.75); }
+        }
+      ` }} />
+    </div>
+  );
+}

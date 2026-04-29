@@ -1,31 +1,64 @@
 "use client";
 
-import { Section, SectionHeader } from "@/components/layout/Section/Section";
-import { Accordion, AccordionItem } from "@/components/ui/Accordion/Accordion";
-import { ScrollReveal } from "@/components/animations/ScrollReveal/ScrollReveal";
-import { faqItems } from "@/data/faq";
+import { useState } from "react";
+import { FAQS } from "@/data/content";
+import Link from "next/link";
+
+const C = {
+  bg: "#F5F1E8",
+  surface: "#FBF8F1",
+  ink: "#14130F",
+  sub: "#6B665C",
+  accent: "#6B3977",
+  accentSoft: "#C4ADCF",
+  hair: "rgba(20,19,15,0.08)",
+  hairStrong: "rgba(20,19,15,0.14)",
+};
 
 export function FAQSection() {
-  return (
-    <Section id="faq" background="secondary" animate={false} className="relative overflow-hidden">
-      <div className="relative z-10">
-      <SectionHeader
-        title="Common Questions"
-        subtitle="Got questions? I've got answers."
-      />
+  const main = FAQS.find((f) => f.main);
+  const rest = FAQS.filter((f) => !f.main);
+  const [open, setOpen] = useState<Record<number, boolean>>({});
 
-      <ScrollReveal>
-        <div className="max-w-3xl mx-auto">
-          <Accordion>
-            {faqItems.map((item) => (
-              <AccordionItem key={item.id} title={item.question}>
-                {item.answer}
-              </AccordionItem>
-            ))}
-          </Accordion>
-        </div>
-      </ScrollReveal>
+  const toggle = (i: number) => setOpen((prev) => ({ ...prev, [i]: !prev[i] }));
+
+  return (
+    <section id="faq" style={{ padding: "112px 56px", background: C.surface, borderBottom: `1px solid ${C.hair}` }}>
+      <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", gap: 40, marginBottom: 56 }}>
+        <div className="mono" style={{ fontSize: 11, color: C.sub, letterSpacing: "0.12em", textTransform: "uppercase", flexShrink: 0 }}>07 · Questions</div>
+        <h2 style={{ fontSize: 48, fontWeight: 500, color: C.ink, letterSpacing: "-0.03em", lineHeight: 1.02 }}>
+          Common <span className="serif" style={{ fontStyle: "italic", fontWeight: 400 }}>questions</span>.
+        </h2>
+        <Link href="/#contact" className="outline-hover" style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "10px 18px", border: `1px solid ${C.hairStrong}`, borderRadius: 99, fontSize: 13, fontWeight: 500, color: C.ink, flexShrink: 0, cursor: "pointer", textDecoration: "none" }}>
+          Ask anything <span style={{ color: C.accent }}>→</span>
+        </Link>
       </div>
-    </Section>
+
+      {main && (
+        <div style={{ background: C.bg, border: `1.5px solid ${C.accentSoft}`, borderRadius: 16, padding: "36px 40px", marginBottom: 24, position: "relative" }}>
+          <div style={{ position: "absolute", top: -11, left: 32, padding: "3px 12px", background: C.accent, borderRadius: 99 }} className="mono">
+            <span style={{ fontSize: 10, color: C.surface, letterSpacing: "0.1em", fontWeight: 600 }}>MOST ASKED</span>
+          </div>
+          <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 14 }}>
+            <h3 style={{ fontSize: 22, fontWeight: 600, color: C.ink, letterSpacing: "-0.02em" }}>{main.q}</h3>
+          </div>
+          <p style={{ fontSize: 15, color: C.sub, lineHeight: 1.7, maxWidth: 700 }}>{main.a}</p>
+        </div>
+      )}
+
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, alignItems: "start" }}>
+        {rest.map((f, i) => (
+          <div key={i} onClick={() => toggle(i)} style={{ background: C.bg, border: `1px solid ${open[i] ? C.accentSoft : C.hair}`, borderRadius: 14, padding: "24px 30px", cursor: "pointer", transition: "border-color 0.25s ease" }}>
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+              <h3 style={{ fontSize: 16, fontWeight: 600, color: C.ink, letterSpacing: "-0.01em" }}>{f.q}</h3>
+              <span style={{ fontSize: 18, color: C.sub, transition: "transform 0.2s", transform: open[i] ? "rotate(45deg)" : "rotate(0deg)", flexShrink: 0, marginLeft: 12 }}>+</span>
+            </div>
+            {open[i] && (
+              <p style={{ fontSize: 14, color: C.sub, lineHeight: 1.65, marginTop: 14, paddingTop: 14, borderTop: `1px solid ${C.hair}` }}>{f.a}</p>
+            )}
+          </div>
+        ))}
+      </div>
+    </section>
   );
 }

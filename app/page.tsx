@@ -2,7 +2,13 @@ import dynamic from "next/dynamic";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { HeroSection } from "@/components/sections/HeroSection/HeroSection";
 
-// Below-the-fold sections — dynamically imported to defer framer-motion/heavy JS
+const TechStrip = dynamic(
+  () =>
+    import("@/components/sections/TechStackSection/TechStackSection").then(
+      (mod) => mod.TechStrip
+    )
+);
+
 const ServicesSection = dynamic(
   () =>
     import("@/components/sections/ServicesSection/ServicesSection").then(
@@ -10,10 +16,24 @@ const ServicesSection = dynamic(
     )
 );
 
-const ProjectsSection = dynamic(
+const ProcessSection = dynamic(
   () =>
-    import("@/components/sections/ProjectsSection/ProjectsSection").then(
-      (mod) => mod.ProjectsSection
+    import("@/components/sections/ProcessSection/ProcessSection").then(
+      (mod) => mod.ProcessSection
+    )
+);
+
+const CTABanner = dynamic(
+  () =>
+    import("@/components/sections/CTABanner/CTABanner").then(
+      (mod) => mod.CTABanner
+    )
+);
+
+const WorkSection = dynamic(
+  () =>
+    import("@/components/sections/WorkSection/WorkSection").then(
+      (mod) => mod.WorkSection
     )
 );
 
@@ -24,17 +44,10 @@ const AboutSection = dynamic(
     )
 );
 
-const AISection = dynamic(
+const PricingSection = dynamic(
   () =>
-    import("@/components/sections/AISection/AISection").then(
-      (mod) => mod.AISection
-    )
-);
-
-const TechStackSection = dynamic(
-  () =>
-    import("@/components/sections/TechStackSection/TechStackSection").then(
-      (mod) => mod.TechStackSection
+    import("@/components/sections/PricingSection/PricingSection").then(
+      (mod) => mod.PricingSection
     )
 );
 
@@ -57,11 +70,13 @@ export default function Home() {
     <>
       <JsonLd />
       <HeroSection />
+      <TechStrip />
       <ServicesSection />
-      <ProjectsSection />
+      <ProcessSection />
+      <CTABanner />
+      <WorkSection />
       <AboutSection />
-      <AISection />
-      <TechStackSection />
+      <PricingSection />
       <FAQSection />
       <ContactSection />
     </>

@@ -1,114 +1,60 @@
 /* =================================
    EFFECTS
-   Spotlight, text-glow, gradient-text, card-glow,
-   glass-dark/light, btn-glow, section-bright
+   Button hover, card hover, nav-link, utilities
    ================================= */
 
-/* Spotlight beam from above */
-.spotlight-beam {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100%;
-  height: 100%;
-  background:
-    conic-gradient(
-      from 180deg at 50% 0%,
-      transparent 40%,
-      rgba(251, 191, 36, 0.03) 45%,
-      rgba(251, 191, 36, 0.08) 50%,
-      rgba(251, 191, 36, 0.03) 55%,
-      transparent 60%
-    );
-  pointer-events: none;
+/* Button hover — scale + shadow */
+.btn-hover {
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
 }
 
-/* Spotlight glow source */
-.spotlight-source {
-  position: absolute;
-  top: -100px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 200px;
-  height: 200px;
-  background: radial-gradient(circle, rgba(251, 191, 36, 0.6) 0%, transparent 70%);
-  filter: blur(40px);
-  pointer-events: none;
+.btn-hover:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
 }
 
-/* Glowing text */
-.text-glow {
-  color: var(--color-bright);
-  text-shadow: 0 0 40px rgba(251, 191, 36, 0.5);
+/* Card hover — lift + border */
+.card-hover {
+  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
 }
 
-/* Gradient text */
-.gradient-text {
-  background: linear-gradient(135deg, var(--color-bright) 0%, var(--color-bright-soft) 50%, var(--color-electric) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* Card with subtle glow on hover */
-.card-glow {
-  background: var(--color-bg-card);
-  border: 1.5px solid rgba(255, 255, 255, 0.08);
-  transition: all var(--transition-base);
-  will-change: transform;
-}
-
-.card-glow:hover {
-  border-width: 2px;
-  border-color: rgba(251, 191, 36, 0.3);
-  box-shadow: var(--glow-sm);
+.card-hover:hover {
   transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-hair-strong);
 }
 
-/* Glass effect - dark */
-.glass-dark {
-  background: var(--glass-dark);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid var(--glass-border-dark);
-}
-
-/* Glass effect - light (for bright section) */
-.glass-light {
-  background: var(--glass-light);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid var(--glass-border-light);
-}
-
-/* Button glow */
-.btn-glow {
+/* Nav link — underline from left */
+.nav-link {
   position: relative;
-  overflow: hidden;
+  transition: color var(--transition-fast);
 }
 
-.btn-glow::before {
+.nav-link::after {
   content: '';
   position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-  transform: translateX(-100%);
-  transition: transform 0.6s ease;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background: var(--color-accent);
+  transition: width var(--transition-base);
 }
 
-.btn-glow:hover::before {
-  transform: translateX(100%);
+.nav-link:hover {
+  color: var(--color-ink);
 }
 
-/* Bright section (Customer's time to shine) */
-.section-bright {
-  background: var(--color-bg-bright);
-  color: var(--color-text-dark);
+.nav-link:hover::after {
+  width: 100%;
 }
 
-.section-bright h1,
-.section-bright h2,
-.section-bright h3 {
-  color: var(--color-text-dark);
+/* Outline button hover */
+.outline-hover {
+  transition: background var(--transition-fast), border-color var(--transition-fast);
+}
+
+.outline-hover:hover {
+  background: var(--color-hair);
+  border-color: var(--color-hair-strong);
 }

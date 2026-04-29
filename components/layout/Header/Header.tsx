@@ -2,162 +2,160 @@
 
 import { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
-import { cn } from "@/lib/utils";
 import { navLinks } from "@/data/navigation";
-import { Container } from "@/components/ui/Container/Container";
-import { Button } from "@/components/ui/Button/Button";
 import Link from "next/link";
 
-// Lazy-load mobile menu (contains framer-motion AnimatePresence)
 const MobileMenu = dynamic(
   () => import("./MobileMenu").then((mod) => mod.MobileMenu),
   { ssr: false }
 );
 
-// D1 Pixel Cluster Logo
-function PixelClusterLogo({ className, inverted = false }: { className?: string; inverted?: boolean }) {
-  const color = inverted ? "#09090b" : "#FBBF24";
-
+function BrightByteLogo({ size = 28 }: { size?: number }) {
   return (
-    <svg
-      width="24"
-      height="24"
-      viewBox="0 0 32 32"
-      fill="none"
-      className={className}
-    >
-      <rect x="4" y="4" width="6" height="6" rx="1" fill={color} opacity={0.3} />
-      <rect x="12" y="4" width="6" height="6" rx="1" fill={color} opacity={0.5} />
-      <rect x="4" y="12" width="6" height="6" rx="1" fill={color} opacity={0.6} />
-      <rect x="12" y="12" width="6" height="6" rx="1" fill={color} />
-      <rect x="20" y="12" width="6" height="6" rx="1" fill={color} opacity={0.7} />
-      <rect x="12" y="20" width="6" height="6" rx="1" fill={color} opacity={0.4} />
-      <rect x="20" y="20" width="6" height="6" rx="1" fill={color} opacity={0.8} />
+    <svg width={size} height={size} viewBox="0 0 32 32" fill="none">
+      <rect x="2" y="22" width="8" height="8" rx="1.5" fill="#6B3977" />
+      <rect x="12" y="22" width="8" height="8" rx="1.5" fill="#6B3977" />
+      <rect x="2" y="12" width="8" height="8" rx="1.5" fill="#6B3977" />
+      <rect x="12" y="12" width="8" height="8" rx="3" fill="#6B3977" opacity="0.85" />
+      <rect x="22" y="12" width="8" height="8" rx="4" fill="#6B3977" opacity="0.7" />
+      <circle cx="26" cy="6" r="4.5" fill="#6B3977" opacity="0.45" />
     </svg>
   );
 }
 
 export function Header() {
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth >= 1024) {
-        setIsMobileMenuOpen(false);
-      }
+      if (window.innerWidth >= 1024) setIsMobileMenuOpen(false);
     };
-
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   useEffect(() => {
-    if (isMobileMenuOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-    return () => {
-      document.body.style.overflow = "";
-    };
+    document.body.style.overflow = isMobileMenuOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
   }, [isMobileMenuOpen]);
 
   return (
     <>
       <header
-        className={cn(
-          "fixed top-0 left-0 right-0 z-50",
-          "transition-all duration-500 ease-out",
-          isScrolled ? "py-3 px-2" : "py-5 px-0"
-        )}
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          padding: scrolled ? "14px 56px" : "22px 56px",
+          borderBottom: `1px solid ${scrolled ? "var(--color-hair)" : "transparent"}`,
+          background: scrolled ? "rgba(245,241,232,0.85)" : "var(--color-bg)",
+          position: "sticky",
+          top: 0,
+          zIndex: 50,
+          backdropFilter: scrolled ? "blur(16px) saturate(1.4)" : "none",
+          WebkitBackdropFilter: scrolled ? "blur(16px) saturate(1.4)" : "none",
+          transition: "all 0.35s cubic-bezier(0.16,1,0.3,1)",
+        }}
       >
-        <div
-          className={cn(
-            "transition-all duration-500 ease-out mx-auto border",
-            isScrolled
-              ? "max-w-5xl rounded-2xl shadow-lg bg-bg-secondary/80 backdrop-blur-xl border-white/10 shadow-black/20"
-              : "max-w-7xl bg-transparent border-transparent"
-          )}
+        {/* Logo + Wordmark */}
+        <Link href="/" style={{ display: "flex", alignItems: "center", gap: 10, textDecoration: "none" }}>
+          <BrightByteLogo size={scrolled ? 22 : 28} />
+          <div
+            style={{
+              fontSize: scrolled ? 14 : 15,
+              letterSpacing: "-0.01em",
+              transition: "font-size 0.35s ease",
+            }}
+          >
+            <span style={{ fontWeight: 600, color: "var(--color-ink)" }}>bright</span>
+            <span className="serif" style={{ fontStyle: "italic", fontWeight: 400, color: "var(--color-accent)" }}>byte</span>
+            <span style={{ color: "var(--color-sub)", fontWeight: 400 }}>.berlin</span>
+          </div>
+        </Link>
+
+        {/* Desktop Center Nav */}
+        <nav
+          style={{
+            position: "absolute",
+            left: "50%",
+            transform: "translateX(-50%)",
+            display: "flex",
+            gap: 32,
+            fontSize: 14,
+            color: "var(--color-ink-soft)",
+          }}
+          className="hidden lg:flex"
         >
-          <Container className={cn(isScrolled && "px-3")}>
-            <nav className="flex items-center justify-between py-4">
-              {/* Logo */}
-              <Link
-                href="/"
-                onClick={(e) => { e.preventDefault(); window.location.href = "/"; }}
-                className="flex items-center gap-3 text-xl font-bold tracking-tight transition-all hover:opacity-80 group"
-              >
-                <div className="w-10 h-10 rounded-xl flex items-center justify-center transition-all bg-gradient-to-br from-bright/10 to-electric/10 border border-bright/20">
-                  <PixelClusterLogo />
-                </div>
-                <span className="transition-colors text-text-primary">
-                  <span className="text-bright">Bright</span>
-                  <span>Byte</span>
-                  <span className="text-text-muted font-normal ml-1">Berlin</span>
-                </span>
-              </Link>
+          {navLinks.map((item) => (
+            <Link
+              key={item.label}
+              href={item.href}
+              className="nav-link"
+              style={{ cursor: "pointer", textDecoration: "none", color: "inherit" }}
+            >
+              {item.label}
+            </Link>
+          ))}
+        </nav>
 
-              {/* Desktop Navigation */}
-              <div className="hidden lg:flex items-center gap-1">
-                {navLinks.map((link) => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    className={cn(
-                      "relative px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200",
-                      "text-text-muted hover:text-text-primary",
-                      "hover:bg-white/[0.06]"
-                    )}
-                  >
-                    {link.label}
-                  </Link>
-                ))}
-              </div>
-
-              {/* Desktop CTA */}
-              <div className="hidden lg:flex items-center gap-3">
-                <Button size="sm" variant="outline" className="rounded-lg" asChild>
-                  <Link href="/blog">Blog</Link>
-                </Button>
-                <Button size="sm" className="rounded-lg" asChild>
-                  <Link href="/#contact">Get Started</Link>
-                </Button>
-              </div>
-
-              {/* Mobile Menu Button */}
-              <button
-                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="lg:hidden p-2.5 -mr-2 rounded-xl transition-colors text-text-primary hover:bg-white/10"
-                aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
-                aria-expanded={isMobileMenuOpen}
-              >
-                {isMobileMenuOpen ? (
-                  <svg className="h-6 w-6" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                    <path fillRule="evenodd" d="M5.47 5.47a.75.75 0 0 1 1.06 0L12 10.94l5.47-5.47a.75.75 0 1 1 1.06 1.06L13.06 12l5.47 5.47a.75.75 0 1 1-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 0 1-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 0 1 0-1.06Z" clipRule="evenodd" />
-                  </svg>
-                ) : (
-                  <svg className="h-6 w-6" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                    <path fillRule="evenodd" d="M3 6.75A.75.75 0 0 1 3.75 6h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 6.75ZM3 12a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 12Zm0 5.25a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75a.75.75 0 0 1-.75-.75Z" clipRule="evenodd" />
-                  </svg>
-                )}
-              </button>
-            </nav>
-          </Container>
+        {/* Desktop CTA */}
+        <div className="hidden lg:flex" style={{ alignItems: "center", gap: 16 }}>
+          <Link
+            href="/#contact"
+            className="btn-hover"
+            style={{
+              padding: scrolled ? "7px 16px" : "9px 18px",
+              background: "var(--color-ink)",
+              color: "var(--color-surface)",
+              borderRadius: 99,
+              fontSize: 13,
+              fontWeight: 500,
+              display: "flex",
+              alignItems: "center",
+              gap: 6,
+              cursor: "pointer",
+              transition: "padding 0.35s ease",
+              textDecoration: "none",
+            }}
+          >
+            Start a project <span style={{ color: "var(--color-accent)" }}>→</span>
+          </Link>
         </div>
+
+        {/* Mobile Hamburger */}
+        <button
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          className="lg:hidden"
+          style={{
+            padding: 8,
+            background: "none",
+            border: "none",
+            cursor: "pointer",
+            color: "var(--color-ink)",
+          }}
+          aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+          aria-expanded={isMobileMenuOpen}
+        >
+          {isMobileMenuOpen ? (
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path fillRule="evenodd" d="M5.47 5.47a.75.75 0 0 1 1.06 0L12 10.94l5.47-5.47a.75.75 0 1 1 1.06 1.06L13.06 12l5.47 5.47a.75.75 0 1 1-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 0 1-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 0 1 0-1.06Z" clipRule="evenodd" />
+            </svg>
+          ) : (
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path fillRule="evenodd" d="M3 6.75A.75.75 0 0 1 3.75 6h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 6.75ZM3 12a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 12Zm0 5.25a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75a.75.75 0 0 1-.75-.75Z" clipRule="evenodd" />
+            </svg>
+          )}
+        </button>
       </header>
 
-      {/* Mobile Menu — lazy loaded, only imports framer-motion when needed */}
       <MobileMenu
         isOpen={isMobileMenuOpen}
         onClose={() => setIsMobileMenuOpen(false)}

@@ -1,14 +1,22 @@
-import { Space_Grotesk, Outfit } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
+import { Fraunces } from "next/font/google";
 
-export const outfit = Outfit({
+export const geist = Geist({
   subsets: ["latin"],
-  variable: "--font-outfit",
+  variable: "--font-geist",
   display: "swap",
 });
 
-export const spaceGrotesk = Space_Grotesk({
+export const geistMono = Geist_Mono({
   subsets: ["latin"],
-  variable: "--font-space-grotesk",
+  variable: "--font-geist-mono",
   display: "swap",
-  weight: ["400", "500", "700"],
+});
+
+export const fraunces = Fraunces({
+  subsets: ["latin"],
+  variable: "--font-fraunces",
+  display: "swap",
+  weight: ["400", "500"],
+  style: ["normal", "italic"],
 });

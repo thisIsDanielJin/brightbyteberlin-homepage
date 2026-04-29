@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { outfit, spaceGrotesk } from "@/lib/fonts";
+import { geist, geistMono, fraunces } from "@/lib/fonts";
 import { Header } from "@/components/layout/Header/Header";
 import { Footer } from "@/components/layout/Footer/Footer";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -67,7 +67,8 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${outfit.variable} ${spaceGrotesk.variable} ${outfit.className} antialiased bg-bg-primary`}
+        className={`${geist.variable} ${geistMono.variable} ${fraunces.variable} ${geist.className} antialiased`}
+        style={{ background: "var(--color-bg)", color: "var(--color-ink)" }}
       >
         <Header />
         <main>{children}</main>

@@ -1,168 +1,46 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Section } from "@/components/layout/Section/Section";
-import { IconType } from "react-icons";
-import { HiCommandLine } from "react-icons/hi2";
-import {
-  SiReact,
-  SiNextdotjs,
-  SiTypescript,
-  SiTailwindcss,
-  SiFramer,
-  SiNodedotjs,
-  SiGo,
-  SiPostgresql,
-  SiGit,
-  SiFigma,
-  SiVercel,
-  SiDocker,
-  SiKubernetes,
-  SiGraphql,
-} from "react-icons/si";
+const C = {
+  bg: "#F5F1E8",
+  sub: "#6B665C",
+  inkSoft: "#3A3833",
+};
 
-interface TechItem {
-  name: string;
-  icon: IconType;
-  color: string;
-}
+const TECH_ICONS: Record<string, { svg: React.ReactNode; color?: string }> = {
+  "Next.js": { svg: <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M11.572 0c-.176 0-.31.001-.358.007a19.76 19.76 0 0 1-.364.033C7.443.346 4.25 2.185 2.228 5.012a11.875 11.875 0 0 0-2.119 5.243c-.096.659-.108.854-.108 1.747s.012 1.089.108 1.748c.652 4.506 3.86 8.292 8.209 9.695.779.25 1.6.422 2.534.525.363.04 1.935.04 2.299 0 1.611-.178 2.977-.577 4.323-1.264.207-.106.247-.134.219-.158-.02-.013-.9-1.193-1.955-2.62l-1.919-2.592-2.404-3.558a338.739 338.739 0 0 0-2.422-3.556c-.009-.002-.018 1.579-.023 3.51-.007 3.38-.01 3.515-.052 3.595a.426.426 0 0 1-.206.214c-.075.037-.14.044-.495.044H7.81l-.108-.068a.438.438 0 0 1-.157-.171l-.05-.106.006-4.703.007-4.705.072-.092a.645.645 0 0 1 .174-.143c.096-.047.134-.051.54-.051.478 0 .558.018.682.154.035.038 1.337 1.999 2.895 4.361a10760.433 10760.433 0 0 0 4.735 7.17l1.9 2.879.096-.063a12.317 12.317 0 0 0 2.466-2.163 11.944 11.944 0 0 0 2.824-6.134c.096-.66.108-.854.108-1.748 0-.893-.012-1.088-.108-1.747-.652-4.506-3.859-8.292-8.208-9.695a12.597 12.597 0 0 0-2.499-.523A33.119 33.119 0 0 0 11.573 0zm4.069 7.217c.347 0 .408.005.486.047a.473.473 0 0 1 .237.277c.018.06.023 1.365.018 4.304l-.006 4.218-.744-1.14-.746-1.14v-3.066c0-1.982.01-3.097.023-3.15a.478.478 0 0 1 .233-.296c.096-.05.13-.054.5-.054z"/></svg> },
+  "TypeScript": { svg: <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M1.125 0C.502 0 0 .502 0 1.125v21.75C0 23.498.502 24 1.125 24h21.75c.623 0 1.125-.502 1.125-1.125V1.125C24 .502 23.498 0 22.875 0zm17.363 9.75c.612 0 1.154.037 1.627.111a6.38 6.38 0 0 1 1.306.34v2.458a3.95 3.95 0 0 0-.643-.361 5.093 5.093 0 0 0-.717-.26 5.453 5.453 0 0 0-1.426-.2c-.3 0-.573.028-.819.086a2.1 2.1 0 0 0-.623.242c-.17.104-.3.229-.393.374a.888.888 0 0 0-.14.49c0 .196.053.373.156.529.104.156.252.304.443.444s.423.276.696.41c.273.135.582.274.926.416.47.197.892.407 1.266.628.374.222.695.473.963.753.268.279.472.598.614.957.142.359.214.776.214 1.253 0 .657-.125 1.21-.373 1.656a3.033 3.033 0 0 1-1.012 1.085 4.38 4.38 0 0 1-1.487.596c-.566.12-1.163.18-1.79.18a9.916 9.916 0 0 1-1.84-.164 5.544 5.544 0 0 1-1.512-.493v-2.63a5.033 5.033 0 0 0 3.237 1.2c.333 0 .624-.03.872-.09.249-.06.456-.144.623-.25.166-.108.29-.234.373-.38a1.023 1.023 0 0 0 .122-.49c0-.207-.06-.395-.18-.564a1.877 1.877 0 0 0-.556-.472 8.66 8.66 0 0 0-.923-.437 30.36 30.36 0 0 1-1.055-.45 5.64 5.64 0 0 1-1.178-.685 3.193 3.193 0 0 1-.832-1.002 3.032 3.032 0 0 1-.312-1.43c0-.614.116-1.137.348-1.568.232-.43.556-.787.97-1.068a4.24 4.24 0 0 1 1.443-.585 7.918 7.918 0 0 1 1.79-.195zm-5.422 2.203h-3.75V18h-2.25V11.953H3.75V9.75h9.316z"/></svg>, color: "#3178C6" },
+  "React": { svg: <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M14.23 12.004a2.236 2.236 0 0 1-2.235 2.236 2.236 2.236 0 0 1-2.236-2.236 2.236 2.236 0 0 1 2.235-2.236 2.236 2.236 0 0 1 2.236 2.236zm2.648-10.69c-1.346 0-3.107.96-4.888 2.622-1.78-1.653-3.542-2.602-4.887-2.602-.41 0-.783.093-1.106.278-1.375.793-1.683 3.264-.973 6.365C1.98 8.917 0 10.42 0 12.004c0 1.59 1.99 3.097 5.043 4.03-.704 3.113-.39 5.588.988 6.38.32.187.69.275 1.102.275 1.345 0 3.107-.96 4.888-2.624 1.78 1.654 3.542 2.603 4.887 2.603.41 0 .783-.09 1.106-.275 1.374-.792 1.683-3.263.973-6.365C22.02 15.096 24 13.59 24 12.004c0-1.59-1.99-3.097-5.043-4.032.704-3.11.39-5.587-.988-6.38a2.167 2.167 0 0 0-1.097-.278z"/></svg>, color: "#61DAFB" },
+  "Tailwind": { svg: <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12.001 4.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C13.666 10.618 15.027 12 18.001 12c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C16.337 6.182 14.976 4.8 12.001 4.8zm-6 7.2c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624 1.177 1.194 2.538 2.576 5.512 2.576 3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C10.337 13.382 8.976 12 6.001 12z"/></svg>, color: "#06B6D4" },
+  "Framer Motion": { svg: <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M4 0h16v8h-8zM4 8h8l8 8H4zM4 16h8v8z"/></svg>, color: "#0055FF" },
+  "Node.js": { svg: <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M11.998 24c-.321 0-.641-.084-.924-.247l-2.938-1.737c-.438-.245-.224-.332-.079-.383.585-.203.703-.25 1.328-.605.065-.037.151-.023.218.017l2.256 1.339a.3.3 0 0 0 .272 0l8.795-5.076a.277.277 0 0 0 .134-.238V6.921a.283.283 0 0 0-.137-.242l-8.791-5.072a.268.268 0 0 0-.271 0L3.075 6.678a.284.284 0 0 0-.139.242v10.15c0 .097.054.189.137.236l2.409 1.392c1.307.654 2.108-.116 2.108-.891V7.787c0-.142.114-.253.256-.253h1.115c.139 0 .255.111.255.253v10.021c0 1.745-.95 2.745-2.604 2.745-.508 0-.909 0-2.026-.551L2.28 18.675a1.86 1.86 0 0 1-.924-1.609V6.921c0-.663.353-1.278.924-1.609l8.795-5.078c.557-.315 1.297-.315 1.848 0l8.794 5.078c.573.332.926.947.926 1.609v10.145c0 .664-.353 1.281-.926 1.613l-8.794 5.078a1.87 1.87 0 0 1-.925.243z"/></svg>, color: "#339933" },
+  "Go": { svg: <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M1.811 10.231c-.047 0-.058-.023-.035-.059l.246-.315c.023-.035.081-.058.128-.058h4.172c.046 0 .058.035.035.07l-.199.303c-.023.036-.082.07-.117.07zM.047 11.306c-.047 0-.059-.023-.035-.058l.245-.316c.023-.035.082-.058.129-.058h5.328c.047 0 .07.035.058.07l-.093.28c-.012.047-.058.07-.105.07zm2.828 1.075c-.047 0-.059-.035-.035-.07l.163-.292c.023-.035.07-.07.117-.07h2.337c.047 0 .07.035.07.082l-.023.28c0 .047-.047.082-.082.082z"/></svg>, color: "#00ADD8" },
+  "PostgreSQL": { svg: <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.128 0a10.134 10.134 0 0 0-2.755.403l-.063.02A10.922 10.922 0 0 0 12.6.258C11.422.238 10.347.524 9.55 1.1 8.786.636 7.058.2 5.282.46 3.834.672 2.208 1.432 1.322 3.104.243 5.155.526 7.98 1.38 10.512c.27.8.567 1.55.862 2.222.436 1 .883 1.847 1.27 2.39.376.527.834 1.078 1.508 1.178.544.081.99-.105 1.353-.38-.003.058-.006.115-.006.173 0 .64.083 1.237.222 1.714l.015.05c.15.457.22.594.615 1.025.25.272.671.608 1.396.563.86-.053 1.387-.452 1.727-1.004.184-.299.3-.632.38-.989.072-.32.112-.667.13-1.025.013-.252.016-.507.012-.757l.015-.002c.387.086.89.098 1.393-.048.437-.126.878-.362 1.22-.76.36-.42.575-.97.65-1.67.026-.242.032-.494.024-.75.364-.017.72-.061 1.041-.161.538-.168.99-.46 1.262-.926.29-.496.35-1.065.243-1.617a4.336 4.336 0 0 0-.548-1.32c.514-.178.937-.44 1.255-.81.448-.52.604-1.153.577-1.798-.025-.594-.24-1.185-.553-1.722C21.473 1.874 19.78.6 17.128 0z"/></svg>, color: "#336791" },
+  "GraphQL": { svg: <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12.002 0a2.138 2.138 0 1 0 0 4.277 2.138 2.138 0 1 0 0-4.277zm8.54 4.931a2.138 2.138 0 1 0 0 4.277 2.138 2.138 0 1 0 0-4.277zm0 9.862a2.138 2.138 0 1 0 0 4.277 2.138 2.138 0 1 0 0-4.277zm-8.54 4.931a2.138 2.138 0 1 0 0 4.276 2.138 2.138 0 1 0 0-4.276zm-8.542-4.93a2.138 2.138 0 1 0 0 4.276 2.138 2.138 0 1 0 0-4.277zm0-9.863a2.138 2.138 0 1 0 0 4.277 2.138 2.138 0 1 0 0-4.277z"/></svg>, color: "#E10098" },
+  "Vercel": { svg: <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M24 22.525H0l12-21.05 12 21.05z"/></svg> },
+  "Docker": { svg: <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M13.983 11.078h2.119a.186.186 0 0 0 .186-.185V9.006a.186.186 0 0 0-.186-.186h-2.119a.185.185 0 0 0-.185.185v1.888c0 .102.083.185.185.185m-2.954-5.43h2.118a.186.186 0 0 0 .186-.186V3.574a.186.186 0 0 0-.186-.185h-2.118a.185.185 0 0 0-.185.185v1.888c0 .102.082.185.185.185m0 2.716h2.118a.187.187 0 0 0 .186-.186V6.29a.186.186 0 0 0-.186-.185h-2.118a.185.185 0 0 0-.185.185v1.887c0 .102.082.185.185.186m-2.93 0h2.12a.186.186 0 0 0 .184-.186V6.29a.185.185 0 0 0-.185-.185H8.1a.185.185 0 0 0-.185.185v1.887c0 .102.083.185.185.186m-2.964 0h2.119a.186.186 0 0 0 .185-.186V6.29a.185.185 0 0 0-.185-.185H5.136a.186.186 0 0 0-.186.185v1.887c0 .102.084.185.186.186m5.893 2.715h2.118a.186.186 0 0 0 .186-.185V9.006a.186.186 0 0 0-.186-.186h-2.118a.185.185 0 0 0-.185.185v1.888c0 .102.082.185.185.185m-2.93 0h2.12a.185.185 0 0 0 .184-.185V9.006a.185.185 0 0 0-.184-.186h-2.12a.185.185 0 0 0-.184.185v1.888c0 .102.083.185.185.185m-2.964 0h2.119a.185.185 0 0 0 .185-.185V9.006a.185.185 0 0 0-.184-.186h-2.12a.186.186 0 0 0-.186.186v1.887c0 .102.084.185.186.185m-2.92 0h2.12a.185.185 0 0 0 .184-.185V9.006a.185.185 0 0 0-.184-.186h-2.12a.185.185 0 0 0-.184.185v1.888c0 .102.082.185.185.185M23.763 9.89c-.065-.051-.672-.51-1.954-.51-.338.001-.676.03-1.01.087-.248-1.7-1.653-2.53-1.716-2.566l-.344-.199-.226.327c-.284.438-.49.922-.612 1.43-.23.97-.09 1.882.403 2.661-.595.332-1.55.413-1.744.42H.751a.751.751 0 0 0-.75.748 11.376 11.376 0 0 0 .692 4.062c.545 1.428 1.355 2.48 2.41 3.124 1.18.723 3.1 1.137 5.275 1.137.983.003 1.963-.086 2.93-.266a12.248 12.248 0 0 0 3.823-1.389c.98-.567 1.86-1.288 2.61-2.136 1.252-1.418 1.998-2.997 2.553-4.4h.221c1.372 0 2.215-.549 2.68-1.009.309-.293.55-.65.707-1.046l.098-.288Z"/></svg>, color: "#2496ED" },
+  "Git": { svg: <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M23.546 10.93L13.067.452c-.604-.603-1.582-.603-2.188 0L8.708 2.627l2.76 2.76c.645-.215 1.379-.07 1.889.441.516.515.658 1.258.438 1.9l2.66 2.66c.645-.222 1.387-.078 1.9.435.721.72.721 1.884 0 2.604-.72.719-1.886.719-2.605 0-.539-.541-.674-1.337-.404-1.996L12.86 8.955v6.525c.176.086.342.203.488.348.713.721.713 1.883 0 2.6-.719.721-1.889.721-2.609 0-.719-.719-.719-1.879 0-2.598.182-.18.387-.316.605-.406V8.835c-.217-.091-.424-.222-.6-.401-.545-.545-.676-1.342-.396-2.009L7.636 3.7.45 10.881c-.6.605-.6 1.584 0 2.189l10.48 10.477c.604.604 1.582.604 2.186 0l10.43-10.43c.605-.603.605-1.582 0-2.187"/></svg>, color: "#F05032" },
+  "Kubernetes": { svg: <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M10.204 14.35l.007.01-.999 2.413a5.171 5.171 0 0 1-2.075-2.597l2.578-.437.004.005a.44.44 0 0 1 .484.606zm-.833-2.129a.44.44 0 0 0 .173-.756l.002-.011L7.585 9.7a5.143 5.143 0 0 0-.73 3.255l2.514-.725.002-.009zm1.145-1.98a.44.44 0 0 0 .699-.337l.01-.005.15-2.62a5.144 5.144 0 0 0-3.01 1.442l2.147 1.523.004-.002zm2.369 1.482a.44.44 0 0 0 .694.337l2.15 1.524a5.144 5.144 0 0 0-.735-3.255l-1.96 1.754-.002.009zm.287 1.67a.44.44 0 0 0-.486.606l.004.005 2.078.437a5.171 5.171 0 0 0-2.075-2.597l-.999 2.413.007.01zM12 6.82a5.2 5.2 0 0 0-5.2 5.2 5.2 5.2 0 0 0 5.2 5.2 5.2 5.2 0 0 0 5.2-5.2A5.2 5.2 0 0 0 12 6.82zm0-2.8c-4.415 0-8 3.585-8 8s3.585 8 8 8 8-3.585 8-8-3.585-8-8-8z"/></svg>, color: "#326CE5" },
+};
 
-const row1: TechItem[] = [
-  { name: "React", icon: SiReact, color: "#61DAFB" },
-  { name: "Next.js", icon: SiNextdotjs, color: "#FFFFFF" },
-  { name: "TypeScript", icon: SiTypescript, color: "#3178C6" },
-  { name: "Tailwind CSS", icon: SiTailwindcss, color: "#06B6D4" },
-  { name: "Framer Motion", icon: SiFramer, color: "#0055FF" },
-  { name: "Node.js", icon: SiNodedotjs, color: "#339933" },
-  { name: "GraphQL", icon: SiGraphql, color: "#E10098" },
-];
+const techs = ["Next.js", "TypeScript", "React", "Tailwind", "Framer Motion", "Node.js", "Go", "PostgreSQL", "GraphQL", "Kubernetes", "Git", "Vercel", "Docker"];
 
-const row2: TechItem[] = [
-  { name: "Go", icon: SiGo, color: "#00ADD8" },
-  { name: "PostgreSQL", icon: SiPostgresql, color: "#4169E1" },
-  { name: "Kubernetes", icon: SiKubernetes, color: "#326CE5" },
-  { name: "Git", icon: SiGit, color: "#F05032" },
-  { name: "Figma", icon: SiFigma, color: "#F24E1E" },
-  { name: "Vercel", icon: SiVercel, color: "#FFFFFF" },
-  { name: "Docker", icon: SiDocker, color: "#2496ED" },
-];
-
-function MarqueeRow({
-  items,
-  reverse = false,
-  speed = 30,
-}: {
-  items: TechItem[];
-  reverse?: boolean;
-  speed?: number;
-}) {
-  const repeated = [...items, ...items, ...items, ...items];
-
+function TechItem({ name }: { name: string }) {
+  const icon = TECH_ICONS[name];
   return (
-    <div className="group/marquee relative w-full overflow-clip">
-      {/* Gradient edge fades */}
-      <div className="absolute left-0 top-0 bottom-0 w-24 md:w-40 bg-gradient-to-r from-bg-secondary to-transparent z-10 pointer-events-none" />
-      <div className="absolute right-0 top-0 bottom-0 w-24 md:w-40 bg-gradient-to-l from-bg-secondary to-transparent z-10 pointer-events-none" />
-
-      <div
-        className="flex gap-6 w-max group-hover/marquee:[animation-play-state:paused]"
-        style={{
-          animation: `${reverse ? "marquee-reverse" : "marquee"} ${speed}s linear infinite`,
-        }}
-      >
-        {repeated.map((tech, i) => (
-          <div
-            key={`${tech.name}-${i}`}
-            className="group/item relative flex items-center gap-3 px-5 py-3 rounded-full border border-white/[0.06] bg-white/[0.02] hover:border-[var(--brand-color-dim)] transition-all duration-300 cursor-default shrink-0"
-            style={
-              {
-                "--brand-color": tech.color,
-                "--brand-color-dim": `${tech.color}40`,
-              } as React.CSSProperties
-            }
-          >
-            {/* Brand color glow on hover */}
-            <div
-              className="absolute inset-0 rounded-full opacity-0 group-hover/item:opacity-100 transition-opacity duration-300 pointer-events-none"
-              style={{
-                boxShadow: `0 0 20px ${tech.color}15, inset 0 0 20px ${tech.color}08`,
-              }}
-            />
-            <tech.icon className="relative w-5 h-5 text-text-muted group-hover/item:text-[var(--brand-color)] transition-colors duration-300" />
-            <span className="relative text-sm font-medium text-text-muted group-hover/item:text-text-primary transition-colors duration-300 whitespace-nowrap">
-              {tech.name}
-            </span>
-          </div>
-        ))}
-      </div>
+    <div style={{ display: "flex", alignItems: "center", gap: 7, flexShrink: 0, paddingRight: 32 }}>
+      <span style={{ color: icon?.color || C.sub, display: "flex", alignItems: "center" }}>{icon?.svg}</span>
+      <span className="mono" style={{ fontSize: 11, color: C.inkSoft, fontWeight: 500 }}>{name}</span>
     </div>
   );
 }
 
-export function TechStackSection() {
+export function TechStrip() {
   return (
-    <Section id="tech" background="secondary" containerSize="full" className="!pb-16 md:!pb-20">
-      <div className="relative">
-        {/* Center glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-bright/[0.03] rounded-full blur-[100px] pointer-events-none" />
-
-        <div className="relative z-10">
-          {/* Header */}
-          <div className="max-w-[1280px] mx-auto px-6 sm:px-8 mb-10 md:mb-14 text-center">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="flex justify-center mb-6"
-            >
-              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-bright text-sm font-medium">
-                <HiCommandLine className="w-4 h-4" />
-                Tech Stack
-              </span>
-            </motion.div>
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl text-text-primary"
-            >
-              Built With Modern Tech
-            </motion.h2>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="mt-4 text-lg text-text-secondary max-w-2xl mx-auto"
-            >
-              Fast, reliable, and future-proof technologies
-            </motion.p>
-
-            {/* Gradient accent line */}
-            <motion.div
-              initial={{ scaleX: 0, opacity: 0 }}
-              whileInView={{ scaleX: 1, opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="mt-8 mx-auto h-px w-48 bg-gradient-to-r from-transparent via-bright/40 to-transparent"
-            />
-          </div>
-
-          {/* Marquee rows */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="space-y-5"
-          >
-            <MarqueeRow items={row1} speed={35} />
-            <MarqueeRow items={row2} reverse speed={40} />
-          </motion.div>
-        </div>
+    <div style={{ padding: "24px 0", background: C.bg, overflow: "hidden" }}>
+      <div className="animate-marquee" style={{ display: "flex", width: "fit-content" }}>
+        {techs.map((t) => <TechItem key={t} name={t} />)}
+        {techs.map((t) => <TechItem key={`${t}-dup`} name={t} />)}
       </div>
-    </Section>
+    </div>
   );
 }

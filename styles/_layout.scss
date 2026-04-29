@@ -1,83 +1,62 @@
 /* =================================
    LAYOUT
-   Section padding, container, scrollbar, selection, focus-visible
+   Section padding, container, scrollbar, selection, focus
    ================================= */
 
-/* Base styles */
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  background: var(--color-bg-primary);
-  color: var(--color-text-primary);
+  background: var(--color-bg);
+  color: var(--color-ink);
 }
 
-/* Section padding */
+/* Section padding — matches mock 112px 56px */
 .section-padding {
-  padding-top: 6rem;
-  padding-bottom: 6rem;
-  contain: content;
+  padding: 72px 24px;
 }
 
 @media (min-width: 768px) {
   .section-padding {
-    padding-top: 8rem;
-    padding-bottom: 8rem;
+    padding: 96px 40px;
   }
 }
 
 @media (min-width: 1024px) {
   .section-padding {
-    padding-top: 10rem;
-    padding-bottom: 10rem;
+    padding: 112px 56px;
   }
 }
 
-/* Container */
-.container-max {
-  max-width: 1280px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-}
-
-@media (min-width: 640px) {
-  .container-max {
-    padding-left: 2rem;
-    padding-right: 2rem;
-  }
-}
-
-/* Scrollbar (Dark theme) */
+/* Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--color-bg-secondary);
+  background: var(--color-bg);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-bg-elevated);
+  background: var(--color-hair-strong);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-bright);
+  background: var(--color-sub-light);
 }
 
 /* Selection */
 ::selection {
-  background: var(--color-bright);
-  color: var(--color-bg-primary);
+  background: var(--color-accent);
+  color: white;
 }
 
 /* Focus styles */
 :focus-visible {
-  outline: 2px solid var(--color-bright);
+  outline: 2px solid var(--color-accent);
   outline-offset: 3px;
   border-radius: 4px;
 }
