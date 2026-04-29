@@ -43,7 +43,7 @@ export function WorkSection() {
       </div>
       <div ref={ref} style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 24 }}>
         {WORK.map((w, idx) => (
-          <div key={w.tag} style={{ background: C.surface, borderRadius: 16, overflow: "hidden", cursor: "pointer", opacity: inView ? 1 : 0, transform: inView ? "translateY(0)" : "translateY(24px)", transition: `opacity 1s cubic-bezier(0.16,1,0.3,1) ${idx * 0.18}s, transform 1s cubic-bezier(0.16,1,0.3,1) ${idx * 0.18}s`, border: `1px solid ${C.hair}` }}>
+          <div key={w.tag} className="work-card" style={{ background: C.surface, borderRadius: 16, overflow: "hidden", cursor: "pointer", opacity: inView ? 1 : 0, transform: inView ? "translateY(0)" : "translateY(24px)", transition: `opacity 1s cubic-bezier(0.16,1,0.3,1) ${idx * 0.18}s, transform 1s cubic-bezier(0.16,1,0.3,1) ${idx * 0.18}s`, border: `1px solid ${C.hair}` }}>
             <div style={{ height: 240 }}><WorkImage tag={w.tag} /></div>
             <div style={{ padding: 24 }}>
               <div style={{ display: "flex", gap: 3, alignItems: "center", marginBottom: 10 }}>
@@ -55,7 +55,7 @@ export function WorkSection() {
               <p style={{ fontSize: 13, color: C.sub, fontStyle: "italic", lineHeight: 1.55, marginBottom: 14 }}>{w.quote}</p>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 6 }}>
                 <h3 style={{ fontSize: 17, fontWeight: 600, color: C.ink, letterSpacing: "-0.02em" }}>{w.client}</h3>
-                <span style={{ fontSize: 13, color: C.accent, display: "inline-flex" }}>→</span>
+                <span className="work-arrow" style={{ fontSize: 13, color: C.accent, display: "inline-flex", transition: "transform 0.25s ease" }}>→</span>
               </div>
               <div className="mono" style={{ fontSize: 10, color: C.sub, letterSpacing: "0.04em", marginBottom: 12 }}>{w.kind}</div>
               <div style={{ display: "inline-flex", alignItems: "center", gap: 6, padding: "4px 10px", background: C.accentBg, borderRadius: 99 }}>

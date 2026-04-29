@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { EChartsDonut } from "./EChartsDonut";
 import { EChartsBar } from "./EChartsBar";
 
@@ -62,7 +63,12 @@ export function HeroMockup({ phase }: { phase: number }) {
         <div style={{ padding: "16px 20px 20px", display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 14, flex: 1, opacity: phase >= 1 ? 1 : 0, transform: phase >= 1 ? "translateY(0)" : "translateY(12px)", transition: "all 0.6s cubic-bezier(0.16,1,0.3,1) 0.2s" }}>
 
           {/* Left — Mini site preview + KPIs */}
-          <div style={{ display: "flex", flexDirection: "column", gap: 10, opacity: phase >= 2 ? 1 : 0, transform: phase >= 2 ? "scale(1)" : "scale(0.95)", transition: "all 0.7s cubic-bezier(0.16,1,0.3,1) 0.1s" }}>
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            style={{ display: "flex", flexDirection: "column", gap: 10 }}
+          >
             {/* Mini site preview */}
             <div style={{ flex: "0 0 60%", background: C.bg, borderRadius: 10, border: `1px solid ${C.hair}`, overflow: "hidden", display: "flex", flexDirection: "column" }}>
               {/* Mini chrome */}
@@ -114,17 +120,27 @@ export function HeroMockup({ phase }: { phase: number }) {
                 </div>
               ))}
             </div>
-          </div>
+          </motion.div>
 
           {/* Middle — Donut chart */}
-          <div style={{ background: C.bg, borderRadius: 8, padding: "6px 8px 4px", border: `1px solid ${C.hair}`, display: "flex", flexDirection: "column", opacity: phase >= 3 ? 1 : 0, transform: phase >= 3 ? "translateY(0)" : "translateY(8px)", transition: "all 0.7s cubic-bezier(0.16,1,0.3,1)" }}>
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.0, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            style={{ background: C.bg, borderRadius: 8, padding: "6px 8px 4px", border: `1px solid ${C.hair}`, display: "flex", flexDirection: "column" }}
+          >
             <EChartsDonut />
-          </div>
+          </motion.div>
 
           {/* Right — Bar chart */}
-          <div style={{ background: C.bg, borderRadius: 8, padding: "6px 8px 4px", border: `1px solid ${C.hair}`, display: "flex", flexDirection: "column", opacity: phase >= 3 ? 1 : 0, transform: phase >= 3 ? "translateY(0)" : "translateY(8px)", transition: "all 0.7s cubic-bezier(0.16,1,0.3,1) 0.1s" }}>
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.4, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            style={{ background: C.bg, borderRadius: 8, padding: "6px 8px 4px", border: `1px solid ${C.hair}`, display: "flex", flexDirection: "column" }}
+          >
             <EChartsBar />
-          </div>
+          </motion.div>
         </div>
       </div>
 

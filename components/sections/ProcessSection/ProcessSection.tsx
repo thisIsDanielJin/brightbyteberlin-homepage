@@ -35,9 +35,9 @@ export function ProcessSection() {
           </p>
         </div>
       </div>
-      <div style={{ position: "relative", paddingTop: 8 }}>
-        <div style={{ position: "absolute", left: "calc(12.5% - 1px)", right: "calc(12.5% - 1px)", top: 37, height: 2, background: `repeating-linear-gradient(to right, ${C.hairStrong} 0 4px, transparent 4px 8px)` }} />
-        <div style={{ position: "absolute", left: "calc(12.5% - 1px)", top: 37, height: 2, background: C.accent, width: `calc((100% - 25%) * ${active / (PROCESS.length - 1)})`, transition: "width 1.4s cubic-bezier(0.4,0,0.2,1)" }} />
+      <div style={{ position: "relative", paddingTop: 32 }}>
+        <div style={{ position: "absolute", left: "calc(12.5% - 1px)", right: "calc(12.5% - 1px)", top: 61, height: 2, background: `repeating-linear-gradient(to right, ${C.hairStrong} 0 4px, transparent 4px 8px)` }} />
+        <div style={{ position: "absolute", left: "calc(12.5% - 1px)", top: 61, height: 2, background: C.accent, width: `calc((100% - 25%) * ${active / (PROCESS.length - 1)})`, transition: "width 1.4s cubic-bezier(0.4,0,0.2,1)" }} />
         <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 0, position: "relative", zIndex: 1 }}>
           {PROCESS.map((p, i) => {
             const isActive = i === active;

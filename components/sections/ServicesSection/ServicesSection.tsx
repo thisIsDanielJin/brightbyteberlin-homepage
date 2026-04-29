@@ -38,7 +38,7 @@ export function ServicesSection() {
       </div>
       <div ref={ref} style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 32 }}>
         {SERVICES.map((s, idx) => (
-          <div key={s.tag} style={{ background: C.surface, borderRadius: 16, overflow: "hidden", display: "flex", flexDirection: "column", cursor: "pointer", border: `1px solid ${C.hair}`, opacity: inView ? 1 : 0, transform: inView ? "translateY(0)" : "translateY(20px)", transition: `opacity 0.9s cubic-bezier(0.16,1,0.3,1) ${idx * 0.15}s, transform 0.9s cubic-bezier(0.16,1,0.3,1) ${idx * 0.15}s, box-shadow 0.35s cubic-bezier(0.16,1,0.3,1), border-color 0.35s ease` }}>
+          <div key={s.tag} className="card-hover" style={{ background: C.surface, borderRadius: 16, overflow: "hidden", display: "flex", flexDirection: "column", cursor: "pointer", opacity: inView ? 1 : 0, transform: inView ? "translateY(0)" : "translateY(20px)", transition: `opacity 0.9s cubic-bezier(0.16,1,0.3,1) ${idx * 0.15}s, transform 0.9s cubic-bezier(0.16,1,0.3,1) ${idx * 0.15}s` }}>
             <div style={{ height: 130, position: "relative" }}>
               <ServiceImage kind={s.img} />
               <div style={{ position: "absolute", top: 14, left: 14, padding: "4px 10px", background: "rgba(251,248,241,0.85)", borderRadius: 99, backdropFilter: "blur(4px)", border: "1px solid rgba(20,19,15,0.08)", zIndex: 2, display: "flex", alignItems: "center", justifyContent: "center", lineHeight: 1 }} className="mono">

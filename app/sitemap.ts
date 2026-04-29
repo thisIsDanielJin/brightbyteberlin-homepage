@@ -4,7 +4,7 @@ import { getAllPostSlugs } from "@/lib/sanity/fetch";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const projectEntries = projects.map((p) => ({
-    url: `https://brightbyte-berlin.com/projects/${p.id}`,
+    url: `https://brightbyte-berlin.com/projects/${p.slug}`,
     lastModified: new Date(),
     changeFrequency: "monthly" as const,
     priority: 0.8,
@@ -42,6 +42,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: new Date(),
       changeFrequency: "yearly",
       priority: 0.3,
+    },
+    {
+      url: "https://brightbyte-berlin.com/services",
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.9,
     },
     ...projectEntries,
     ...blogEntries,

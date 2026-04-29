@@ -20,7 +20,7 @@ export const WORK = [
 
 export const PRICING = [
   {
-    name: "Starter", price: "€990", period: "one-time", sub: "Single landing page",
+    name: "Starter", price: "€690", period: "one-time", sub: "Single landing page",
     features: ["1 page · fully custom", "Mobile + desktop", "Lighthouse 95+ guaranteed", "Basic analytics + SEO", "2 rounds of feedback"],
     cta: "Start small", highlight: false,
     value: { label: "Save ~€2,400 vs. agency", sub: "Avg. agency charges €3,400+ for the same" },
@@ -47,4 +47,31 @@ export const FAQS = [
   { q: "Where are you based, and do you work remotely?", a: "I'm based in Berlin (CET). I work with clients across Germany and Europe — happy on Zoom, happy in person if you're in town.", main: false },
   { q: "Can you redesign my existing site?", a: "Absolutely. I audit what you have, keep what works, and rebuild the rest on a modern stack. Most redesigns ship in 3–4 weeks with zero downtime during the switch.", main: false },
   { q: "Do you offer SEO optimization?", a: "Every site I build ships with technical SEO baked in — fast load times, proper meta tags, structured data, mobile-first design. For ongoing SEO (content strategy, link building), I partner with a specialist and coordinate the work.", main: false },
+];
+
+export const SERVICES_DETAIL = [
+  {
+    title: "Landing pages",
+    img: "lp" as const,
+    value: "Convert visitors into customers with a single, fast, focused page.",
+    features: ["Custom responsive design", "Conversion-optimized layout & copy", "Lighthouse 95+ guaranteed", "Basic SEO + analytics setup", "2 rounds of feedback included"],
+    timeline: "1–2 weeks",
+    ideal: "Launches, campaigns, and MVPs.",
+  },
+  {
+    title: "Web apps & MVPs",
+    img: "app" as const,
+    value: "Full-stack applications that grow with your business.",
+    features: ["Next.js + database + auth", "Admin panel or CMS", "Forms, integrations, payments", "Performance baseline + monitoring", "30 days post-launch support"],
+    timeline: "3–8 weeks",
+    ideal: "SaaS products, portals, and internal tools.",
+  },
+  {
+    title: "AI integrations",
+    img: "ai" as const,
+    value: "Production-grade AI wired into your product — not demos.",
+    features: ["Chatbots + semantic search", "Automated workflows", "RAG pipelines + embeddings", "Production monitoring + fallbacks", "Integration with existing stack"],
+    timeline: "Scope-based",
+    ideal: "Teams ready to ship AI features.",
+  },
 ];

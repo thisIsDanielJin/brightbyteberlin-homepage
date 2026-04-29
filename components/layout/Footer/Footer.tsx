@@ -95,7 +95,7 @@ export function Footer() {
       {/* SEO Explore section */}
       <div style={{ paddingTop: 32, borderTop: "1px solid rgba(251,248,241,0.08)", marginBottom: 48 }}>
         <div className="mono" style={{ fontSize: 10, color: "rgba(251,248,241,0.35)", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: 20 }}>Explore</div>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr 1fr", gap: 32 }}>
+        <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr 1fr", gap: 32 }}>
           {seoLinks.map((section) => (
             <div key={section.title}>
               <div style={{ fontSize: 12, fontWeight: 500, color: "rgba(251,248,241,0.6)", marginBottom: 12 }}>{section.title}</div>

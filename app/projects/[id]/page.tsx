@@ -1,19 +1,10 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
-import { HiCheckCircle, HiStar, HiArrowLeft, HiArrowRight } from "react-icons/hi2";
-import { Container } from "@/components/ui/Container/Container";
-import { Button } from "@/components/ui/Button/Button";
-import { ScrollReveal } from "@/components/animations/ScrollReveal/ScrollReveal";
-import { projects, getProjectById, getAdjacentProjects } from "@/data/projects";
-import { LazyGrainient } from "@/components/reactbits/Grainient/LazyGrainient";
-
-// ---------------------------------------------------------------------------
-// Static generation
-// ---------------------------------------------------------------------------
+import { projects, getProjectBySlug, getNextProject } from "@/data/projects";
 
 export function generateStaticParams() {
-  return projects.map((p) => ({ id: p.id }));
+  return projects.map((p) => ({ id: p.slug }));
 }
 
 export async function generateMetadata({
@@ -22,42 +13,46 @@ export async function generateMetadata({
   params: Promise<{ id: string }>;
 }): Promise<Metadata> {
   const { id } = await params;
-  const project = getProjectById(id);
+  const project = getProjectBySlug(id);
   if (!project) return {};
 
   return {
     title: `${project.title} | BrightByte Berlin`,
-    description: project.description,
+    description: project.subtitle,
     alternates: { canonical: `/projects/${id}` },
     openGraph: {
       title: `${project.title} | BrightByte Berlin`,
-      description: project.description,
+      description: project.subtitle,
       url: `https://brightbyte-berlin.com/projects/${id}`,
     },
   };
 }
 
-// ---------------------------------------------------------------------------
-// Gradient map (stable by id)
-// ---------------------------------------------------------------------------
-
-const gradientMap: Record<string, string> = {
-  "saas-dashboard": "from-bright/20 via-bright/10 to-electric/20",
-  "ecommerce-platform": "from-electric/20 via-bright/5 to-bright/20",
-  "restaurant-website": "from-bright/10 via-electric/10 to-bright/20",
-  "portfolio-site": "from-electric/15 via-bright/10 to-electric/15",
+const C = {
+  bg: "#F5F1E8",
+  surface: "#FBF8F1",
+  ink: "#14130F",
+  inkSoft: "#3A3833",
+  sub: "#6B665C",
+  subLight: "#9A958A",
+  accent: "#6B3977",
+  accentBg: "rgba(107,57,119,0.08)",
+  accentSoft: "#C4ADCF",
+  hair: "rgba(20,19,15,0.08)",
 };
 
-const projectNumber: Record<string, number> = {
-  "saas-dashboard": 1,
-  "ecommerce-platform": 2,
-  "restaurant-website": 3,
-  "portfolio-site": 4,
-};
-
-// ---------------------------------------------------------------------------
-// Page
-// ---------------------------------------------------------------------------
+function BrightByteLogo({ size = 24 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 32 32" fill="none">
+      <rect x="2" y="22" width="8" height="8" rx="1.5" fill="#C4ADCF" />
+      <rect x="12" y="22" width="8" height="8" rx="1.5" fill="#C4ADCF" />
+      <rect x="2" y="12" width="8" height="8" rx="1.5" fill="#C4ADCF" />
+      <rect x="12" y="12" width="8" height="8" rx="3" fill="#C4ADCF" opacity="0.85" />
+      <rect x="22" y="12" width="8" height="8" rx="4" fill="#C4ADCF" opacity="0.7" />
+      <circle cx="26" cy="6" r="4.5" fill="#C4ADCF" opacity="0.45" />
+    </svg>
+  );
+}
 
 export default async function ProjectPage({
   params,
@@ -65,270 +60,221 @@ export default async function ProjectPage({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
-  const project = getProjectById(id);
-  if (!project) notFound();
+  const p = getProjectBySlug(id);
+  if (!p) notFound();
 
-  const { prev, next } = getAdjacentProjects(id);
-  const gradient = gradientMap[id] ?? "from-bright/15 via-electric/10 to-bright/15";
-  const number = projectNumber[id] ?? 0;
+  const next = getNextProject(p.nextSlug);
 
   return (
-    <div className="relative min-h-screen bg-bg-primary pt-32 pb-20 overflow-hidden">
-      {/* ---- Grainient background — desktop only ---- */}
-      <div className="hidden md:block absolute inset-0 opacity-40">
-        <LazyGrainient
-          color1="#FBBF24"
-          color2="#F59E0B"
-          color3="#0a0a0a"
-          colorBalance={-0.15}
-          centerX={0.3}
-          centerY={0.0}
-          zoom={0.9}
-          timeSpeed={0.12}
-          grainAmount={0.06}
-          contrast={1.2}
-          saturation={0.85}
-          warpStrength={1.0}
-          warpAmplitude={50}
-          warpFrequency={5.0}
-        />
+    <div style={{ background: C.bg, color: C.ink, fontFamily: "var(--font-geist)" }}>
+      {/* Nav */}
+      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "22px 56px", borderBottom: `1px solid ${C.hair}`, position: "relative" }}>
+        <Link href="/" style={{ display: "flex", alignItems: "center", gap: 10, textDecoration: "none" }}>
+          <BrightByteLogo size={28} />
+          <div style={{ fontSize: 15, letterSpacing: "-0.01em" }}>
+            <span style={{ fontWeight: 600, color: C.ink }}>bright</span>
+            <span className="serif" style={{ fontStyle: "italic", fontWeight: 400, color: C.accent }}>byte</span>
+            <span style={{ color: C.sub, fontWeight: 400 }}>.berlin</span>
+          </div>
+        </Link>
+        <Link href="/#work" style={{ display: "flex", alignItems: "center", gap: 8, textDecoration: "none" }}>
+          <span className="mono" style={{ fontSize: 11, color: C.sub, letterSpacing: "0.04em" }}>← Back to work</span>
+        </Link>
       </div>
 
-      {/* ---- CSS fallback for mobile ---- */}
-      <div
-        className="md:hidden absolute inset-0 opacity-40"
-        style={{
-          background: `
-            radial-gradient(ellipse 120% 80% at 30% 0%, rgba(251, 191, 36, 0.35) 0%, transparent 60%),
-            radial-gradient(ellipse 80% 60% at 50% 50%, rgba(245, 158, 11, 0.15) 0%, transparent 60%),
-            #0a0a0a
-          `,
-        }}
-      />
-
-      {/* ---- Dark overlay for text readability ---- */}
-      <div className="absolute inset-0 bg-bg-primary/75 pointer-events-none" />
-
-      <Container size="md" className="relative z-10">
-        {/* ---- Back link ---- */}
-        <Link
-          href="/#projects"
-          className="inline-flex items-center gap-1 text-sm text-text-muted hover:text-bright transition-colors mb-8"
-        >
-          &larr; Back to Projects
-        </Link>
-
-        {/* ---- Hero ---- */}
-        <ScrollReveal aboveFold>
-          <div
-            className={`relative w-full aspect-[21/9] sm:aspect-[21/9] rounded-2xl bg-gradient-to-br ${gradient} mb-10 overflow-hidden`}
-          >
-            {/* Subtle grid overlay */}
-            <div
-              className="absolute inset-0 opacity-[0.03]"
-              style={{
-                backgroundImage:
-                  "linear-gradient(rgba(255,255,255,.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.5) 1px, transparent 1px)",
-                backgroundSize: "40px 40px",
-              }}
-            />
-            {/* Centered project number */}
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-bg-primary/50 backdrop-blur-sm flex items-center justify-center border border-white/10">
-                <span className="text-3xl sm:text-4xl font-bold text-bright">
-                  {number}
-                </span>
-              </div>
+      {/* Hero — full-width browser mockup */}
+      <div style={{ padding: "64px 56px 48px", background: `linear-gradient(180deg, ${C.bg} 0%, ${C.surface} 100%)`, position: "relative" }}>
+        <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", background: `radial-gradient(ellipse at 50% 80%, ${p.accentColor}15 0%, transparent 60%)`, pointerEvents: "none" }} />
+        {/* Browser mockup */}
+        <div style={{ maxWidth: 1000, margin: "0 auto", borderRadius: 12, overflow: "hidden", boxShadow: "0 24px 80px -12px rgba(20,19,15,0.18), 0 0 0 1px rgba(20,19,15,0.06)", position: "relative" }}>
+          {/* Chrome bar */}
+          <div style={{ padding: "10px 16px", background: "#2A2926", display: "flex", alignItems: "center", gap: 8 }}>
+            <div style={{ display: "flex", gap: 6 }}>
+              {["#FF5C5C", "#FFC83D", "#28C940"].map((c) => (
+                <div key={c} style={{ width: 10, height: 10, borderRadius: "50%", background: c }} />
+              ))}
+            </div>
+            <div style={{ flex: 1, marginLeft: 12, height: 24, background: "rgba(255,255,255,0.08)", borderRadius: 6, display: "flex", alignItems: "center", paddingLeft: 12 }}>
+              <span className="mono" style={{ fontSize: 11, color: "rgba(255,255,255,0.5)" }}>www.{p.slug.replace("-", "")}.de</span>
             </div>
           </div>
-
-          <h1 className="text-4xl sm:text-5xl font-bold text-text-primary mb-4">
-            {project.title}
-          </h1>
-
-          <p className="text-lg text-text-secondary mb-6 max-w-2xl">
-            {project.description}
-          </p>
-
-          <div className="flex flex-wrap gap-2 mb-16">
-            {project.technologies.map((tech) => (
-              <span
-                key={tech}
-                className="text-sm px-3 py-1 rounded-full bg-white/5 border border-white/8 text-text-muted"
-              >
-                {tech}
-              </span>
-            ))}
+          {/* Mock site content */}
+          <div style={{ background: C.surface, padding: "40px 48px", minHeight: 400 }}>
+            {/* Mock nav */}
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 40 }}>
+              <div style={{ width: 80, height: 12, borderRadius: 4, background: C.ink, opacity: 0.8 }} />
+              <div style={{ display: "flex", gap: 20 }}>
+                {[48, 36, 42, 36].map((w, i) => (
+                  <div key={i} style={{ width: w, height: 8, borderRadius: 3, background: C.hair }} />
+                ))}
+              </div>
+            </div>
+            {/* Mock hero */}
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 48, alignItems: "center" }}>
+              <div>
+                <div style={{ width: "90%", height: 16, borderRadius: 4, background: C.ink, marginBottom: 10, opacity: 0.85 }} />
+                <div style={{ width: "70%", height: 16, borderRadius: 4, background: C.ink, marginBottom: 20, opacity: 0.6 }} />
+                <div style={{ width: "100%", height: 8, borderRadius: 3, background: C.hair, marginBottom: 6 }} />
+                <div style={{ width: "85%", height: 8, borderRadius: 3, background: C.hair, marginBottom: 6 }} />
+                <div style={{ width: "90%", height: 8, borderRadius: 3, background: C.hair, marginBottom: 24 }} />
+                <div style={{ width: 120, height: 36, borderRadius: 99, background: p.accentColor, opacity: 0.8 }} />
+              </div>
+              <div style={{ height: 220, borderRadius: 10, background: `linear-gradient(135deg, ${p.accentColor}22 0%, ${p.accentColor}44 100%)`, border: `1px solid ${C.hair}` }} />
+            </div>
+            {/* Mock sections */}
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 20, marginTop: 40 }}>
+              {[0, 1, 2].map((i) => (
+                <div key={i} style={{ height: 100, borderRadius: 8, background: C.hair, opacity: 0.4 }} />
+              ))}
+            </div>
           </div>
-        </ScrollReveal>
+        </div>
+        {/* Title below mockup */}
+        <div style={{ textAlign: "center", marginTop: 48 }}>
+          <h1 style={{ fontSize: 48, fontWeight: 600, color: C.ink, letterSpacing: "-0.03em", marginBottom: 10 }}>{p.title}</h1>
+          <p style={{ fontSize: 17, color: C.sub, maxWidth: 480, margin: "0 auto" }}>{p.subtitle}</p>
+        </div>
+      </div>
 
-        {/* ---- Scope bar ---- */}
-        {project.scope && project.scope.length > 0 && (
-          <ScrollReveal>
-            <div className="mb-16">
-              <p className="text-xs uppercase tracking-widest text-text-muted mb-4">
-                What was delivered
-              </p>
-              <div className="flex flex-wrap gap-3">
-                {project.scope.map((item) => (
-                  <span
-                    key={item}
-                    className="px-4 py-2 rounded-full bg-white/5 border border-white/8 text-sm text-text-secondary"
-                  >
-                    {item}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </ScrollReveal>
-        )}
+      {/* Meta bar */}
+      <div style={{ padding: "20px 56px", borderTop: `1px solid ${C.hair}`, borderBottom: `1px solid ${C.hair}`, display: "flex", alignItems: "center", gap: 24, flexWrap: "wrap" }}>
+        <span className="mono" style={{ fontSize: 11, color: C.sub, letterSpacing: "0.04em" }}>{p.client}</span>
+        <span style={{ width: 3, height: 3, borderRadius: "50%", background: C.subLight }} />
+        <span className="mono" style={{ fontSize: 11, color: C.sub, letterSpacing: "0.04em" }}>{p.year}</span>
+        <span style={{ width: 3, height: 3, borderRadius: "50%", background: C.subLight }} />
+        <span className="mono" style={{ fontSize: 11, color: C.sub, letterSpacing: "0.04em" }}>{p.type}</span>
+        <div style={{ marginLeft: "auto", display: "flex", gap: 8 }}>
+          {p.tech.map((t) => (
+            <span key={t} className="mono" style={{ fontSize: 10, color: C.accent, background: C.accentBg, padding: "4px 10px", borderRadius: 99, letterSpacing: "0.02em" }}>{t}</span>
+          ))}
+        </div>
+      </div>
 
-        {/* ---- Long description ---- */}
-        {project.longDescription && (
-          <ScrollReveal>
-            <div className="mb-16">
-              <p className="text-xs uppercase tracking-widest text-text-muted mb-4">
-                About This Project
-              </p>
-              <div className="space-y-4 leading-relaxed max-w-3xl">
-                {project.longDescription.split("\n\n").map((para, i) => (
-                  <p
-                    key={i}
-                    className={
-                      i === 0
-                        ? "text-text-primary text-lg"
-                        : "text-text-secondary"
-                    }
-                  >
-                    {para}
-                  </p>
-                ))}
-              </div>
-            </div>
-          </ScrollReveal>
-        )}
-
-        {/* ---- Highlights card ---- */}
-        {project.highlights && project.highlights.length > 0 && (
-          <ScrollReveal>
-            <div className="bg-bg-card rounded-2xl border-[1.5px] border-white/8 p-8 mb-16 relative overflow-hidden">
-              {/* Left accent */}
-              <div className="absolute left-0 top-6 bottom-6 w-[3px] rounded-full bg-gradient-to-b from-bright to-electric" />
-              <h2 className="text-xl font-bold text-bright mb-6">
-                Key Results
-              </h2>
-              <ul className="space-y-4">
-                {project.highlights.map((item) => (
-                  <li key={item} className="flex items-start gap-3">
-                    <HiCheckCircle className="w-5 h-5 text-bright mt-0.5 shrink-0" />
-                    <span className="text-text-secondary">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </ScrollReveal>
-        )}
-
-        {/* ---- Testimonial ---- */}
-        {project.testimonial && (
-          <ScrollReveal>
-            <div className="bg-bg-secondary rounded-2xl p-8 md:p-12 mb-16 relative overflow-hidden">
-              {/* Decorative open quote */}
-              <span className="absolute -top-2 left-6 text-[8rem] leading-none text-bright/10 font-serif select-none pointer-events-none">
-                &ldquo;
-              </span>
-
-              <div className="relative">
-                <div className="flex gap-0.5 mb-4">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <HiStar key={i} className="w-5 h-5 text-amber-400" />
-                  ))}
-                </div>
-
-                <blockquote className="text-lg md:text-xl italic text-text-primary leading-relaxed mb-6">
-                  &ldquo;{project.testimonial.quote}&rdquo;
-                </blockquote>
-
-                <div className="flex items-center gap-3">
-                  {/* Initial-avatar circle */}
-                  <div className="w-10 h-10 rounded-full bg-bright/20 flex items-center justify-center text-bright font-bold text-sm">
-                    {project.testimonial.author.charAt(0)}
-                  </div>
-                  <div>
-                    <p className="text-sm font-semibold text-text-primary">
-                      {project.testimonial.author}
-                    </p>
-                    <p className="text-xs text-text-muted">
-                      {project.testimonial.role}
-                      {project.testimonial.company &&
-                        ` — ${project.testimonial.company}`}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </ScrollReveal>
-        )}
-
-        {/* ---- CTA ---- */}
-        <ScrollReveal>
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-text-primary mb-3">
-              Want results like these?
+      {/* Challenge / Brief */}
+      <div style={{ padding: "112px 56px", borderBottom: `1px solid ${C.hair}` }}>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 2fr", gap: 48 }}>
+          <div>
+            <div className="mono" style={{ fontSize: 11, color: C.sub, letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: 16 }}>01 · Challenge</div>
+            <h2 style={{ fontSize: 36, fontWeight: 500, color: C.ink, letterSpacing: "-0.02em", lineHeight: 1.1 }}>
+              The <span className="serif" style={{ fontStyle: "italic", fontWeight: 400 }}>brief.</span>
             </h2>
-            <p className="text-text-secondary mb-8">
-              Let&apos;s talk about your project.
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button asChild>
-                <Link href="/#contact">Get in Touch</Link>
-              </Button>
-              <Button variant="outline" asChild>
-                <a href="mailto:hello@brightbyte-berlin.com">Send an Email</a>
-              </Button>
+          </div>
+          <div style={{ paddingTop: 8 }}>
+            <p style={{ fontSize: 17, color: C.inkSoft, lineHeight: 1.7, maxWidth: 580 }}>{p.brief}</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Solution / Approach */}
+      <div style={{ padding: "112px 56px", borderBottom: `1px solid ${C.hair}` }}>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 2fr", gap: 48 }}>
+          <div>
+            <div className="mono" style={{ fontSize: 11, color: C.sub, letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: 16 }}>02 · Solution</div>
+            <h2 style={{ fontSize: 36, fontWeight: 500, color: C.ink, letterSpacing: "-0.02em", lineHeight: 1.1 }}>
+              The <span className="serif" style={{ fontStyle: "italic", fontWeight: 400 }}>approach.</span>
+            </h2>
+          </div>
+          <div style={{ paddingTop: 8 }}>
+            <p style={{ fontSize: 17, color: C.inkSoft, lineHeight: 1.7, maxWidth: 580, marginBottom: 24 }}>{p.solution}</p>
+            <ul style={{ listStyle: "none", padding: 0, display: "flex", flexDirection: "column", gap: 12 }}>
+              {p.solutionBullets.map((b, i) => (
+                <li key={i} style={{ display: "flex", alignItems: "flex-start", gap: 12 }}>
+                  <span style={{ width: 6, height: 6, borderRadius: "50%", background: C.accent, marginTop: 8, flexShrink: 0 }} />
+                  <span style={{ fontSize: 15, color: C.inkSoft, lineHeight: 1.6 }}>{b}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      {/* Gallery */}
+      <div style={{ padding: "112px 56px", borderBottom: `1px solid ${C.hair}` }}>
+        <div className="mono" style={{ fontSize: 11, color: C.sub, letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: 48 }}>03 · Gallery</div>
+        <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr", gap: 16 }}>
+          {/* Large desktop mockup */}
+          <div style={{ borderRadius: 12, overflow: "hidden", boxShadow: "0 8px 32px rgba(20,19,15,0.08)", border: `1px solid ${C.hair}` }}>
+            <div style={{ padding: "8px 14px", background: "#F0ECE4", borderBottom: `1px solid ${C.hair}`, display: "flex", alignItems: "center", gap: 6 }}>
+              <div style={{ display: "flex", gap: 4 }}>
+                {["#FF5C5C", "#FFC83D", "#28C940"].map((c) => (
+                  <div key={c} style={{ width: 7, height: 7, borderRadius: "50%", background: c }} />
+                ))}
+              </div>
+              <div style={{ flex: 1, height: 16, marginLeft: 8, background: "rgba(20,19,15,0.04)", borderRadius: 4 }} />
+            </div>
+            <div style={{ height: 320, background: `linear-gradient(180deg, ${C.surface} 0%, ${p.accentColor}11 100%)`, display: "flex", alignItems: "center", justifyContent: "center" }}>
+              <div style={{ width: "70%", height: "80%", borderRadius: 8, background: C.hair, opacity: 0.3 }} />
             </div>
           </div>
-        </ScrollReveal>
+          {/* Smaller views stacked */}
+          <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+            {/* Mobile mockup */}
+            <div style={{ flex: 1, borderRadius: 12, overflow: "hidden", boxShadow: "0 8px 32px rgba(20,19,15,0.08)", border: `1px solid ${C.hair}`, display: "flex", flexDirection: "column" }}>
+              <div style={{ padding: "6px 10px", background: "#F0ECE4", borderBottom: `1px solid ${C.hair}`, display: "flex", justifyContent: "center" }}>
+                <div style={{ width: 40, height: 4, borderRadius: 2, background: "rgba(20,19,15,0.15)" }} />
+              </div>
+              <div style={{ flex: 1, background: `linear-gradient(180deg, ${C.surface} 0%, ${p.accentColor}11 100%)`, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <div style={{ width: "60%", height: "70%", borderRadius: 6, background: C.hair, opacity: 0.3 }} />
+              </div>
+            </div>
+            {/* Detail crop */}
+            <div style={{ flex: 1, borderRadius: 12, background: `linear-gradient(135deg, ${p.accentColor}18 0%, ${p.accentColor}33 100%)`, border: `1px solid ${C.hair}`, display: "flex", alignItems: "center", justifyContent: "center" }}>
+              <span className="mono" style={{ fontSize: 10, color: C.sub, letterSpacing: "0.06em" }}>DETAIL VIEW</span>
+            </div>
+          </div>
+        </div>
+      </div>
 
-        {/* ---- Prev / Next nav ---- */}
-        <ScrollReveal>
-          <nav className="grid grid-cols-2 gap-4 border-t border-white/10 pt-8">
-            {prev ? (
-              <Link
-                href={`/projects/${prev.id}`}
-                className="group flex flex-col gap-1 rounded-xl border border-white/8 p-4 hover:border-bright/30 hover:bg-white/[0.02] transition-all"
-              >
-                <span className="flex items-center gap-1.5 text-xs text-text-muted">
-                  <HiArrowLeft className="w-3 h-3 group-hover:-translate-x-1 transition-transform" />
-                  Previous
-                </span>
-                <span className="text-sm font-medium text-text-primary group-hover:text-bright transition-colors truncate">
-                  {prev.title}
-                </span>
-              </Link>
-            ) : (
-              <span />
-            )}
+      {/* Results */}
+      <div style={{ padding: "112px 56px", borderBottom: `1px solid ${C.hair}` }}>
+        <div className="mono" style={{ fontSize: 11, color: C.sub, letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: 48 }}>04 · Results</div>
+        {/* Metric cards */}
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 20, marginBottom: 64 }}>
+          {p.metrics.map((m, i) => (
+            <div key={i} style={{ background: C.surface, borderRadius: 12, padding: "28px 24px", border: `1px solid ${C.hair}`, borderTop: "2px solid rgba(107,57,119,0.15)", textAlign: "center" }}>
+              <div style={{ fontSize: 40, fontWeight: 700, color: C.ink, letterSpacing: "-0.03em", marginBottom: 6 }}>{m.value}</div>
+              <div className="mono" style={{ fontSize: 11, color: C.sub, letterSpacing: "0.06em", marginBottom: 8 }}>{m.label}</div>
+              <span className="mono" style={{ fontSize: 11, fontWeight: 600, color: "#16A34A", background: "rgba(22,163,74,0.1)", padding: "3px 10px", borderRadius: 99 }}>{m.delta}</span>
+            </div>
+          ))}
+        </div>
+        {/* Client quote */}
+        <div style={{ maxWidth: 640, margin: "0 auto", textAlign: "center" }}>
+          <p className="serif" style={{ fontSize: 22, fontStyle: "italic", color: C.ink, lineHeight: 1.6, marginBottom: 16 }}>{p.quote}</p>
+          <span className="mono" style={{ fontSize: 11, color: C.sub, letterSpacing: "0.04em" }}>— {p.quoteAuthor}</span>
+        </div>
+      </div>
 
-            {next ? (
-              <Link
-                href={`/projects/${next.id}`}
-                className="group flex flex-col items-end gap-1 rounded-xl border border-white/8 p-4 hover:border-bright/30 hover:bg-white/[0.02] transition-all"
-              >
-                <span className="flex items-center gap-1.5 text-xs text-text-muted">
-                  Next
-                  <HiArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
-                </span>
-                <span className="text-sm font-medium text-text-primary group-hover:text-bright transition-colors truncate">
-                  {next.title}
-                </span>
-              </Link>
-            ) : (
-              <span />
-            )}
-          </nav>
-        </ScrollReveal>
-      </Container>
+      {/* Next project */}
+      <Link href={`/projects/${next.slug}`} style={{ textDecoration: "none" }}>
+        <div style={{ padding: "80px 56px", background: C.ink }}>
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+            <div>
+              <div className="mono" style={{ fontSize: 11, color: "rgba(251,248,241,0.5)", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: 12 }}>Next project</div>
+              <div style={{ fontSize: 32, fontWeight: 600, color: C.surface, letterSpacing: "-0.02em" }}>{next.title}</div>
+              <div style={{ fontSize: 14, color: "rgba(251,248,241,0.6)", marginTop: 6 }}>{next.subtitle}</div>
+            </div>
+            <div style={{ width: 180, height: 100, borderRadius: 10, background: `linear-gradient(135deg, ${next.accentColor}33 0%, ${next.accentColor}55 100%)`, border: "1px solid rgba(251,248,241,0.1)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+              <span style={{ fontSize: 28, color: C.surface, fontWeight: 300 }}>→</span>
+            </div>
+          </div>
+        </div>
+      </Link>
+
+      {/* Footer */}
+      <div style={{ padding: "48px 56px 32px", background: C.ink, borderTop: "1px solid rgba(251,248,241,0.06)" }}>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+          <Link href="/" style={{ display: "flex", alignItems: "center", gap: 10, textDecoration: "none" }}>
+            <BrightByteLogo size={24} />
+            <span style={{ fontSize: 13, color: "rgba(251,248,241,0.7)" }}>
+              <span style={{ fontWeight: 600, color: C.surface }}>bright</span>
+              <span className="serif" style={{ fontStyle: "italic", color: C.accentSoft }}>byte</span>
+              <span style={{ color: "rgba(251,248,241,0.5)" }}>.berlin</span>
+            </span>
+          </Link>
+          <span className="mono" style={{ fontSize: 11, color: "rgba(251,248,241,0.5)", letterSpacing: "0.04em" }}>© 2026 Brightbyte · Berlin</span>
+        </div>
+      </div>
     </div>
   );
 }

@@ -110,7 +110,7 @@ export function Header() {
         <div className="hidden lg:flex" style={{ alignItems: "center", gap: 16 }}>
           <Link
             href="/#contact"
-            className="btn-hover"
+            className="btn-hover nav-cta"
             style={{
               padding: scrolled ? "7px 16px" : "9px 18px",
               background: "var(--color-ink)",

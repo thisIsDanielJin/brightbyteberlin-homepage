@@ -1,33 +1,38 @@
 /* =================================
    EFFECTS
    Button hover, card hover, nav-link, utilities
+   Matches mock lines 1408-1427
    ================================= */
 
-/* Button hover — scale + shadow */
+/* Button hover — plum glow + outline */
 .btn-hover {
-  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  transition: box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), outline-offset 0.3s ease, outline-color 0.3s ease;
+  outline: 2px solid transparent;
+  outline-offset: 4px;
 }
 
 .btn-hover:hover {
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 0 20px rgba(107, 57, 119, 0.25), 0 4px 12px rgba(20, 19, 15, 0.08);
+  outline: 2px solid rgba(107, 57, 119, 0.4);
+  outline-offset: 2px;
 }
 
-/* Card hover — lift + border */
+/* Card hover — clean border + shadow lift */
 .card-hover {
-  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, border-color 0.25s ease;
+  border: 1px solid rgba(20, 19, 15, 0.08);
 }
 
 .card-hover:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
-  border-color: var(--color-hair-strong);
+  transform: translateY(-3px);
+  box-shadow: 0 16px 40px -12px rgba(20, 19, 15, 0.12), 0 0 0 1px rgba(107, 57, 119, 0.12);
+  border-color: rgba(107, 57, 119, 0.2);
 }
 
 /* Nav link — underline from left */
 .nav-link {
   position: relative;
-  transition: color var(--transition-fast);
+  transition: color 0.2s ease;
 }
 
 .nav-link::after {
@@ -37,24 +42,78 @@
   left: 0;
   width: 0;
   height: 1.5px;
-  background: var(--color-accent);
-  transition: width var(--transition-base);
-}
-
-.nav-link:hover {
-  color: var(--color-ink);
+  background: #6B3977;
+  transition: width 0.25s ease;
 }
 
 .nav-link:hover::after {
   width: 100%;
 }
 
+.nav-link:hover {
+  color: #6B3977;
+}
+
 /* Outline button hover */
 .outline-hover {
-  transition: background var(--transition-fast), border-color var(--transition-fast);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
 }
 
 .outline-hover:hover {
-  background: var(--color-hair);
-  border-color: var(--color-hair-strong);
+  border-color: #6B3977 !important;
+  box-shadow: 0 0 16px rgba(107, 57, 119, 0.2);
+  color: #6B3977;
+}
+
+/* Work card hover */
+.work-card {
+  transition: box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease;
+}
+
+.work-card:hover {
+  box-shadow: 0 16px 40px -12px rgba(20, 19, 15, 0.12), 0 0 0 1px rgba(107, 57, 119, 0.12);
+  border-color: rgba(107, 57, 119, 0.2) !important;
+}
+
+.work-card:hover .work-arrow {
+  transform: translateX(4px);
+}
+
+/* Nav CTA glow */
+@keyframes navGlow {
+  0%, 100% { box-shadow: 0 0 12px rgba(107, 57, 119, 0.15); }
+  50% { box-shadow: 0 0 20px rgba(107, 57, 119, 0.3); }
+}
+
+.nav-cta {
+  animation: navGlow 3s ease-in-out infinite;
+}
+
+/* Button hover — dark background variant (CTA section) */
+.btn-hover-dark {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+}
+
+.btn-hover-dark:hover {
+  transform: translateY(-1px);
+}
+
+.btn-hover-dark-primary:hover {
+  box-shadow: 0 0 24px rgba(107, 57, 119, 0.5), 0 6px 16px rgba(107, 57, 119, 0.3);
+}
+
+.btn-hover-dark-secondary:hover {
+  border-color: rgba(251, 248, 241, 0.5) !important;
+  background: rgba(251, 248, 241, 0.08);
+  box-shadow: 0 0 16px rgba(251, 248, 241, 0.1);
+}
+
+/* Section number fade-slide */
+@keyframes fadeSlideIn {
+  from { opacity: 0; transform: translateX(-8px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.section-num {
+  animation: fadeSlideIn 0.6s ease forwards;
 }

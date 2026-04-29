@@ -21,10 +21,10 @@ export function CTABanner() {
           </p>
         </div>
         <div style={{ display: "flex", flexDirection: "row", gap: 12, flexShrink: 0, alignItems: "center" }}>
-          <Link href="/#contact" className="btn-hover" style={{ padding: "14px 28px", background: C.accent, color: C.surface, borderRadius: 99, fontSize: 14, fontWeight: 600, display: "flex", alignItems: "center", gap: 8, whiteSpace: "nowrap", cursor: "pointer", textDecoration: "none" }}>
+          <Link href="/#contact" className="btn-hover-dark btn-hover-dark-primary" style={{ padding: "14px 28px", background: C.accent, color: C.surface, borderRadius: 99, fontSize: 14, fontWeight: 600, display: "flex", alignItems: "center", gap: 8, whiteSpace: "nowrap", cursor: "pointer", textDecoration: "none" }}>
             Start a project →
           </Link>
-          <Link href="/#work" className="btn-hover" style={{ padding: "14px 26px", color: C.surface, borderRadius: 99, fontSize: 14, fontWeight: 500, border: "1px solid rgba(251,248,241,0.2)", display: "flex", alignItems: "center", gap: 8, whiteSpace: "nowrap", cursor: "pointer", textDecoration: "none" }}>
+          <Link href="/#work" className="btn-hover-dark btn-hover-dark-secondary" style={{ padding: "14px 26px", color: C.surface, borderRadius: 99, fontSize: 14, fontWeight: 500, border: "1px solid rgba(251,248,241,0.2)", display: "flex", alignItems: "center", gap: 8, whiteSpace: "nowrap", cursor: "pointer", textDecoration: "none" }}>
             See recent work
           </Link>
         </div>

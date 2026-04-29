@@ -14,24 +14,28 @@ export interface Service {
 }
 
 // Project types
+export interface ProjectMetric {
+  value: string;
+  label: string;
+  delta: string;
+}
+
 export interface Project {
-  id: string;
+  slug: string;
   title: string;
-  description: string;
-  image: string;
-  technologies: string[];
-  longDescription?: string;
-  highlights?: string[];
-  scope?: string[];
-  url?: string;
-  github?: string;
-  featured?: boolean;
-  testimonial?: {
-    quote: string;
-    author: string;
-    role: string;
-    company?: string;
-  };
+  subtitle: string;
+  client: string;
+  year: string;
+  type: string;
+  tech: string[];
+  accentColor: string;
+  brief: string;
+  solution: string;
+  solutionBullets: string[];
+  metrics: ProjectMetric[];
+  quote: string;
+  quoteAuthor: string;
+  nextSlug: string;
 }
 
 // Testimonial types
