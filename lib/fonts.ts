@@ -18,5 +18,5 @@ export const fraunces = Fraunces({
   variable: "--font-fraunces",
   display: "swap",
   weight: ["400", "500"],
-  style: ["normal"],
+  style: ["normal", "italic"],
 });
