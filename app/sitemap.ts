@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { projects } from "@/data/projects";
+import { seoPages } from "@/data/seo-pages";
 import { getAllPostSlugs } from "@/lib/sanity/fetch";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
@@ -16,6 +17,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     lastModified: new Date(),
     changeFrequency: "weekly" as const,
     priority: 0.7,
+  }));
+
+  const seoEntries = seoPages.map((p) => ({
+    url: `https://brightbyte-berlin.com/s/${p.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.8,
   }));
 
   return [
@@ -51,5 +59,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
     ...projectEntries,
     ...blogEntries,
+    ...seoEntries,
   ];
 }

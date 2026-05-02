@@ -27,10 +27,10 @@ export function HeroSection() {
   }, []);
 
   return (
-    <section style={{ padding: "140px 56px 80px", position: "relative", background: "linear-gradient(180deg, #F7F3EB 0%, #F5F1E8 35%, #FAF7F0 100%)", minHeight: "100vh", overflow: "hidden" }}>
+    <section style={{ padding: "140px 56px 56px", position: "relative", background: "linear-gradient(180deg, #F7F3EB 0%, #F5F1E8 35%, #FAF7F0 100%)", overflow: "hidden" }}>
       {/* Plum gradient spotlights */}
-      <div style={{ position: "absolute", bottom: 0, left: 0, width: "60%", height: "65%", background: "radial-gradient(ellipse at 15% 100%, rgba(107,57,119,0.22) 0%, transparent 65%)", pointerEvents: "none" }} />
-      <div style={{ position: "absolute", bottom: 0, right: 0, width: "60%", height: "65%", background: "radial-gradient(ellipse at 85% 100%, rgba(107,57,119,0.22) 0%, transparent 65%)", pointerEvents: "none" }} />
+      <div style={{ position: "absolute", bottom: 0, left: 0, width: "75%", height: "80%", background: "radial-gradient(ellipse at 15% 100%, rgba(107,57,119,0.22) 0%, transparent 65%)", pointerEvents: "none" }} />
+      <div style={{ position: "absolute", bottom: 0, right: 0, width: "75%", height: "80%", background: "radial-gradient(ellipse at 85% 100%, rgba(107,57,119,0.22) 0%, transparent 65%)", pointerEvents: "none" }} />
       {/* Grain texture */}
       <svg style={{ position: "absolute", inset: 0, width: "100%", height: "100%", pointerEvents: "none", opacity: 0.35 }}>
         <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves={4} stitchTiles="stitch" /></filter>
@@ -86,7 +86,7 @@ export function HeroSection() {
         initial={{ opacity: 0, y: 60, scale: 0.96 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         transition={{ duration: 1.1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-        style={{ maxWidth: 960, width: "100%", margin: "0 auto", position: "relative" }}
+        style={{ maxWidth: 1100, width: "100%", margin: "0 auto", position: "relative" }}
       >
         <HeroMockup phase={phase} />
       </motion.div>

@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { EChartsDonut } from "./EChartsDonut";
 import { EChartsBar } from "./EChartsBar";
@@ -12,9 +13,30 @@ const C = {
   subLight: "#9A958A",
   accent: "#6B3977",
   hair: "rgba(20,19,15,0.08)",
+  green: "#16A34A",
 };
 
+const ACTIVITY_ITEMS = [
+  { icon: "●", color: "#6B3977", label: "New lead received", time: "2m ago" },
+  { icon: "↑", color: "#16A34A", label: "Traffic +42%", time: "1h ago" },
+  { icon: "↑", color: "#16A34A", label: "Revenue +€2.4k", time: "3h ago" },
+  { icon: "✓", color: "#16A34A", label: "Deploy successful", time: "5h ago" },
+  { icon: "●", color: "#6B3977", label: "Form submission", time: "8h ago" },
+];
+
 export function HeroMockup({ phase }: { phase: number }) {
+  const [visibleItems, setVisibleItems] = useState(0);
+
+  useEffect(() => {
+    if (phase < 3) return;
+    let count = 0;
+    const interval = setInterval(() => {
+      count++;
+      setVisibleItems(count);
+      if (count >= ACTIVITY_ITEMS.length) clearInterval(interval);
+    }, 150);
+    return () => clearInterval(interval);
+  }, [phase]);
   return (
     <div
       style={{
@@ -37,30 +59,16 @@ export function HeroMockup({ phase }: { phase: number }) {
           </div>
           <div style={{ marginLeft: 12, padding: "4px 14px", background: "rgba(251,248,241,0.08)", borderRadius: 6, display: "flex", alignItems: "center", gap: 6 }}>
             <span style={{ width: 8, height: 8, borderRadius: "50%", border: "1.5px solid rgba(251,248,241,0.3)" }} />
-            <span className="mono" style={{ fontSize: 10, color: "rgba(251,248,241,0.5)", letterSpacing: "0.04em" }}>client-site.de</span>
+            <span className="mono" style={{ fontSize: 10, color: "rgba(251,248,241,0.5)", letterSpacing: "0.04em" }}>client-dashboard.com</span>
           </div>
         </div>
       </div>
 
       {/* Dashboard content */}
       <div style={{ background: C.surface, padding: 0, minHeight: 380, position: "relative", overflow: "hidden", display: "flex", flexDirection: "column" }}>
-        {/* Nav skeleton */}
-        <div style={{
-          padding: "12px 24px", borderBottom: `1px solid ${C.hair}`, display: "flex", justifyContent: "space-between", alignItems: "center",
-          transform: phase >= 1 ? "translateY(0)" : "translateY(-20px)",
-          opacity: phase >= 1 ? 1 : 0,
-          transition: "all 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.1s",
-        }}>
-          <div style={{ width: 70, height: 9, borderRadius: 4, background: phase >= 2 ? C.ink : C.hair, transition: "background 0.6s" }} />
-          <div style={{ display: "flex", gap: 14 }}>
-            {[40, 32, 36].map((w, i) => (
-              <div key={i} style={{ width: w, height: 7, borderRadius: 3, background: phase >= 2 ? C.subLight : C.hair, transition: `background 0.6s ${i * 0.1}s` }} />
-            ))}
-          </div>
-        </div>
 
-        {/* 3-column grid */}
-        <div style={{ padding: "16px 20px 20px", display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 14, flex: 1, opacity: phase >= 1 ? 1 : 0, transform: phase >= 1 ? "translateY(0)" : "translateY(12px)", transition: "all 0.6s cubic-bezier(0.16,1,0.3,1) 0.2s" }}>
+        {/* 4-column grid */}
+        <div style={{ padding: "16px 20px 20px", display: "grid", gridTemplateColumns: "1fr 1fr 1fr 0.85fr", gap: 14, flex: 1, opacity: phase >= 1 ? 1 : 0, transform: phase >= 1 ? "translateY(0)" : "translateY(12px)", transition: "all 0.6s cubic-bezier(0.16,1,0.3,1) 0.2s" }}>
 
           {/* Left — Mini site preview + KPIs */}
           <motion.div
@@ -140,6 +148,34 @@ export function HeroMockup({ phase }: { phase: number }) {
             style={{ background: C.bg, borderRadius: 8, padding: "6px 8px 4px", border: `1px solid ${C.hair}`, display: "flex", flexDirection: "column" }}
           >
             <EChartsBar />
+          </motion.div>
+
+          {/* Activity feed */}
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.2, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            style={{ background: C.bg, borderRadius: 8, padding: "12px 10px 8px", border: `1px solid ${C.hair}`, display: "flex", flexDirection: "column", overflow: "hidden" }}
+          >
+            <div className="mono" style={{ fontSize: 9, color: C.sub, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 10, fontWeight: 600 }}>Activity</div>
+            <div style={{ display: "flex", flexDirection: "column", gap: 7, flex: 1 }}>
+              {ACTIVITY_ITEMS.map((item, i) => (
+                <div
+                  key={i}
+                  style={{
+                    display: "flex", alignItems: "center", gap: 7, padding: "6px 8px",
+                    background: C.surface, borderRadius: 6, border: `1px solid ${C.hair}`,
+                    opacity: i < visibleItems ? 1 : 0,
+                    transform: i < visibleItems ? "translateY(0)" : "translateY(6px)",
+                    transition: `all 0.4s cubic-bezier(0.16,1,0.3,1) ${i * 0.05}s`,
+                  }}
+                >
+                  <span style={{ fontSize: 9, color: item.color, flexShrink: 0 }}>{item.icon}</span>
+                  <span className="mono" style={{ fontSize: 10, color: C.ink, letterSpacing: "0.01em", flex: 1, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{item.label}</span>
+                  <span className="mono" style={{ fontSize: 8, color: C.subLight, flexShrink: 0 }}>{item.time}</span>
+                </div>
+              ))}
+            </div>
           </motion.div>
         </div>
       </div>

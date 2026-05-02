@@ -48,7 +48,7 @@ export function PricingSection() {
 
       <ComparisonTable />
 
-      <div style={{ marginTop: 32, display: "flex", flexDirection: "column", alignItems: "center", gap: 16 }}>
+      <div style={{ marginTop: 32, display: "flex", alignItems: "center", gap: 20 }}>
         <Link
           href="/#contact"
           className="btn-hover"

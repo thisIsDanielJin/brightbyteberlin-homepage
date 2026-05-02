@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState, useEffect } from "react";
+import Link from "next/link";
 import { SERVICES } from "@/data/content";
 import { ServiceImage } from "./ServiceImage";
 
@@ -38,24 +39,26 @@ export function ServicesSection() {
       </div>
       <div ref={ref} style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 32 }}>
         {SERVICES.map((s, idx) => (
-          <div key={s.tag} className="card-hover" style={{ background: C.surface, borderRadius: 16, overflow: "hidden", display: "flex", flexDirection: "column", cursor: "pointer", opacity: inView ? 1 : 0, transform: inView ? "translateY(0)" : "translateY(20px)", transition: `opacity 0.9s cubic-bezier(0.16,1,0.3,1) ${idx * 0.15}s, transform 0.9s cubic-bezier(0.16,1,0.3,1) ${idx * 0.15}s` }}>
-            <div style={{ height: 130, position: "relative" }}>
-              <ServiceImage kind={s.img} />
-              <div style={{ position: "absolute", top: 14, left: 14, padding: "4px 10px", background: "rgba(251,248,241,0.85)", borderRadius: 99, backdropFilter: "blur(4px)", border: "1px solid rgba(20,19,15,0.08)", zIndex: 2, display: "flex", alignItems: "center", justifyContent: "center", lineHeight: 1 }} className="mono">
-                <span style={{ fontSize: 10, color: C.ink, letterSpacing: "0.06em", fontWeight: 500 }}>{s.tag}</span>
+          <Link key={s.tag} href={`/services/${s.slug}`} style={{ textDecoration: "none", color: "inherit" }}>
+            <div className="card-hover" style={{ background: C.surface, borderRadius: 16, overflow: "hidden", display: "flex", flexDirection: "column", cursor: "pointer", height: "100%", opacity: inView ? 1 : 0, transform: inView ? "translateY(0)" : "translateY(20px)", transition: `opacity 0.9s cubic-bezier(0.16,1,0.3,1) ${idx * 0.15}s, transform 0.9s cubic-bezier(0.16,1,0.3,1) ${idx * 0.15}s` }}>
+              <div style={{ height: 130, position: "relative" }}>
+                <ServiceImage kind={s.img} />
+                <div style={{ position: "absolute", top: 14, left: 14, padding: "4px 10px", background: "rgba(251,248,241,0.85)", borderRadius: 99, backdropFilter: "blur(4px)", border: "1px solid rgba(20,19,15,0.08)", zIndex: 2, display: "flex", alignItems: "center", justifyContent: "center", lineHeight: 1 }} className="mono">
+                  <span style={{ fontSize: 10, color: C.ink, letterSpacing: "0.06em", fontWeight: 500 }}>{s.tag}</span>
+                </div>
               </div>
-            </div>
-            <div style={{ padding: "22px 24px 20px", display: "flex", flexDirection: "column", flex: 1 }}>
-              <h3 style={{ fontSize: 20, fontWeight: 600, color: C.ink, letterSpacing: "-0.02em", marginBottom: 10 }}>{s.title}</h3>
-              <p style={{ fontSize: 14, color: C.sub, lineHeight: 1.6, marginBottom: 24, flex: 1 }}>{s.desc}</p>
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", paddingTop: 18, borderTop: `1px solid ${C.hair}` }}>
-                <span className="mono" style={{ fontSize: 11, color: C.ink, letterSpacing: "0.04em" }}>{s.meta}</span>
-                <div style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 13, color: C.accent, fontWeight: 500 }}>
-                  Learn more →
+              <div style={{ padding: "22px 24px 20px", display: "flex", flexDirection: "column", flex: 1 }}>
+                <h3 style={{ fontSize: 20, fontWeight: 600, color: C.ink, letterSpacing: "-0.02em", marginBottom: 10 }}>{s.title}</h3>
+                <p style={{ fontSize: 14, color: C.sub, lineHeight: 1.6, marginBottom: 24, flex: 1 }}>{s.desc}</p>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", paddingTop: 18, borderTop: `1px solid ${C.hair}` }}>
+                  <span className="mono" style={{ fontSize: 11, color: C.ink, letterSpacing: "0.04em" }}>{s.meta}</span>
+                  <div style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 13, color: C.accent, fontWeight: 500 }}>
+                    Learn more →
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </section>
