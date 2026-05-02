@@ -5,7 +5,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Datenschutzerklärung | BrightByte Berlin",
   description:
-    "Datenschutzerklärung / Privacy Policy — Data protection information for BrightByte Berlin.",
+    "Datenschutzerklärung / Privacy Policy · Data protection information for BrightByte Berlin.",
   alternates: {
     canonical: "/privacy",
   },

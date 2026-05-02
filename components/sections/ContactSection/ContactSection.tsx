@@ -68,13 +68,13 @@ export function ContactSection() {
             <span className="serif" style={{ fontStyle: "italic", fontWeight: 400, color: C.accent }}>something together.</span>
           </h2>
           <p style={{ fontSize: 17, color: C.sub, lineHeight: 1.6, maxWidth: 400, marginBottom: 36 }}>
-            Send a brief — what you&apos;re trying to do, what&apos;s in the way, when you&apos;d like to launch. I&apos;ll reply within 24 hours.
+            Send a brief: what you&apos;re trying to do, what&apos;s in the way, when you&apos;d like to launch. I&apos;ll reply within 24 hours.
           </p>
           <div>
             <div className="mono" style={{ fontSize: 10, color: C.sub, letterSpacing: "0.16em", textTransform: "uppercase", marginBottom: 20 }}>What happens next</div>
             <div style={{ position: "relative", paddingLeft: 24 }}>
               <div style={{ position: "absolute", left: 5, top: 6, bottom: 6, width: 1.5, background: C.accentSoft, borderRadius: 1 }} />
-              {([["24H", "I read your brief and reply with a few questions or a quick yes/no."], ["DAY 2", "We have a 30-min call to align on scope and timeline."], ["DAY 3", "You get a fixed-price proposal in your inbox — no obligation."]] as const).map(([when, what], i, arr) => (
+              {([["24H", "I read your brief and reply with a few questions or a quick yes/no."], ["DAY 2", "We have a 30-min call to align on scope and timeline."], ["DAY 3", "You get a fixed-price proposal in your inbox. No obligation."]] as const).map(([when, what], i, arr) => (
                 <div key={i} style={{ display: "flex", gap: 14, alignItems: "flex-start", marginBottom: i < arr.length - 1 ? 16 : 0, position: "relative" }}>
                   <div style={{ position: "absolute", left: -24, top: 5, width: 12, height: 12, borderRadius: "50%", background: C.surface, border: `2px solid ${C.accent}`, zIndex: 1 }} />
                   <div style={{ display: "flex", alignItems: "baseline", gap: 10 }}>

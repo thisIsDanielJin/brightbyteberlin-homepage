@@ -62,7 +62,7 @@ export default function ServicesPage() {
           Websites that work as hard<br />as <span className="serif" style={{ fontStyle: "italic", fontWeight: 400 }}>you do.</span>
         </h1>
         <p style={{ fontSize: 17, color: C.sub, lineHeight: 1.6, maxWidth: 520, margin: "0 auto" }}>
-          Fixed-price, fixed-timeline builds. I handle the tech — you stay focused on your business.
+          Fixed-price, fixed-timeline builds. I handle the tech so you stay focused on your business.
         </p>
       </div>
 
@@ -135,14 +135,14 @@ export default function ServicesPage() {
               Tell me what<br />you&apos;re <span className="serif" style={{ fontStyle: "italic", fontWeight: 400, color: C.accent }}>building.</span>
             </h2>
             <p style={{ fontSize: 15, color: C.sub, lineHeight: 1.6, maxWidth: 380, marginBottom: 32 }}>
-              Send a brief — what you need, when you need it, and anything else that helps. I reply within 24 hours.
+              Send a brief: what you need, when you need it, and anything else that helps. I reply within 24 hours.
             </p>
             {/* What happens next */}
             <div>
               <div className="mono" style={{ fontSize: 10, color: C.sub, letterSpacing: "0.16em", textTransform: "uppercase", marginBottom: 20 }}>What happens next</div>
               <div style={{ position: "relative", paddingLeft: 24 }}>
                 <div style={{ position: "absolute", left: 5, top: 6, bottom: 6, width: 1.5, background: C.accentSoft, borderRadius: 1 }} />
-                {([["24H", "I read your brief and reply with questions or a quick yes/no."], ["DAY 2", "30-min call to align on scope and timeline."], ["DAY 3", "Fixed-price proposal in your inbox — no obligation."]] as const).map(([when, what], i, arr) => (
+                {([["24H", "I read your brief and reply with questions or a quick yes/no."], ["DAY 2", "30-min call to align on scope and timeline."], ["DAY 3", "Fixed-price proposal in your inbox. No obligation."]] as const).map(([when, what], i, arr) => (
                   <div key={i} style={{ display: "flex", gap: 14, alignItems: "flex-start", marginBottom: i < arr.length - 1 ? 16 : 0, position: "relative" }}>
                     <div style={{ position: "absolute", left: -24, top: 5, width: 12, height: 12, borderRadius: "50%", background: C.surface, border: `2px solid ${C.accent}`, zIndex: 1 }} />
                     <div style={{ display: "flex", alignItems: "baseline", gap: 10 }}>

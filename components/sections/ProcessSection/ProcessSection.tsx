@@ -31,7 +31,7 @@ export function ProcessSection() {
             <span className="serif" style={{ fontStyle: "italic", fontWeight: 400 }}>no surprises.</span>
           </h2>
           <p style={{ fontSize: 17, color: C.sub, maxWidth: 520, lineHeight: 1.6 }}>
-            From kickoff to launch — predictable, transparent, with weekly demos so you always know where things stand.
+            From kickoff to launch: predictable, transparent, with weekly demos so you always know where things stand.
           </p>
         </div>
       </div>

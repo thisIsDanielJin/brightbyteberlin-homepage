@@ -14,7 +14,7 @@ export function AboutSection() {
     <section id="about" style={{ padding: "112px 56px", background: C.surface, borderBottom: `1px solid ${C.hair}` }}>
       <div style={{ display: "grid", gridTemplateColumns: "300px 1fr", gap: 48, alignItems: "flex-start" }}>
         <div>
-          <div style={{ aspectRatio: "1/1", borderRadius: 16, overflow: "hidden", border: `1px solid ${C.hair}`, background: "linear-gradient(135deg, #EDE5F0 0%, #C4ADCF 60%, #6B3977 100%)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+          <div style={{ aspectRatio: "1/1", borderRadius: 16, overflow: "hidden", background: "linear-gradient(135deg, #EDE5F0 0%, #C4ADCF 60%, #6B3977 100%)", display: "flex", alignItems: "center", justifyContent: "center" }}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/daniel-profile.jpg"

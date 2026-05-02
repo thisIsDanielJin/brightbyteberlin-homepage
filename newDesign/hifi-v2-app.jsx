@@ -50,7 +50,7 @@ const SERVICES_DETAIL = [
   {title:'Web apps & MVPs', img:'app', value:'Full-stack applications that grow with your business.',
     features:['Next.js + database + auth','Admin panel or CMS','Forms, integrations, payments','Performance baseline + monitoring','30 days post-launch support'],
     timeline:'3–8 weeks', ideal:'SaaS products, portals, and internal tools.'},
-  {title:'AI integrations', img:'ai', value:'Production-grade AI wired into your product — not demos.',
+  {title:'AI integrations', img:'ai', value:'Production-grade AI wired into your product. Not demos.',
     features:['Chatbots + semantic search','Automated workflows','RAG pipelines + embeddings','Production monitoring + fallbacks','Integration with existing stack'],
     timeline:'Scope-based', ideal:'Teams ready to ship AI features.'},
 ];
@@ -71,7 +71,7 @@ const PROJECTS = [
     type: 'Multi-page · portfolio',
     tech: ['Next.js', 'Framer Motion', 'Sanity CMS'],
     accentColor: '#4A6741',
-    brief: 'A Berlin-based architecture firm needed a portfolio site that showcased large-format photography of their built projects while letting the team update content independently — no developer needed for new project uploads.',
+    brief: 'A Berlin-based architecture firm needed a portfolio site that showcased large-format photography of their built projects while letting the team update content independently. No developer needed for new project uploads.',
     solution: 'Built a fast, image-first portfolio on Next.js with a headless Sanity CMS. The team manages projects, press mentions, and team bios from a simple dashboard.',
     solutionBullets: ['Responsive masonry gallery with lightbox', 'CMS dashboard for self-managed content', 'Optimized image pipeline (WebP, lazy loading, blur placeholders)', 'Bilingual DE/EN with automatic routing'],
     metrics: [
@@ -86,7 +86,7 @@ const PROJECTS = [
   {
     slug: 'baumpflege',
     title: 'Baumpflege Schmidt',
-    subtitle: 'Local service business — leads & booking',
+    subtitle: 'Local service business · leads & booking',
     client: 'Baumpflege Schmidt GmbH',
     year: '2025',
     type: 'Landing page · lead generation',
@@ -127,10 +127,25 @@ const PROJECTS = [
   },
 ];
 
-const PRICING = [
-  {name:'Starter', price:'€990', period:'one-time', sub:'Single landing page', features:['1 page · fully custom','Mobile + desktop','Lighthouse 95+ guaranteed','Basic analytics + SEO','2 rounds of feedback'], cta:'Start small', highlight:false, value:{icon:'⏱', label:'Save ~€2,400 vs. agency', sub:'Avg. agency charges €3,400+ for the same'}},
-  {name:'Growth', price:'€2,500', period:'starting at', sub:'Multi-page or simple app', features:['5–10 pages · custom design','CMS or admin panel','Forms, integrations, auth','Performance + SEO baseline','30 days post-launch support'], cta:'Most chosen', highlight:true, value:{icon:'📈', label:'+28% avg. leads in 90 days', sub:'Across 12 client sites tracked'}},
-  {name:'Custom', price:"Let's talk", period:'scope-based', sub:'Web apps, MVPs, complex builds', features:['Full-stack Next.js builds','Database, auth, payments','AI integrations, automations','Weekly progress demos','Ongoing partnership available'], cta:'Scope it', highlight:false, value:{icon:'🚀', label:'Replaces a €60K/yr dev hire', sub:'Faster to market, no overhead'}},
+const SCOPE_OPTIONS = [
+  {
+    id:'landing', title:'Landing page', tagline:'One focused page that converts', timeline:'1–2 weeks',
+    includes:['Custom responsive design','Conversion-optimized layout','SEO + analytics setup','Lighthouse 95+ guaranteed','2 feedback rounds included'],
+    advantages:['€0–5/mo hosting (Vercel free tier)','No monthly platform fees','You own the code — forever','Loads 3× faster than Webflow'],
+    ideal:'Launches, campaigns, MVPs',
+  },
+  {
+    id:'multipage', title:'Multi-page site', tagline:'Grow without platform limits', timeline:'3–4 weeks',
+    includes:['5–10 pages, fully custom','CMS for self-managed content','Forms + integrations','Performance baseline + monitoring','30 days post-launch support'],
+    advantages:['No Webflow/Squarespace subscription','Custom code = no template constraints','Full ownership — take it anywhere','SEO that actually ranks (not template bloat)'],
+    ideal:'Established businesses, portfolios, service companies',
+  },
+  {
+    id:'webapp', title:'Web app / MVP', tagline:'Full-stack, built to scale', timeline:'4–8 weeks',
+    includes:['Next.js + database + auth','Admin panel or dashboard','Payments, automations, APIs','Weekly progress demos','Ongoing support available'],
+    advantages:['No per-seat SaaS costs','Own your data and infrastructure','Ship 2–3× faster than hiring in-house','Enterprise quality without enterprise overhead'],
+    ideal:'SaaS products, portals, internal tools',
+  },
 ];
 
 const FAQS = [
@@ -213,7 +228,7 @@ const EChart = ({option, style}) => {
   const chartRef = React.useRef(null);
   React.useEffect(() => {
     if (!ref.current || !window.echarts) return;
-    const chart = window.echarts.init(ref.current);
+    const chart = window.echarts.init(ref.current, null, { renderer: 'svg' });
     chartRef.current = chart;
     chart.setOption(option);
     const ro = new ResizeObserver(() => chart.resize());
@@ -268,6 +283,9 @@ const Nav = () => {
 /* ═══ HERO — Animated Build Sequence ═══════════════════════════════════ */
 const Hero = ({onStart, onWork}) => {
   const [phase, setPhase] = React.useState(0);
+  const [sessions, setSessions] = React.useState(12400);
+  const [leads, setLeads] = React.useState(47);
+  const [leadPulse, setLeadPulse] = React.useState(false);
 
   React.useEffect(() => {
     const timers = [
@@ -278,6 +296,21 @@ const Hero = ({onStart, onWork}) => {
     ];
     return () => timers.forEach(clearTimeout);
   }, []);
+
+  React.useEffect(() => {
+    if (phase < 3) return;
+    const sessionInterval = setInterval(() => {
+      setSessions(s => s + Math.floor(Math.random() * 3) + 1);
+    }, 3500);
+    const leadInterval = setInterval(() => {
+      setLeads(l => l + 1);
+      setLeadPulse(true);
+      setTimeout(() => setLeadPulse(false), 1200);
+    }, 8000);
+    return () => { clearInterval(sessionInterval); clearInterval(leadInterval); };
+  }, [phase]);
+
+  const formatSessions = (n) => n >= 1000 ? (n / 1000).toFixed(1) + 'K' : n;
 
   return (
     <div style={{padding:'140px 56px 80px', position:'relative', background:'linear-gradient(180deg, #F7F3EB 0%, #F5F1E8 35%, #FAF7F0 100%)', minHeight:'100vh', overflow:'hidden'}}>
@@ -311,6 +344,56 @@ const Hero = ({onStart, onWork}) => {
 
       {/* Animated browser frame — wider, positioned to bleed below fold */}
       <motion.div initial={{opacity:0, y:60, scale:0.96}} animate={{opacity:1, y:0, scale:1}} transition={{duration:1.1, delay:0.5, ease:[0.16,1,0.3,1]}} style={{maxWidth:960, width:'100%', margin:'0 auto', position:'relative'}}>
+
+        {/* Floating badge — Traffic surge (top-left) */}
+        <div style={{
+          position:'absolute', top:-14, left:-16, zIndex:10,
+          display:'flex', alignItems:'center', gap:6,
+          padding:'8px 14px', borderRadius:99,
+          background:'#16A34A', color:'#fff',
+          boxShadow:'0 4px 16px rgba(22,163,74,0.3)',
+          fontSize:12, fontWeight:600, letterSpacing:'-0.01em',
+          opacity: phase >= 4 ? 1 : 0,
+          transform: phase >= 4 ? 'scale(1) translateY(0)' : 'scale(0.8) translateY(8px)',
+          transition: 'all 0.5s cubic-bezier(0.16,1,0.3,1) 0.3s'
+        }}>
+          <span style={{fontSize:14}}>↑</span>
+          <span className="mono" style={{fontSize:11, letterSpacing:'0.02em'}}>Traffic +42% this month</span>
+        </div>
+
+        {/* Floating badge — New lead (top-right) */}
+        <div style={{
+          position:'absolute', top:-14, right:-16, zIndex:10,
+          display:'flex', alignItems:'center', gap:6,
+          padding:'8px 14px', borderRadius:99,
+          background:C.accent, color:'#fff',
+          boxShadow: leadPulse ? '0 4px 20px rgba(107,57,119,0.5)' : '0 4px 16px rgba(107,57,119,0.3)',
+          fontSize:12, fontWeight:600, letterSpacing:'-0.01em',
+          opacity: phase >= 4 ? 1 : 0,
+          transform: phase >= 4 ? (leadPulse ? 'scale(1.08)' : 'scale(1) translateY(0)') : 'scale(0.8) translateY(8px)',
+          transition: 'all 0.5s cubic-bezier(0.16,1,0.3,1) 0.6s'
+        }}>
+          <span style={{width:7, height:7, borderRadius:'50%', background:'#fff', opacity:0.9, animation:'pulse 2s ease-in-out infinite'}}></span>
+          <span className="mono" style={{fontSize:11, letterSpacing:'0.02em'}}>New customer inquiry</span>
+        </div>
+
+        {/* Floating badge — Revenue (bottom-left) */}
+        <div style={{
+          position:'absolute', bottom:24, left:-20, zIndex:10,
+          display:'flex', alignItems:'center', gap:6,
+          padding:'8px 14px', borderRadius:99,
+          background:'#fff', color:C.ink,
+          border:`1px solid ${C.hair}`,
+          boxShadow:'0 8px 24px rgba(20,19,15,0.12)',
+          fontSize:12, fontWeight:600, letterSpacing:'-0.01em',
+          opacity: phase >= 4 ? 1 : 0,
+          transform: phase >= 4 ? 'scale(1) translateY(0)' : 'scale(0.8) translateY(8px)',
+          transition: 'all 0.5s cubic-bezier(0.16,1,0.3,1) 0.9s'
+        }}>
+          <span style={{fontSize:14, color:'#16A34A'}}>↑</span>
+          <span className="mono" style={{fontSize:11, letterSpacing:'0.02em'}}>Revenue +€2.4k</span>
+        </div>
+
         <div className="build-frame" style={{
           borderRadius:14, overflow:'hidden', border:`1px solid ${C.hair}`,
           boxShadow: phase >= 4 ? '0 32px 64px -24px rgba(20,19,15,0.18), 0 0 0 1px rgba(20,19,15,0.04)' : '0 16px 40px -16px rgba(20,19,15,0.12)',
@@ -392,10 +475,10 @@ const Hero = ({onStart, onWork}) => {
                 </div>
                 {/* KPI cards — horizontal row below site preview */}
                 <div style={{display:'grid', gridTemplateColumns:'1fr 1fr 1fr', gap:5, flex:1}}>
-                  {[['SESSIONS','12.4K','+18%'],['LEADS','47','+34%'],['SPEED','98','/100']].map(([label,val,delta]) => (
+                  {[['SESSIONS',formatSessions(sessions),'+18%'],['LEADS',String(leads),'+34%'],['SPEED','98','/100']].map(([label,val,delta]) => (
                     <div key={label} style={{background:C.bg, borderRadius:6, padding:'10px 6px', border:`1px solid ${C.hair}`, display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', gap:3}}>
                       <div className="mono" style={{fontSize:11, color:C.sub, letterSpacing:'0.06em', fontWeight:500}}>{label}</div>
-                      <span style={{fontSize:24, fontWeight:700, color:C.ink, letterSpacing:'-0.02em'}}>{val}</span>
+                      <span style={{fontSize:24, fontWeight:700, color:C.ink, letterSpacing:'-0.02em', transition:'transform 0.2s'}}>{val}</span>
                       <span style={{fontSize:11, fontWeight:600, color:'#16A34A', background:'rgba(22,163,74,0.1)', padding:'2px 7px', borderRadius:3}} className="mono">{delta}</span>
                     </div>
                   ))}
@@ -555,49 +638,67 @@ const ServiceImage = ({kind}) => {
   const items = {
     lp: (
       <div style={{width:'100%', height:'100%', background:`linear-gradient(160deg, #EDE5F0 0%, #C4ADCF 100%)`, position:'relative', overflow:'hidden', display:'flex', alignItems:'center', justifyContent:'center'}}>
-        {/* browser mockup */}
-        <div style={{width:220, height:102, background:C.surface, borderRadius:8, boxShadow:`0 8px 24px rgba(20,19,15,0.14)`, overflow:'hidden', position:'relative'}}>
+        <svg style={{position:'absolute', inset:0, width:'100%', height:'100%', opacity:0.12}}>
+          {Array.from({length:8}).map((_,row) => Array.from({length:14}).map((_,col) => <circle key={`${row}-${col}`} cx={col*18+9} cy={row*18+9} r={1.2} fill={C.ink}/>))}
+        </svg>
+        <div style={{position:'absolute', width:210, height:96, background:'rgba(251,248,241,0.5)', borderRadius:7, transform:'translate(8px, -2px)', boxShadow:'0 4px 12px rgba(20,19,15,0.06)'}}></div>
+        <div style={{width:220, height:102, background:C.surface, borderRadius:8, boxShadow:`0 8px 24px rgba(20,19,15,0.14)`, overflow:'hidden', position:'relative', zIndex:1}}>
           <div style={{height:22, background:C.bg, borderBottom:`1px solid ${C.hair}`, display:'flex', alignItems:'center', padding:'0 10px', gap:5}}>
-            <div style={{width:7, height:7, borderRadius:'50%', background:'#FF5C5C'}}></div>
-            <div style={{width:7, height:7, borderRadius:'50%', background:'#FFC83D'}}></div>
-            <div style={{width:7, height:7, borderRadius:'50%', background:'#28C940'}}></div>
+            <div style={{width:6, height:6, borderRadius:'50%', background:'#FF5C5C'}}></div>
+            <div style={{width:6, height:6, borderRadius:'50%', background:'#FFC83D'}}></div>
+            <div style={{width:6, height:6, borderRadius:'50%', background:'#28C940'}}></div>
             <div style={{flex:1, marginLeft:8, height:10, background:C.hair, borderRadius:99}}></div>
           </div>
-          <div style={{padding:12, display:'flex', flexDirection:'column', gap:6}}>
-            <div style={{height:10, width:'70%', background:C.ink, borderRadius:2, opacity:0.8}}></div>
-            <div style={{height:6, width:'90%', background:C.hair, borderRadius:2}}></div>
-            <div style={{height:6, width:'80%', background:C.hair, borderRadius:2}}></div>
-            <div style={{height:6, width:'55%', background:C.hair, borderRadius:2}}></div>
-            <div style={{height:20, width:72, background:C.accent, borderRadius:99, marginTop:4, opacity:0.85}}></div>
+          <div style={{padding:'8px 12px', display:'grid', gridTemplateColumns:'1fr 0.6fr', gap:8}}>
+            <div style={{display:'flex', flexDirection:'column', gap:4}}>
+              <div style={{height:9, width:'85%', background:C.ink, borderRadius:2, opacity:0.8}}></div>
+              <div style={{height:5, width:'95%', background:C.hair, borderRadius:2}}></div>
+              <div style={{height:5, width:'80%', background:C.hair, borderRadius:2}}></div>
+              <div style={{height:5, width:'60%', background:C.hair, borderRadius:2}}></div>
+              <div style={{height:16, width:56, background:C.accent, borderRadius:99, marginTop:3, opacity:0.85}}></div>
+            </div>
+            <div style={{background:`linear-gradient(135deg, ${C.accentBg} 0%, rgba(196,173,207,0.3) 100%)`, borderRadius:6, border:`1px solid ${C.hair}`}}></div>
           </div>
         </div>
-        <div style={{position:'absolute', top:12, right:14, padding:'3px 8px', background:'rgba(107,57,119,0.85)', borderRadius:4, backdropFilter:'blur(4px)'}} className="mono">
-          <span style={{fontSize:9, color:C.surface, letterSpacing:'0.06em'}}>LIVE · 98/100</span>
+        <div style={{position:'absolute', top:10, right:12, width:32, height:32, borderRadius:'50%', background:'rgba(251,248,241,0.92)', display:'flex', alignItems:'center', justifyContent:'center', boxShadow:'0 2px 8px rgba(20,19,15,0.1)', zIndex:2}}>
+          <svg width={26} height={26} viewBox="0 0 26 26">
+            <circle cx={13} cy={13} r={10} fill="none" stroke="#E8E3D6" strokeWidth={2.5}/>
+            <circle cx={13} cy={13} r={10} fill="none" stroke={C.green} strokeWidth={2.5} strokeDasharray={`${2*Math.PI*10*0.98} ${2*Math.PI*10}`} strokeLinecap="round" transform="rotate(-90 13 13)"/>
+          </svg>
+          <span className="mono" style={{position:'absolute', fontSize:7, fontWeight:700, color:C.ink}}>98</span>
         </div>
       </div>
     ),
     app: (
       <div style={{width:'100%', height:'100%', background:`linear-gradient(160deg, #1E1A2E 0%, #2C2040 100%)`, position:'relative', overflow:'hidden', display:'flex', alignItems:'center', justifyContent:'center'}}>
-        {/* app UI mockup */}
-        <div style={{width:220, height:104, borderRadius:8, overflow:'hidden', border:`1px solid rgba(196,173,207,0.2)`, boxShadow:`0 8px 24px rgba(0,0,0,0.4)`}}>
-          <div style={{height:28, background:'rgba(255,255,255,0.05)', borderBottom:`1px solid rgba(196,173,207,0.15)`, display:'flex', alignItems:'center', padding:'0 12px', gap:12}}>
-            <div style={{width:7, height:7, borderRadius:'50%', background:C.accent, opacity:0.7}}></div>
-            <div className="mono" style={{fontSize:9, color:'rgba(196,173,207,0.6)', letterSpacing:'0.06em'}}>dashboard.atlasstudio.de</div>
+        <div style={{position:'absolute', inset:0, backgroundImage:'linear-gradient(rgba(196,173,207,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(196,173,207,0.04) 1px, transparent 1px)', backgroundSize:'20px 20px'}}></div>
+        <div style={{width:224, height:108, borderRadius:8, overflow:'hidden', border:`1px solid rgba(196,173,207,0.2)`, boxShadow:`0 8px 24px rgba(0,0,0,0.4)`, position:'relative', zIndex:1}}>
+          <div style={{height:24, background:'rgba(255,255,255,0.05)', borderBottom:`1px solid rgba(196,173,207,0.15)`, display:'flex', alignItems:'center', padding:'0 10px', gap:8}}>
+            <div style={{width:6, height:6, borderRadius:'50%', background:C.accent, opacity:0.7}}></div>
+            <div className="mono" style={{fontSize:8, color:'rgba(196,173,207,0.6)', letterSpacing:'0.06em'}}>dashboard.app</div>
+            <div style={{marginLeft:'auto', width:14, height:14, borderRadius:'50%', background:'rgba(107,57,119,0.8)', display:'flex', alignItems:'center', justifyContent:'center'}}>
+              <span style={{fontSize:7, color:'white', fontWeight:700}}>3</span>
+            </div>
           </div>
-          <div style={{display:'grid', gridTemplateColumns:'40px 1fr', height:'calc(100% - 28px)'}}>
-            <div style={{background:'rgba(255,255,255,0.03)', borderRight:`1px solid rgba(196,173,207,0.1)`, padding:8, display:'flex', flexDirection:'column', gap:6}}>
-              {[C.accent,'rgba(196,173,207,0.3)','rgba(196,173,207,0.3)'].map((bg,i)=>(
-                <div key={i} style={{height:6, borderRadius:1, background:bg}}></div>
+          <div style={{display:'grid', gridTemplateColumns:'36px 1fr', height:'calc(100% - 24px)'}}>
+            <div style={{background:'rgba(255,255,255,0.03)', borderRight:`1px solid rgba(196,173,207,0.1)`, padding:'8px 6px', display:'flex', flexDirection:'column', gap:6, alignItems:'center'}}>
+              {[C.accent,'rgba(196,173,207,0.3)','rgba(196,173,207,0.3)','rgba(196,173,207,0.2)'].map((bg,i)=>(
+                <div key={i} style={{width:i===0?8:6, height:i===0?8:6, borderRadius:i===0?2:1, background:bg}}></div>
               ))}
             </div>
-            <div style={{padding:10, display:'grid', gridTemplateColumns:'1fr 1fr', gap:6}}>
-              <div style={{background:'rgba(196,173,207,0.08)', borderRadius:4, padding:8}}>
-                <div className="mono" style={{fontSize:8, color:'rgba(196,173,207,0.5)', marginBottom:4}}>USERS</div>
-                <div style={{fontSize:16, fontWeight:600, color:C.accentSoft}}>183</div>
+            <div style={{padding:'8px 10px', display:'grid', gridTemplateColumns:'1fr 1fr', gap:5}}>
+              <div style={{background:'rgba(196,173,207,0.08)', borderRadius:4, padding:'6px 7px'}}>
+                <div className="mono" style={{fontSize:7, color:'rgba(196,173,207,0.5)', marginBottom:3}}>USERS</div>
+                <div style={{fontSize:14, fontWeight:600, color:C.accentSoft}}>183</div>
               </div>
-              <div style={{background:C.accent, borderRadius:4, padding:8, opacity:0.85}}>
-                <div className="mono" style={{fontSize:8, color:'rgba(255,255,255,0.7)', marginBottom:4}}>REV.</div>
-                <div style={{fontSize:16, fontWeight:600, color:'white'}}>€24k</div>
+              <div style={{background:C.accent, borderRadius:4, padding:'6px 7px', opacity:0.85}}>
+                <div className="mono" style={{fontSize:7, color:'rgba(255,255,255,0.7)', marginBottom:3}}>REV.</div>
+                <div style={{fontSize:14, fontWeight:600, color:'white'}}>€24k</div>
+              </div>
+              <div style={{gridColumn:'1 / -1', background:'rgba(196,173,207,0.05)', borderRadius:4, padding:'5px 7px', display:'flex', alignItems:'flex-end', gap:2}}>
+                {[35,55,40,65,50,72,60,80,68,90].map((h,i)=>(
+                  <div key={i} style={{flex:1, height:`${h*0.28}px`, background: i>=7 ? C.accent : 'rgba(196,173,207,0.25)', borderRadius:1, opacity: i>=7 ? 0.8 : 0.6}}></div>
+                ))}
               </div>
             </div>
           </div>
@@ -606,24 +707,37 @@ const ServiceImage = ({kind}) => {
     ),
     ai: (
       <div style={{width:'100%', height:'100%', background:`linear-gradient(160deg, #1A2430 0%, #0F1A22 100%)`, position:'relative', overflow:'hidden', display:'flex', alignItems:'center', justifyContent:'center'}}>
-        {/* chat/AI interface */}
-        <div style={{width:220, height:104, borderRadius:8, overflow:'hidden', border:`1px solid rgba(107,57,119,0.4)`, background:'rgba(20,13,24,0.9)', boxShadow:`0 8px 24px rgba(0,0,0,0.5), 0 0 40px rgba(107,57,119,0.2)`}}>
-          <div style={{height:24, background:'rgba(107,57,119,0.2)', borderBottom:`1px solid rgba(107,57,119,0.3)`, display:'flex', alignItems:'center', padding:'0 10px', gap:6}}>
-            <div style={{width:6, height:6, borderRadius:'50%', background:C.accent}}></div>
-            <span className="mono" style={{fontSize:9, color:C.accentSoft, letterSpacing:'0.06em'}}>AI assistant · online</span>
+        <svg style={{position:'absolute', inset:0, width:'100%', height:'100%', opacity:0.12}}>
+          {[[30,20],[80,50],[140,25],[190,55],[60,80],[120,95],[170,80],[40,110],[100,60],[160,110]].map(([x,y],i)=>(
+            <React.Fragment key={i}>
+              <circle cx={x} cy={y} r={2} fill={C.accent}/>
+              {i>0 && <line x1={x} y1={y} x2={[30,80,140,190,60,120,170,40,100,160][(i+3)%10]} y2={[20,50,25,55,80,95,80,110,60,110][(i+3)%10]} stroke={C.accent} strokeWidth={0.5} opacity={0.6}/>}
+            </React.Fragment>
+          ))}
+        </svg>
+        <div style={{width:220, height:108, borderRadius:8, overflow:'hidden', border:`1px solid rgba(107,57,119,0.4)`, background:'rgba(20,13,24,0.9)', boxShadow:`0 8px 24px rgba(0,0,0,0.5), 0 0 40px rgba(107,57,119,0.15)`, position:'relative', zIndex:1}}>
+          <div style={{height:22, background:'rgba(107,57,119,0.2)', borderBottom:`1px solid rgba(107,57,119,0.3)`, display:'flex', alignItems:'center', padding:'0 10px', gap:6}}>
+            <div style={{width:5, height:5, borderRadius:'50%', background:C.accent, boxShadow:`0 0 6px ${C.accent}`}}></div>
+            <span className="mono" style={{fontSize:8, color:C.accentSoft, letterSpacing:'0.06em'}}>AI assistant · online</span>
           </div>
-          <div style={{padding:'8px 10px', display:'flex', flexDirection:'column', gap:6}}>
-            <div style={{display:'flex', gap:6, justifyContent:'flex-end'}}>
-              <div style={{background:'rgba(107,57,119,0.6)', borderRadius:'8px 8px 2px 8px', padding:'5px 8px', maxWidth:'70%'}}>
-                <div className="mono" style={{fontSize:9, color:C.accentSoft}}>How can I track leads?</div>
+          <div style={{padding:'6px 10px', display:'flex', flexDirection:'column', gap:4}}>
+            <div style={{display:'flex', gap:5, justifyContent:'flex-end'}}>
+              <div style={{background:'rgba(107,57,119,0.5)', borderRadius:'7px 7px 2px 7px', padding:'4px 7px', maxWidth:'65%'}}>
+                <div className="mono" style={{fontSize:8, color:C.accentSoft}}>How can I track leads?</div>
               </div>
             </div>
-            <div style={{display:'flex', gap:6}}>
-              <div style={{width:16, height:16, borderRadius:'50%', background:C.accent, flexShrink:0, display:'flex', alignItems:'center', justifyContent:'center'}}>
-                <span style={{fontSize:8, color:'white'}}>AI</span>
+            <div style={{display:'flex', gap:5}}>
+              <div style={{width:14, height:14, borderRadius:'50%', background:C.accent, flexShrink:0, display:'flex', alignItems:'center', justifyContent:'center', boxShadow:`0 0 8px rgba(107,57,119,0.4)`}}>
+                <span style={{fontSize:7, color:'white'}}>AI</span>
               </div>
-              <div style={{background:'rgba(255,255,255,0.05)', borderRadius:'2px 8px 8px 8px', padding:'5px 8px', maxWidth:'80%'}}>
-                <div className="mono" style={{fontSize:9, color:'rgba(196,173,207,0.9)', lineHeight:1.4}}>Your dashboard shows leads in real time. 47 this month…</div>
+              <div style={{background:'rgba(255,255,255,0.05)', borderRadius:'2px 7px 7px 7px', padding:'4px 7px', maxWidth:'78%', boxShadow:'0 0 12px rgba(107,57,119,0.08)'}}>
+                <div className="mono" style={{fontSize:8, color:'rgba(196,173,207,0.9)', lineHeight:1.4}}>Your dashboard shows 47 leads this month. Up 23%…</div>
+              </div>
+            </div>
+            <div style={{display:'flex', gap:5, marginTop:1}}>
+              <div style={{width:14, height:14, flexShrink:0}}></div>
+              <div style={{display:'flex', gap:3, padding:'3px 8px', background:'rgba(255,255,255,0.03)', borderRadius:7}}>
+                {[0,1,2].map(i=>(<div key={i} style={{width:4, height:4, borderRadius:'50%', background:C.accentSoft, opacity:0.6, animation:`pulse 1.2s ease-in-out ${i*0.2}s infinite`}}></div>))}
               </div>
             </div>
           </div>
@@ -632,30 +746,37 @@ const ServiceImage = ({kind}) => {
     ),
     sup: (
       <div style={{width:'100%', height:'100%', background:`linear-gradient(160deg, #F4E0D5 0%, ${C.accentBg} 100%)`, position:'relative', overflow:'hidden', display:'flex', alignItems:'center', justifyContent:'center'}}>
-        {/* monitoring / uptime widget */}
-        <div style={{width:220, height:104, borderRadius:8, overflow:'hidden', background:C.surface, border:`1px solid ${C.hair}`, boxShadow:`0 8px 24px rgba(20,19,15,0.1)`}}>
-          <div style={{padding:'10px 14px 8px', borderBottom:`1px solid ${C.hair}`}}>
-            <div style={{display:'flex', justifyContent:'space-between', alignItems:'center', marginBottom:8}}>
-              <div className="mono" style={{fontSize:9, color:C.sub, letterSpacing:'0.06em'}}>UPTIME · 90 DAYS</div>
-              <div style={{display:'flex', alignItems:'center', gap:4}}>
-                <div style={{width:5, height:5, borderRadius:'50%', background:C.green}}></div>
-                <span className="mono" style={{fontSize:9, color:C.green, fontWeight:600}}>99.98%</span>
+        <div style={{width:224, height:108, borderRadius:8, overflow:'hidden', background:C.surface, border:`1px solid ${C.hair}`, boxShadow:`0 8px 24px rgba(20,19,15,0.1)`}}>
+          <div style={{padding:'7px 12px 5px', borderBottom:`1px solid ${C.hair}`}}>
+            <div style={{display:'flex', justifyContent:'space-between', alignItems:'center', marginBottom:5}}>
+              <div className="mono" style={{fontSize:8, color:C.sub, letterSpacing:'0.06em'}}>UPTIME · 90 DAYS</div>
+              <div style={{display:'flex', alignItems:'center', gap:3}}>
+                <div style={{width:5, height:5, borderRadius:'50%', background:C.green, boxShadow:`0 0 6px rgba(22,163,74,0.5)`}}></div>
+                <span className="mono" style={{fontSize:8, color:C.green, fontWeight:600}}>99.98%</span>
               </div>
             </div>
-            {/* uptime bar */}
-            <div style={{display:'flex', gap:1.5, height:16}}>
-              {Array.from({length:40}).map((_,i) => (
-                <div key={i} style={{flex:1, background: i===14 ? '#FFC83D' : C.green, borderRadius:1, opacity: i===14 ? 0.9 : 0.5 + Math.random()*0.35}}></div>
+            <div style={{display:'flex', gap:1, height:13}}>
+              {Array.from({length:45}).map((_,i) => (
+                <div key={i} style={{flex:1, background: i===14 ? '#FFC83D' : C.green, borderRadius:0.5, opacity: i===14 ? 0.9 : 0.35+Math.random()*0.45}}></div>
               ))}
             </div>
           </div>
-          <div style={{padding:'8px 14px', display:'grid', gridTemplateColumns:'1fr 1fr 1fr', gap:8}}>
-            {[['FCP','0.6s'],['LCP','1.1s'],['CLS','0.01']].map(([k,v])=>(
+          <div style={{padding:'5px 12px', display:'grid', gridTemplateColumns:'1fr 1fr 1fr', gap:6}}>
+            {[['FCP','0.6s','↓'],['LCP','1.1s','↓'],['CLS','0.01','—']].map(([k,v,trend])=>(
               <div key={k}>
-                <div className="mono" style={{fontSize:8, color:C.sub, marginBottom:3, letterSpacing:'0.06em'}}>{k}</div>
-                <div style={{fontSize:13, fontWeight:600, color:C.ink, letterSpacing:'-0.01em'}}>{v}</div>
+                <div className="mono" style={{fontSize:7, color:C.sub, marginBottom:2, letterSpacing:'0.06em'}}>{k}</div>
+                <div style={{display:'flex', alignItems:'baseline', gap:3}}>
+                  <span style={{fontSize:11, fontWeight:600, color:C.ink}}>{v}</span>
+                  <span style={{fontSize:7, color:C.green}}>{trend}</span>
+                </div>
               </div>
             ))}
+          </div>
+          <div style={{padding:'3px 12px 5px'}}>
+            <svg width="100%" height={14} viewBox="0 0 200 14" preserveAspectRatio="none">
+              <path d="M0,11 L15,9 L30,10 L45,7 L60,8 L75,5 L90,6 L105,4 L120,5 L135,3 L150,4 L165,2.5 L180,3 L200,1.5" fill="none" stroke={C.accent} strokeWidth={1} opacity={0.4}/>
+              <path d="M0,11 L15,9 L30,10 L45,7 L60,8 L75,5 L90,6 L105,4 L120,5 L135,3 L150,4 L165,2.5 L180,3 L200,1.5 L200,14 L0,14 Z" fill={C.accent} opacity={0.05}/>
+            </svg>
           </div>
         </div>
       </div>
@@ -722,7 +843,7 @@ const Process = () => {
             <span className="serif" style={{fontStyle:'italic', fontWeight:400}}>no surprises.</span>
           </h2>
           <p style={{fontSize:17, color:C.sub, maxWidth:520, lineHeight:1.6}}>
-            From kickoff to launch — predictable, transparent, with weekly demos so you always know where things stand.
+            From kickoff to launch. Predictable, transparent, with weekly demos so you always know where things stand.
           </p>
         </div>
       </div>
@@ -797,52 +918,111 @@ const WorkImage = ({tag}) => {
   const variants = {
     lindner: (
       <div style={{width:'100%', height:'100%', background:`linear-gradient(135deg, #E8C9BC 0%, #B85432 100%)`, position:'relative', overflow:'hidden'}}>
-        <div style={{position:'absolute', top:32, left:32}}>
-          <div className="serif" style={{fontSize:42, color:C.surface, fontWeight:500, letterSpacing:'-0.02em', lineHeight:1}}>Lindner</div>
+        {/* Wheat pattern SVG */}
+        <svg style={{position:'absolute', inset:0, width:'100%', height:'100%', opacity:0.08}}>
+          {[0,1,2,3,4].map(i=>(
+            <g key={i} transform={`translate(${180+i*12}, ${40+i*30}) rotate(${15+i*8})`}>
+              <ellipse cx={0} cy={0} rx={3} ry={12} fill={C.surface}/>
+              <line x1={0} y1={12} x2={0} y2={28} stroke={C.surface} strokeWidth={1}/>
+            </g>
+          ))}
+        </svg>
+        <div style={{position:'absolute', top:28, left:28}}>
+          <div className="serif" style={{fontSize:38, color:C.surface, fontWeight:500, letterSpacing:'-0.02em', lineHeight:1}}>Lindner</div>
           <div className="mono" style={{fontSize:10, color:C.surface, marginTop:8, letterSpacing:'0.12em', opacity:0.85}}>BÄCKEREI · BERLIN</div>
         </div>
-        <div style={{position:'absolute', bottom:24, right:24, padding:'10px 16px', background:'rgba(251,248,241,0.9)', borderRadius:8}}>
-          <div className="mono" style={{fontSize:10, color:C.sub, letterSpacing:'0.06em', marginBottom:2}}>BOOKINGS</div>
-          <div style={{fontSize:20, fontWeight:600, color:C.ink, letterSpacing:'-0.02em'}}>+34%</div>
+        {/* Mini browser frame */}
+        <div style={{position:'absolute', top:24, right:20, width:100, height:68, borderRadius:6, overflow:'hidden', boxShadow:'0 4px 16px rgba(20,19,15,0.2)', border:'1px solid rgba(251,248,241,0.3)'}}>
+          <div style={{height:14, background:'rgba(251,248,241,0.95)', display:'flex', alignItems:'center', padding:'0 6px', gap:3}}>
+            {['#FF5C5C','#FFC83D','#28C940'].map(c=><div key={c} style={{width:4, height:4, borderRadius:'50%', background:c}}></div>)}
+          </div>
+          <div style={{background:'rgba(251,248,241,0.85)', padding:'6px', height:'calc(100% - 14px)'}}>
+            <div style={{height:6, width:'70%', background:C.ink, borderRadius:2, opacity:0.6, marginBottom:4}}></div>
+            <div style={{height:4, width:'90%', background:C.hair, borderRadius:1, marginBottom:3}}></div>
+            <div style={{height:4, width:'60%', background:C.hair, borderRadius:1}}></div>
+          </div>
+        </div>
+        {/* Bookings card with sparkline */}
+        <div style={{position:'absolute', bottom:20, right:20, padding:'10px 14px', background:'rgba(251,248,241,0.92)', borderRadius:8, boxShadow:'0 4px 12px rgba(20,19,15,0.1)'}}>
+          <div className="mono" style={{fontSize:9, color:C.sub, letterSpacing:'0.06em', marginBottom:4}}>BOOKINGS</div>
+          <div style={{display:'flex', alignItems:'flex-end', gap:8}}>
+            <div style={{fontSize:22, fontWeight:600, color:C.ink, letterSpacing:'-0.02em', lineHeight:1}}>+34%</div>
+            <svg width={40} height={16} viewBox="0 0 40 16">
+              <path d="M0,14 L6,12 L12,13 L18,9 L24,10 L30,6 L36,4 L40,2" fill="none" stroke={C.green} strokeWidth={1.5} strokeLinecap="round"/>
+            </svg>
+          </div>
         </div>
       </div>
     ),
     atlas: (
       <div style={{width:'100%', height:'100%', background:'#0F0D1A', position:'relative', overflow:'hidden'}}>
         <div style={{position:'absolute', inset:0, backgroundImage:`radial-gradient(circle at 60% 40%, rgba(107,57,119,0.3) 0%, transparent 60%)`}}></div>
+        {/* Grid texture */}
+        <div style={{position:'absolute', inset:0, backgroundImage:'linear-gradient(rgba(196,173,207,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(196,173,207,0.03) 1px, transparent 1px)', backgroundSize:'24px 24px'}}></div>
         <div style={{position:'absolute', top:0, left:0, right:0, padding:'10px 16px', background:'rgba(255,255,255,0.04)', borderBottom:`1px solid rgba(255,255,255,0.07)`, display:'flex', gap:5, alignItems:'center'}}>
           {['#FF5C5C','#FFC83D','#28C940'].map(c=><div key={c} style={{width:7, height:7, borderRadius:'50%', background:c}}></div>)}
           <div className="mono" style={{fontSize:9, color:'rgba(255,255,255,0.35)', marginLeft:10}}>app.atlasstudio.de</div>
         </div>
-        <div style={{padding:'48px 20px 20px', display:'grid', gridTemplateColumns:'1fr 1fr', gap:8}}>
-          <div style={{background:'rgba(255,255,255,0.05)', borderRadius:6, padding:12, height:64}}>
-            <div className="mono" style={{fontSize:8, color:'rgba(255,255,255,0.4)', marginBottom:6}}>REVENUE</div>
+        <div style={{padding:'44px 16px 16px', display:'grid', gridTemplateColumns:'1fr 1fr', gap:8}}>
+          <div style={{background:'rgba(255,255,255,0.05)', borderRadius:6, padding:'10px 12px', height:60}}>
+            <div className="mono" style={{fontSize:8, color:'rgba(255,255,255,0.4)', marginBottom:4}}>REVENUE</div>
             <div style={{fontSize:20, fontWeight:600, color:'white', letterSpacing:'-0.02em'}}>€24.8K</div>
           </div>
-          <div style={{background:C.accent, borderRadius:6, padding:12, height:64, opacity:0.85}}>
-            <div className="mono" style={{fontSize:8, color:'rgba(255,255,255,0.7)', marginBottom:6}}>ACTIVE</div>
+          <div style={{background:C.accent, borderRadius:6, padding:'10px 12px', height:60, opacity:0.85}}>
+            <div className="mono" style={{fontSize:8, color:'rgba(255,255,255,0.7)', marginBottom:4}}>ACTIVE</div>
             <div style={{fontSize:20, fontWeight:600, color:'white', letterSpacing:'-0.02em'}}>183</div>
           </div>
+          {/* Chart row */}
+          <div style={{gridColumn:'1 / -1', background:'rgba(255,255,255,0.03)', borderRadius:6, padding:'10px 12px', height:80}}>
+            <div className="mono" style={{fontSize:8, color:'rgba(255,255,255,0.35)', marginBottom:8}}>GROWTH · 6 MONTHS</div>
+            <svg width="100%" height={40} viewBox="0 0 200 40" preserveAspectRatio="none">
+              <path d="M0,35 L25,30 L50,28 L75,22 L100,18 L125,14 L150,10 L175,7 L200,3" fill="none" stroke={C.accentSoft} strokeWidth={1.5} strokeLinecap="round"/>
+              <path d="M0,35 L25,30 L50,28 L75,22 L100,18 L125,14 L150,10 L175,7 L200,3 L200,40 L0,40 Z" fill={C.accent} opacity={0.15}/>
+              <circle cx={200} cy={3} r={3} fill={C.accent}/>
+            </svg>
+          </div>
         </div>
-        <div style={{position:'absolute', bottom:16, left:16}} className="mono">
+        <div style={{position:'absolute', bottom:14, left:16}} className="mono">
           <span style={{fontSize:10, color:'rgba(196,173,207,0.7)', letterSpacing:'0.06em'}}>10× faster than legacy</span>
         </div>
       </div>
     ),
     verdant: (
       <div style={{width:'100%', height:'100%', background:`linear-gradient(160deg, #E0EDD8 0%, #B5CF9F 100%)`, position:'relative', overflow:'hidden'}}>
-        <svg viewBox="0 0 220 180" style={{position:'absolute', inset:0, width:'100%', height:'100%'}}>
-          <path d="M0 150 Q60 70, 110 90 T220 60 L220 180 L0 180 Z" fill="rgba(20,19,15,0.08)"/>
+        <svg viewBox="0 0 240 240" style={{position:'absolute', inset:0, width:'100%', height:'100%'}}>
+          <path d="M0 180 Q60 100, 120 120 T240 80 L240 240 L0 240 Z" fill="rgba(20,19,15,0.06)"/>
+          {/* Leaf SVG */}
+          <g transform="translate(180, 40) rotate(15)" opacity={0.15}>
+            <path d="M0,0 C10,-20 30,-25 20,-5 C30,-25 50,-20 40,0 C50,20 30,25 20,5 C30,25 10,20 0,0 Z" fill={C.ink}/>
+            <line x1={20} y1={5} x2={20} y2={35} stroke={C.ink} strokeWidth={1}/>
+          </g>
         </svg>
-        <div style={{position:'absolute', top:28, left:28}}>
-          <div className="serif" style={{fontSize:34, color:C.ink, fontWeight:500, letterSpacing:'-0.02em', fontStyle:'italic'}}>Verdant</div>
+        <div style={{position:'absolute', top:24, left:24}}>
+          <div className="serif" style={{fontSize:32, color:C.ink, fontWeight:500, letterSpacing:'-0.02em', fontStyle:'italic'}}>Verdant</div>
           <div className="mono" style={{fontSize:10, color:C.inkSoft, marginTop:6, letterSpacing:'0.16em', opacity:0.8}}>YOGA · KREUZBERG</div>
         </div>
-        <div style={{position:'absolute', bottom:20, left:20, right:20, display:'flex', gap:8}}>
-          {[['LIGHTHOUSE','100'],['FCP','0.6s']].map(([k,v])=>(
-            <div key={k} style={{flex:1, padding:'8px 10px', background:'rgba(251,248,241,0.88)', borderRadius:6}} className="mono">
-              <div style={{fontSize:8, color:C.sub, marginBottom:2}}>{k}</div>
-              <div style={{fontSize:14, color:C.ink, fontWeight:600}}>{v}</div>
+        {/* Schedule widget */}
+        <div style={{position:'absolute', top:24, right:20, width:96, padding:'8px 10px', background:'rgba(251,248,241,0.88)', borderRadius:6, boxShadow:'0 2px 8px rgba(20,19,15,0.08)'}}>
+          <div className="mono" style={{fontSize:7, color:C.sub, letterSpacing:'0.08em', marginBottom:5}}>TODAY</div>
+          {[['9:00','Vinyasa'],['10:30','Yin'],['12:00','Hatha']].map(([t,n])=>(
+            <div key={t} style={{display:'flex', gap:6, alignItems:'center', marginBottom:3}}>
+              <span className="mono" style={{fontSize:7, color:C.sub, width:24}}>{t}</span>
+              <span style={{fontSize:9, color:C.ink, fontWeight:500}}>{n}</span>
+            </div>
+          ))}
+        </div>
+        {/* Bottom metrics with ring indicators */}
+        <div style={{position:'absolute', bottom:18, left:18, right:18, display:'flex', gap:8}}>
+          {[['LIGHTHOUSE','100',C.green],['FCP','0.6s',C.accent]].map(([k,v,color])=>(
+            <div key={k} style={{flex:1, padding:'8px 10px', background:'rgba(251,248,241,0.9)', borderRadius:6, display:'flex', alignItems:'center', gap:8}}>
+              <svg width={22} height={22} viewBox="0 0 22 22">
+                <circle cx={11} cy={11} r={8} fill="none" stroke="rgba(20,19,15,0.08)" strokeWidth={2}/>
+                <circle cx={11} cy={11} r={8} fill="none" stroke={color} strokeWidth={2} strokeDasharray={`${2*Math.PI*8*0.98} ${2*Math.PI*8}`} strokeLinecap="round" transform="rotate(-90 11 11)"/>
+              </svg>
+              <div>
+                <div className="mono" style={{fontSize:7, color:C.sub, marginBottom:1}}>{k}</div>
+                <div style={{fontSize:13, color:C.ink, fontWeight:600}}>{v}</div>
+              </div>
             </div>
           ))}
         </div>
@@ -936,61 +1116,133 @@ const About = () => (
 );
 
 /* ═══ PRICING ═══════════════════════════════════════════════════════════ */
-const Pricing = ({onSelect}) => (
+const Pricing = ({onSelect}) => {
+  const [active, setActive] = React.useState(0);
+  const scope = SCOPE_OPTIONS[active];
+
+  const pillars = [
+    {icon:'◎', label:'€0–5/mo hosting', sub:'Vercel free tier'},
+    {icon:'◇', label:'You own everything', sub:'Code + domain + data'},
+    {icon:'▲', label:'95+ Lighthouse', sub:'Proven on every build'},
+    {icon:'○', label:'No lock-in', sub:'Leave anytime, keep it all'},
+  ];
+
+  return (
   <div style={{padding:'112px 56px', background:`linear-gradient(180deg, #F8F4EC 0%, ${C.bg} 100%)`, borderBottom:`1px solid ${C.hair}`}}>
-    <div style={{display:'grid', gridTemplateColumns:'1fr 2fr', gap:48, marginBottom:72, alignItems:'baseline'}}>
-      <div className="mono section-num" style={{fontSize:11, color:C.sub, letterSpacing:'0.12em', textTransform:'uppercase'}}>06 · Pricing</div>
+    {/* Section header */}
+    <div style={{display:'grid', gridTemplateColumns:'1fr 2fr', gap:48, marginBottom:56, alignItems:'baseline'}}>
+      <div className="mono section-num" style={{fontSize:11, color:C.sub, letterSpacing:'0.12em', textTransform:'uppercase'}}>06 · Investment</div>
       <div>
         <h2 style={{fontSize:56, fontWeight:500, color:C.ink, letterSpacing:'-0.03em', lineHeight:1.02, marginBottom:18}}>
-          Honest <span className="serif" style={{fontStyle:'italic', fontWeight:400}}>pricing</span>.
+          What you <span className="serif" style={{fontStyle:'italic', fontWeight:400}}>get.</span>
         </h2>
         <p style={{fontSize:17, color:C.sub, maxWidth:520, lineHeight:1.6}}>
-          Fixed costs, no hourly billing surprises. Most clients land somewhere in Growth.
+          No hourly billing. Fixed scope, fixed timeline, full ownership. Every project ships with a custom quote — here's what to expect.
         </p>
       </div>
     </div>
-    <div style={{display:'grid', gridTemplateColumns:'1fr 1fr 1fr', gap:24}}>
-      {PRICING.map((p, i) => (
-        <div key={p.name} style={{
-          background: p.highlight ? C.ink : C.surface,
-          color: p.highlight ? C.surface : C.ink,
-          border: p.highlight ? 'none' : `1px solid ${C.hair}`,
-          borderRadius:18, padding:'36px 32px', position:'relative',
-          boxShadow: p.highlight ? `0 30px 60px -30px rgba(20,19,15,0.4)` : 'none',
-        }}>
-          {p.highlight && (
-            <div style={{position:'absolute', top:-12, left:32, padding:'4px 12px', background:C.accent, borderRadius:99}} className="mono">
-              <span style={{fontSize:10, color:C.surface, letterSpacing:'0.12em', fontWeight:600}}>MOST CHOSEN</span>
+
+    {/* Why custom code? — value pillars */}
+    <div style={{padding:'24px 32px', background:C.surface, border:`1px solid ${C.hair}`, borderRadius:14, marginBottom:40}}>
+      <div style={{display:'flex', alignItems:'center', gap:16, marginBottom:16}}>
+        <div className="mono" style={{fontSize:10, color:C.accent, letterSpacing:'0.12em', textTransform:'uppercase', fontWeight:600}}>Why custom code?</div>
+        <div style={{flex:1, height:1, background:C.hair}}></div>
+      </div>
+      <div style={{display:'grid', gridTemplateColumns:'1fr 1fr 1fr 1fr', gap:20}}>
+        {pillars.map(p => (
+          <div key={p.label} style={{display:'flex', gap:12, alignItems:'flex-start'}}>
+            <span style={{fontSize:16, color:C.accent, lineHeight:1, marginTop:2}}>{p.icon}</span>
+            <div>
+              <div style={{fontSize:14, fontWeight:600, color:C.ink, letterSpacing:'-0.01em', marginBottom:2}}>{p.label}</div>
+              <div className="mono" style={{fontSize:10, color:C.sub, letterSpacing:'0.02em'}}>{p.sub}</div>
             </div>
-          )}
-          <div style={{display:'flex', justifyContent:'space-between', alignItems:'baseline', marginBottom:8}}>
-            <div style={{fontSize:18, fontWeight:600, letterSpacing:'-0.01em'}}>{p.name}</div>
-            <div className="mono" style={{fontSize:10, color: p.highlight ? 'rgba(251,248,241,0.5)' : C.sub, letterSpacing:'0.06em'}}>{p.period}</div>
           </div>
-          <div style={{fontSize:48, fontWeight:600, letterSpacing:'-0.04em', lineHeight:1, marginBottom:8}}>{p.price}</div>
-          <div style={{fontSize:14, color: p.highlight ? 'rgba(251,248,241,0.7)' : C.sub, marginBottom:28}}>{p.sub}</div>
-          <div style={{display:'flex', flexDirection:'column', gap:10, paddingBottom:24, borderBottom: p.highlight ? `1px solid rgba(251,248,241,0.15)` : `1px solid ${C.hair}`, marginBottom:16}}>
-            {p.features.map(f => (
-              <div key={f} style={{display:'flex', gap:10, alignItems:'flex-start', fontSize:13.5, lineHeight:1.5}}>
-                <span style={{color:C.accent, marginTop:2}}>✓</span>
+        ))}
+      </div>
+    </div>
+
+    {/* Scope selector pills */}
+    <div style={{display:'flex', gap:10, marginBottom:32, justifyContent:'center'}}>
+      {SCOPE_OPTIONS.map((opt, i) => (
+        <div key={opt.id} onClick={() => setActive(i)} style={{
+          padding:'10px 20px', borderRadius:99, fontSize:14, fontWeight:500, cursor:'pointer',
+          background: i === active ? C.ink : C.bg,
+          color: i === active ? C.surface : C.ink,
+          border: `1px solid ${i === active ? C.ink : C.hair}`,
+          transition:'all 0.25s ease',
+        }}>{opt.title}</div>
+      ))}
+    </div>
+
+    {/* Active scope card */}
+    <div key={scope.id} style={{
+      background:C.surface, border:`1px solid ${C.hair}`, borderRadius:18,
+      padding:'44px 48px', display:'grid', gridTemplateColumns:'1fr 1.2fr', gap:56,
+      opacity:1, transition:'opacity 0.3s ease',
+    }}>
+      {/* Left — identity & meta */}
+      <div style={{display:'flex', flexDirection:'column', justifyContent:'space-between'}}>
+        <div>
+          <div className="mono" style={{fontSize:10, color:C.accent, letterSpacing:'0.12em', textTransform:'uppercase', fontWeight:600, marginBottom:12}}>
+            {scope.timeline}
+          </div>
+          <h3 style={{fontSize:28, fontWeight:600, color:C.ink, letterSpacing:'-0.02em', marginBottom:10}}>{scope.title}</h3>
+          <p style={{fontSize:16, color:C.sub, lineHeight:1.6, marginBottom:24}}>{scope.tagline}</p>
+          <div style={{padding:'12px 16px', background:C.accentBg, borderRadius:10, display:'inline-flex', alignItems:'center', gap:10}}>
+            <span style={{width:6, height:6, borderRadius:'50%', background:C.accent}}></span>
+            <span style={{fontSize:13, color:C.accent, fontWeight:500}}>Ideal for: {scope.ideal}</span>
+          </div>
+        </div>
+        <div style={{marginTop:32}}>
+          <div className="btn-hover" onClick={() => onSelect && onSelect(active)} style={{
+            padding:'14px 28px', background:C.ink, color:C.surface, borderRadius:99,
+            fontSize:14, fontWeight:500, display:'inline-flex', alignItems:'center', gap:8, cursor:'pointer',
+          }}>
+            Get a free quote <span style={{color:C.accent}}>→</span>
+          </div>
+          <div className="mono" style={{fontSize:11, color:C.sub, marginTop:12, letterSpacing:'0.02em'}}>Reply within 24 hours. No obligation.</div>
+        </div>
+      </div>
+
+      {/* Right — includes & advantages */}
+      <div>
+        <div style={{marginBottom:28}}>
+          <div className="mono" style={{fontSize:10, color:C.sub, letterSpacing:'0.12em', textTransform:'uppercase', marginBottom:14}}>What's included</div>
+          <div style={{display:'flex', flexDirection:'column', gap:10}}>
+            {scope.includes.map(f => (
+              <div key={f} style={{display:'flex', gap:10, alignItems:'flex-start', fontSize:14, lineHeight:1.5, color:C.inkSoft}}>
+                <span style={{color:C.accent, marginTop:1, flexShrink:0}}>✓</span>
                 <span>{f}</span>
               </div>
             ))}
           </div>
-          {/* Value badge — ROI for business owners */}
-          <div style={{padding:'14px 16px', background: p.highlight ? 'rgba(107,57,119,0.3)' : C.accentBg, borderRadius:10, marginBottom:20, display:'flex', gap:12, alignItems:'flex-start'}}>
-            <span style={{width:8, height:8, borderRadius:'50%', background:C.accent, display:'inline-block', marginTop:4, flexShrink:0}}></span>
-            <div>
-              <div style={{fontSize:13, fontWeight:600, color: p.highlight ? C.accentSoft : C.accent, letterSpacing:'-0.01em'}}>{p.value.label}</div>
-              <div className="mono" style={{fontSize:10, color: p.highlight ? 'rgba(251,248,241,0.5)' : C.sub, marginTop:2, letterSpacing:'0.02em'}}>{p.value.sub}</div>
-            </div>
-          </div>
-          <div className="btn-hover" onClick={() => onSelect && onSelect(i)} style={{padding:'12px 20px', textAlign:'center', borderRadius:99, background: p.highlight ? C.accent : C.ink, color: C.surface, fontSize:14, fontWeight:500, cursor:'pointer'}}>{p.cta} →</div>
         </div>
+        <div style={{paddingTop:20, borderTop:`1px solid ${C.hair}`}}>
+          <div className="mono" style={{fontSize:10, color:C.accent, letterSpacing:'0.12em', textTransform:'uppercase', marginBottom:14, fontWeight:600}}>vs. templates & platforms</div>
+          <div style={{display:'flex', flexDirection:'column', gap:10}}>
+            {scope.advantages.map(a => (
+              <div key={a} style={{display:'flex', gap:10, alignItems:'flex-start', fontSize:14, lineHeight:1.5, color:C.inkSoft}}>
+                <span style={{color:C.green, marginTop:1, flexShrink:0}}>▸</span>
+                <span>{a}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {/* Trust strip */}
+    <div style={{marginTop:32, display:'flex', justifyContent:'center', gap:24, flexWrap:'wrap'}}>
+      {['Fixed price','Full ownership','Reply in 24h','No surprises'].map((t, i) => (
+        <React.Fragment key={t}>
+          {i > 0 && <span style={{color:C.subLight, fontSize:10}}>·</span>}
+          <span className="mono" style={{fontSize:11, color:C.sub, letterSpacing:'0.04em'}}>{t}</span>
+        </React.Fragment>
       ))}
     </div>
   </div>
-);
+  );
+};
 
 /* ═══ FAQ ═══════════════════════════════════════════════════════════════ */
 const FAQ = ({onAsk}) => {
@@ -1056,7 +1308,7 @@ const Contact = ({selectedType = 1, onTypeChange}) => (
           <span className="serif" style={{fontStyle:'italic', fontWeight:400, color:C.accent}}>something together.</span>
         </h2>
         <p style={{fontSize:17, color:C.sub, lineHeight:1.6, maxWidth:400, marginBottom:36}}>
-          Send a brief — what you're trying to do, what's in the way, when you'd like to launch. I'll reply within 24 hours.
+          Send a brief. What you're trying to do, what's in the way, when you'd like to launch. I'll reply within 24 hours.
         </p>
 
         {/* What happens next — compact timeline */}
@@ -1170,11 +1422,9 @@ const Footer = () => (
       </div>
     </div>
 
-    <div style={{paddingTop:24, borderTop:`1px solid rgba(251,248,241,0.1)`, display:'flex', justifyContent:'space-between', alignItems:'center'}}>
+    <div style={{paddingTop:24, borderTop:`1px solid rgba(251,248,241,0.1)`, display:'grid', gridTemplateColumns:'2fr 1fr 1fr 1fr', gap:48, alignItems:'center'}}>
       <span className="mono" style={{fontSize:11, color:'rgba(251,248,241,0.5)', letterSpacing:'0.04em'}}>© 2026 Brightbyte · Berlin</span>
-      <div style={{display:'flex', gap:24}}>
-        {['Impressum','Privacy','Terms'].map(l=><span key={l} className="mono" style={{fontSize:11, color:'rgba(251,248,241,0.5)', letterSpacing:'0.04em'}}>{l}</span>)}
-      </div>
+      {['Impressum','Privacy','Terms'].map(l=><span key={l} className="mono" style={{fontSize:11, color:'rgba(251,248,241,0.5)', letterSpacing:'0.04em'}}>{l}</span>)}
     </div>
   </div>
 );
@@ -1211,33 +1461,85 @@ const ProjectDetail = ({project}) => {
               <span className="mono" style={{fontSize:11, color:'rgba(255,255,255,0.5)'}}>www.{p.slug.replace('-','')}.de</span>
             </div>
           </div>
-          {/* Mock site content */}
+          {/* Mock site content — project-specific layouts */}
           <div style={{background:C.surface, padding:'40px 48px', minHeight:400}}>
             {/* Mock nav */}
             <div style={{display:'flex', justifyContent:'space-between', alignItems:'center', marginBottom:40}}>
-              <div style={{width:80, height:12, borderRadius:4, background:C.ink, opacity:0.8}}></div>
+              <div style={{width:80, height:12, borderRadius:4, background:p.accentColor, opacity:0.7}}></div>
               <div style={{display:'flex', gap:20}}>
                 {[48,36,42,36].map((w,i)=><div key={i} style={{width:w, height:8, borderRadius:3, background:C.hair}}></div>)}
               </div>
             </div>
-            {/* Mock hero */}
-            <div style={{display:'grid', gridTemplateColumns:'1fr 1fr', gap:48, alignItems:'center'}}>
+            {/* Project-specific hero layout */}
+            {p.slug === 'architecture-studio' ? (
               <div>
-                <div style={{width:'90%', height:16, borderRadius:4, background:C.ink, marginBottom:10, opacity:0.85}}></div>
-                <div style={{width:'70%', height:16, borderRadius:4, background:C.ink, marginBottom:20, opacity:0.6}}></div>
-                <div style={{width:'100%', height:8, borderRadius:3, background:C.hair, marginBottom:6}}></div>
-                <div style={{width:'85%', height:8, borderRadius:3, background:C.hair, marginBottom:6}}></div>
-                <div style={{width:'90%', height:8, borderRadius:3, background:C.hair, marginBottom:24}}></div>
-                <div style={{width:120, height:36, borderRadius:99, background:p.accentColor, opacity:0.8}}></div>
+                <div style={{display:'flex', gap:12, marginBottom:20}}>
+                  <div style={{width:'65%', height:180, borderRadius:8, background:`linear-gradient(135deg, ${p.accentColor}33 0%, ${p.accentColor}55 100%)`, border:`1px solid ${C.hair}`}}></div>
+                  <div style={{width:'35%', display:'flex', flexDirection:'column', gap:12}}>
+                    <div style={{flex:1, borderRadius:8, background:`linear-gradient(180deg, ${p.accentColor}22 0%, ${p.accentColor}44 100%)`, border:`1px solid ${C.hair}`}}></div>
+                    <div style={{flex:1, borderRadius:8, background:`linear-gradient(180deg, ${p.accentColor}15 0%, ${p.accentColor}30 100%)`, border:`1px solid ${C.hair}`}}></div>
+                  </div>
+                </div>
+                {/* Masonry-style grid hint */}
+                <div style={{display:'grid', gridTemplateColumns:'1fr 1fr 1fr', gap:10}}>
+                  {[120,90,110,95,115,100].map((h,i)=>(
+                    <div key={i} style={{height:h, borderRadius:6, background:`${p.accentColor}${15+i*5}`, border:`1px solid ${C.hair}`}}></div>
+                  ))}
+                </div>
               </div>
-              <div style={{height:220, borderRadius:10, background:`linear-gradient(135deg, ${p.accentColor}22 0%, ${p.accentColor}44 100%)`, border:`1px solid ${C.hair}`}}></div>
-            </div>
-            {/* Mock sections */}
-            <div style={{display:'grid', gridTemplateColumns:'1fr 1fr 1fr', gap:20, marginTop:40}}>
-              {[0,1,2].map(i=>(
-                <div key={i} style={{height:100, borderRadius:8, background:C.hair, opacity:0.4}}></div>
-              ))}
-            </div>
+            ) : p.slug === 'baumpflege' ? (
+              <div>
+                <div style={{display:'grid', gridTemplateColumns:'1.2fr 0.8fr', gap:40, alignItems:'center', marginBottom:32}}>
+                  <div>
+                    <div style={{width:'95%', height:18, borderRadius:4, background:C.ink, marginBottom:10, opacity:0.85}}></div>
+                    <div style={{width:'75%', height:14, borderRadius:4, background:C.ink, marginBottom:20, opacity:0.5}}></div>
+                    <div style={{width:'100%', height:8, borderRadius:3, background:C.hair, marginBottom:6}}></div>
+                    <div style={{width:'85%', height:8, borderRadius:3, background:C.hair, marginBottom:24}}></div>
+                    {/* Strong CTA area */}
+                    <div style={{display:'flex', gap:12}}>
+                      <div style={{width:140, height:40, borderRadius:99, background:p.accentColor, opacity:0.85}}></div>
+                      <div style={{width:120, height:40, borderRadius:99, border:`2px solid ${C.hair}`}}></div>
+                    </div>
+                  </div>
+                  <div style={{height:200, borderRadius:10, background:`linear-gradient(160deg, ${p.accentColor}22 0%, ${p.accentColor}44 100%)`, border:`1px solid ${C.hair}`, display:'flex', alignItems:'center', justifyContent:'center'}}>
+                    <svg width={60} height={60} viewBox="0 0 60 60" opacity={0.2}>
+                      <path d="M30,5 L30,55 M20,15 Q30,5 40,15 M15,25 Q30,10 45,25" stroke={C.ink} fill="none" strokeWidth={2}/>
+                    </svg>
+                  </div>
+                </div>
+                {/* Trust badges row */}
+                <div style={{display:'flex', gap:16}}>
+                  {[0,1,2,3].map(i=>(
+                    <div key={i} style={{flex:1, height:48, borderRadius:8, background:C.hair, opacity:0.3, display:'flex', alignItems:'center', justifyContent:'center'}}>
+                      <div style={{width:20, height:20, borderRadius:'50%', background:p.accentColor, opacity:0.4}}></div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ) : (
+              <div>
+                <div style={{textAlign:'center', marginBottom:32}}>
+                  <div style={{width:'50%', height:16, borderRadius:4, background:C.ink, margin:'0 auto 10px', opacity:0.8}}></div>
+                  <div style={{width:'35%', height:10, borderRadius:3, background:C.hair, margin:'0 auto'}}></div>
+                </div>
+                {/* Warm cards layout for psychologist */}
+                <div style={{display:'grid', gridTemplateColumns:'1fr 1fr 1fr', gap:16}}>
+                  {[0,1,2].map(i=>(
+                    <div key={i} style={{borderRadius:12, border:`1px solid ${C.hair}`, padding:16, background:`${p.accentColor}08`}}>
+                      <div style={{width:32, height:32, borderRadius:8, background:`${p.accentColor}33`, marginBottom:12}}></div>
+                      <div style={{height:8, width:'80%', background:C.ink, borderRadius:3, opacity:0.6, marginBottom:8}}></div>
+                      <div style={{height:6, width:'100%', background:C.hair, borderRadius:2, marginBottom:4}}></div>
+                      <div style={{height:6, width:'70%', background:C.hair, borderRadius:2}}></div>
+                    </div>
+                  ))}
+                </div>
+                {/* Booking section hint */}
+                <div style={{marginTop:24, padding:'20px 24px', borderRadius:12, background:`${p.accentColor}10`, border:`1px solid ${p.accentColor}30`, display:'flex', alignItems:'center', gap:16}}>
+                  <div style={{width:100, height:36, borderRadius:99, background:p.accentColor, opacity:0.7}}></div>
+                  <div style={{flex:1, height:8, borderRadius:3, background:C.hair}}></div>
+                </div>
+              </div>
+            )}
           </div>
         </div>
         {/* Title below mockup */}
@@ -1305,10 +1607,44 @@ const ProjectDetail = ({project}) => {
               <div style={{display:'flex', gap:4}}>
                 {['#FF5C5C','#FFC83D','#28C940'].map(c=><div key={c} style={{width:7, height:7, borderRadius:'50%', background:c}}></div>)}
               </div>
-              <div style={{flex:1, height:16, marginLeft:8, background:'rgba(20,19,15,0.04)', borderRadius:4}}></div>
+              <div style={{flex:1, height:16, marginLeft:8, background:'rgba(20,19,15,0.04)', borderRadius:4, display:'flex', alignItems:'center', paddingLeft:10}}>
+                <span className="mono" style={{fontSize:9, color:C.subLight}}>www.{p.slug.replace('-','')}.de</span>
+              </div>
             </div>
-            <div style={{height:320, background:`linear-gradient(180deg, ${C.surface} 0%, ${p.accentColor}11 100%)`, display:'flex', alignItems:'center', justifyContent:'center'}}>
-              <div style={{width:'70%', height:'80%', borderRadius:8, background:C.hair, opacity:0.3}}></div>
+            <div style={{height:320, background:`linear-gradient(180deg, ${C.surface} 0%, ${p.accentColor}08 100%)`, padding:'24px 32px'}}>
+              {p.slug === 'architecture-studio' ? (
+                <div style={{display:'grid', gridTemplateColumns:'1fr 1fr', gap:12, height:'100%'}}>
+                  <div style={{borderRadius:8, background:`linear-gradient(135deg, ${p.accentColor}20 0%, ${p.accentColor}40 100%)`, border:`1px solid ${C.hair}`}}></div>
+                  <div style={{display:'grid', gridTemplateRows:'1fr 1fr', gap:12}}>
+                    <div style={{borderRadius:8, background:`${p.accentColor}18`, border:`1px solid ${C.hair}`}}></div>
+                    <div style={{borderRadius:8, background:`${p.accentColor}12`, border:`1px solid ${C.hair}`}}></div>
+                  </div>
+                </div>
+              ) : p.slug === 'baumpflege' ? (
+                <div style={{display:'flex', flexDirection:'column', gap:16, height:'100%'}}>
+                  <div style={{flex:2, borderRadius:8, background:`linear-gradient(180deg, ${p.accentColor}20 0%, ${p.accentColor}35 100%)`, border:`1px solid ${C.hair}`, display:'flex', alignItems:'center', justifyContent:'center'}}>
+                    <div style={{width:160, height:44, borderRadius:99, background:p.accentColor, opacity:0.5}}></div>
+                  </div>
+                  <div style={{flex:1, display:'grid', gridTemplateColumns:'1fr 1fr 1fr', gap:10}}>
+                    {[0,1,2].map(i=><div key={i} style={{borderRadius:6, background:C.hair, opacity:0.3}}></div>)}
+                  </div>
+                </div>
+              ) : (
+                <div style={{display:'flex', flexDirection:'column', gap:14, height:'100%'}}>
+                  <div style={{flex:1, display:'grid', gridTemplateColumns:'1fr 1fr', gap:12}}>
+                    {[0,1].map(i=>(
+                      <div key={i} style={{borderRadius:10, background:`${p.accentColor}${12+i*8}`, border:`1px solid ${C.hair}`, padding:16}}>
+                        <div style={{width:24, height:24, borderRadius:6, background:`${p.accentColor}40`, marginBottom:10}}></div>
+                        <div style={{height:6, width:'70%', borderRadius:3, background:C.hair, marginBottom:6}}></div>
+                        <div style={{height:6, width:'50%', borderRadius:3, background:C.hair}}></div>
+                      </div>
+                    ))}
+                  </div>
+                  <div style={{height:56, borderRadius:8, background:`${p.accentColor}10`, border:`1px solid ${p.accentColor}25`, display:'flex', alignItems:'center', justifyContent:'center'}}>
+                    <div style={{width:120, height:28, borderRadius:99, background:p.accentColor, opacity:0.4}}></div>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
           {/* Smaller views stacked */}
@@ -1318,13 +1654,18 @@ const ProjectDetail = ({project}) => {
               <div style={{padding:'6px 10px', background:'#F0ECE4', borderBottom:`1px solid ${C.hair}`, display:'flex', justifyContent:'center'}}>
                 <div style={{width:40, height:4, borderRadius:2, background:'rgba(20,19,15,0.15)'}}></div>
               </div>
-              <div style={{flex:1, background:`linear-gradient(180deg, ${C.surface} 0%, ${p.accentColor}11 100%)`, display:'flex', alignItems:'center', justifyContent:'center'}}>
-                <div style={{width:'60%', height:'70%', borderRadius:6, background:C.hair, opacity:0.3}}></div>
+              <div style={{flex:1, background:`linear-gradient(180deg, ${C.surface} 0%, ${p.accentColor}08 100%)`, padding:'12px 16px', display:'flex', flexDirection:'column', gap:8}}>
+                <div style={{height:8, width:'70%', borderRadius:3, background:C.ink, opacity:0.6}}></div>
+                <div style={{flex:1, borderRadius:6, background:`${p.accentColor}15`, border:`1px solid ${C.hair}`}}></div>
+                <div style={{height:24, width:80, borderRadius:99, background:p.accentColor, opacity:0.5}}></div>
               </div>
             </div>
             {/* Detail crop */}
-            <div style={{flex:1, borderRadius:12, background:`linear-gradient(135deg, ${p.accentColor}18 0%, ${p.accentColor}33 100%)`, border:`1px solid ${C.hair}`, display:'flex', alignItems:'center', justifyContent:'center'}}>
-              <div className="mono" style={{fontSize:10, color:C.sub, letterSpacing:'0.06em'}}>DETAIL VIEW</div>
+            <div style={{flex:1, borderRadius:12, background:`linear-gradient(135deg, ${p.accentColor}12 0%, ${p.accentColor}25 100%)`, border:`1px solid ${C.hair}`, padding:16, display:'flex', flexDirection:'column', justifyContent:'center', gap:8}}>
+              <div className="mono" style={{fontSize:9, color:C.sub, letterSpacing:'0.08em', marginBottom:4}}>COMPONENT DETAIL</div>
+              <div style={{height:6, width:'80%', borderRadius:3, background:C.hair}}></div>
+              <div style={{height:6, width:'60%', borderRadius:3, background:C.hair}}></div>
+              <div style={{height:20, width:60, borderRadius:99, background:p.accentColor, opacity:0.4, marginTop:4}}></div>
             </div>
           </div>
         </div>
@@ -1465,7 +1806,7 @@ const ServicesPage = () => (
         Websites that work as hard<br/>as <span className="serif" style={{fontStyle:'italic', fontWeight:400}}>you do.</span>
       </h1>
       <p style={{fontSize:17, color:C.sub, lineHeight:1.6, maxWidth:520, margin:'0 auto'}}>
-        Fixed-price, fixed-timeline builds. I handle the tech — you stay focused on your business.
+        Fixed-price, fixed-timeline builds. I handle the tech. You stay focused on your business.
       </p>
     </div>
 
@@ -1538,7 +1879,7 @@ const ServicesPage = () => (
             Tell me what<br/>you're <span className="serif" style={{fontStyle:'italic', fontWeight:400, color:C.accent}}>building.</span>
           </h2>
           <p style={{fontSize:15, color:C.sub, lineHeight:1.6, maxWidth:380, marginBottom:32}}>
-            Send a brief — what you need, when you need it, and anything else that helps. I reply within 24 hours.
+            Send a brief. What you need, when you need it, and anything else that helps. I reply within 24 hours.
           </p>
           {/* What happens next */}
           <div>
