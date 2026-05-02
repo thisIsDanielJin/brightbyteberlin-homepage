@@ -4,6 +4,7 @@ import { useRef, useState, useEffect } from "react";
 import Link from "next/link";
 import { SERVICES } from "@/data/content";
 import { ServiceImage } from "./ServiceImage";
+import { useLocale } from "@/contexts/LocaleContext";
 
 const C = {
   bg: "#F5F1E8",
@@ -17,6 +18,7 @@ const C = {
 export function ServicesSection() {
   const ref = useRef<HTMLDivElement>(null);
   const [inView, setInView] = useState(false);
+  const { t } = useLocale();
 
   useEffect(() => {
     const el = ref.current;
@@ -29,12 +31,12 @@ export function ServicesSection() {
   return (
     <section id="services" style={{ padding: "112px 56px", background: `linear-gradient(180deg, ${C.bg} 0%, #F8F4EC 100%)` }}>
       <div style={{ marginBottom: 72, paddingBottom: 20, borderBottom: `1px solid ${C.hair}` }}>
-        <div className="mono" style={{ fontSize: 11, color: C.sub, letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: 16 }}>02 · Services</div>
+        <div className="mono" style={{ fontSize: 11, color: C.sub, letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: 16 }}>{t.services.label}</div>
         <h2 style={{ fontSize: 44, fontWeight: 500, color: C.ink, letterSpacing: "-0.03em", lineHeight: 1.0, marginBottom: 12, textAlign: "center" }}>
-          What I <span className="serif" style={{ fontStyle: "italic", fontWeight: 400 }}>build.</span>
+          {t.services.heading} <span className="serif" style={{ fontStyle: "italic", fontWeight: 400 }}>{t.services.headingItalic}</span>
         </h2>
         <p style={{ fontSize: 14, color: C.sub, lineHeight: 1.55, maxWidth: 480, margin: "0 auto", textAlign: "center" }}>
-          Every project ships with a fixed price, a clear timeline, and me on the other end of every call.
+          {t.services.subtitle}
         </p>
       </div>
       <div ref={ref} style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 32 }}>
@@ -44,16 +46,16 @@ export function ServicesSection() {
               <div style={{ height: 130, position: "relative" }}>
                 <ServiceImage kind={s.img} />
                 <div style={{ position: "absolute", top: 14, left: 14, padding: "4px 10px", background: "rgba(251,248,241,0.85)", borderRadius: 99, backdropFilter: "blur(4px)", border: "1px solid rgba(20,19,15,0.08)", zIndex: 2, display: "flex", alignItems: "center", justifyContent: "center", lineHeight: 1 }} className="mono">
-                  <span style={{ fontSize: 10, color: C.ink, letterSpacing: "0.06em", fontWeight: 500 }}>{s.tag}</span>
+                  <span style={{ fontSize: 10, color: C.ink, letterSpacing: "0.06em", fontWeight: 500 }}>{t.services.items[idx].tag}</span>
                 </div>
               </div>
               <div style={{ padding: "22px 24px 20px", display: "flex", flexDirection: "column", flex: 1 }}>
-                <h3 style={{ fontSize: 20, fontWeight: 600, color: C.ink, letterSpacing: "-0.02em", marginBottom: 10 }}>{s.title}</h3>
-                <p style={{ fontSize: 14, color: C.sub, lineHeight: 1.6, marginBottom: 24, flex: 1 }}>{s.desc}</p>
+                <h3 style={{ fontSize: 20, fontWeight: 600, color: C.ink, letterSpacing: "-0.02em", marginBottom: 10 }}>{t.services.items[idx].title}</h3>
+                <p style={{ fontSize: 14, color: C.sub, lineHeight: 1.6, marginBottom: 24, flex: 1 }}>{t.services.items[idx].desc}</p>
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", paddingTop: 18, borderTop: `1px solid ${C.hair}` }}>
-                  <span className="mono" style={{ fontSize: 11, color: C.ink, letterSpacing: "0.04em" }}>{s.meta}</span>
+                  <span className="mono" style={{ fontSize: 11, color: C.ink, letterSpacing: "0.04em" }}>{t.services.items[idx].meta}</span>
                   <div style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 13, color: C.accent, fontWeight: 500 }}>
-                    Learn more →
+                    {t.services.learnMore}
                   </div>
                 </div>
               </div>

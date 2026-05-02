@@ -30,14 +30,14 @@ export const seoPages: SeoPage[] = [
     heroHeadlineEn: "Web Developer in Berlin ·\nmodern websites, fair & transparent",
     heroSubtext: `Sie suchen einen Webentwickler in Berlin, der Ihre Idee in eine schnelle, professionelle Website verwandelt. Ohne versteckte Kosten und ohne monatelange Wartezeiten?
 
-BrightByte bietet Ihnen genau das: Enterprise-Qualität zum fairen Festpreis. Jedes Projekt bekommt einen klaren Zeitplan, transparente Kommunikation und eine Website, die auf allen Geräten überzeugt. Keine Überraschungen bei der Rechnung, keine endlosen Feedbackschleifen.
+BrightByte bietet Ihnen genau das: Enterprise-Qualität zum fairen Festpreis. Jedes Projekt bekommt einen klaren Zeitplan, transparente Kommunikation und eine Website, die auf allen Geräten überzeugt. Keine Überraschungen bei der Rechnung, keine endlosen Feedbackschleifen. Sie wissen vor Projektstart exakt, was Sie investieren und wann das Ergebnis steht. Von der ersten Nachricht bis zum Go-Live sprechen Sie mit einer Person, die Design und Technik aus einer Hand liefert. Das spart Zeit, verhindert Missverständnisse und sorgt dafür, dass Ihr Projekt schneller fertig wird als bei jeder Agentur.
 
-Als Solo-Entwickler mit sechs Jahren Erfahrung bei Agenturen und SAP arbeite ich mit React, Next.js und modernen Performance-Standards. Das Ergebnis: Lighthouse-Scores über 95, schnelle Ladezeiten und eine Seite, die bei Google von Anfang an sichtbar ist.`,
+Als Solo-Entwickler mit sechs Jahren Erfahrung bei Agenturen und SAP arbeite ich mit React, Next.js und modernen Performance-Standards. Das Ergebnis: Lighthouse-Scores über 95, schnelle Ladezeiten und eine Seite, die bei Google von Anfang an sichtbar ist. Jede Website wird mit technischem SEO ausgeliefert, mobiloptimiert und auf Barrierefreiheit geprüft. Nach dem Launch erhalten Sie 30 Tage Support, eine Einweisung in das CMS und die Sicherheit, dass ich auch danach für Fragen erreichbar bin. Keine Agentur, bei der Sie nach Projektabschluss eine Nummer im System sind.`,
     heroSubtextEn: `Looking for a web developer in Berlin who turns your idea into a fast, professional website. Without hidden costs or months of waiting?
 
-BrightByte offers exactly that: enterprise-quality at a fair fixed price. Every project gets a clear timeline, transparent communication, and a website that works beautifully on all devices. No invoice surprises, no endless feedback loops.
+BrightByte offers exactly that: enterprise-quality at a fair fixed price. Every project gets a clear timeline, transparent communication, and a website that works beautifully on all devices. No invoice surprises, no endless feedback loops. You know exactly what you're investing and when the result will be ready before the project starts. From the first message to go-live, you speak with one person who delivers both design and technology. That saves time, prevents miscommunication, and ensures your project is finished faster than at any agency.
 
-As a solo developer with six years of experience at agencies and SAP, I work with React, Next.js, and modern performance standards. The result: Lighthouse scores above 95, fast load times, and a site that ranks on Google from day one.`,
+As a solo developer with six years of experience at agencies and SAP, I work with React, Next.js, and modern performance standards. The result: Lighthouse scores above 95, fast load times, and a site that ranks on Google from day one. Every website ships with technical SEO, mobile optimization, and accessibility checks. After launch, you receive 30 days of support, a CMS walkthrough, and the assurance that I'm still reachable for questions afterward. No agency where you become just a number in the system after project completion.`,
     faqs: [
       {
         q: "Was kostet eine Website vom Webentwickler in Berlin?",
@@ -86,14 +86,14 @@ As a solo developer with six years of experience at agencies and SAP, I work wit
     heroHeadlineEn: "Websites for Doctors ·\nyour practice, compelling online",
     heroSubtext: `Patienten suchen heute online nach einem Arzt und entscheiden in Sekunden, ob eine Praxis vertrauenswürdig wirkt. Eine professionelle Website ist Ihre digitale Visitenkarte und oft der erste Kontaktpunkt.
 
-BrightByte baut Praxis-Websites, die Vertrauen schaffen: klares Design, schnelle Ladezeiten, Online-Terminbuchung und volle DSGVO-Konformität. Alles, was eine moderne Arztpraxis braucht, um online gefunden zu werden und Patienten zu gewinnen.
+BrightByte baut Praxis-Websites, die Vertrauen schaffen: klares Design, schnelle Ladezeiten, Online-Terminbuchung und volle DSGVO-Konformität. Alles, was eine moderne Arztpraxis braucht, um online gefunden zu werden und Patienten zu gewinnen. Die Terminbuchung integriere ich direkt in Ihre Seite, sodass Patienten rund um die Uhr buchen können, ohne Ihr Praxisteam zu belasten. Ihre Behandlungsschwerpunkte, Teamvorstellung und Praxisfotos werden so präsentiert, dass Patienten sofort ein Gefühl für Ihre Praxis bekommen. Lokale SEO sorgt dafür, dass Patienten in Ihrer Nähe Sie bei Google zuerst finden.
 
-Sie konzentrieren sich auf Ihre Patienten. Ich kümmere mich um Ihren digitalen Auftritt. Von der Erstberatung bis zum Go-Live in wenigen Wochen, ohne technischen Aufwand auf Ihrer Seite.`,
+Sie konzentrieren sich auf Ihre Patienten. Ich kümmere mich um Ihren digitalen Auftritt. Von der Erstberatung bis zum Go-Live in wenigen Wochen, ohne technischen Aufwand auf Ihrer Seite. Nach dem Launch pflegen Sie Inhalte wie Öffnungszeiten, Neuigkeiten oder Teamänderungen selbst über ein einfaches Verwaltungssystem. Ich zeige Ihnen oder Ihrem Praxisteam in einer kurzen Einweisung, wie alles funktioniert. Und sollte sich etwas ändern, ob neue Leistungen oder ein neuer Standort, ist die Website in wenigen Tagen angepasst.`,
     heroSubtextEn: `Today's patients search for doctors online and decide within seconds whether a practice looks trustworthy. A professional website is your digital business card and often the first point of contact.
 
-BrightByte builds practice websites that create trust: clean design, fast load times, online appointment booking, and full GDPR compliance. Everything a modern medical practice needs to be found online and attract patients.
+BrightByte builds practice websites that create trust: clean design, fast load times, online appointment booking, and full GDPR compliance. Everything a modern medical practice needs to be found online and attract patients. I integrate appointment booking directly into your site so patients can book around the clock without burdening your practice team. Your treatment specialties, team introduction, and practice photos are presented in a way that gives patients an immediate feel for your practice. Local SEO ensures that patients near you find you first on Google.
 
-You focus on your patients. I take care of your digital presence. From initial consultation to go-live in just a few weeks, without any technical effort on your side.`,
+You focus on your patients. I take care of your digital presence. From initial consultation to go-live in just a few weeks, without any technical effort on your side. After launch, you manage content like opening hours, news, or team changes yourself through a simple administration system. I show you or your practice team how everything works in a brief walkthrough. And if something changes, whether new services or a new location, the website is updated within a few days.`,
     faqs: [
       {
         q: "Kann ich Online-Terminbuchung integrieren lassen?",
@@ -142,14 +142,14 @@ You focus on your patients. I take care of your digital presence. From initial c
     heroHeadlineEn: "SEO Optimization Berlin ·\nbecome visible on Google",
     heroSubtext: `Ihre Website existiert, aber niemand findet sie? Wenn potenzielle Kunden nach Ihren Dienstleistungen googlen und bei der Konkurrenz landen, verlieren Sie jeden Tag Umsatz. Technische SEO-Optimierung ändert das.
 
-BrightByte optimiert Ihre Website von Grund auf: Ladezeiten unter 2 Sekunden, saubere Seitenstruktur, korrekte Meta-Tags, strukturierte Daten und Mobile-First-Design. Keine Black-Hat-Tricks, sondern nachhaltige Verbesserungen, die Google belohnt.
+BrightByte optimiert Ihre Website von Grund auf: Ladezeiten unter 2 Sekunden, saubere Seitenstruktur, korrekte Meta-Tags, strukturierte Daten und Mobile-First-Design. Keine Black-Hat-Tricks, sondern nachhaltige Verbesserungen, die Google belohnt. Ich analysiere jeden Aspekt Ihrer Website systematisch: von der Serverantwortzeit über die Bildoptimierung bis zur internen Verlinkung. Jede Maßnahme wird priorisiert nach Aufwand und Wirkung, sodass Sie schnell erste Ergebnisse sehen. Technische Schulden, die sich über Jahre angesammelt haben, werden schrittweise abgebaut, ohne dabei die Stabilität Ihrer bestehenden Rankings zu gefährden.
 
-Jede Optimierung wird mit vorher/nachher-Daten dokumentiert. Sie sehen genau, welche Maßnahmen welche Ergebnisse bringen: Core Web Vitals, Keyword-Rankings und organischer Traffic, schwarz auf weiß.`,
+Jede Optimierung wird mit vorher/nachher-Daten dokumentiert. Sie sehen genau, welche Maßnahmen welche Ergebnisse bringen: Core Web Vitals, Keyword-Rankings und organischer Traffic, schwarz auf weiß. Nach der initialen Optimierung erhalten Sie einen monatlichen Bericht, der die Entwicklung Ihrer wichtigsten Metriken zeigt. Keine vagen Versprechen, sondern konkrete Zahlen, die belegen, dass sich Ihre Investition auszahlt. Und falls bestimmte Maßnahmen nicht den gewünschten Effekt zeigen, passen wir die Strategie datenbasiert an.`,
     heroSubtextEn: `Your website exists, but nobody finds it? When potential customers google your services and end up at the competition, you lose revenue every day. Technical SEO optimization changes that.
 
-BrightByte optimizes your website from the ground up: load times under 2 seconds, clean page structure, correct meta tags, structured data, and mobile-first design. No black-hat tricks, just sustainable improvements that Google rewards.
+BrightByte optimizes your website from the ground up: load times under 2 seconds, clean page structure, correct meta tags, structured data, and mobile-first design. No black-hat tricks, just sustainable improvements that Google rewards. I analyze every aspect of your website systematically: from server response time to image optimization to internal linking. Every measure is prioritized by effort and impact so you see initial results quickly. Technical debt that has accumulated over years is reduced step by step without endangering the stability of your existing rankings.
 
-Every optimization is documented with before/after data. You see exactly which measures produce which results: Core Web Vitals, keyword rankings, and organic traffic, in black and white.`,
+Every optimization is documented with before/after data. You see exactly which measures produce which results: Core Web Vitals, keyword rankings, and organic traffic, in black and white. After the initial optimization, you receive a monthly report showing the development of your most important metrics. No vague promises, but concrete numbers that prove your investment is paying off. And if certain measures don't show the desired effect, we adjust the strategy based on data.`,
     faqs: [
       {
         q: "Was bringt technische SEO-Optimierung konkret?",
@@ -198,14 +198,14 @@ Every optimization is documented with before/after data. You see exactly which m
     heroHeadlineEn: "Web Design Berlin Mitte ·\nyour local partner",
     heroSubtext: `Ein Webdesigner, der um die Ecke sitzt und Ihre Branche versteht. Das macht den Unterschied. BrightByte ist in Berlin Mitte ansässig und arbeitet bevorzugt mit lokalen Unternehmen, die eine professionelle Online-Präsenz verdienen.
 
-Ob Café in der Torstraße, Praxis am Hackeschen Markt oder Startup am Rosenthaler Platz: Sie bekommen eine Website, die Ihre Nachbarschaft anspricht und bei lokalen Google-Suchen ganz oben steht. Persönliche Treffen, schnelle Abstimmung, kurze Wege.
+Ob Café in der Torstraße, Praxis am Hackeschen Markt oder Startup am Rosenthaler Platz: Sie bekommen eine Website, die Ihre Nachbarschaft anspricht und bei lokalen Google-Suchen ganz oben steht. Persönliche Treffen, schnelle Abstimmung, kurze Wege. Ich kenne die Anforderungen lokaler Unternehmen in Mitte: von der zweisprachigen Speisekarte für internationale Gäste bis zum Buchungssystem für eine Praxis. Das Design wird individuell auf Ihre Branche und Zielgruppe abgestimmt, damit Besucher sofort spüren, dass sie am richtigen Ort sind.
 
-Kein anonymes Agentur-Erlebnis, kein Offshore-Team. Ein Entwickler, ein Ansprechpartner, ein klarer Plan. Und ein Ergebnis, auf das Sie stolz sind.`,
+Kein anonymes Agentur-Erlebnis, kein Offshore-Team. Ein Entwickler, ein Ansprechpartner, ein klarer Plan. Und ein Ergebnis, auf das Sie stolz sind. Ob Sie eine komplett neue Website brauchen oder Ihre bestehende Seite modernisieren möchten: wir besprechen alles persönlich vor Ort und Sie wissen nach dem Erstgespräch genau, was Sie bekommen und was es kostet. Die Nähe bedeutet auch: wenn nach dem Launch etwas geändert werden muss, bin ich schnell verfügbar. Keine Tickets, keine Warteschlangen, sondern direkte Kommunikation auf kurzem Weg.`,
     heroSubtextEn: `A web designer around the corner who understands your industry. That makes the difference. BrightByte is based in Berlin Mitte and prefers working with local businesses that deserve a professional online presence.
 
-Whether a café on Torstraße, a practice near Hackescher Markt, or a startup at Rosenthaler Platz: you get a website that speaks to your neighborhood and ranks at the top of local Google searches. Personal meetings, quick alignment, short distances.
+Whether a café on Torstraße, a practice near Hackescher Markt, or a startup at Rosenthaler Platz: you get a website that speaks to your neighborhood and ranks at the top of local Google searches. Personal meetings, quick alignment, short distances. I know the requirements of local businesses in Mitte: from the bilingual menu for international guests to the booking system for a practice. The design is individually tailored to your industry and target audience so visitors immediately feel they're in the right place.
 
-No anonymous agency experience, no offshore team. One developer, one contact person, one clear plan. And a result you're proud of.`,
+No anonymous agency experience, no offshore team. One developer, one contact person, one clear plan. And a result you're proud of. Whether you need a completely new website or want to modernize your existing one: we discuss everything in person on-site and after the initial meeting, you know exactly what you'll get and what it costs. The proximity also means: if something needs to be changed after launch, I'm quickly available. No tickets, no queues, just direct communication through short channels.`,
     faqs: [
       {
         q: "Kann ich dich persönlich in Berlin Mitte treffen?",
@@ -255,14 +255,14 @@ No anonymous agency experience, no offshore team. One developer, one contact per
     heroHeadlineEn: "Websites for Restaurants ·\nwin guests, impress online",
     heroSubtext: `Ihre Gäste entscheiden in Sekunden, ob sie bei Ihnen reservieren oder beim Nachbarn. Eine professionelle Website mit aktueller Speisekarte, Online-Reservierung und ansprechenden Fotos macht den Unterschied.
 
-BrightByte baut Restaurant-Websites, die Appetit machen: schnelle Ladezeiten, perfekte Darstellung auf dem Smartphone, Google Maps Integration und direkte Reservierungs-Anbindung. Alles was Ihr Restaurant braucht, um online neue Gäste zu gewinnen.
+BrightByte baut Restaurant-Websites, die Appetit machen: schnelle Ladezeiten, perfekte Darstellung auf dem Smartphone, Google Maps Integration und direkte Reservierungs-Anbindung. Alles was Ihr Restaurant braucht, um online neue Gäste zu gewinnen. Die Speisekarte wird als interaktives Element eingebunden, mit Allergenkennzeichnung, Tagesgerichten und saisonalen Highlights, die Sie selbst aktualisieren können. Professionelle Food-Fotografie wird großflächig inszeniert und lässt Besucher sofort wissen, welches Erlebnis sie erwartet. Dazu kommt ein optimiertes Google Business Profil, das Ihre Bewertungen prominent zeigt und hungrigen Gästen den direkten Weg zu Ihnen weist.
 
-Sie kochen. Ich kümmere mich um Ihren digitalen Auftritt. Keine Vorlagen von der Stange, sondern ein individuelles Design, das die Atmosphäre Ihres Restaurants einfängt.`,
+Sie kochen. Ich kümmere mich um Ihren digitalen Auftritt. Keine Vorlagen von der Stange, sondern ein individuelles Design, das die Atmosphäre Ihres Restaurants einfängt. Von der Farbwelt bis zur Typografie wird alles auf Ihr Konzept abgestimmt, ob gemütliche Weinbar, lebhafte Pizzeria oder gehobene Küche. Nach dem Launch pflegen Sie Tagesgerichte, Events und Öffnungszeiten über ein simples System, das auch ohne technisches Wissen funktioniert. Und wenn Sie Unterstützung brauchen, bin ich nur eine Nachricht entfernt.`,
     heroSubtextEn: `Your guests decide within seconds whether to book at your place or the competitor next door. A professional website with an up-to-date menu, online reservations, and appealing photos makes the difference.
 
-BrightByte builds restaurant websites that make mouths water: fast load times, perfect mobile display, Google Maps integration, and direct reservation connections. Everything your restaurant needs to attract new guests online.
+BrightByte builds restaurant websites that make mouths water: fast load times, perfect mobile display, Google Maps integration, and direct reservation connections. Everything your restaurant needs to attract new guests online. The menu is integrated as an interactive element with allergen labeling, daily specials, and seasonal highlights that you can update yourself. Professional food photography is displayed prominently and lets visitors immediately know what experience awaits them. Plus an optimized Google Business profile that prominently shows your reviews and points hungry guests directly to your door.
 
-You cook. I take care of your digital presence. No cookie-cutter templates, but a custom design that captures your restaurant's atmosphere.`,
+You cook. I take care of your digital presence. No cookie-cutter templates, but a custom design that captures your restaurant's atmosphere. From the color palette to the typography, everything is tailored to your concept, whether it's a cozy wine bar, a lively pizzeria, or fine dining. After launch, you manage daily specials, events, and opening hours through a simple system that works without technical knowledge. And when you need support, I'm just a message away.`,
     faqs: [
       {
         q: "Kann ich meine Speisekarte selbst aktualisieren?",
@@ -311,14 +311,14 @@ You cook. I take care of your digital presence. No cookie-cutter templates, but 
     heroHeadlineEn: "Websites for Startups ·\nfast to market, ready to scale",
     heroSubtext: `Als Startup zählt jeder Tag. Sie brauchen eine Website, die gestern live hätte gehen sollen — nicht in drei Monaten. Eine Seite, die Investoren überzeugt, Early Adopters konvertiert und mit Ihrem Wachstum mithält.
 
-BrightByte baut Startup-Websites mit dem gleichen Tech-Stack, den auch Vercel, Notion und Linear nutzen: React, Next.js, TypeScript. Das Ergebnis: blitzschnelle Performance, sauberer Code und eine Architektur, die skaliert wenn Sie es tun.
+BrightByte baut Startup-Websites mit dem gleichen Tech-Stack, den auch Vercel, Notion und Linear nutzen: React, Next.js, TypeScript. Das Ergebnis: blitzschnelle Performance, sauberer Code und eine Architektur, die skaliert wenn Sie es tun. Die Codebase ist von Tag 1 so aufgebaut, dass Ihr nächster Entwickler sofort weiterarbeiten kann. Dokumentation, TypeScript-Typen und eine klare Komponentenstruktur sorgen dafür, dass nichts zur Blackbox wird. Und falls Sie Investoren pitchen: eine professionelle, schnelle Website sagt mehr über Ihre technische Kompetenz als jedes Slide-Deck.
 
-Kein Agentur-Overhead, kein wochenlanges Warten auf Feedback-Runden. Ein Entwickler, der Startup-Sprache spricht und in Tagen liefert, nicht Monaten.`,
+Kein Agentur-Overhead, kein wochenlanges Warten auf Feedback-Runden. Ein Entwickler, der Startup-Sprache spricht und in Tagen liefert, nicht Monaten. Ich verstehe, dass sich Anforderungen schnell ändern, dass das Budget begrenzt ist und dass gestern besser als morgen ist. Deshalb arbeite ich iterativ: erst eine solide Basis, dann schrittweise Erweiterungen basierend auf echtem Nutzerfeedback. So investieren Sie nur in Features, die tatsächlich gebraucht werden, statt ein perfektes Produkt zu planen, das nie fertig wird.`,
     heroSubtextEn: `As a startup, every day counts. You need a website that should have been live yesterday — not in three months. A site that convinces investors, converts early adopters, and keeps up with your growth.
 
-BrightByte builds startup websites with the same tech stack used by Vercel, Notion, and Linear: React, Next.js, TypeScript. The result: lightning-fast performance, clean code, and an architecture that scales when you do.
+BrightByte builds startup websites with the same tech stack used by Vercel, Notion, and Linear: React, Next.js, TypeScript. The result: lightning-fast performance, clean code, and an architecture that scales when you do. The codebase is structured from day 1 so that your next developer can continue working immediately. Documentation, TypeScript types, and a clear component structure ensure nothing becomes a black box. And if you're pitching investors: a professional, fast website says more about your technical competence than any slide deck.
 
-No agency overhead, no weeks of waiting for feedback rounds. One developer who speaks startup and delivers in days, not months.`,
+No agency overhead, no weeks of waiting for feedback rounds. One developer who speaks startup and delivers in days, not months. I understand that requirements change quickly, that budgets are limited, and that yesterday is better than tomorrow. That's why I work iteratively: first a solid foundation, then gradual extensions based on real user feedback. This way you only invest in features that are actually needed instead of planning a perfect product that never gets finished.`,
     faqs: [
       {
         q: "Wie schnell kann meine Startup-Website live gehen?",
@@ -802,6 +802,622 @@ Not through tricks, but through solid architecture with Next.js and React. Websi
       { text: "Core Web Vitals im grünen Bereich", textEn: "Core Web Vitals in the green zone" },
       { text: "Unter 2 Sekunden Ladezeit auf Mobilgeräten", textEn: "Under 2 second load time on mobile devices" },
       { text: "Nachhaltig schnell — keine Quick-Fixes die verfallen", textEn: "Sustainably fast — no quick fixes that expire" },
+    ],
+  },
+  {
+    slug: "wordpress-alternative",
+    category: "service",
+    title: "WordPress Alternative Berlin | BrightByte",
+    titleEn: "WordPress Alternative Berlin | BrightByte",
+    metaDescription:
+      "Moderne WordPress Alternative aus Berlin. Schneller, sicherer und wartungsfrei. Individuelle Websites mit React und Next.js zum Festpreis.",
+    metaDescriptionEn:
+      "Modern WordPress alternative from Berlin. Faster, more secure, and maintenance-free. Custom websites with React and Next.js at a fixed price.",
+    heroHeadline: "WordPress Alternative ·\nschneller, sicherer, wartungsfrei",
+    heroHeadlineEn: "WordPress Alternative ·\nfaster, more secure, maintenance-free",
+    heroSubtext: `WordPress war jahrelang der Standard. Aber langsame Ladezeiten, ständige Updates, Plugin-Konflikte und Sicherheitslücken kosten Sie Zeit und Nerven. Und Ihre Besucher springen ab, bevor die Seite geladen hat.
+
+BrightByte baut Ihre Website mit React und Next.js. Das Ergebnis: Ladezeiten unter 2 Sekunden, keine Plugin-Updates, keine gehackten Seiten. Die gleiche Flexibilität wie WordPress, aber mit moderner Technologie, die Google liebt und Ihre Besucher begeistert. Während WordPress-Seiten regelmäßig gewartet werden müssen, damit nichts bricht, läuft eine Next.js Website stabil und sicher ohne Ihr Zutun. Kein nächtliches Aufwachen wegen einer gehackten Seite, kein Stress wegen inkompatiblen Plugin-Versionen. Und das Beste: Ihre Website wird mit der Zeit nicht langsamer, weil keine aufgeblähte Datenbank im Hintergrund arbeitet.
+
+Sie bekommen eine Website, die einfach funktioniert. Inhalte pflegen Sie über ein intuitives CMS, ohne sich um Technik kümmern zu müssen. Kein WordPress-Wissen nötig, keine monatlichen Wartungskosten für Plugins. Das CMS ist so aufgebaut, dass Sie Texte, Bilder und neue Seiten genauso einfach bearbeiten wie in WordPress, nur ohne den technischen Overhead. Auch Ihr Team kann Inhalte aktualisieren, ganz ohne Schulung oder Entwickler im Hintergrund. Und sollte sich Ihre Website in Zukunft weiterentwickeln, ist die Architektur so gebaut, dass neue Funktionen jederzeit ergänzt werden können.`,
+    heroSubtextEn: `WordPress was the standard for years. But slow load times, constant updates, plugin conflicts, and security vulnerabilities cost you time and nerves. And your visitors leave before the page even loads.
+
+BrightByte builds your website with React and Next.js. The result: load times under 2 seconds, no plugin updates, no hacked sites. The same flexibility as WordPress, but with modern technology that Google loves and your visitors enjoy. While WordPress sites need regular maintenance to keep things from breaking, a Next.js website runs stable and secure without any effort on your part. No waking up at night because your site got hacked, no stress over incompatible plugin versions. And the best part: your website doesn't get slower over time because there's no bloated database working in the background.
+
+You get a website that simply works. You manage content through an intuitive CMS without worrying about technology. No WordPress knowledge needed, no monthly maintenance costs for plugins. The CMS is designed so you can edit texts, images, and new pages just as easily as in WordPress, only without the technical overhead. Your team can update content too, without training or a developer in the background. And should your website evolve in the future, the architecture is built so that new features can be added at any time.`,
+    faqs: [
+      {
+        q: "Kann ich Inhalte selbst bearbeiten ohne WordPress?",
+        a: "Ja. Ich setze ein Headless CMS wie Sanity auf, das genauso einfach zu bedienen ist wie WordPress. Texte, Bilder und Seiten ändern Sie direkt im Browser. Der Unterschied: kein Plugin-Chaos, keine Updates, keine Sicherheitsrisiken.",
+        qEn: "Can I edit content myself without WordPress?",
+        aEn: "Yes. I set up a headless CMS like Sanity that's just as easy to use as WordPress. You edit texts, images, and pages directly in the browser. The difference: no plugin chaos, no updates, no security risks.",
+      },
+      {
+        q: "Was macht Next.js besser als WordPress?",
+        a: "Geschwindigkeit: Next.js Seiten laden in unter 2 Sekunden (WordPress oft 4+). Sicherheit: keine Datenbank-Angriffe, keine veralteten Plugins. SEO: Google bevorzugt schnelle Seiten. Und das Beste: null Wartungsaufwand für Sie.",
+        qEn: "What makes Next.js better than WordPress?",
+        aEn: "Speed: Next.js pages load in under 2 seconds (WordPress often 4+). Security: no database attacks, no outdated plugins. SEO: Google prefers fast pages. And the best part: zero maintenance effort for you.",
+      },
+      {
+        q: "Kann ich meine bestehende WordPress-Seite migrieren?",
+        a: "Absolut. Ich übernehme alle Inhalte, behalte Ihre URL-Struktur bei (wichtig für SEO) und richte Weiterleitungen ein. Ihre Google-Rankings bleiben erhalten, Ihre Seite wird nur schneller und sicherer.",
+        qEn: "Can I migrate my existing WordPress site?",
+        aEn: "Absolutely. I transfer all content, keep your URL structure (important for SEO), and set up redirects. Your Google rankings stay intact, your site just gets faster and more secure.",
+      },
+      {
+        q: "Was kostet eine Website ohne WordPress?",
+        a: "Landing Pages starten ab €990, mehrseitige Websites ab €2.500. Das ist vergleichbar mit WordPress-Agenturen, nur dass Sie danach keine laufenden Wartungskosten haben. Alles zum Festpreis, fertig in 2 bis 4 Wochen.",
+        qEn: "What does a website without WordPress cost?",
+        aEn: "Landing pages start at €990, multi-page websites from €2,500. That's comparable to WordPress agencies, except you have no ongoing maintenance costs afterward. All at a fixed price, ready in 2 to 4 weeks.",
+      },
+    ],
+    ctaText: "Beratung anfragen",
+    ctaTextEn: "Request a consultation",
+    benefits: [
+      { text: "Ladezeit unter 2 Sekunden statt WordPress-typischer 4+", textEn: "Load time under 2 seconds instead of WordPress-typical 4+" },
+      { text: "Keine Updates, keine Plugins, keine Sicherheitslücken", textEn: "No updates, no plugins, no security vulnerabilities" },
+      { text: "Inhalte selbst pflegen über ein modernes CMS", textEn: "Manage content yourself via a modern CMS" },
+      { text: "Bessere Google-Rankings durch schnellere Performance", textEn: "Better Google rankings through faster performance" },
+    ],
+  },
+  {
+    slug: "react-entwicklung-berlin",
+    category: "service",
+    title: "React Entwicklung Berlin | BrightByte",
+    titleEn: "React Development Berlin | BrightByte",
+    metaDescription:
+      "React Entwicklung in Berlin. Performante Web-Apps und Websites mit React, Next.js und TypeScript. Sechs Jahre Erfahrung, Festpreis, persönlicher Kontakt.",
+    metaDescriptionEn:
+      "React development in Berlin. Performant web apps and websites with React, Next.js, and TypeScript. Six years of experience, fixed pricing, personal contact.",
+    heroHeadline: "React Entwicklung Berlin ·\nmoderne Web-Apps, solide gebaut",
+    heroHeadlineEn: "React Development Berlin ·\nmodern web apps, solidly built",
+    heroSubtext: `React ist die Technologie hinter Facebook, Airbnb und Spotify. Aber Sie brauchen keine Tech-Giganten, um davon zu profitieren. Ob interaktive Web-App, performante Unternehmensseite oder individuelles Dashboard: React liefert die Basis für schnelle, wartbare und skalierbare Lösungen.
+
+BrightByte bringt sechs Jahre React-Erfahrung aus Agentur und Enterprise (SAP) in Ihr Projekt. TypeScript für fehlerfreien Code, Next.js für blitzschnelle Performance, und ein klarer Entwicklungsprozess mit wöchentlichen Updates. Keine Blackbox, sondern transparente Zusammenarbeit. Jede Komponente wird testbar und wiederverwendbar gebaut, sodass Ihr Projekt auch in zwei Jahren noch wartbar ist. Der Code folgt denselben Standards, die auch große Tech-Unternehmen intern einsetzen: strict typing, automatisierte Tests und klare Architekturentscheidungen, die dokumentiert werden.
+
+Sie bekommen nicht nur sauberen Code, sondern eine Lösung, die Ihr Unternehmen voranbringt. Und einen Entwickler, der auch nach dem Launch erreichbar ist. Wöchentliche Demo-Sessions zeigen Ihnen den Fortschritt, und Entscheidungen treffen wir gemeinsam statt hinter verschlossenen Türen. Nach dem Launch unterstütze ich Sie bei Weiterentwicklungen, Performance-Monitoring und technischen Fragen. Ob kleines Feature oder größere Erweiterung: der Einstieg ist nahtlos, weil derselbe Entwickler am Code arbeitet, der ihn auch geschrieben hat.`,
+    heroSubtextEn: `React is the technology behind Facebook, Airbnb, and Spotify. But you don't need tech giants to benefit from it. Whether it's an interactive web app, a performant company website, or a custom dashboard: React provides the foundation for fast, maintainable, and scalable solutions.
+
+BrightByte brings six years of React experience from agencies and enterprise (SAP) to your project. TypeScript for error-free code, Next.js for lightning-fast performance, and a clear development process with weekly updates. No black box, but transparent collaboration. Every component is built to be testable and reusable, so your project remains maintainable even two years from now. The code follows the same standards that large tech companies use internally: strict typing, automated tests, and clear architectural decisions that are documented.
+
+You don't just get clean code, but a solution that moves your business forward. And a developer who's still reachable after launch. Weekly demo sessions show you the progress, and decisions are made together rather than behind closed doors. After launch, I support you with further development, performance monitoring, and technical questions. Whether it's a small feature or a larger extension: the onboarding is seamless because the same developer works on the code who originally wrote it.`,
+    faqs: [
+      {
+        q: "Warum React statt einer einfacheren Lösung?",
+        a: "React lohnt sich, wenn Ihre Website mehr als statische Seiten braucht: interaktive Formulare, Dashboards, Echtzeit-Updates oder komplexe Nutzerflows. Für eine einfache 5-Seiten-Website empfehle ich ehrlich eine schlankere Lösung. In einem Erstgespräch klären wir, was für Sie passt.",
+        qEn: "Why React instead of a simpler solution?",
+        aEn: "React makes sense when your website needs more than static pages: interactive forms, dashboards, real-time updates, or complex user flows. For a simple 5-page website, I honestly recommend a leaner solution. In an initial call, we clarify what fits you.",
+      },
+      {
+        q: "Arbeitest du auch mit bestehenden React-Projekten?",
+        a: "Ja. Ob neues Feature, Performance-Optimierung oder Code-Refactoring: ich steige auch in bestehende Codebases ein. Voraussetzung: saubere Git-Historie und ein kurzes Onboarding. Das können wir im Erstgespräch klären.",
+        qEn: "Do you also work with existing React projects?",
+        aEn: "Yes. Whether it's a new feature, performance optimization, or code refactoring: I also jump into existing codebases. Requirements: clean Git history and a brief onboarding. We can clarify this in an initial call.",
+      },
+      {
+        q: "Was kostet React-Entwicklung?",
+        a: "Kleine Features und Komponenten ab €990, komplette Web-Apps ab €4.500. Alles zum Festpreis nach einer klaren Anforderungsanalyse. Sie wissen vor Projektstart exakt, was Sie investieren.",
+        qEn: "What does React development cost?",
+        aEn: "Small features and components from €990, complete web apps from €4,500. All at a fixed price after a clear requirements analysis. You know exactly what you're investing before the project starts.",
+      },
+      {
+        q: "Welche React-Frameworks verwendest du?",
+        a: "Next.js für Websites und Web-Apps mit SEO-Anforderungen. Für reine SPAs oder interne Tools auch Vite mit React Router. Dazu TypeScript in jedem Projekt, und Tailwind CSS oder Styled Components für das Styling.",
+        qEn: "Which React frameworks do you use?",
+        aEn: "Next.js for websites and web apps with SEO requirements. For pure SPAs or internal tools, also Vite with React Router. Plus TypeScript in every project, and Tailwind CSS or Styled Components for styling.",
+      },
+    ],
+    ctaText: "Projekt besprechen",
+    ctaTextEn: "Discuss your project",
+    benefits: [
+      { text: "Sechs Jahre React-Erfahrung aus Agentur und Enterprise", textEn: "Six years of React experience from agency and enterprise" },
+      { text: "TypeScript und Next.js als Standard in jedem Projekt", textEn: "TypeScript and Next.js as standard in every project" },
+      { text: "Wöchentliche Updates und transparenter Fortschritt", textEn: "Weekly updates and transparent progress" },
+      { text: "Festpreis nach klarer Anforderungsanalyse", textEn: "Fixed price after clear requirements analysis" },
+    ],
+  },
+  {
+    slug: "webdesign-fuer-kmu",
+    category: "service",
+    title: "Webdesign für KMU Berlin | BrightByte",
+    titleEn: "Web Design for SMBs Berlin | BrightByte",
+    metaDescription:
+      "Professionelles Webdesign für KMU in Berlin. Moderne Websites zum Festpreis, fertig in 2 bis 4 Wochen. Persönlicher Ansprechpartner, keine Agentur-Overhead.",
+    metaDescriptionEn:
+      "Professional web design for SMBs in Berlin. Modern websites at a fixed price, ready in 2 to 4 weeks. Personal contact, no agency overhead.",
+    heroHeadline: "Webdesign für KMU ·\nprofessionell ohne Agentur-Preise",
+    heroHeadlineEn: "Web Design for SMBs ·\nprofessional without agency prices",
+    heroSubtext: `Als kleines oder mittelständisches Unternehmen brauchen Sie eine Website, die Kunden überzeugt. Aber Sie brauchen keine Agentur mit zehn Mitarbeitern und fünfstelligem Budget. Was Sie brauchen: einen Ansprechpartner, der zuhört, schnell liefert und einen fairen Preis macht.
+
+BrightByte ist genau das. Ein erfahrener Entwickler, der Websites baut, die aussehen wie von einer Top-Agentur, aber zum Bruchteil des Preises. Festpreis ab €990, persönliche Betreuung, und eine Website die in 2 bis 4 Wochen online ist. Jedes Projekt wird von einer Person betreut, die Design und Technik gleichermaßen beherrscht. Das spart Ihnen den Abstimmungs-Overhead, der bei Agenturen Wochen frisst. Und Sie bekommen Enterprise-Qualität: performante Architektur, sauberen Code und eine Website, die bei Google von Anfang an gut abschneidet.
+
+Kein Vertriebs-Ping-Pong, keine Übergaben zwischen Designern und Entwicklern. Sie sprechen mit einer Person, die Ihr Projekt von Anfang bis Ende betreut. Und die auch nach dem Launch noch da ist. Bei Fragen schreiben Sie eine E-Mail und bekommen innerhalb von 24 Stunden eine Antwort, nicht von einem Support-Ticket-System, sondern direkt von der Person, die Ihre Website gebaut hat. Updates, kleine Änderungen oder neue Seiten lassen sich jederzeit unkompliziert ergänzen. So wächst Ihre Website mit Ihrem Unternehmen, ohne dass Sie jedes Mal von vorne anfangen müssen.`,
+    heroSubtextEn: `As a small or medium-sized business, you need a website that convinces customers. But you don't need an agency with ten employees and a five-figure budget. What you need: a contact person who listens, delivers fast, and offers a fair price.
+
+BrightByte is exactly that. An experienced developer who builds websites that look like they're from a top agency, but at a fraction of the price. Fixed price from €990, personal support, and a website that's online in 2 to 4 weeks. Every project is handled by one person who masters both design and technology. That saves you the coordination overhead that eats up weeks at agencies. And you get enterprise quality: performant architecture, clean code, and a website that performs well on Google from day one.
+
+No sales ping-pong, no handoffs between designers and developers. You speak with one person who manages your project from start to finish. And who's still there after launch. When you have questions, you send an email and get a response within 24 hours, not from a support ticket system, but directly from the person who built your website. Updates, small changes, or new pages can be added at any time without hassle. That way your website grows with your business without having to start from scratch each time.`,
+    faqs: [
+      {
+        q: "Was kostet eine KMU-Website?",
+        a: "Landing Pages ab €990, mehrseitige Websites mit CMS ab €2.500. Das ist ein Bruchteil dessen, was Agenturen verlangen. Und trotzdem bekommen Sie Enterprise-Qualität: sauberer Code, schnelle Ladezeiten, perfektes SEO.",
+        qEn: "What does an SMB website cost?",
+        aEn: "Landing pages from €990, multi-page websites with CMS from €2,500. That's a fraction of what agencies charge. And you still get enterprise quality: clean code, fast load times, perfect SEO.",
+      },
+      {
+        q: "Kann ich Inhalte selbst aktualisieren?",
+        a: "Ja. Ich richte ein einfaches CMS ein, über das Sie Texte, Bilder und neue Seiten anlegen können. Ohne Programmierkenntnisse, direkt im Browser. Bei Fragen bin ich jederzeit erreichbar.",
+        qEn: "Can I update content myself?",
+        aEn: "Yes. I set up a simple CMS where you can edit texts, images, and create new pages. No coding skills needed, directly in the browser. I'm always reachable if you have questions.",
+      },
+      {
+        q: "Wie läuft ein Projekt ab?",
+        a: "Erstgespräch, Konzept, Design-Entwurf, Entwicklung, Feedback, Launch. Jeder Schritt ist klar definiert, Sie sehen regelmäßig Fortschritt und können jederzeit Feedback geben. Keine Überraschungen.",
+        qEn: "How does a project work?",
+        aEn: "Initial call, concept, design draft, development, feedback, launch. Every step is clearly defined, you see regular progress and can give feedback at any time. No surprises.",
+      },
+      {
+        q: "Was unterscheidet dich von Baukästen wie Wix oder Squarespace?",
+        a: "Baukästen sind günstiger, aber limitiert: langsame Ladezeiten, eingeschränktes Design, schlechte Google-Rankings. Eine individuell entwickelte Website ist schneller, flexibler und zahlt sich langfristig aus. Und kostet oft weniger als gedacht.",
+        qEn: "What sets you apart from builders like Wix or Squarespace?",
+        aEn: "Builders are cheaper but limited: slow load times, restricted design, poor Google rankings. A custom-built website is faster, more flexible, and pays off long-term. And often costs less than you'd think.",
+      },
+    ],
+    ctaText: "Angebot anfragen",
+    ctaTextEn: "Request a quote",
+    benefits: [
+      { text: "Festpreis ab €990 ohne versteckte Kosten", textEn: "Fixed price from €990 with no hidden costs" },
+      { text: "Ein Ansprechpartner für Design und Entwicklung", textEn: "One contact person for design and development" },
+      { text: "Fertig in 2 bis 4 Wochen statt Monaten", textEn: "Ready in 2 to 4 weeks instead of months" },
+      { text: "Enterprise-Qualität ohne Agentur-Preise", textEn: "Enterprise quality without agency prices" },
+    ],
+  },
+  {
+    slug: "website-fuer-handwerker",
+    category: "industry",
+    title: "Website für Handwerker | BrightByte Berlin",
+    titleEn: "Websites for Tradespeople | BrightByte Berlin",
+    metaDescription:
+      "Professionelle Websites für Handwerksbetriebe in Berlin. Lokale SEO, Kontaktformular, Referenzen. Festpreis, fertig in 2 bis 3 Wochen.",
+    metaDescriptionEn:
+      "Professional websites for trade businesses in Berlin. Local SEO, contact forms, references. Fixed pricing, ready in 2 to 3 weeks.",
+    heroHeadline: "Website für Handwerker ·\nmehr Aufträge durch digitale Präsenz",
+    heroHeadlineEn: "Websites for Tradespeople ·\nmore jobs through digital presence",
+    heroSubtext: `Ihre Kunden suchen online nach einem Handwerker in der Nähe. Wer keine professionelle Website hat, wird schlicht nicht gefunden. Und wer eine hat, die langsam lädt oder altmodisch wirkt, verliert den Auftrag an den Konkurrenten mit dem besseren Auftritt.
+
+BrightByte baut Websites für Handwerksbetriebe, die Vertrauen schaffen und Aufträge generieren. Klares Design, echte Referenzfotos, einfaches Kontaktformular und lokale SEO, damit Sie in Ihrer Region bei Google ganz oben stehen. Die Website zeigt Ihre besten Arbeiten in einer professionellen Galerie und macht es Interessenten leicht, sofort Kontakt aufzunehmen. Dazu kommt ein optimiertes Google Business Profil, das Ihre Bewertungen sichtbar macht und den Weg zu Ihnen zeigt. Ob Elektriker, Schreiner, Maler oder Installateur: Sie bekommen eine Seite, die Ihre Kompetenz auf den ersten Blick vermittelt.
+
+Kein technischer Aufwand für Sie. Ich kümmere mich um alles: vom Design über die Entwicklung bis zur Google-Optimierung. In 2 bis 3 Wochen ist Ihre neue Website online. Und Sie können sich auf das konzentrieren, was Sie am besten können. Neue Projekte und Referenzbilder fügen Sie selbst hinzu, über ein einfaches System, das ich Ihnen in einer kurzen Einweisung zeige. Nach dem Launch überwache ich die Google-Sichtbarkeit und gebe Ihnen Tipps, wie Sie mit wenig Aufwand mehr Anfragen generieren. Ihre Investition zahlt sich in der Regel innerhalb weniger Wochen durch neue Aufträge aus, die direkt über die Website kommen.`,
+    heroSubtextEn: `Your customers search online for a tradesperson nearby. Without a professional website, you simply won't be found. And if you have one that loads slowly or looks outdated, you lose the job to the competitor with the better presence.
+
+BrightByte builds websites for trade businesses that create trust and generate jobs. Clean design, real reference photos, simple contact forms, and local SEO so you rank at the top of Google in your area. The website showcases your best work in a professional gallery and makes it easy for prospects to get in touch immediately. On top of that, an optimized Google Business profile makes your reviews visible and shows the way to your business. Whether you're an electrician, carpenter, painter, or plumber: you get a site that conveys your expertise at first glance.
+
+No technical effort for you. I handle everything: from design to development to Google optimization. In 2 to 3 weeks, your new website is online. And you can focus on what you do best. You add new projects and reference photos yourself through a simple system that I show you in a brief introduction. After launch, I monitor your Google visibility and give you tips on how to generate more inquiries with minimal effort. Your investment typically pays for itself within a few weeks through new jobs that come directly through the website.`,
+    faqs: [
+      {
+        q: "Was kostet eine Handwerker-Website?",
+        a: "Handwerker-Websites starten ab €1.490 zum Festpreis. Das beinhaltet Design, Entwicklung, Kontaktformular, Referenzgalerie, Google Maps Integration und SEO-Grundsetup. Keine laufenden Kosten außer Hosting.",
+        qEn: "What does a tradesperson website cost?",
+        aEn: "Tradesperson websites start at €1,490 at a fixed price. This includes design, development, contact form, reference gallery, Google Maps integration, and basic SEO setup. No ongoing costs except hosting.",
+      },
+      {
+        q: "Wie werde ich bei Google als Handwerker gefunden?",
+        a: "Lokale SEO ist der Schlüssel: Google Business Profil optimieren, lokale Suchbegriffe auf der Website, Bewertungen einbinden und schnelle Ladezeiten. Ich richte das alles bei Projektstart mit ein.",
+        qEn: "How do I get found on Google as a tradesperson?",
+        aEn: "Local SEO is key: optimizing your Google Business profile, local search terms on the website, integrating reviews, and fast load times. I set all of this up at the start of the project.",
+      },
+      {
+        q: "Kann ich Referenzbilder und Bewertungen selbst hinzufügen?",
+        a: "Ja. Über ein einfaches CMS laden Sie neue Projektfotos hoch und verwalten Kundenbewertungen. Kein technisches Wissen nötig. Ich zeige Ihnen in 15 Minuten, wie es funktioniert.",
+        qEn: "Can I add reference photos and reviews myself?",
+        aEn: "Yes. Through a simple CMS, you upload new project photos and manage customer reviews. No technical knowledge needed. I show you how it works in 15 minutes.",
+      },
+      {
+        q: "Brauche ich wirklich eine eigene Website als Handwerker?",
+        a: "Ja. 87% der Kunden recherchieren online, bevor sie einen Handwerker beauftragen. Portale wie MyHammer nehmen Provision. Eine eigene Website bringt Ihnen Anfragen direkt, ohne Vermittler, und stärkt Ihre Marke langfristig.",
+        qEn: "Do I really need my own website as a tradesperson?",
+        aEn: "Yes. 87% of customers research online before hiring a tradesperson. Platforms like MyHammer take commission. Your own website brings you inquiries directly, without middlemen, and strengthens your brand long-term.",
+      },
+    ],
+    ctaText: "Website anfragen",
+    ctaTextEn: "Request a website",
+    benefits: [
+      { text: "Lokale SEO für Aufträge aus Ihrer Region", textEn: "Local SEO for jobs from your region" },
+      { text: "Referenzgalerie mit echten Projektfotos", textEn: "Reference gallery with real project photos" },
+      { text: "Einfaches Kontaktformular für schnelle Anfragen", textEn: "Simple contact form for quick inquiries" },
+      { text: "Mobiloptimiert für Kunden, die unterwegs suchen", textEn: "Mobile-optimized for customers searching on the go" },
+    ],
+  },
+  {
+    slug: "website-fuer-coaches",
+    category: "industry",
+    title: "Website für Coaches | BrightByte Berlin",
+    titleEn: "Websites for Coaches | BrightByte Berlin",
+    metaDescription:
+      "Professionelle Websites für Coaches und Berater in Berlin. Online-Buchung, Vertrauensaufbau, moderne Gestaltung. Festpreis ab €1.490.",
+    metaDescriptionEn:
+      "Professional websites for coaches and consultants in Berlin. Online booking, trust building, modern design. Fixed pricing from €1,490.",
+    heroHeadline: "Website für Coaches ·\nVertrauen aufbauen, Klienten gewinnen",
+    heroHeadlineEn: "Websites for Coaches ·\nbuild trust, win clients",
+    heroSubtext: `Als Coach oder Berater ist Ihre Website oft der erste Eindruck. Potenzielle Klienten entscheiden in Sekunden, ob sie Ihnen vertrauen. Eine generische Vorlage vermittelt nicht die Persönlichkeit und Kompetenz, die Sie auszeichnet.
+
+BrightByte baut Coach-Websites, die Ihre Expertise sichtbar machen: persönliches Design, klare Angebotsstruktur, integrierte Terminbuchung und Testimonials, die überzeugen. Alles darauf ausgerichtet, Besucher in Klienten zu verwandeln. Die Seite erzählt Ihre Geschichte, zeigt Ihre Methoden und macht den Weg zum Erstgespräch so einfach wie möglich. Statt einer generischen Vorlage bekommen Sie ein Design, das Ihre Persönlichkeit transportiert und genau die Menschen anspricht, mit denen Sie arbeiten möchten. Jede Sektion ist strategisch aufgebaut: von der ersten Headline bis zum Buchungsbutton führt alles den Besucher zum nächsten Schritt.
+
+Sie konzentrieren sich auf Ihre Klienten. Ich sorge dafür, dass die richtigen Menschen Sie online finden und den ersten Schritt machen. Von der Erstberatung bis zum Go-Live in wenigen Wochen. Dank integrierter Terminbuchung können potenzielle Klienten direkt einen Slot wählen, ohne E-Mails hin und her zu schicken. Ihr Blog oder Content-Bereich hilft Ihnen, bei Google für relevante Coaching-Themen sichtbar zu werden und Ihre Expertise zu demonstrieren. Nach dem Launch unterstütze ich Sie dabei, die Website kontinuierlich zu verbessern: welche Seiten funktionieren, wo Besucher abspringen, und was wir optimieren können, um mehr Anfragen zu generieren.`,
+    heroSubtextEn: `As a coach or consultant, your website is often the first impression. Potential clients decide within seconds whether they trust you. A generic template doesn't convey the personality and expertise that sets you apart.
+
+BrightByte builds coach websites that make your expertise visible: personal design, clear offer structure, integrated appointment booking, and testimonials that convince. Everything designed to turn visitors into clients. The site tells your story, shows your methods, and makes the path to an initial consultation as simple as possible. Instead of a generic template, you get a design that conveys your personality and speaks to exactly the people you want to work with. Every section is strategically built: from the first headline to the booking button, everything guides the visitor to the next step.
+
+You focus on your clients. I make sure the right people find you online and take the first step. From initial consultation to go-live in just a few weeks. Thanks to integrated appointment booking, potential clients can directly choose a slot without sending emails back and forth. Your blog or content area helps you become visible on Google for relevant coaching topics and demonstrate your expertise. After launch, I support you in continuously improving the website: which pages work, where visitors drop off, and what we can optimize to generate more inquiries.`,
+    faqs: [
+      {
+        q: "Kann ich Online-Termine direkt über die Website buchen lassen?",
+        a: "Ja, ich integriere Buchungssysteme wie Calendly, Cal.com oder eine eigene Lösung direkt in Ihre Website. Klienten wählen einen freien Termin und buchen ohne E-Mail-Ping-Pong.",
+        qEn: "Can clients book appointments directly through the website?",
+        aEn: "Yes, I integrate booking systems like Calendly, Cal.com, or a custom solution directly into your website. Clients choose an available slot and book without email back-and-forth.",
+      },
+      {
+        q: "Was kostet eine Coach-Website?",
+        a: "Coach-Websites starten ab €1.490 zum Festpreis. Das beinhaltet individuelles Design, Angebotsseiten, Terminbuchung, Testimonials-Bereich, Blog-Option und SEO-Grundsetup.",
+        qEn: "What does a coach website cost?",
+        aEn: "Coach websites start at €1,490 at a fixed price. This includes custom design, offer pages, appointment booking, testimonials section, blog option, and basic SEO setup.",
+      },
+      {
+        q: "Kann ich einen Blog für Content Marketing einbinden?",
+        a: "Ja. Ein Blog hilft enorm bei Google-Sichtbarkeit. Ich richte ein CMS ein, über das Sie Artikel einfach selbst veröffentlichen. Ohne technisches Wissen, ohne Abhängigkeit von einem Entwickler.",
+        qEn: "Can I include a blog for content marketing?",
+        aEn: "Yes. A blog helps enormously with Google visibility. I set up a CMS where you can easily publish articles yourself. No technical knowledge needed, no dependency on a developer.",
+      },
+      {
+        q: "Wie unterscheide ich mich von anderen Coaches online?",
+        a: "Durch ein individuelles Design, das Ihre Persönlichkeit transportiert. Durch professionelle Texte und Bilder, die Vertrauen schaffen. Und durch eine klare Seitenstruktur, die Besuchern sofort zeigt, wie Sie ihnen helfen können.",
+        qEn: "How do I stand out from other coaches online?",
+        aEn: "Through a custom design that conveys your personality. Through professional texts and images that build trust. And through a clear page structure that immediately shows visitors how you can help them.",
+      },
+    ],
+    ctaText: "Website anfragen",
+    ctaTextEn: "Request a website",
+    benefits: [
+      { text: "Terminbuchung direkt auf der Website integriert", textEn: "Appointment booking integrated directly on the website" },
+      { text: "Persönliches Design, das Ihre Expertise vermittelt", textEn: "Personal design that conveys your expertise" },
+      { text: "SEO-optimiert für Klienten, die nach Coaching suchen", textEn: "SEO-optimized for clients searching for coaching" },
+      { text: "Testimonials und Referenzen professionell eingebunden", textEn: "Testimonials and references professionally integrated" },
+    ],
+  },
+  {
+    slug: "lead-generation-berlin",
+    category: "need",
+    title: "Lead Generation Berlin | BrightByte",
+    titleEn: "Lead Generation Berlin | BrightByte",
+    metaDescription:
+      "Mehr Leads über Ihre Website. Conversion-optimiertes Webdesign, schnelle Formulare, A/B-Testing. Messbare Ergebnisse aus Berlin, Festpreis.",
+    metaDescriptionEn:
+      "More leads through your website. Conversion-optimized web design, fast forms, A/B testing. Measurable results from Berlin, fixed pricing.",
+    heroHeadline: "Lead Generation ·\nmehr Anfragen über Ihre Website",
+    heroHeadlineEn: "Lead Generation ·\nmore inquiries through your website",
+    heroSubtext: `Ihre Website hat Traffic, aber die Besucher füllen kein Formular aus. Das Problem ist selten zu wenig Traffic, sondern eine Seite, die nicht zum Handeln motiviert. Unklare Botschaft, zu viele Ablenkungen, oder ein Formular, das mehr abschreckt als einlädt.
+
+BrightByte baut Websites, die konvertieren. Klare Call-to-Actions, optimierte Formulare, strategische Seitenstruktur und schnelle Ladezeiten. Jedes Element dient einem Ziel: den Besucher zur Anfrage zu führen. Die Seitenarchitektur wird so aufgebaut, dass Besucher logisch durch Ihre Argumentation geführt werden: Problem, Lösung, Beweis, Handlung. Formulare sind kurz, schnell und mobiloptimiert, denn jedes zusätzliche Feld reduziert die Conversion-Rate messbar. Testimonials, Zahlen und Vertrauenssignale werden dort platziert, wo der Besucher sie braucht, um seine Entscheidung zu treffen.
+
+Das ist keine Theorie, sondern messbar. Sie sehen in Ihrem Dashboard, wie viele Besucher zu Leads werden. Und wir optimieren gemeinsam, bis die Zahlen stimmen. Nach den ersten 30 Tagen analysieren wir die Daten: Heatmaps zeigen, wo Besucher klicken und scrollen. Event-Tracking verrät, welche CTAs funktionieren und welche nicht. Auf dieser Basis passen wir Texte, Buttons und Seitenstruktur an, bis Ihre Conversion-Rate dort ist, wo sie sein sollte. Kein Rätselraten, sondern datenbasierte Entscheidungen, die direkt mehr Anfragen bringen.`,
+    heroSubtextEn: `Your website has traffic, but visitors don't fill out the form. The problem is rarely too little traffic, but a page that doesn't motivate action. Unclear messaging, too many distractions, or a form that scares people off rather than inviting them.
+
+BrightByte builds websites that convert. Clear call-to-actions, optimized forms, strategic page structure, and fast load times. Every element serves one goal: guiding the visitor to make an inquiry. The page architecture is built so that visitors are logically guided through your argument: problem, solution, proof, action. Forms are short, fast, and mobile-optimized, because every additional field measurably reduces conversion rates. Testimonials, numbers, and trust signals are placed exactly where the visitor needs them to make their decision.
+
+This isn't theory, it's measurable. You see in your dashboard how many visitors become leads. And we optimize together until the numbers are right. After the first 30 days, we analyze the data: heatmaps show where visitors click and scroll. Event tracking reveals which CTAs work and which don't. Based on this, we adjust copy, buttons, and page structure until your conversion rate is where it should be. No guesswork, but data-driven decisions that directly generate more inquiries.`,
+    faqs: [
+      {
+        q: "Wie verbessert eine neue Website meine Lead-Generierung?",
+        a: "Durch klare Seitenstruktur, überzeugende Texte, schnelle Ladezeiten und optimierte Formulare. Eine typische Conversion-Rate-Steigerung liegt bei 40 bis 120% nach einem Relaunch mit Fokus auf Lead-Generierung.",
+        qEn: "How does a new website improve my lead generation?",
+        aEn: "Through clear page structure, compelling copy, fast load times, and optimized forms. A typical conversion rate increase is 40 to 120% after a relaunch focused on lead generation.",
+      },
+      {
+        q: "Welche Tools nutzt du für Tracking und Analytics?",
+        a: "Google Analytics 4, datenschutzkonform eingerichtet. Dazu Heatmaps (Hotjar oder Microsoft Clarity) und Event-Tracking für Formulare. So sehen Sie genau, wo Besucher abspringen und was funktioniert.",
+        qEn: "What tools do you use for tracking and analytics?",
+        aEn: "Google Analytics 4, set up GDPR-compliant. Plus heatmaps (Hotjar or Microsoft Clarity) and event tracking for forms. So you see exactly where visitors drop off and what works.",
+      },
+      {
+        q: "Kann ich A/B-Tests durchführen?",
+        a: "Ja. Ich implementiere A/B-Testing für Headlines, CTAs und Formulare. So testen wir datenbasiert, welche Version mehr Leads bringt. Keine Bauchentscheidungen, sondern echte Zahlen.",
+        qEn: "Can I run A/B tests?",
+        aEn: "Yes. I implement A/B testing for headlines, CTAs, and forms. This way we test data-based which version brings more leads. No gut decisions, but real numbers.",
+      },
+      {
+        q: "Was kostet eine conversion-optimierte Website?",
+        a: "Conversion-fokussierte Websites starten ab €2.500. Das beinhaltet strategische Seitenstruktur, optimierte Formulare, Analytics-Setup und eine Runde Optimierung nach den ersten 30 Tagen.",
+        qEn: "What does a conversion-optimized website cost?",
+        aEn: "Conversion-focused websites start at €2,500. This includes strategic page structure, optimized forms, analytics setup, and one round of optimization after the first 30 days.",
+      },
+    ],
+    ctaText: "Conversion-Check anfragen",
+    ctaTextEn: "Request a conversion check",
+    benefits: [
+      { text: "Conversion-optimierte Formulare und Call-to-Actions", textEn: "Conversion-optimized forms and call-to-actions" },
+      { text: "Analytics Dashboard für messbare Ergebnisse", textEn: "Analytics dashboard for measurable results" },
+      { text: "A/B-Testing für datenbasierte Optimierung", textEn: "A/B testing for data-based optimization" },
+      { text: "Strategische Seitenstruktur die zum Handeln führt", textEn: "Strategic page structure that leads to action" },
+    ],
+  },
+  {
+    slug: "online-booking-integration",
+    category: "need",
+    title: "Online Booking Integration | BrightByte Berlin",
+    titleEn: "Online Booking Integration | BrightByte Berlin",
+    metaDescription:
+      "Online-Terminbuchung in Ihre Website integrieren. Calendly, Cal.com, Doctolib oder individuelle Lösung. Nahtlos, mobiloptimiert, DSGVO-konform.",
+    metaDescriptionEn:
+      "Integrate online appointment booking into your website. Calendly, Cal.com, Doctolib, or custom solution. Seamless, mobile-optimized, GDPR-compliant.",
+    heroHeadline: "Online Booking ·\nTermine buchen ohne Telefonschleifen",
+    heroHeadlineEn: "Online Booking ·\nbook appointments without phone tag",
+    heroSubtext: `Ihre Kunden wollen online buchen. Nicht anrufen, nicht mailen, nicht auf einen Rückruf warten. 67% der Kunden bevorzugen Online-Buchung gegenüber dem Telefon. Wer das nicht anbietet, verliert Anfragen an den Wettbewerber.
+
+BrightByte integriert Online-Terminbuchung nahtlos in Ihre Website. Ob Calendly, Cal.com, Doctolib oder eine komplett individuelle Lösung: Ihre Kunden sehen freie Termine, buchen selbst und bekommen automatisch eine Bestätigung. 24 Stunden am Tag, 7 Tage die Woche. Die Buchung fügt sich visuell perfekt in Ihr Website-Design ein, sodass Besucher gar nicht merken, dass ein externes Tool im Hintergrund arbeitet. Automatische Erinnerungen per E-Mail reduzieren No-Shows, und Ihre Kalender werden in Echtzeit synchronisiert, sodass Doppelbuchungen ausgeschlossen sind. Für Praxen, Studios oder Beratungen mit mehreren Teammitgliedern richte ich individuelle Kalender pro Person ein.
+
+Das entlastet Ihr Team und eliminiert Terminabsprachen per Telefon. Sie konzentrieren sich auf Ihre Arbeit, das System kümmert sich um die Koordination. Kein Zurückrufen mehr, kein Notizzettel-Chaos, keine verpassten Anfragen nach Feierabend. Neue Kunden, die um 22 Uhr auf Ihre Website kommen, buchen ihren Termin sofort, statt am nächsten Tag während Ihrer Öffnungszeiten anzurufen. Das Ergebnis: mehr gebuchte Termine, weniger Verwaltungsaufwand und zufriedenere Kunden, die den unkomplizierten Service schätzen.`,
+    heroSubtextEn: `Your customers want to book online. Not call, not email, not wait for a callback. 67% of customers prefer online booking over the phone. If you don't offer it, you lose inquiries to competitors.
+
+BrightByte integrates online appointment booking seamlessly into your website. Whether Calendly, Cal.com, Doctolib, or a fully custom solution: your customers see available slots, book themselves, and automatically receive a confirmation. 24 hours a day, 7 days a week. The booking blends visually into your website design so visitors don't even notice an external tool is working in the background. Automatic email reminders reduce no-shows, and your calendars sync in real time to prevent double bookings. For practices, studios, or consultancies with multiple team members, I set up individual calendars per person.
+
+This relieves your team and eliminates appointment coordination by phone. You focus on your work, the system handles the coordination. No more callbacks, no sticky-note chaos, no missed inquiries after business hours. New customers who land on your website at 10pm book their appointment immediately instead of calling the next day during opening hours. The result: more booked appointments, less administrative effort, and happier customers who appreciate the hassle-free service.`,
+    faqs: [
+      {
+        q: "Welche Buchungssysteme kannst du integrieren?",
+        a: "Alle gängigen Systeme: Calendly, Cal.com, Doctolib, Acuity, SimplyBook, Koalendar oder eine individuelle Eigenentwicklung. Die Wahl hängt von Ihren Anforderungen ab: Anzahl Teammitglieder, Zahlungsintegration, Kalender-Sync.",
+        qEn: "Which booking systems can you integrate?",
+        aEn: "All common systems: Calendly, Cal.com, Doctolib, Acuity, SimplyBook, Koalendar, or a fully custom solution. The choice depends on your requirements: number of team members, payment integration, calendar sync.",
+      },
+      {
+        q: "Ist die Online-Buchung DSGVO-konform?",
+        a: "Ja. Ich achte bei der Auswahl und Konfiguration auf EU-Hosting, Auftragsverarbeitungsverträge und datenschutzkonforme Cookie-Einstellungen. Auf Wunsch baue ich auch eine eigene Lösung ohne Drittanbieter.",
+        qEn: "Is the online booking GDPR-compliant?",
+        aEn: "Yes. I ensure EU hosting, data processing agreements, and privacy-compliant cookie settings during selection and configuration. On request, I also build a custom solution without third-party providers.",
+      },
+      {
+        q: "Kann die Buchung mit meinem bestehenden Kalender synchronisieren?",
+        a: "Ja. Google Calendar, Outlook, Apple Calendar. Gebuchte Termine erscheinen automatisch in Ihrem Kalender und blockieren doppelte Buchungen. Bidirektional: wenn Sie manuell einen Termin eintragen, wird der Slot online gesperrt.",
+        qEn: "Can the booking sync with my existing calendar?",
+        aEn: "Yes. Google Calendar, Outlook, Apple Calendar. Booked appointments appear automatically in your calendar and prevent double bookings. Bidirectional: if you manually add an appointment, the slot is blocked online.",
+      },
+      {
+        q: "Was kostet eine Buchungs-Integration?",
+        a: "Eine Standardintegration (Calendly, Cal.com) ab €490 als Teil eines Website-Projekts. Eine individuelle Buchungslösung mit eigener Logik ab €1.990. Alles zum Festpreis, inklusive Einrichtung und Einweisung.",
+        qEn: "What does a booking integration cost?",
+        aEn: "A standard integration (Calendly, Cal.com) from €490 as part of a website project. A custom booking solution with its own logic from €1,990. All at a fixed price, including setup and training.",
+      },
+    ],
+    ctaText: "Buchungslösung anfragen",
+    ctaTextEn: "Request a booking solution",
+    benefits: [
+      { text: "Nahtlose Integration in Ihre bestehende Website", textEn: "Seamless integration into your existing website" },
+      { text: "Kalender-Sync mit Google, Outlook und Apple", textEn: "Calendar sync with Google, Outlook, and Apple" },
+      { text: "DSGVO-konform mit EU-Hosting-Optionen", textEn: "GDPR-compliant with EU hosting options" },
+      { text: "Automatische Bestätigungen und Erinnerungen", textEn: "Automatic confirmations and reminders" },
+    ],
+  },
+  {
+    slug: "mehrsprachige-website",
+    category: "need",
+    title: "Mehrsprachige Website Berlin | BrightByte",
+    titleEn: "Multilingual Website Berlin | BrightByte",
+    metaDescription:
+      "Mehrsprachige Websites für internationale Unternehmen in Berlin. Deutsch, Englisch und weitere Sprachen. SEO pro Sprache, einfache Verwaltung.",
+    metaDescriptionEn:
+      "Multilingual websites for international businesses in Berlin. German, English, and more languages. SEO per language, easy management.",
+    heroHeadline: "Mehrsprachige Website ·\ninternationale Kunden erreichen",
+    heroHeadlineEn: "Multilingual Website ·\nreach international customers",
+    heroSubtext: `Berlin ist international. Ihre Kunden sprechen Deutsch, Englisch, und vielleicht noch weitere Sprachen. Eine einsprachige Website schließt einen großen Teil Ihrer potenziellen Kundschaft aus. Und eine schlecht übersetzte Seite schadet mehr als sie hilft.
+
+BrightByte baut mehrsprachige Websites, die in jeder Sprache professionell wirken. Eigene URLs pro Sprache für optimale Google-Rankings, automatische Spracherkennung, und ein CMS, über das Sie Übersetzungen einfach verwalten. Die technische Architektur stellt sicher, dass jede Sprachversion eigenständig bei Google indexiert wird und für die richtigen regionalen Suchanfragen rankt. Hreflang-Tags, sprachspezifische Sitemaps und lokalisierte Meta-Daten werden automatisch generiert. Das bedeutet: Ihre deutsche Version rankt in Google Deutschland, die englische in Google UK und international, ohne dass Sie sich um technische Details kümmern müssen.
+
+Keine maschinelle Übersetzung auf der fertigen Seite. Jede Sprachversion wird sauber aufgebaut und für die jeweilige Zielgruppe optimiert. So finden Sie bei Google Deutschland und Google UK gleichermaßen. Das CMS zeigt Ihnen alle Sprachversionen nebeneinander, sodass Sie Übersetzungen einfach pflegen und sicherstellen können, dass alle Versionen aktuell sind. Neue Seiten legen Sie einmal an und übersetzen sie im selben Interface. Und wenn Sie in Zukunft eine dritte oder vierte Sprache ergänzen möchten, ist die Architektur bereits darauf vorbereitet.`,
+    heroSubtextEn: `Berlin is international. Your customers speak German, English, and perhaps other languages. A monolingual website excludes a large part of your potential customers. And a poorly translated site hurts more than it helps.
+
+BrightByte builds multilingual websites that look professional in every language. Separate URLs per language for optimal Google rankings, automatic language detection, and a CMS where you easily manage translations. The technical architecture ensures that each language version is independently indexed by Google and ranks for the right regional searches. Hreflang tags, language-specific sitemaps, and localized meta data are generated automatically. This means: your German version ranks on Google Germany, the English one on Google UK and internationally, without you having to worry about technical details.
+
+No machine translation on the finished site. Each language version is cleanly built and optimized for the respective audience. So you rank on both Google Germany and Google UK. The CMS shows you all language versions side by side, so you can easily maintain translations and ensure all versions stay up to date. You create new pages once and translate them in the same interface. And if you want to add a third or fourth language in the future, the architecture is already prepared for that.`,
+    faqs: [
+      {
+        q: "Wie werden die Sprachen technisch umgesetzt?",
+        a: "Jede Sprache bekommt eigene URLs (z.B. /de/ und /en/), eigene Meta-Tags und hreflang-Attribute. Das ist der Google-konforme Standard für mehrsprachige Websites. So rankt jede Sprachversion in der passenden Google-Region.",
+        qEn: "How are the languages technically implemented?",
+        aEn: "Each language gets its own URLs (e.g., /de/ and /en/), its own meta tags, and hreflang attributes. This is the Google-compliant standard for multilingual websites. So each language version ranks in the appropriate Google region.",
+      },
+      {
+        q: "Kann ich Übersetzungen selbst verwalten?",
+        a: "Ja. Über das CMS sehen Sie alle Inhalte pro Sprache nebeneinander und können Texte einfach aktualisieren. Neue Seiten legen Sie einmal an und übersetzen sie direkt im gleichen Interface.",
+        qEn: "Can I manage translations myself?",
+        aEn: "Yes. Through the CMS, you see all content per language side by side and can easily update texts. You create new pages once and translate them directly in the same interface.",
+      },
+      {
+        q: "Wie viele Sprachen sind möglich?",
+        a: "Technisch unbegrenzt. Die meisten Kunden starten mit Deutsch und Englisch. Weitere Sprachen (Französisch, Spanisch, Türkisch) lassen sich jederzeit ergänzen, ohne die bestehende Seite umzubauen.",
+        qEn: "How many languages are possible?",
+        aEn: "Technically unlimited. Most clients start with German and English. Additional languages (French, Spanish, Turkish) can be added at any time without rebuilding the existing site.",
+      },
+      {
+        q: "Was kostet eine mehrsprachige Website?",
+        a: "Der Aufpreis für eine zweite Sprache liegt bei ca. 30 bis 40% des Basisprojekts. Eine zweisprachige Website (DE/EN) startet ab €3.200. Die Übersetzung selbst ist nicht im Preis enthalten, kann aber vermittelt werden.",
+        qEn: "What does a multilingual website cost?",
+        aEn: "The premium for a second language is about 30 to 40% of the base project. A bilingual website (DE/EN) starts at €3,200. The translation itself is not included in the price but can be arranged.",
+      },
+    ],
+    ctaText: "Projekt besprechen",
+    ctaTextEn: "Discuss your project",
+    benefits: [
+      { text: "Eigene URLs pro Sprache für optimales Google-Ranking", textEn: "Separate URLs per language for optimal Google ranking" },
+      { text: "Einfache Verwaltung aller Sprachen über ein CMS", textEn: "Easy management of all languages via one CMS" },
+      { text: "Automatische Spracherkennung für Besucher", textEn: "Automatic language detection for visitors" },
+      { text: "Hreflang und SEO korrekt für jede Sprachversion", textEn: "Hreflang and SEO correct for each language version" },
+    ],
+  },
+  {
+    slug: "dsgvo-konforme-website",
+    category: "need",
+    title: "DSGVO-konforme Website | BrightByte Berlin",
+    titleEn: "GDPR-Compliant Website | BrightByte Berlin",
+    metaDescription:
+      "DSGVO-konforme Websites aus Berlin. Cookie-Banner, Datenschutz, EU-Hosting, korrekte Einwilligungen. Rechtssicher ohne Abmahnung.",
+    metaDescriptionEn:
+      "GDPR-compliant websites from Berlin. Cookie banners, privacy policy, EU hosting, correct consent. Legally secure without warnings.",
+    heroHeadline: "DSGVO-konforme Website ·\nrechtssicher ohne Abmahnung",
+    heroHeadlineEn: "GDPR-Compliant Website ·\nlegally secure without warnings",
+    heroSubtext: `DSGVO-Abmahnungen kosten schnell mehrere tausend Euro. Und die meisten Websites sind nicht korrekt aufgestellt: falsche Cookie-Banner, fehlende Auftragsverarbeitungsverträge, Google Fonts von externen Servern oder Analytics ohne Einwilligung.
+
+BrightByte baut Websites, die von Anfang an DSGVO-konform sind. Korrektes Cookie-Consent-Management, lokales Font-Hosting, datenschutzfreundliche Analytics, EU-Server und eine saubere Datenschutzerklärung. Keine nachträglichen Flicken, sondern ein durchdachtes Konzept. Jeder externe Dienst wird geprüft: Wo werden Daten verarbeitet? Gibt es einen Auftragsverarbeitungsvertrag? Ist eine Einwilligung erforderlich? Diese Fragen kläre ich systematisch, bevor Ihre Website live geht. Google Fonts werden lokal gehostet, sodass keine IP-Adressen an US-Server übertragen werden. Analytics läuft entweder mit korrekter Einwilligung oder über datenschutzfreundliche Alternativen, die ganz ohne Cookies auskommen.
+
+Sie müssen kein Jurist sein, um Ihre Website rechtssicher zu betreiben. Ich kümmere mich um die technische Umsetzung aller Datenschutz-Anforderungen. Sie bekommen eine Website, bei der Sie ruhig schlafen können. Dazu erhalten Sie eine Dokumentation, die zeigt, welche Dienste eingebunden sind und warum sie datenschutzkonform sind. Sollte sich die Rechtslage ändern oder ein neuer Dienst hinzukommen, können Anpassungen jederzeit schnell umgesetzt werden. Und falls Sie bereits eine Website haben, die nicht konform ist: ein DSGVO-Audit zeigt die kritischen Punkte auf und ich setze die Korrekturen innerhalb weniger Tage um.`,
+    heroSubtextEn: `GDPR warnings quickly cost several thousand euros. And most websites aren't correctly set up: wrong cookie banners, missing data processing agreements, Google Fonts from external servers, or analytics without consent.
+
+BrightByte builds websites that are GDPR-compliant from the start. Correct cookie consent management, local font hosting, privacy-friendly analytics, EU servers, and a clean privacy policy. No retroactive patches, but a thought-through concept. Every external service is checked: Where is data processed? Is there a data processing agreement? Is consent required? I clarify these questions systematically before your website goes live. Google Fonts are hosted locally so no IP addresses are transmitted to US servers. Analytics runs either with correct consent or through privacy-friendly alternatives that work entirely without cookies.
+
+You don't need to be a lawyer to run your website legally. I handle the technical implementation of all privacy requirements. You get a website that lets you sleep well at night. You also receive documentation showing which services are integrated and why they're privacy-compliant. Should the legal situation change or a new service be added, adjustments can be implemented quickly at any time. And if you already have a website that isn't compliant: a GDPR audit identifies the critical points and I implement the corrections within a few days.`,
+    faqs: [
+      {
+        q: "Was gehört alles zu einer DSGVO-konformen Website?",
+        a: "Cookie-Consent-Banner mit korrekter Einwilligung, Datenschutzerklärung, Impressum, SSL-Verschlüsselung, lokales Hosting der Fonts, datenschutzkonforme Analytics (oder gar keine), und Auftragsverarbeitungsverträge mit allen Dienstleistern.",
+        qEn: "What's included in a GDPR-compliant website?",
+        aEn: "Cookie consent banner with correct consent, privacy policy, legal notice, SSL encryption, local font hosting, privacy-compliant analytics (or none at all), and data processing agreements with all service providers.",
+      },
+      {
+        q: "Ist Google Analytics noch DSGVO-konform nutzbar?",
+        a: "Mit der richtigen Konfiguration ja: Server-Side-Tracking, IP-Anonymisierung, Einwilligung vor dem Laden. Alternativ empfehle ich datenschutzfreundliche Tools wie Plausible oder Fathom, die ganz ohne Cookies auskommen.",
+        qEn: "Can Google Analytics still be used GDPR-compliantly?",
+        aEn: "With the right configuration, yes: server-side tracking, IP anonymization, consent before loading. Alternatively, I recommend privacy-friendly tools like Plausible or Fathom that work entirely without cookies.",
+      },
+      {
+        q: "Meine bestehende Website hat DSGVO-Probleme. Kannst du helfen?",
+        a: "Ja. Ich biete einen DSGVO-Audit an: Prüfung aller kritischen Punkte, konkreter Maßnahmenkatalog und technische Umsetzung. Oft lassen sich die größten Risiken in wenigen Tagen beheben.",
+        qEn: "My existing website has GDPR issues. Can you help?",
+        aEn: "Yes. I offer a GDPR audit: review of all critical points, concrete action plan, and technical implementation. Often the biggest risks can be fixed in just a few days.",
+      },
+      {
+        q: "Was kostet eine DSGVO-konforme Website?",
+        a: "Jede neue Website von BrightByte ist standardmäßig DSGVO-konform. Kein Aufpreis. Für bestehende Websites: ein DSGVO-Audit mit Umsetzung startet ab €790.",
+        qEn: "What does a GDPR-compliant website cost?",
+        aEn: "Every new website from BrightByte is GDPR-compliant by default. No extra charge. For existing websites: a GDPR audit with implementation starts at €790.",
+      },
+    ],
+    ctaText: "DSGVO-Check anfragen",
+    ctaTextEn: "Request a GDPR check",
+    benefits: [
+      { text: "Korrektes Cookie-Consent ohne Abmahnrisiko", textEn: "Correct cookie consent without warning risk" },
+      { text: "EU-Hosting und lokales Font-Loading", textEn: "EU hosting and local font loading" },
+      { text: "Datenschutzfreundliche Analytics als Alternative", textEn: "Privacy-friendly analytics as an alternative" },
+      { text: "Komplett-Setup: Impressum, Datenschutz, AV-Verträge", textEn: "Complete setup: legal notice, privacy policy, DPA contracts" },
+    ],
+  },
+  {
+    slug: "webdesign-friedrichshain",
+    category: "location",
+    title: "Webdesign Friedrichshain | BrightByte Berlin",
+    titleEn: "Web Design Friedrichshain | BrightByte Berlin",
+    metaDescription:
+      "Webdesign in Friedrichshain. Moderne Websites für Unternehmen im Kiez. Festpreis, persönlicher Kontakt, lokale SEO. Treffen am Boxhagener Platz.",
+    metaDescriptionEn:
+      "Web design in Friedrichshain. Modern websites for local businesses. Fixed pricing, personal contact, local SEO. Meet at Boxhagener Platz.",
+    heroHeadline: "Webdesign Friedrichshain ·\nfür Unternehmen im Kiez",
+    heroHeadlineEn: "Web Design Friedrichshain ·\nfor businesses in the neighborhood",
+    heroSubtext: `Friedrichshain ist kreativ, dynamisch und voller kleiner Unternehmen, die eine starke Online-Präsenz verdienen. Ob Café an der Simon-Dach-Straße, Yoga-Studio am Boxhagener Platz oder Agentur an der Warschauer: Ihre Kunden suchen online, und Sie sollten dort sichtbar sein.
+
+BrightByte ist Ihr Webdesigner vor Ort. Persönliches Treffen im Kiez, kurze Wege, und eine Website, die zu Ihrem Unternehmen passt. Modern, schnell und bei Google für lokale Suchanfragen aus Friedrichshain sichtbar. Ich optimiere Ihre Website gezielt für Suchbegriffe, die Ihre Kunden tatsächlich eingeben: ob 'Restaurant Simon-Dach-Straße', 'Yoga Friedrichshain' oder 'Friseur Boxhagener Platz'. Dazu kommen ein vollständig eingerichtetes Google Business Profil, Bewertungsmanagement und eine mobiloptimierte Website, die auf dem Smartphone genauso gut funktioniert wie am Desktop.
+
+Kein anonymer Dienstleister aus dem Internet. Sondern ein Entwickler, der Ihren Kiez kennt und versteht, was lokale Unternehmen brauchen: eine professionelle Website, die Kunden bringt, ohne das Budget zu sprengen. Wir treffen uns persönlich, besprechen Ihr Geschäft und Ihre Ziele, und ich liefere eine Website, die genau diese Ziele unterstützt. Von der ersten Idee bis zum fertigen Ergebnis vergehen in der Regel nur 2 bis 3 Wochen. Danach sind Sie online präsent, bei Google sichtbar und bekommen Anfragen von Kunden, die in Ihrer Nähe nach genau Ihrem Angebot suchen.`,
+    heroSubtextEn: `Friedrichshain is creative, dynamic, and full of small businesses that deserve a strong online presence. Whether it's a café on Simon-Dach-Straße, a yoga studio at Boxhagener Platz, or an agency near Warschauer: your customers search online, and you should be visible there.
+
+BrightByte is your web designer on-site. Personal meeting in the neighborhood, short distances, and a website that fits your business. Modern, fast, and visible on Google for local searches from Friedrichshain. I optimize your website specifically for search terms that your customers actually type: whether it's 'restaurant Simon-Dach-Straße', 'yoga Friedrichshain', or 'hairdresser Boxhagener Platz'. Plus a fully set up Google Business profile, review management, and a mobile-optimized website that works just as well on a smartphone as on desktop.
+
+Not an anonymous service provider from the internet. But a developer who knows your neighborhood and understands what local businesses need: a professional website that brings customers without breaking the budget. We meet in person, discuss your business and your goals, and I deliver a website that supports exactly those goals. From the first idea to the finished result, it typically takes only 2 to 3 weeks. After that, you're present online, visible on Google, and receiving inquiries from customers who are searching for exactly your offering nearby.`,
+    faqs: [
+      {
+        q: "Können wir uns in Friedrichshain treffen?",
+        a: "Ja, gerne. Ich bin regelmäßig im Kiez und treffe mich am Boxhagener Platz, in einem Café Ihrer Wahl oder in Ihrem Geschäft. Persönlicher Kontakt ist mir wichtig.",
+        qEn: "Can we meet in Friedrichshain?",
+        aEn: "Yes, gladly. I'm regularly in the neighborhood and meet at Boxhagener Platz, in a café of your choice, or at your business. Personal contact is important to me.",
+      },
+      {
+        q: "Was kostet eine Website für ein lokales Geschäft?",
+        a: "Lokale Geschäftswebsites starten ab €1.490 zum Festpreis. Das beinhaltet Design, Entwicklung, Google Maps, Kontaktformular, lokale SEO und 30 Tage Support nach Launch.",
+        qEn: "What does a website for a local business cost?",
+        aEn: "Local business websites start at €1,490 at a fixed price. This includes design, development, Google Maps, contact form, local SEO, and 30 days post-launch support.",
+      },
+      {
+        q: "Wie werde ich bei Google in Friedrichshain gefunden?",
+        a: "Durch lokale SEO: optimiertes Google Business Profil, standortbezogene Inhalte auf Ihrer Website, Bewertungen und korrekte strukturierte Daten. So erscheinen Sie bei Suchen wie 'Friseur Friedrichshain' oder 'Restaurant Boxhagener Platz'.",
+        qEn: "How do I get found on Google in Friedrichshain?",
+        aEn: "Through local SEO: optimized Google Business profile, location-based content on your website, reviews, and correct structured data. So you appear for searches like 'hairdresser Friedrichshain' or 'restaurant Boxhagener Platz'.",
+      },
+      {
+        q: "Wie schnell ist meine neue Website fertig?",
+        a: "In 2 bis 3 Wochen ist Ihre Website online. Nach dem Erstgespräch bekommen Sie einen klaren Zeitplan. Keine monatelangen Verzögerungen.",
+        qEn: "How quickly will my new website be ready?",
+        aEn: "Your website is online in 2 to 3 weeks. After the initial meeting, you get a clear timeline. No months-long delays.",
+      },
+    ],
+    ctaText: "Treffen vereinbaren",
+    ctaTextEn: "Schedule a meeting",
+    benefits: [
+      { text: "Persönliches Treffen direkt in Friedrichshain", textEn: "Personal meeting directly in Friedrichshain" },
+      { text: "Lokale SEO für Kunden aus dem Kiez", textEn: "Local SEO for customers from the neighborhood" },
+      { text: "Google Maps und Bewertungen integriert", textEn: "Google Maps and reviews integrated" },
+      { text: "Festpreis ab €1.490, fertig in 2 bis 3 Wochen", textEn: "Fixed price from €1,490, ready in 2 to 3 weeks" },
+    ],
+  },
+  {
+    slug: "webdesign-neukoelln",
+    category: "location",
+    title: "Webdesign Neukölln | BrightByte Berlin",
+    titleEn: "Web Design Neukölln | BrightByte Berlin",
+    metaDescription:
+      "Webdesign in Neukölln. Moderne Websites für lokale Unternehmen, Gastro und Kreative. Festpreis, persönlicher Kontakt, lokale Google-Sichtbarkeit.",
+    metaDescriptionEn:
+      "Web design in Neukölln. Modern websites for local businesses, gastro, and creatives. Fixed pricing, personal contact, local Google visibility.",
+    heroHeadline: "Webdesign Neukölln ·\nfür Geschäfte, Gastro und Kreative",
+    heroHeadlineEn: "Web Design Neukölln ·\nfor shops, gastro, and creatives",
+    heroSubtext: `Neukölln ist vielfältig: von der Wein-Bar am Richardplatz über das Design-Studio in der Weserstraße bis zur Zahnarztpraxis am Hermannplatz. Alle brauchen eine Website, die ihre Kunden überzeugt. Und fast alle könnten online deutlich sichtbarer sein.
+
+BrightByte baut Websites für Neuköllner Unternehmen, die lokal gefunden werden wollen. Modernes Design, schnelle Ladezeiten, Google Maps Integration und lokale SEO. So finden Kunden aus der Nachbarschaft direkt zu Ihnen. Ob Sie ein Restaurant mit wechselnder Tageskarte betreiben, ein Studio mit Online-Buchung führen oder eine Praxis mit klarer Kontaktmöglichkeit brauchen: die Website wird genau auf Ihre Anforderungen zugeschnitten. Lokale Suchbegriffe wie 'Zahnarzt Hermannplatz' oder 'Café Weserstraße' werden gezielt in die Seitenstruktur eingebaut, damit Google versteht, wo Sie sind und was Sie anbieten.
+
+Ein Webdesigner, der den Kiez kennt und versteht, wie lokales Marketing funktioniert. Persönliches Treffen vor Ort, faire Preise, und eine Website die in wenigen Wochen online geht. Ich fotografiere auf Wunsch auch Ihr Geschäft oder Ihre Räumlichkeiten, damit die Website authentisch wirkt und nicht nach Stock-Fotos aussieht. Nach dem Launch helfe ich Ihnen, Bewertungen auf Google zu sammeln und Ihr Profil so zu optimieren, dass Sie in den lokalen Suchergebnissen und auf Google Maps ganz oben erscheinen. Das Ergebnis: mehr Laufkundschaft, mehr Anfragen und eine professionelle Außenwirkung, die zu Ihrem Geschäft passt.`,
+    heroSubtextEn: `Neukölln is diverse: from the wine bar at Richardplatz to the design studio on Weserstraße to the dental practice at Hermannplatz. They all need a website that convinces their customers. And almost all of them could be significantly more visible online.
+
+BrightByte builds websites for Neukölln businesses that want to be found locally. Modern design, fast load times, Google Maps integration, and local SEO. So customers from the neighborhood find their way directly to you. Whether you run a restaurant with a changing daily menu, manage a studio with online booking, or need a practice with clear contact options: the website is tailored exactly to your requirements. Local search terms like 'dentist Hermannplatz' or 'café Weserstraße' are strategically built into the page structure so Google understands where you are and what you offer.
+
+A web designer who knows the neighborhood and understands how local marketing works. Personal meeting on-site, fair prices, and a website that goes online in just a few weeks. On request, I also photograph your business or premises so the website looks authentic rather than stock-photo generic. After launch, I help you collect Google reviews and optimize your profile so you appear at the top of local search results and on Google Maps. The result: more walk-in customers, more inquiries, and a professional appearance that fits your business.`,
+    faqs: [
+      {
+        q: "Können wir uns in Neukölln treffen?",
+        a: "Ja, sehr gerne. Ob am Hermannplatz, in der Weserstraße oder in Ihrem Geschäft. Persönliche Treffen machen den Unterschied, gerade wenn man die Atmosphäre eines Ladens oder Restaurants für die Website einfangen möchte.",
+        qEn: "Can we meet in Neukölln?",
+        aEn: "Yes, absolutely. Whether at Hermannplatz, on Weserstraße, or at your business. Personal meetings make the difference, especially when you want to capture the atmosphere of a shop or restaurant for the website.",
+      },
+      {
+        q: "Was kostet eine Website für mein Geschäft in Neukölln?",
+        a: "Ab €1.490 zum Festpreis. Einfache Seiten für Restaurants oder Shops starten günstiger. Im Erstgespräch klären wir Ihren Bedarf und Sie bekommen ein verbindliches Angebot.",
+        qEn: "What does a website for my business in Neukölln cost?",
+        aEn: "From €1,490 at a fixed price. Simple sites for restaurants or shops start lower. In the initial meeting, we clarify your needs and you get a binding offer.",
+      },
+      {
+        q: "Ich habe eine Website, aber niemand findet mich bei Google. Was tun?",
+        a: "Das ist ein klassisches lokales SEO-Problem. Oft fehlt ein optimiertes Google Business Profil, die Website ist zu langsam, oder lokale Suchbegriffe sind nicht abgedeckt. Ich biete einen kostenlosen Quick-Check an, der zeigt, wo die Probleme liegen.",
+        qEn: "I have a website but nobody finds me on Google. What to do?",
+        aEn: "That's a classic local SEO problem. Often a optimized Google Business profile is missing, the website is too slow, or local search terms aren't covered. I offer a free quick check that shows where the problems are.",
+      },
+      {
+        q: "Wie lange dauert ein Website-Projekt?",
+        a: "2 bis 3 Wochen für lokale Geschäftswebsites. Nach dem Erstgespräch bekommen Sie einen klaren Zeitplan. Ich halte Termine ein, versprochen.",
+        qEn: "How long does a website project take?",
+        aEn: "2 to 3 weeks for local business websites. After the initial meeting, you get a clear timeline. I keep deadlines, promised.",
+      },
+    ],
+    ctaText: "Treffen vereinbaren",
+    ctaTextEn: "Schedule a meeting",
+    benefits: [
+      { text: "Persönliches Treffen in Neukölln möglich", textEn: "Personal meeting in Neukölln possible" },
+      { text: "Lokale SEO für Sichtbarkeit im Kiez", textEn: "Local SEO for visibility in the neighborhood" },
+      { text: "Modernes Design passend zu Neuköllns Kreativszene", textEn: "Modern design fitting Neukölln's creative scene" },
+      { text: "Faire Preise ab €1.490 zum Festpreis", textEn: "Fair prices from €1,490 at a fixed price" },
     ],
   },
 ];

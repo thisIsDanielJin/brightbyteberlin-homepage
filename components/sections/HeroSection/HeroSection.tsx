@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { HeroMockup } from "@/components/hero/HeroMockup";
+import { useLocale } from "@/contexts/LocaleContext";
 import Link from "next/link";
 
 const C = {
@@ -15,6 +16,7 @@ const C = {
 
 export function HeroSection() {
   const [phase, setPhase] = useState(0);
+  const { t } = useLocale();
 
   useEffect(() => {
     const timers = [
@@ -45,9 +47,9 @@ export function HeroSection() {
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           style={{ fontSize: 80, lineHeight: 0.96, letterSpacing: "-0.04em", fontWeight: 600, color: C.ink, marginBottom: 20 }}
         >
-          Ship in weeks,<br />
-          <span className="serif" style={{ fontStyle: "italic", fontWeight: 400 }}>not</span>{" "}
-          <span style={{ color: C.accent }}>months.</span>
+          {t.hero.h1Line1}<br />
+          <span className="serif" style={{ fontStyle: "italic", fontWeight: 400 }}>{t.hero.h1Not}</span>{" "}
+          <span style={{ color: C.accent }}>{t.hero.h1Months}</span>
         </motion.h1>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -55,7 +57,7 @@ export function HeroSection() {
           transition={{ duration: 0.7, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
           style={{ fontSize: 18, lineHeight: 1.55, color: C.sub, maxWidth: 520, margin: "0 auto 28px" }}
         >
-          Fast, reliable websites for businesses that don&apos;t want to wait. Fixed price, no surprises.
+          {t.hero.subtitle}
         </motion.p>
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -68,7 +70,7 @@ export function HeroSection() {
             className="btn-hover"
             style={{ padding: "14px 28px", background: C.ink, color: C.surface, borderRadius: 99, fontSize: 14, fontWeight: 500, display: "flex", alignItems: "center", gap: 8, cursor: "pointer", textDecoration: "none" }}
           >
-            Start your project <span style={{ color: C.accent }}>→</span>
+            {t.hero.cta} <span style={{ color: C.accent }}>→</span>
           </Link>
           <Link
             href="/#work"
@@ -76,7 +78,7 @@ export function HeroSection() {
             style={{ padding: "14px 24px", color: C.ink, borderRadius: 99, fontSize: 14, fontWeight: 500, border: `1px solid ${C.hairStrong}`, display: "flex", alignItems: "center", gap: 8, cursor: "pointer", textDecoration: "none" }}
           >
             <span style={{ width: 6, height: 6, background: C.accent, borderRadius: "50%", display: "inline-block" }} />
-            See recent work
+            {t.hero.ctaSecondary}
           </Link>
         </motion.div>
       </div>

@@ -1,5 +1,7 @@
+"use client";
+
 import { Fragment } from "react";
-import { COMPARISON_ROWS } from "@/data/pricing";
+import { useLocale } from "@/contexts/LocaleContext";
 
 const C = {
   bg: "#F5F1E8",
@@ -13,14 +15,16 @@ const C = {
 };
 
 export function ComparisonTable() {
+  const { t } = useLocale();
+
   return (
     <div style={{ background: C.surface, border: `1px solid ${C.hair}`, borderRadius: 18, padding: "40px 48px" }}>
       <div style={{ marginBottom: 28 }}>
         <h3 style={{ fontSize: 24, fontWeight: 600, color: C.ink, letterSpacing: "-0.02em", marginBottom: 6 }}>
-          How custom code compares
+          {t.comparison.title}
         </h3>
         <p style={{ fontSize: 15, color: C.sub, lineHeight: 1.5 }}>
-          Custom build vs. platforms and agencies.
+          {t.comparison.subtitle}
         </p>
       </div>
 
@@ -29,17 +33,17 @@ export function ComparisonTable() {
           {/* Header row */}
           <div style={{ padding: "16px 20px", borderBottom: `2px solid ${C.hair}` }} />
           <div style={{ padding: "16px 20px", borderBottom: `2px solid ${C.hair}`, background: C.accentBg, borderRadius: "8px 8px 0 0" }}>
-            <div className="mono" style={{ fontSize: 11, fontWeight: 600, color: C.accent, letterSpacing: "0.04em" }}>Custom Code</div>
+            <div className="mono" style={{ fontSize: 11, fontWeight: 600, color: C.accent, letterSpacing: "0.04em" }}>{t.comparison.headers[0]}</div>
           </div>
           <div style={{ padding: "16px 20px", borderBottom: `2px solid ${C.hair}` }}>
-            <div className="mono" style={{ fontSize: 11, fontWeight: 600, color: C.ink, letterSpacing: "0.04em" }}>Webflow / Squarespace</div>
+            <div className="mono" style={{ fontSize: 11, fontWeight: 600, color: C.ink, letterSpacing: "0.04em" }}>{t.comparison.headers[1]}</div>
           </div>
           <div style={{ padding: "16px 20px", borderBottom: `2px solid ${C.hair}` }}>
-            <div className="mono" style={{ fontSize: 11, fontWeight: 600, color: C.ink, letterSpacing: "0.04em" }}>Agency</div>
+            <div className="mono" style={{ fontSize: 11, fontWeight: 600, color: C.ink, letterSpacing: "0.04em" }}>{t.comparison.headers[2]}</div>
           </div>
 
           {/* Data rows */}
-          {COMPARISON_ROWS.map((row, i) => (
+          {t.comparison.rows.map((row, i) => (
             <Fragment key={row.label}>
               <div style={{ padding: "18px 20px", fontSize: 14, fontWeight: 600, color: C.ink, borderBottom: `1px solid ${C.hair}`, background: i % 2 === 0 ? "transparent" : C.bg }}>
                 {row.label}

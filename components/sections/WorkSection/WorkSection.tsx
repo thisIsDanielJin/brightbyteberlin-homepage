@@ -4,6 +4,7 @@ import { useRef, useState, useEffect } from "react";
 import { WORK } from "@/data/content";
 import { WorkImage } from "./WorkImage";
 import Link from "next/link";
+import { useLocale } from "@/contexts/LocaleContext";
 
 const C = {
   bg: "#F5F1E8",
@@ -19,6 +20,7 @@ const C = {
 export function WorkSection() {
   const ref = useRef<HTMLDivElement>(null);
   const [inView, setInView] = useState(false);
+  const { t } = useLocale();
 
   useEffect(() => {
     const el = ref.current;
@@ -31,13 +33,13 @@ export function WorkSection() {
   return (
     <section id="work" style={{ padding: "112px 56px", background: `linear-gradient(180deg, ${C.bg} 0%, #F3EFE5 100%)`, borderBottom: `1px solid ${C.hair}` }}>
       <div style={{ display: "grid", gridTemplateColumns: "1fr 2fr", gap: 48, marginBottom: 64, alignItems: "baseline" }}>
-        <div className="mono" style={{ fontSize: 11, color: C.sub, letterSpacing: "0.12em", textTransform: "uppercase" }}>04 · Selected work</div>
+        <div className="mono" style={{ fontSize: 11, color: C.sub, letterSpacing: "0.12em", textTransform: "uppercase" }}>{t.work.label}</div>
         <div>
           <h2 style={{ fontSize: 56, fontWeight: 500, color: C.ink, letterSpacing: "-0.03em", lineHeight: 1.02, marginBottom: 18 }}>
-            Recent <span className="serif" style={{ fontStyle: "italic", fontWeight: 400 }}>projects</span>.
+            {t.work.heading} <span className="serif" style={{ fontStyle: "italic", fontWeight: 400 }}>{t.work.headingItalic.replace(".", "")}</span>.
           </h2>
           <p style={{ fontSize: 17, color: C.sub, maxWidth: 520, lineHeight: 1.6 }}>
-            A selection of work shipped in the past 12 months. Real businesses, real outcomes.
+            {t.work.subtitle}
           </p>
         </div>
       </div>
@@ -52,23 +54,23 @@ export function WorkSection() {
                 ))}
                 <span className="mono" style={{ fontSize: 11, color: C.ink, fontWeight: 600, marginLeft: 6 }}>5.0</span>
               </div>
-              <p style={{ fontSize: 13, color: C.sub, fontStyle: "italic", lineHeight: 1.55, marginBottom: 14 }}>{w.quote}</p>
+              <p style={{ fontSize: 13, color: C.sub, fontStyle: "italic", lineHeight: 1.55, marginBottom: 14 }}>{t.work.items[idx].quote}</p>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 6 }}>
-                <h3 style={{ fontSize: 17, fontWeight: 600, color: C.ink, letterSpacing: "-0.02em" }}>{w.client}</h3>
+                <h3 style={{ fontSize: 17, fontWeight: 600, color: C.ink, letterSpacing: "-0.02em" }}>{t.work.items[idx].client}</h3>
                 <span className="work-arrow" style={{ fontSize: 13, color: C.accent, display: "inline-flex", transition: "transform 0.25s ease" }}>→</span>
               </div>
-              <div className="mono" style={{ fontSize: 10, color: C.sub, letterSpacing: "0.04em", marginBottom: 12 }}>{w.kind}</div>
+              <div className="mono" style={{ fontSize: 10, color: C.sub, letterSpacing: "0.04em", marginBottom: 12 }}>{t.work.items[idx].kind}</div>
               <div style={{ display: "inline-flex", alignItems: "center", gap: 6, padding: "4px 10px", background: C.accentBg, borderRadius: 99 }}>
                 <span style={{ width: 5, height: 5, borderRadius: "50%", background: C.accent }} />
-                <span className="mono" style={{ fontSize: 11, color: C.accent, fontWeight: 600 }}>{w.metric}</span>
+                <span className="mono" style={{ fontSize: 11, color: C.accent, fontWeight: 600 }}>{t.work.items[idx].metric}</span>
               </div>
             </div>
           </div>
         ))}
       </div>
       <div style={{ marginTop: 48, display: "flex", justifyContent: "center" }}>
-        <Link href="/#work" className="outline-hover" style={{ padding: "12px 24px", border: `1px solid ${C.hairStrong}`, borderRadius: 99, fontSize: 14, fontWeight: 500, color: C.ink, display: "flex", alignItems: "center", gap: 8, cursor: "pointer", textDecoration: "none" }}>
-          See all 12 projects <span style={{ color: C.accent }}>→</span>
+        <Link href="/projects" className="outline-hover" style={{ padding: "12px 24px", border: `1px solid ${C.hairStrong}`, borderRadius: 99, fontSize: 14, fontWeight: 500, color: C.ink, display: "flex", alignItems: "center", gap: 8, cursor: "pointer", textDecoration: "none" }}>
+          {t.work.seeAll} <span style={{ color: C.accent }}>→</span>
         </Link>
       </div>
     </section>

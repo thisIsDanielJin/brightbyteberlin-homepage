@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { navLinks } from "@/data/navigation";
+import { useLocale } from "@/contexts/LocaleContext";
 import Link from "next/link";
 
 export function MobileMenu({
@@ -11,6 +11,16 @@ export function MobileMenu({
   isOpen: boolean;
   onClose: () => void;
 }) {
+  const { locale, setLocale, t } = useLocale();
+
+  const navItems = [
+    { label: t.nav.work, href: "/#work" },
+    { label: t.nav.services, href: "/#services" },
+    { label: t.nav.process, href: "/#process" },
+    { label: t.nav.pricing, href: "/#pricing" },
+    { label: t.nav.about, href: "/#about" },
+  ];
+
   return (
     <AnimatePresence>
       {isOpen && (
@@ -40,7 +50,7 @@ export function MobileMenu({
           >
             <div className="flex flex-col h-full pt-24 pb-8 px-8">
               <nav className="flex-1 space-y-1">
-                {navLinks.map((link, index) => (
+                {navItems.map((link, index) => (
                   <motion.div
                     key={link.href}
                     initial={{ opacity: 0, x: 20 }}
@@ -66,7 +76,29 @@ export function MobileMenu({
                 ))}
               </nav>
 
-              <div style={{ paddingTop: 24 }}>
+              <div style={{ paddingTop: 24, display: "flex", flexDirection: "column", gap: 16 }}>
+                <div style={{ display: "flex", gap: 8, justifyContent: "center" }}>
+                  <button
+                    onClick={() => setLocale("en")}
+                    className="mono"
+                    style={{
+                      padding: "6px 12px", fontSize: 12, fontWeight: locale === "en" ? 600 : 400,
+                      color: locale === "en" ? "var(--color-ink)" : "var(--color-sub-light)",
+                      background: locale === "en" ? "rgba(20,19,15,0.06)" : "transparent",
+                      border: "1px solid var(--color-hair)", borderRadius: 6, cursor: "pointer", letterSpacing: "0.04em",
+                    }}
+                  >EN</button>
+                  <button
+                    onClick={() => setLocale("de")}
+                    className="mono"
+                    style={{
+                      padding: "6px 12px", fontSize: 12, fontWeight: locale === "de" ? 600 : 400,
+                      color: locale === "de" ? "var(--color-ink)" : "var(--color-sub-light)",
+                      background: locale === "de" ? "rgba(20,19,15,0.06)" : "transparent",
+                      border: "1px solid var(--color-hair)", borderRadius: 6, cursor: "pointer", letterSpacing: "0.04em",
+                    }}
+                  >DE</button>
+                </div>
                 <Link
                   href="/#contact"
                   onClick={onClose}
@@ -83,7 +115,7 @@ export function MobileMenu({
                     textDecoration: "none",
                   }}
                 >
-                  Start a project <span style={{ color: "var(--color-accent)" }}>→</span>
+                  {t.nav.cta} <span style={{ color: "var(--color-accent)" }}>→</span>
                 </Link>
               </div>
             </div>

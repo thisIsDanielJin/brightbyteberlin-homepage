@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { geist, geistMono, fraunces } from "@/lib/fonts";
 import { Header } from "@/components/layout/Header/Header";
 import { Footer } from "@/components/layout/Footer/Footer";
+import { LocaleProvider } from "@/contexts/LocaleContext";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.scss";
 
@@ -70,9 +71,11 @@ export default function RootLayout({
         className={`${geist.variable} ${geistMono.variable} ${fraunces.variable} ${geist.className} antialiased`}
         style={{ background: "var(--color-bg)", color: "var(--color-ink)" }}
       >
-        <Header />
-        <main>{children}</main>
-        <Footer />
+        <LocaleProvider>
+          <Header />
+          <main>{children}</main>
+          <Footer />
+        </LocaleProvider>
         <SpeedInsights />
       </body>
     </html>

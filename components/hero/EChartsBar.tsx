@@ -57,5 +57,5 @@ export function EChartsBar() {
     };
   }, []);
 
-  return <div ref={ref} style={{ flex: 1, width: "100%", minHeight: 140 }} />;
+  return <div ref={ref} style={{ flex: 1, width: "100%", minHeight: 120 }} />;
 }

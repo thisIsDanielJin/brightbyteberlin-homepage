@@ -1,4 +1,7 @@
+"use client";
+
 import { footerLinks } from "@/data/navigation";
+import { useLocale } from "@/contexts/LocaleContext";
 import Link from "next/link";
 
 function BrightByteLogo({ size = 24 }: { size?: number }) {
@@ -35,22 +38,22 @@ const seoLinks = [
         title: "By Service",
         links: [
             { label: "Webentwickler Berlin", href: "/s/webentwickler-berlin" },
-            { label: "Landing Page Agentur", href: undefined },
-            { label: "Website Relaunch", href: undefined },
-            { label: "WordPress Alternative", href: undefined },
-            { label: "React Entwicklung", href: undefined },
-            { label: "Webdesign für KMU", href: undefined },
+            { label: "Landing Page Agentur", href: "/s/landing-page-erstellen" },
+            { label: "Website Relaunch", href: "/s/website-relaunch-berlin" },
+            { label: "WordPress Alternative", href: "/s/wordpress-alternative" },
+            { label: "React Entwicklung", href: "/s/react-entwicklung-berlin" },
+            { label: "Webdesign für KMU", href: "/s/webdesign-fuer-kmu" },
         ],
     },
     {
         title: "By Industry",
         links: [
             { label: "Website für Ärzte", href: "/s/website-fuer-aerzte" },
-            { label: "Website für Restaurant", href: undefined },
-            { label: "Website für Handwerker", href: undefined },
-            { label: "Website für Anwälte", href: undefined },
-            { label: "Website für Coaches", href: undefined },
-            { label: "Website für Startups", href: undefined },
+            { label: "Website für Restaurant", href: "/s/website-fuer-restaurants" },
+            { label: "Website für Handwerker", href: "/s/website-fuer-handwerker" },
+            { label: "Website für Anwälte", href: "/s/website-fuer-anwaelte" },
+            { label: "Website für Coaches", href: "/s/website-fuer-coaches" },
+            { label: "Website für Startups", href: "/s/website-fuer-startups" },
         ],
     },
     {
@@ -60,27 +63,29 @@ const seoLinks = [
                 label: "SEO Optimierung Berlin",
                 href: "/s/seo-optimierung-berlin",
             },
-            { label: "Website Geschwindigkeit", href: undefined },
-            { label: "Lead Generation", href: undefined },
-            { label: "Online Booking Integration", href: undefined },
-            { label: "Mehrsprachige Website", href: undefined },
-            { label: "DSGVO-konforme Website", href: undefined },
+            { label: "Website Geschwindigkeit", href: "/s/schnelle-website" },
+            { label: "Lead Generation", href: "/s/lead-generation-berlin" },
+            { label: "Online Booking Integration", href: "/s/online-booking-integration" },
+            { label: "Mehrsprachige Website", href: "/s/mehrsprachige-website" },
+            { label: "DSGVO-konforme Website", href: "/s/dsgvo-konforme-website" },
         ],
     },
     {
         title: "By Location",
         links: [
             { label: "Webdesign Mitte", href: "/s/webdesign-mitte" },
-            { label: "Webdesign Kreuzberg", href: undefined },
-            { label: "Webdesign Prenzlauer Berg", href: undefined },
-            { label: "Webdesign Charlottenburg", href: undefined },
-            { label: "Webdesign Friedrichshain", href: undefined },
-            { label: "Webdesign Neukölln", href: undefined },
+            { label: "Webdesign Kreuzberg", href: "/s/webdesign-kreuzberg" },
+            { label: "Webdesign Prenzlauer Berg", href: "/s/webdesign-prenzlauer-berg" },
+            { label: "Webdesign Charlottenburg", href: "/s/webdesign-charlottenburg" },
+            { label: "Webdesign Friedrichshain", href: "/s/webdesign-friedrichshain" },
+            { label: "Webdesign Neukölln", href: "/s/webdesign-neukoelln" },
         ],
     },
 ];
 
 export function Footer() {
+    const { t } = useLocale();
+
     return (
         <footer
             style={{
@@ -93,7 +98,7 @@ export function Footer() {
             <div
                 style={{
                     display: "grid",
-                    gridTemplateColumns: "2fr 1fr 1fr 1fr",
+                    gridTemplateColumns: "repeat(4, 1fr)",
                     gap: 48,
                     marginBottom: 64,
                 }}
@@ -130,8 +135,7 @@ export function Footer() {
                             maxWidth: 320,
                         }}
                     >
-                        Enterprise-grade websites for small businesses. Built in
-                        Berlin, shipped fast, supported personally.
+                        {t.footer.tagline}
                     </p>
                     <div
                         style={{
@@ -160,7 +164,7 @@ export function Footer() {
                             className="mono"
                             style={{ fontSize: 11, letterSpacing: "0.04em" }}
                         >
-                            Available · April 2026
+                            {t.footer.available}
                         </span>
                     </div>
                 </div>
@@ -177,7 +181,7 @@ export function Footer() {
                             marginBottom: 18,
                         }}
                     >
-                        Product
+                        {t.footer.product}
                     </div>
                     <div
                         style={{
@@ -214,7 +218,7 @@ export function Footer() {
                             marginBottom: 18,
                         }}
                     >
-                        Company
+                        {t.footer.company}
                     </div>
                     <div
                         style={{
@@ -251,7 +255,7 @@ export function Footer() {
                             marginBottom: 18,
                         }}
                     >
-                        Connect
+                        {t.footer.connect}
                     </div>
                     <div
                         style={{
@@ -305,12 +309,12 @@ export function Footer() {
                         marginBottom: 20,
                     }}
                 >
-                    Explore
+                    {t.footer.explore}
                 </div>
                 <div
                     style={{
                         display: "grid",
-                        gridTemplateColumns: "2fr 1fr 1fr 1fr",
+                        gridTemplateColumns: "repeat(4, 1fr)",
                         gap: 32,
                     }}
                 >
@@ -370,7 +374,7 @@ export function Footer() {
                     paddingTop: 24,
                     borderTop: "1px solid rgba(251,248,241,0.1)",
                     display: "grid",
-                    gridTemplateColumns: "2fr 1fr 1fr 1fr",
+                    gridTemplateColumns: "repeat(4, 1fr)",
                     gap: 48,
                     alignItems: "center",
                 }}
@@ -383,7 +387,7 @@ export function Footer() {
                         letterSpacing: "0.04em",
                     }}
                 >
-                    © 2026 Brightbyte · Berlin
+                    {t.footer.copyright}
                 </span>
                 {footerLinks.legal.map((item) => (
                     <Link

@@ -6,6 +6,7 @@ const C = {
   accentSoft: "#C4ADCF",
   hair: "rgba(20,19,15,0.08)",
   bg: "#F5F1E8",
+  green: "#16A34A",
 };
 
 export function ServiceImage({ kind }: { kind: "lp" | "app" | "ai" | "sup" }) {
@@ -55,7 +56,7 @@ export function ServiceImage({ kind }: { kind: "lp" | "app" | "ai" | "sup" }) {
               </div>
               <div style={{ background: C.accent, borderRadius: 4, padding: 8, opacity: 0.85 }}>
                 <div className="mono" style={{ fontSize: 8, color: "rgba(255,255,255,0.7)", marginBottom: 4 }}>REV.</div>
-                <div style={{ fontSize: 16, fontWeight: 600, color: "white" }}>€24k</div>
+                <div style={{ fontSize: 16, fontWeight: 600, color: "white" }}>{"€"}24k</div>
               </div>
             </div>
           </div>
@@ -66,19 +67,19 @@ export function ServiceImage({ kind }: { kind: "lp" | "app" | "ai" | "sup" }) {
 
   if (kind === "sup") {
     return (
-      <div style={{ width: "100%", height: "100%", background: `linear-gradient(160deg, #F4E0D5 0%, #EDE5F0 100%)`, position: "relative", overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "center" }}>
+      <div style={{ width: "100%", height: "100%", background: "linear-gradient(160deg, #F4E0D5 0%, #EDE5F0 100%)", position: "relative", overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "center" }}>
         <div style={{ width: 224, height: 108, borderRadius: 8, overflow: "hidden", background: C.surface, border: `1px solid ${C.hair}`, boxShadow: "0 8px 24px rgba(20,19,15,0.1)" }}>
           <div style={{ padding: "7px 12px 5px", borderBottom: `1px solid ${C.hair}` }}>
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 5 }}>
               <span className="mono" style={{ fontSize: 8, color: C.sub, letterSpacing: "0.06em" }}>UPTIME · 90 DAYS</span>
               <div style={{ display: "flex", alignItems: "center", gap: 3 }}>
-                <div style={{ width: 5, height: 5, borderRadius: "50%", background: "#16A34A", boxShadow: "0 0 6px rgba(22,163,74,0.5)" }} />
-                <span className="mono" style={{ fontSize: 8, color: "#16A34A", fontWeight: 600 }}>99.98%</span>
+                <div style={{ width: 5, height: 5, borderRadius: "50%", background: C.green, boxShadow: "0 0 6px rgba(22,163,74,0.5)" }} />
+                <span className="mono" style={{ fontSize: 8, color: C.green, fontWeight: 600 }}>99.98%</span>
               </div>
             </div>
             <div style={{ display: "flex", gap: 1, height: 13 }}>
               {Array.from({ length: 45 }).map((_, i) => (
-                <div key={i} style={{ flex: 1, background: i === 14 ? "#FFC83D" : "#16A34A", borderRadius: 0.5, opacity: i === 14 ? 0.9 : 0.35 + (((i * 7 + 3) % 11) / 11) * 0.45 }} />
+                <div key={i} style={{ flex: 1, background: i === 14 ? "#FFC83D" : C.green, borderRadius: 0.5, opacity: i === 14 ? 0.9 : 0.35 + (((i * 7 + 3) % 11) / 11) * 0.45 }} />
               ))}
             </div>
           </div>
@@ -88,7 +89,7 @@ export function ServiceImage({ kind }: { kind: "lp" | "app" | "ai" | "sup" }) {
                 <div className="mono" style={{ fontSize: 7, color: C.sub, marginBottom: 2, letterSpacing: "0.06em" }}>{k}</div>
                 <div style={{ display: "flex", alignItems: "baseline", gap: 3 }}>
                   <span style={{ fontSize: 11, fontWeight: 600, color: C.ink }}>{v}</span>
-                  <span style={{ fontSize: 7, color: "#16A34A" }}>{trend}</span>
+                  <span style={{ fontSize: 7, color: C.green }}>{trend}</span>
                 </div>
               </div>
             ))}
@@ -104,29 +105,68 @@ export function ServiceImage({ kind }: { kind: "lp" | "app" | "ai" | "sup" }) {
     );
   }
 
-  // ai
+  // ai - chip/processor visualization
   return (
     <div style={{ width: "100%", height: "100%", background: "linear-gradient(160deg, #1A2430 0%, #0F1A22 100%)", position: "relative", overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "center" }}>
-      <div style={{ width: 220, height: 104, borderRadius: 8, overflow: "hidden", border: "1px solid rgba(107,57,119,0.4)", background: "rgba(20,13,24,0.9)", boxShadow: "0 8px 24px rgba(0,0,0,0.5), 0 0 40px rgba(107,57,119,0.2)" }}>
-        <div style={{ height: 24, background: "rgba(107,57,119,0.2)", borderBottom: "1px solid rgba(107,57,119,0.3)", display: "flex", alignItems: "center", padding: "0 10px", gap: 6 }}>
-          <div style={{ width: 6, height: 6, borderRadius: "50%", background: C.accent }} />
-          <span className="mono" style={{ fontSize: 9, color: C.accentSoft, letterSpacing: "0.06em" }}>AI assistant · online</span>
-        </div>
-        <div style={{ padding: "8px 10px", display: "flex", flexDirection: "column", gap: 6 }}>
-          <div style={{ display: "flex", gap: 6, justifyContent: "flex-end" }}>
-            <div style={{ background: "rgba(107,57,119,0.6)", borderRadius: "8px 8px 2px 8px", padding: "5px 8px", maxWidth: "70%" }}>
-              <span className="mono" style={{ fontSize: 9, color: C.accentSoft }}>How can I track leads?</span>
-            </div>
-          </div>
-          <div style={{ display: "flex", gap: 6 }}>
-            <div style={{ width: 16, height: 16, borderRadius: "50%", background: C.accent, flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
-              <span style={{ fontSize: 8, color: "white" }}>AI</span>
-            </div>
-            <div style={{ background: "rgba(255,255,255,0.05)", borderRadius: "2px 8px 8px 8px", padding: "5px 8px", maxWidth: "80%" }}>
-              <span className="mono" style={{ fontSize: 9, color: "rgba(196,173,207,0.9)", lineHeight: 1.4 }}>Your dashboard shows leads in real time. 47 this month…</span>
-            </div>
+      <div style={{ position: "absolute", inset: 0, backgroundImage: "linear-gradient(rgba(107,57,119,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(107,57,119,0.04) 1px, transparent 1px)", backgroundSize: "18px 18px" }} />
+      <div style={{ width: 224, height: 108, borderRadius: 8, overflow: "hidden", border: "1px solid rgba(107,57,119,0.3)", background: "rgba(20,13,24,0.85)", boxShadow: "0 8px 24px rgba(0,0,0,0.5), 0 0 40px rgba(107,57,119,0.1)", position: "relative", zIndex: 1 }}>
+        <div style={{ height: 22, background: "rgba(107,57,119,0.15)", borderBottom: "1px solid rgba(107,57,119,0.25)", display: "flex", alignItems: "center", padding: "0 10px", gap: 6 }}>
+          <div style={{ width: 5, height: 5, borderRadius: "50%", background: C.accent, boxShadow: `0 0 6px ${C.accent}` }} />
+          <span className="mono" style={{ fontSize: 8, color: C.accentSoft, letterSpacing: "0.06em" }}>ai-engine · active</span>
+          <div style={{ marginLeft: "auto", display: "flex", alignItems: "center", gap: 3 }}>
+            <div style={{ width: 5, height: 5, borderRadius: "50%", background: C.green, boxShadow: "0 0 4px rgba(22,163,74,0.5)" }} />
+            <span className="mono" style={{ fontSize: 7, color: C.green }}>live</span>
           </div>
         </div>
+        <div style={{ height: "calc(100% - 22px)", display: "flex", alignItems: "center", justifyContent: "center", padding: 10 }}>
+          <svg width="100%" height="100%" viewBox="0 0 200 72" preserveAspectRatio="xMidYMid meet">
+            {/* Circuit traces - left */}
+            {[18, 30, 42, 54].map((y, i) => (
+              <line key={`tl${i}`} x1={20} y1={y} x2={60} y2={y} stroke={C.accent} strokeWidth={1} opacity={i === 1 || i === 2 ? 0.5 : 0.2} />
+            ))}
+            {/* Circuit traces - right */}
+            {[18, 30, 42, 54].map((y, i) => (
+              <line key={`tr${i}`} x1={140} y1={y} x2={180} y2={y} stroke={C.accent} strokeWidth={1} opacity={i === 1 || i === 2 ? 0.5 : 0.2} />
+            ))}
+            {/* Circuit traces - top */}
+            {[76, 100, 124].map((x, i) => (
+              <line key={`tt${i}`} x1={x} y1={2} x2={x} y2={16} stroke={C.accent} strokeWidth={1} opacity={i === 1 ? 0.5 : 0.2} />
+            ))}
+            {/* Circuit traces - bottom */}
+            {[76, 100, 124].map((x, i) => (
+              <line key={`tb${i}`} x1={x} y1={56} x2={x} y2={70} stroke={C.accent} strokeWidth={1} opacity={i === 1 ? 0.5 : 0.2} />
+            ))}
+            {/* Trace endpoints - left */}
+            {[18, 30, 42, 54].map((y, i) => (
+              <rect key={`dl${i}`} x={16} y={y - 2} width={4} height={4} rx={1} fill={C.accent} opacity={i === 1 || i === 2 ? 0.7 : 0.3} />
+            ))}
+            {/* Trace endpoints - right */}
+            {[18, 30, 42, 54].map((y, i) => (
+              <rect key={`dr${i}`} x={180} y={y - 2} width={4} height={4} rx={1} fill={C.accent} opacity={i === 1 || i === 2 ? 0.7 : 0.3} />
+            ))}
+            {/* Central chip */}
+            <rect x={60} y={16} width={80} height={40} rx={4} fill="rgba(107,57,119,0.15)" stroke={C.accent} strokeWidth={1.5} />
+            {/* Inner chip - 3x3 grid */}
+            {[0, 1, 2].map((row) =>
+              [0, 1, 2].map((col) => (
+                <rect
+                  key={`c${row}${col}`}
+                  x={72 + col * 22}
+                  y={24 + row * 10}
+                  width={14}
+                  height={6}
+                  rx={1.5}
+                  fill={row === 1 && col === 1 ? C.accent : "rgba(107,57,119,0.3)"}
+                  opacity={row === 1 && col === 1 ? 0.9 : (row === 1 || col === 1) ? 0.5 : 0.25}
+                />
+              ))
+            )}
+          </svg>
+        </div>
+      </div>
+      <div style={{ position: "absolute", top: 8, right: 10, background: "rgba(20,13,24,0.9)", border: "1px solid rgba(107,57,119,0.3)", borderRadius: 6, padding: "3px 7px", display: "flex", alignItems: "center", gap: 4, zIndex: 2 }}>
+        <div style={{ width: 5, height: 5, borderRadius: "50%", background: C.green }} />
+        <span className="mono" style={{ fontSize: 7, color: C.accentSoft }}>acc: 97.2%</span>
       </div>
     </div>
   );

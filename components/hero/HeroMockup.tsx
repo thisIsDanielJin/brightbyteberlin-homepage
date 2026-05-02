@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { EChartsDonut } from "./EChartsDonut";
 import { EChartsBar } from "./EChartsBar";
@@ -26,15 +26,17 @@ const ACTIVITY_ITEMS = [
 
 export function HeroMockup({ phase }: { phase: number }) {
   const [visibleItems, setVisibleItems] = useState(0);
+  const activityStarted = useRef(false);
 
   useEffect(() => {
-    if (phase < 3) return;
+    if (phase < 3 || activityStarted.current) return;
+    activityStarted.current = true;
     let count = 0;
     const interval = setInterval(() => {
       count++;
       setVisibleItems(count);
       if (count >= ACTIVITY_ITEMS.length) clearInterval(interval);
-    }, 150);
+    }, 200);
     return () => clearInterval(interval);
   }, [phase]);
   return (
@@ -59,26 +61,26 @@ export function HeroMockup({ phase }: { phase: number }) {
           </div>
           <div style={{ marginLeft: 12, padding: "4px 14px", background: "rgba(251,248,241,0.08)", borderRadius: 6, display: "flex", alignItems: "center", gap: 6 }}>
             <span style={{ width: 8, height: 8, borderRadius: "50%", border: "1.5px solid rgba(251,248,241,0.3)" }} />
-            <span className="mono" style={{ fontSize: 10, color: "rgba(251,248,241,0.5)", letterSpacing: "0.04em" }}>client-dashboard.com</span>
+            <span className="mono" style={{ fontSize: 10, color: "rgba(251,248,241,0.5)", letterSpacing: "0.04em" }}>client-site-preview.de</span>
           </div>
         </div>
       </div>
 
       {/* Dashboard content */}
-      <div style={{ background: C.surface, padding: 0, minHeight: 380, position: "relative", overflow: "hidden", display: "flex", flexDirection: "column" }}>
+      <div style={{ background: C.surface, padding: 0, position: "relative", overflow: "hidden", display: "flex", flexDirection: "column" }}>
 
         {/* 4-column grid */}
-        <div style={{ padding: "16px 20px 20px", display: "grid", gridTemplateColumns: "1fr 1fr 1fr 0.85fr", gap: 14, flex: 1, opacity: phase >= 1 ? 1 : 0, transform: phase >= 1 ? "translateY(0)" : "translateY(12px)", transition: "all 0.6s cubic-bezier(0.16,1,0.3,1) 0.2s" }}>
+        <div style={{ padding: "14px 20px 16px", display: "grid", gridTemplateColumns: "1fr 1fr 1fr 0.85fr", gap: 14, opacity: phase >= 2 ? 1 : 0, transform: phase >= 2 ? "translateY(0)" : "translateY(12px)", transition: "all 0.7s cubic-bezier(0.16,1,0.3,1)" }}>
 
           {/* Left — Mini site preview + KPIs */}
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ delay: 1.2, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             style={{ display: "flex", flexDirection: "column", gap: 10 }}
           >
             {/* Mini site preview */}
-            <div style={{ flex: "0 0 60%", background: C.bg, borderRadius: 10, border: `1px solid ${C.hair}`, overflow: "hidden", display: "flex", flexDirection: "column" }}>
+            <div style={{ flex: "0 0 55%", background: C.bg, borderRadius: 10, border: `1px solid ${C.hair}`, overflow: "hidden", display: "flex", flexDirection: "column" }}>
               {/* Mini chrome */}
               <div style={{ padding: "6px 10px", background: "#F0ECE4", borderBottom: `1px solid ${C.hair}`, display: "flex", alignItems: "center", gap: 5 }}>
                 <div style={{ display: "flex", gap: 3 }}>
@@ -87,12 +89,12 @@ export function HeroMockup({ phase }: { phase: number }) {
                   ))}
                 </div>
                 <div style={{ flex: 1, marginLeft: 6, height: 8, background: "rgba(20,19,15,0.06)", borderRadius: 4, display: "flex", alignItems: "center", paddingLeft: 4 }}>
-                  <span className="mono" style={{ fontSize: 6, color: C.subLight, letterSpacing: "0.02em" }}>client-site.de</span>
+                  <span className="mono" style={{ fontSize: 6, color: C.subLight, letterSpacing: "0.02em" }}>client-site-preview.de</span>
                 </div>
               </div>
               {/* Mini page content */}
-              <div style={{ padding: "10px 12px", flex: 1 }}>
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 10 }}>
+              <div style={{ padding: "8px 12px", flex: 1 }}>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 8 }}>
                   <div style={{ width: 32, height: 5, borderRadius: 2, background: C.ink }} />
                   <div style={{ display: "flex", gap: 6 }}>
                     {[16, 12, 14].map((w, i) => (
@@ -100,16 +102,16 @@ export function HeroMockup({ phase }: { phase: number }) {
                     ))}
                   </div>
                 </div>
-                <div style={{ marginBottom: 8 }}>
-                  <div style={{ width: "80%", height: 7, borderRadius: 2, background: C.ink, marginBottom: 4, opacity: 0.8 }} />
-                  <div style={{ width: "55%", height: 7, borderRadius: 2, background: C.ink, marginBottom: 8, opacity: 0.6 }} />
-                  <div style={{ width: "90%", height: 4, borderRadius: 1, background: C.hair, marginBottom: 3 }} />
-                  <div style={{ width: "75%", height: 4, borderRadius: 1, background: C.hair, marginBottom: 8 }} />
-                  <div style={{ width: 48, height: 14, borderRadius: 99, background: C.accent, opacity: 0.8 }} />
+                <div style={{ marginBottom: 6 }}>
+                  <div style={{ width: "80%", height: 6, borderRadius: 2, background: C.ink, marginBottom: 3, opacity: 0.8 }} />
+                  <div style={{ width: "55%", height: 6, borderRadius: 2, background: C.ink, marginBottom: 6, opacity: 0.6 }} />
+                  <div style={{ width: "90%", height: 3, borderRadius: 1, background: C.hair, marginBottom: 2 }} />
+                  <div style={{ width: "75%", height: 3, borderRadius: 1, background: C.hair, marginBottom: 6 }} />
+                  <div style={{ width: 44, height: 12, borderRadius: 99, background: C.accent, opacity: 0.8 }} />
                 </div>
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 4, marginTop: 8 }}>
-                  <div style={{ height: 24, borderRadius: 4, background: C.hair, opacity: 0.5 }} />
-                  <div style={{ height: 24, borderRadius: 4, background: C.hair, opacity: 0.5 }} />
+                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 4, marginTop: 6 }}>
+                  <div style={{ height: 20, borderRadius: 4, background: C.hair, opacity: 0.5 }} />
+                  <div style={{ height: 20, borderRadius: 4, background: C.hair, opacity: 0.5 }} />
                 </div>
               </div>
               {/* Status badge */}
@@ -119,12 +121,12 @@ export function HeroMockup({ phase }: { phase: number }) {
               </div>
             </div>
             {/* KPI cards */}
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 5, flex: 1 }}>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 5 }}>
               {([["SESSIONS", "12.4K", "+18%"], ["LEADS", "47", "+34%"], ["SPEED", "98", "/100"]] as const).map(([label, val, delta]) => (
-                <div key={label} style={{ background: C.bg, borderRadius: 6, padding: "10px 6px", border: `1px solid ${C.hair}`, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 3 }}>
-                  <div className="mono" style={{ fontSize: 11, color: C.sub, letterSpacing: "0.06em", fontWeight: 500 }}>{label}</div>
-                  <span style={{ fontSize: 24, fontWeight: 700, color: C.ink, letterSpacing: "-0.02em" }}>{val}</span>
-                  <span className="mono" style={{ fontSize: 11, fontWeight: 600, color: "#16A34A", background: "rgba(22,163,74,0.1)", padding: "2px 7px", borderRadius: 3 }}>{delta}</span>
+                <div key={label} style={{ background: C.bg, borderRadius: 6, padding: "8px 6px", border: `1px solid ${C.hair}`, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 2 }}>
+                  <div className="mono" style={{ fontSize: 9, color: C.sub, letterSpacing: "0.06em", fontWeight: 500 }}>{label}</div>
+                  <span style={{ fontSize: 20, fontWeight: 700, color: C.ink, letterSpacing: "-0.02em" }}>{val}</span>
+                  <span className="mono" style={{ fontSize: 10, fontWeight: 600, color: "#16A34A", background: "rgba(22,163,74,0.1)", padding: "2px 6px", borderRadius: 3 }}>{delta}</span>
                 </div>
               ))}
             </div>
@@ -134,7 +136,7 @@ export function HeroMockup({ phase }: { phase: number }) {
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.0, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ delay: 1.2, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             style={{ background: C.bg, borderRadius: 8, padding: "6px 8px 4px", border: `1px solid ${C.hair}`, display: "flex", flexDirection: "column" }}
           >
             <EChartsDonut />
@@ -144,7 +146,7 @@ export function HeroMockup({ phase }: { phase: number }) {
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.4, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ delay: 1.2, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             style={{ background: C.bg, borderRadius: 8, padding: "6px 8px 4px", border: `1px solid ${C.hair}`, display: "flex", flexDirection: "column" }}
           >
             <EChartsBar />
@@ -154,7 +156,7 @@ export function HeroMockup({ phase }: { phase: number }) {
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.2, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ delay: 1.2, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             style={{ background: C.bg, borderRadius: 8, padding: "12px 10px 8px", border: `1px solid ${C.hair}`, display: "flex", flexDirection: "column", overflow: "hidden" }}
           >
             <div className="mono" style={{ fontSize: 9, color: C.sub, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 10, fontWeight: 600 }}>Activity</div>

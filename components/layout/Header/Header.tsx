@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
-import { navLinks } from "@/data/navigation";
+import { useLocale } from "@/contexts/LocaleContext";
 import Link from "next/link";
 
 const MobileMenu = dynamic(
@@ -26,6 +26,15 @@ function BrightByteLogo({ size = 28 }: { size?: number }) {
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { locale, setLocale, t } = useLocale();
+
+  const navItems = [
+    { label: t.nav.work, href: "/#work" },
+    { label: t.nav.services, href: "/#services" },
+    { label: t.nav.process, href: "/#process" },
+    { label: t.nav.pricing, href: "/#pricing" },
+    { label: t.nav.about, href: "/#about" },
+  ];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -54,7 +63,8 @@ export function Header() {
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
-          padding: scrolled ? "14px 56px" : "22px 56px",
+          padding: "0 56px",
+          height: 72,
           borderBottom: `1px solid ${scrolled ? "var(--color-hair)" : "transparent"}`,
           background: scrolled ? "rgba(245,241,232,0.85)" : "var(--color-bg)",
           position: "sticky",
@@ -62,17 +72,16 @@ export function Header() {
           zIndex: 50,
           backdropFilter: scrolled ? "blur(16px) saturate(1.4)" : "none",
           WebkitBackdropFilter: scrolled ? "blur(16px) saturate(1.4)" : "none",
-          transition: "all 0.35s cubic-bezier(0.16,1,0.3,1)",
+          transition: "background 0.35s cubic-bezier(0.16,1,0.3,1), border-color 0.35s ease, backdrop-filter 0.35s ease",
         }}
       >
         {/* Logo + Wordmark */}
         <Link href="/" style={{ display: "flex", alignItems: "center", gap: 10, textDecoration: "none" }}>
-          <BrightByteLogo size={scrolled ? 22 : 28} />
+          <BrightByteLogo size={24} />
           <div
             style={{
-              fontSize: scrolled ? 14 : 15,
+              fontSize: 15,
               letterSpacing: "-0.01em",
-              transition: "font-size 0.35s ease",
             }}
           >
             <span style={{ fontWeight: 600, color: "var(--color-ink)" }}>bright</span>
@@ -94,9 +103,9 @@ export function Header() {
           }}
           className="hidden lg:flex"
         >
-          {navLinks.map((item) => (
+          {navItems.map((item) => (
             <Link
-              key={item.label}
+              key={item.href}
               href={item.href}
               className="nav-link"
               style={{ cursor: "pointer", textDecoration: "none", color: "inherit" }}
@@ -108,11 +117,34 @@ export function Header() {
 
         {/* Desktop CTA */}
         <div className="hidden lg:flex" style={{ alignItems: "center", gap: 16 }}>
+          <div style={{ display: "flex", gap: 4, alignItems: "center" }}>
+            <button
+              onClick={() => setLocale("en")}
+              className="mono"
+              style={{
+                padding: "4px 8px", fontSize: 11, fontWeight: locale === "en" ? 600 : 400,
+                color: locale === "en" ? "var(--color-ink)" : "var(--color-sub-light)",
+                background: locale === "en" ? "rgba(20,19,15,0.06)" : "transparent",
+                border: "none", borderRadius: 4, cursor: "pointer", letterSpacing: "0.04em",
+              }}
+            >EN</button>
+            <span style={{ fontSize: 11, color: "var(--color-sub-light)" }}>|</span>
+            <button
+              onClick={() => setLocale("de")}
+              className="mono"
+              style={{
+                padding: "4px 8px", fontSize: 11, fontWeight: locale === "de" ? 600 : 400,
+                color: locale === "de" ? "var(--color-ink)" : "var(--color-sub-light)",
+                background: locale === "de" ? "rgba(20,19,15,0.06)" : "transparent",
+                border: "none", borderRadius: 4, cursor: "pointer", letterSpacing: "0.04em",
+              }}
+            >DE</button>
+          </div>
           <Link
             href="/#contact"
             className="btn-hover nav-cta"
             style={{
-              padding: scrolled ? "7px 16px" : "9px 18px",
+              padding: "9px 18px",
               background: "var(--color-ink)",
               color: "var(--color-surface)",
               borderRadius: 99,
@@ -122,11 +154,10 @@ export function Header() {
               alignItems: "center",
               gap: 6,
               cursor: "pointer",
-              transition: "padding 0.35s ease",
               textDecoration: "none",
             }}
           >
-            Start a project <span style={{ color: "var(--color-accent)" }}>→</span>
+            {t.nav.cta} <span style={{ color: "var(--color-accent)" }}>→</span>
           </Link>
         </div>
 
