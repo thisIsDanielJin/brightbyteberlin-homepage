@@ -39,7 +39,7 @@ export function ContactSection() {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...formData, website: honeypotRef.current?.value || "" }),
+        body: JSON.stringify({ ...formData, projectType: t.contact.types[selectedType], website: honeypotRef.current?.value || "" }),
       });
       if (!res.ok) { const data = await res.json(); throw new Error(data.error || "Something went wrong."); }
       setState("success");

@@ -41,6 +41,8 @@ export async function POST(request: NextRequest) {
       message: body.message,
     };
 
+    const projectType = body.projectType || "";
+
     // Validate
     const errors = validateContactForm(formData);
     if (errors) {
@@ -69,6 +71,7 @@ export async function POST(request: NextRequest) {
       text: [
         `Name: ${formData.name.trim()}`,
         `Email: ${formData.email.trim()}`,
+        `Project type: ${projectType}`,
         "",
         "Message:",
         formData.message.trim(),

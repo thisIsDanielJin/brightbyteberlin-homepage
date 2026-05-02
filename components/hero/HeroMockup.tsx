@@ -2,8 +2,13 @@
 
 import { useState, useEffect, useRef } from "react";
 import { motion, useReducedMotion } from "framer-motion";
+import dynamic from "next/dynamic";
 import { EChartsPie } from "./EChartsPie";
-import { EChartsBar } from "./EChartsBar";
+
+const EChartsBar = dynamic(
+  () => import("./EChartsBar").then((mod) => mod.EChartsBar),
+  { ssr: false }
+);
 
 const C = {
   bg: "#F5F1E8",

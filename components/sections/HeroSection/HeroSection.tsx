@@ -2,10 +2,15 @@
 
 import { useState, useEffect } from "react";
 import { motion, useReducedMotion } from "framer-motion";
-import { HeroMockup } from "@/components/hero/HeroMockup";
+import dynamic from "next/dynamic";
 import { ParallaxTilt } from "@/components/hero/ParallaxTilt";
 import { useLocale } from "@/contexts/LocaleContext";
 import Link from "next/link";
+
+const HeroMockup = dynamic(
+    () => import("@/components/hero/HeroMockup").then((mod) => mod.HeroMockup),
+    { ssr: false }
+);
 
 const C = {
     ink: "#14130F",
@@ -64,8 +69,9 @@ export function HeroSection() {
                     pointerEvents: "none",
                 }}
             />
-            {/* Grain texture */}
+            {/* Grain texture — hidden on mobile for performance */}
             <svg
+                className="hidden lg:block"
                 style={{
                     position: "absolute",
                     inset: 0,
@@ -93,11 +99,8 @@ export function HeroSection() {
 
             {/* Headline + subtitle + CTAs */}
             <div className="text-center max-w-[680px] mx-auto mb-10 lg:mb-16 relative">
-                <motion.h1
-                    initial={{ opacity: 0, y: 24 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                    className="text-[40px] sm:text-[56px] lg:text-[80px] leading-[0.96] tracking-[-0.04em] font-semibold mb-5"
+                <h1
+                    className="text-[40px] sm:text-[56px] lg:text-[80px] leading-[0.96] tracking-[-0.04em] font-semibold mb-5 animate-fade-up"
                     style={{ color: C.ink }}
                 >
                     {t.hero.h1Line1}
@@ -109,29 +112,16 @@ export function HeroSection() {
                         {t.hero.h1Not}
                     </span>{" "}
                     <span style={{ color: C.accent }}>{t.hero.h1Months}</span>
-                </motion.h1>
-                <motion.p
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{
-                        duration: 0.7,
-                        delay: 0.15,
-                        ease: [0.16, 1, 0.3, 1],
-                    }}
-                    className="text-base lg:text-lg leading-relaxed max-w-[520px] mx-auto mb-7"
-                    style={{ color: C.sub }}
+                </h1>
+                <p
+                    className="text-base lg:text-lg leading-relaxed max-w-[520px] mx-auto mb-7 animate-fade-up"
+                    style={{ color: C.sub, animationDelay: "0.15s" }}
                 >
                     {t.hero.subtitle}
-                </motion.p>
-                <motion.div
-                    initial={{ opacity: 0, y: 16 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{
-                        duration: 0.6,
-                        delay: 0.3,
-                        ease: [0.16, 1, 0.3, 1],
-                    }}
-                    className="flex flex-col sm:flex-row gap-3 items-center justify-center"
+                </p>
+                <div
+                    className="flex flex-col sm:flex-row gap-3 items-center justify-center animate-fade-up"
+                    style={{ animationDelay: "0.3s" }}
                 >
                     <Link
                         href="/#contact"
@@ -180,18 +170,16 @@ export function HeroSection() {
                         />
                         {t.hero.ctaSecondary}
                     </Link>
-                </motion.div>
+                </div>
 
                 {/* Social proof */}
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.6, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                    className="flex items-center justify-center gap-2 mt-6"
+                <div
+                    className="flex items-center justify-center gap-2 mt-6 animate-fade-up"
+                    style={{ animationDelay: "0.6s" }}
                 >
                     <span style={{ fontSize: 11, color: "#D4A017", letterSpacing: "1px" }}>&#9733;&#9733;&#9733;&#9733;&#9733;</span>
                     <span style={{ fontSize: 12, color: C.sub, letterSpacing: "0.02em", fontFamily: "var(--font-mono), ui-monospace, monospace" }}>from multiple clients across Germany</span>
-                </motion.div>
+                </div>
             </div>
 
             {/* Browser mockup */}
