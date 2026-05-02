@@ -8,7 +8,7 @@ const C = {
   bg: "#F5F1E8",
 };
 
-export function ServiceImage({ kind }: { kind: "lp" | "app" | "ai" }) {
+export function ServiceImage({ kind }: { kind: "lp" | "app" | "ai" | "sup" }) {
   if (kind === "lp") {
     return (
       <div style={{ width: "100%", height: "100%", background: "linear-gradient(160deg, #EDE5F0 0%, #C4ADCF 100%)", position: "relative", overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "center" }}>
@@ -58,6 +58,46 @@ export function ServiceImage({ kind }: { kind: "lp" | "app" | "ai" }) {
                 <div style={{ fontSize: 16, fontWeight: 600, color: "white" }}>€24k</div>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "sup") {
+    return (
+      <div style={{ width: "100%", height: "100%", background: `linear-gradient(160deg, #F4E0D5 0%, #EDE5F0 100%)`, position: "relative", overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "center" }}>
+        <div style={{ width: 224, height: 108, borderRadius: 8, overflow: "hidden", background: C.surface, border: `1px solid ${C.hair}`, boxShadow: "0 8px 24px rgba(20,19,15,0.1)" }}>
+          <div style={{ padding: "7px 12px 5px", borderBottom: `1px solid ${C.hair}` }}>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 5 }}>
+              <span className="mono" style={{ fontSize: 8, color: C.sub, letterSpacing: "0.06em" }}>UPTIME · 90 DAYS</span>
+              <div style={{ display: "flex", alignItems: "center", gap: 3 }}>
+                <div style={{ width: 5, height: 5, borderRadius: "50%", background: "#16A34A", boxShadow: "0 0 6px rgba(22,163,74,0.5)" }} />
+                <span className="mono" style={{ fontSize: 8, color: "#16A34A", fontWeight: 600 }}>99.98%</span>
+              </div>
+            </div>
+            <div style={{ display: "flex", gap: 1, height: 13 }}>
+              {Array.from({ length: 45 }).map((_, i) => (
+                <div key={i} style={{ flex: 1, background: i === 14 ? "#FFC83D" : "#16A34A", borderRadius: 0.5, opacity: i === 14 ? 0.9 : 0.35 + (((i * 7 + 3) % 11) / 11) * 0.45 }} />
+              ))}
+            </div>
+          </div>
+          <div style={{ padding: "5px 12px", display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 6 }}>
+            {([["FCP", "0.6s", "↓"], ["LCP", "1.1s", "↓"], ["CLS", "0.01", "—"]] as const).map(([k, v, trend]) => (
+              <div key={k}>
+                <div className="mono" style={{ fontSize: 7, color: C.sub, marginBottom: 2, letterSpacing: "0.06em" }}>{k}</div>
+                <div style={{ display: "flex", alignItems: "baseline", gap: 3 }}>
+                  <span style={{ fontSize: 11, fontWeight: 600, color: C.ink }}>{v}</span>
+                  <span style={{ fontSize: 7, color: "#16A34A" }}>{trend}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div style={{ padding: "3px 12px 5px" }}>
+            <svg width="100%" height={14} viewBox="0 0 200 14" preserveAspectRatio="none">
+              <path d="M0,11 L15,9 L30,10 L45,7 L60,8 L75,5 L90,6 L105,4 L120,5 L135,3 L150,4 L165,2.5 L180,3 L200,1.5" fill="none" stroke={C.accent} strokeWidth={1} opacity={0.4} />
+              <path d="M0,11 L15,9 L30,10 L45,7 L60,8 L75,5 L90,6 L105,4 L120,5 L135,3 L150,4 L165,2.5 L180,3 L200,1.5 L200,14 L0,14 Z" fill={C.accent} opacity={0.05} />
+            </svg>
           </div>
         </div>
       </div>
