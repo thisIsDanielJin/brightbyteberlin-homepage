@@ -26,7 +26,7 @@ export function ContactSection() {
   const [serverError, setServerError] = useState("");
   const [selectedType, setSelectedType] = useState(1);
   const honeypotRef = useRef<HTMLInputElement>(null);
-  const { t } = useLocale();
+  const { t, locale } = useLocale();
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -58,18 +58,19 @@ export function ContactSection() {
   }
 
   return (
-    <section id="contact" style={{ padding: "112px 56px", background: `linear-gradient(180deg, ${C.bg} 0%, #F0ECE2 100%)`, borderBottom: `1px solid ${C.hair}` }}>
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1.2fr", gap: 64, alignItems: "flex-start" }}>
+    <section id="contact" className="px-5 py-16 sm:px-8 sm:py-20 lg:px-14 lg:py-28" style={{ background: `linear-gradient(180deg, ${C.bg} 0%, #F0ECE2 100%)`, borderBottom: `1px solid ${C.hair}` }}>
+      <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-10 lg:gap-16 items-start">
         {/* Left — context + timeline */}
         <div>
           <div className="mono" style={{ fontSize: 11, color: C.sub, letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: 24 }}>{t.contact.label}</div>
-          <h2 style={{ fontSize: 64, fontWeight: 500, color: C.ink, letterSpacing: "-0.03em", lineHeight: 0.98, marginBottom: 32 }}>
+          <h2 className="text-3xl sm:text-4xl lg:text-[64px] font-medium tracking-tight leading-none mb-6 lg:mb-8" style={{ color: C.ink }}>
             {t.contact.heading}<br />
             <span className="serif" style={{ fontStyle: "italic", fontWeight: 400, color: C.accent }}>{t.contact.headingItalic}</span>
           </h2>
-          <p style={{ fontSize: 17, color: C.sub, lineHeight: 1.6, maxWidth: 400, marginBottom: 36 }}>
-            {t.contact.subtitle}
-          </p>
+          <div style={{ display: "inline-flex", alignItems: "center", gap: 10, marginBottom: 36 }}>
+            <span style={{ width: 8, height: 8, borderRadius: "50%", border: "2px solid #6B3977" }} />
+            <span style={{ fontSize: 15, color: C.sub }}>{locale === "de" ? `Verfügbar · ${new Date().toLocaleDateString("de-DE", { month: "long", year: "numeric" })}` : `Available · ${new Date().toLocaleDateString("en-US", { month: "long", year: "numeric" })}`}</span>
+          </div>
           <div>
             <div className="mono" style={{ fontSize: 10, color: C.sub, letterSpacing: "0.16em", textTransform: "uppercase", marginBottom: 20 }}>{t.contact.whatsNext}</div>
             <div style={{ position: "relative", paddingLeft: 24 }}>
@@ -88,7 +89,7 @@ export function ContactSection() {
         </div>
 
         {/* Right — form */}
-        <div style={{ background: C.surface, border: `1px solid ${C.hair}`, borderRadius: 18, padding: 40, boxShadow: "0 30px 60px -40px rgba(20,19,15,0.18)" }}>
+        <div className="p-6 sm:p-8 lg:p-10 rounded-[18px]" style={{ background: C.surface, border: `1px solid ${C.hair}`, boxShadow: "0 30px 60px -40px rgba(20,19,15,0.18)" }}>
           {state === "success" ? (
             <div style={{ textAlign: "center", padding: "40px 0" }}>
               <div style={{ width: 48, height: 48, margin: "0 auto 16px", borderRadius: "50%", background: C.accent, display: "flex", alignItems: "center", justifyContent: "center" }}>
@@ -106,7 +107,7 @@ export function ContactSection() {
 
               <div className="mono" style={{ fontSize: 10, color: C.sub, letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: 24 }}>{t.contact.formLabel}</div>
 
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 18, marginBottom: 18 }}>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
                 <div>
                   <label className="mono" style={{ fontSize: 10, color: C.sub, letterSpacing: "0.04em", marginBottom: 8, textTransform: "uppercase", display: "block" }}>{t.contact.nameLabel}</label>
                   <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder={t.contact.namePlaceholder} style={{ padding: "12px 14px", background: C.bg, border: `1px solid ${errors.name ? "#e53e3e" : C.hair}`, borderRadius: 8, fontSize: 14, color: C.ink, width: "100%", outline: "none" }} />
@@ -138,9 +139,9 @@ export function ContactSection() {
                 <div style={{ padding: "10px 14px", background: "rgba(229,62,62,0.08)", border: "1px solid rgba(229,62,62,0.3)", borderRadius: 8, fontSize: 13, color: "#e53e3e", marginBottom: 16 }}>{serverError}</div>
               )}
 
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", paddingTop: 24, borderTop: `1px solid ${C.hair}` }}>
+              <div className="flex flex-col-reverse sm:flex-row sm:justify-between sm:items-center gap-4 pt-6" style={{ borderTop: `1px solid ${C.hair}` }}>
                 <span className="mono" style={{ fontSize: 11, color: C.sub, letterSpacing: "0.04em" }}>{t.contact.formFooter}</span>
-                <button type="submit" disabled={state === "submitting"} className="btn-hover" style={{ padding: "12px 24px", background: C.ink, color: C.surface, borderRadius: 99, fontSize: 14, fontWeight: 500, display: "flex", alignItems: "center", gap: 8, cursor: "pointer", border: "none", opacity: state === "submitting" ? 0.6 : 1 }}>
+                <button type="submit" disabled={state === "submitting"} className="btn-hover w-full sm:w-auto" style={{ padding: "12px 24px", background: C.ink, color: C.surface, borderRadius: 99, fontSize: 14, fontWeight: 500, display: "flex", alignItems: "center", justifyContent: "center", gap: 8, cursor: "pointer", border: "none", opacity: state === "submitting" ? 0.6 : 1 }}>
                   {state === "submitting" ? t.contact.submitting : <>{t.contact.submit} <span style={{ color: C.accent }}>→</span></>}
                 </button>
               </div>

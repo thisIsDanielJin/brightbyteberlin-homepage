@@ -1,8 +1,8 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { motion } from "framer-motion";
-import { EChartsDonut } from "./EChartsDonut";
+import { motion, useReducedMotion } from "framer-motion";
+import { EChartsPie } from "./EChartsPie";
 import { EChartsBar } from "./EChartsBar";
 
 const C = {
@@ -27,18 +27,23 @@ const ACTIVITY_ITEMS = [
 export function HeroMockup({ phase }: { phase: number }) {
   const [visibleItems, setVisibleItems] = useState(0);
   const activityStarted = useRef(false);
+  const prefersReduced = useReducedMotion();
 
   useEffect(() => {
-    if (phase < 3 || activityStarted.current) return;
+    if (prefersReduced) {
+      setVisibleItems(ACTIVITY_ITEMS.length);
+      return;
+    }
+    if (phase < 2 || activityStarted.current) return;
     activityStarted.current = true;
     let count = 0;
     const interval = setInterval(() => {
       count++;
       setVisibleItems(count);
       if (count >= ACTIVITY_ITEMS.length) clearInterval(interval);
-    }, 200);
+    }, 150);
     return () => clearInterval(interval);
-  }, [phase]);
+  }, [phase, prefersReduced]);
   return (
     <div
       style={{
@@ -48,7 +53,7 @@ export function HeroMockup({ phase }: { phase: number }) {
         boxShadow: phase >= 4 ? "0 32px 64px -24px rgba(20,19,15,0.18), 0 0 0 1px rgba(20,19,15,0.04)" : "0 16px 40px -16px rgba(20,19,15,0.12)",
         transform: phase >= 1 ? "scale(1)" : "scale(0.96)",
         opacity: phase >= 1 ? 1 : 0,
-        transition: "all 0.8s cubic-bezier(0.16, 1, 0.3, 1)",
+        transition: prefersReduced ? "none" : "all 0.8s cubic-bezier(0.16, 1, 0.3, 1)",
       }}
     >
       {/* Chrome bar */}
@@ -70,7 +75,7 @@ export function HeroMockup({ phase }: { phase: number }) {
       <div style={{ background: C.surface, padding: 0, position: "relative", overflow: "hidden", display: "flex", flexDirection: "column" }}>
 
         {/* 4-column grid */}
-        <div style={{ padding: "14px 20px 16px", display: "grid", gridTemplateColumns: "1fr 1fr 1fr 0.85fr", gap: 14, opacity: phase >= 2 ? 1 : 0, transform: phase >= 2 ? "translateY(0)" : "translateY(12px)", transition: "all 0.7s cubic-bezier(0.16,1,0.3,1)" }}>
+        <div style={{ padding: "14px 20px 16px", display: "grid", gridTemplateColumns: "1fr 1fr 1fr 0.85fr", gap: 14, opacity: phase >= 2 ? 1 : 0, transform: phase >= 2 ? "translateY(0)" : "translateY(12px)", transition: prefersReduced ? "none" : "all 0.7s cubic-bezier(0.16,1,0.3,1)" }}>
 
           {/* Left — Mini site preview + KPIs */}
           <motion.div
@@ -139,7 +144,7 @@ export function HeroMockup({ phase }: { phase: number }) {
             transition={{ delay: 1.2, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             style={{ background: C.bg, borderRadius: 8, padding: "6px 8px 4px", border: `1px solid ${C.hair}`, display: "flex", flexDirection: "column" }}
           >
-            <EChartsDonut />
+            <EChartsPie />
           </motion.div>
 
           {/* Right — Bar chart */}
@@ -169,7 +174,7 @@ export function HeroMockup({ phase }: { phase: number }) {
                     background: C.surface, borderRadius: 6, border: `1px solid ${C.hair}`,
                     opacity: i < visibleItems ? 1 : 0,
                     transform: i < visibleItems ? "translateY(0)" : "translateY(6px)",
-                    transition: `all 0.4s cubic-bezier(0.16,1,0.3,1) ${i * 0.05}s`,
+                    transition: prefersReduced ? "none" : `all 0.4s cubic-bezier(0.16,1,0.3,1) ${i * 0.05}s`,
                   }}
                 >
                   <span style={{ fontSize: 9, color: item.color, flexShrink: 0 }}>{item.icon}</span>

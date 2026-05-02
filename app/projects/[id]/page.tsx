@@ -41,19 +41,6 @@ const C = {
   hair: "rgba(20,19,15,0.08)",
 };
 
-function BrightByteLogo({ size = 24 }: { size?: number }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 32 32" fill="none">
-      <rect x="2" y="22" width="8" height="8" rx="1.5" fill="#C4ADCF" />
-      <rect x="12" y="22" width="8" height="8" rx="1.5" fill="#C4ADCF" />
-      <rect x="2" y="12" width="8" height="8" rx="1.5" fill="#C4ADCF" />
-      <rect x="12" y="12" width="8" height="8" rx="3" fill="#C4ADCF" opacity="0.85" />
-      <rect x="22" y="12" width="8" height="8" rx="4" fill="#C4ADCF" opacity="0.7" />
-      <circle cx="26" cy="6" r="4.5" fill="#C4ADCF" opacity="0.45" />
-    </svg>
-  );
-}
-
 export default async function ProjectPage({
   params,
 }: {
@@ -67,23 +54,8 @@ export default async function ProjectPage({
 
   return (
     <div style={{ background: C.bg, color: C.ink, fontFamily: "var(--font-geist)" }}>
-      {/* Nav */}
-      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "22px 56px", borderBottom: `1px solid ${C.hair}`, position: "relative" }}>
-        <Link href="/" style={{ display: "flex", alignItems: "center", gap: 10, textDecoration: "none" }}>
-          <BrightByteLogo size={28} />
-          <div style={{ fontSize: 15, letterSpacing: "-0.01em" }}>
-            <span style={{ fontWeight: 600, color: C.ink }}>bright</span>
-            <span className="serif" style={{ fontStyle: "italic", fontWeight: 400, color: C.accent }}>byte</span>
-            <span style={{ color: C.sub, fontWeight: 400 }}>.berlin</span>
-          </div>
-        </Link>
-        <Link href="/#work" style={{ display: "flex", alignItems: "center", gap: 8, textDecoration: "none" }}>
-          <span className="mono" style={{ fontSize: 11, color: C.sub, letterSpacing: "0.04em" }}>← Back to work</span>
-        </Link>
-      </div>
-
       {/* Hero — full-width browser mockup */}
-      <div style={{ padding: "64px 56px 48px", background: `linear-gradient(180deg, ${C.bg} 0%, ${C.surface} 100%)`, position: "relative" }}>
+      <div className="px-5 pt-10 pb-8 sm:px-8 sm:pt-14 lg:px-14 lg:pt-16 lg:pb-12 relative" style={{ background: `linear-gradient(180deg, ${C.bg} 0%, ${C.surface} 100%)` }}>
         <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", background: `radial-gradient(ellipse at 50% 80%, ${p.accentColor}15 0%, transparent 60%)`, pointerEvents: "none" }} />
         {/* Browser mockup */}
         <div style={{ maxWidth: 1000, margin: "0 auto", borderRadius: 12, overflow: "hidden", boxShadow: "0 24px 80px -12px rgba(20,19,15,0.18), 0 0 0 1px rgba(20,19,15,0.06)", position: "relative" }}>
@@ -99,35 +71,71 @@ export default async function ProjectPage({
             </div>
           </div>
           {/* Mock site content */}
-          <div style={{ background: C.surface, padding: "40px 48px", minHeight: 400 }}>
-            {/* Mock nav */}
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 40 }}>
-              <div style={{ width: 80, height: 12, borderRadius: 4, background: C.ink, opacity: 0.8 }} />
-              <div style={{ display: "flex", gap: 20 }}>
-                {[48, 36, 42, 36].map((w, i) => (
-                  <div key={i} style={{ width: w, height: 8, borderRadius: 3, background: C.hair }} />
+          {p.slug === "learnstep" ? (
+            <div style={{ background: C.surface, padding: "40px 48px", minHeight: 400 }}>
+              {/* Centered nav */}
+              <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: 32, marginBottom: 48 }}>
+                <div style={{ width: 60, height: 8, borderRadius: 3, background: C.hair }} />
+                <div style={{ width: 48, height: 8, borderRadius: 3, background: C.hair }} />
+                <div style={{ width: 72, height: 10, borderRadius: 4, background: p.accentColor, opacity: 0.7 }} />
+                <div style={{ width: 48, height: 8, borderRadius: 3, background: C.hair }} />
+                <div style={{ width: 56, height: 8, borderRadius: 3, background: C.hair }} />
+              </div>
+              {/* Centered heading block */}
+              <div style={{ textAlign: "center", marginBottom: 36 }}>
+                <div style={{ width: 280, height: 14, borderRadius: 4, background: C.ink, opacity: 0.8, margin: "0 auto 10px" }} />
+                <div style={{ width: 200, height: 8, borderRadius: 3, background: C.hair, margin: "0 auto" }} />
+              </div>
+              {/* Session cards grid */}
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 16, marginBottom: 32 }}>
+                {[0, 1, 2].map((i) => (
+                  <div key={i} style={{ background: C.bg, borderRadius: 10, padding: "20px 16px", border: `1px solid ${C.hair}` }}>
+                    <div style={{ width: 28, height: 28, borderRadius: "50%", background: `${p.accentColor}${i === 1 ? "44" : "22"}`, marginBottom: 12 }} />
+                    <div style={{ width: "80%", height: 8, borderRadius: 3, background: C.ink, opacity: 0.6, marginBottom: 8 }} />
+                    <div style={{ width: "60%", height: 6, borderRadius: 2, background: C.hair, marginBottom: 6 }} />
+                    <div style={{ width: "70%", height: 6, borderRadius: 2, background: C.hair, marginBottom: 14 }} />
+                    <div style={{ width: 72, height: 24, borderRadius: 99, background: p.accentColor, opacity: i === 1 ? 0.85 : 0.4 }} />
+                  </div>
+                ))}
+              </div>
+              {/* Testimonial block */}
+              <div style={{ maxWidth: 400, margin: "0 auto", textAlign: "center" }}>
+                <div style={{ width: 32, height: 32, borderRadius: "50%", background: `${p.accentColor}33`, margin: "0 auto 10px" }} />
+                <div style={{ width: "90%", height: 6, borderRadius: 2, background: C.hair, margin: "0 auto 5px" }} />
+                <div style={{ width: "70%", height: 6, borderRadius: 2, background: C.hair, margin: "0 auto" }} />
+              </div>
+            </div>
+          ) : (
+            <div style={{ background: C.surface, padding: "40px 48px", minHeight: 400 }}>
+              {/* Mock nav */}
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 40 }}>
+                <div style={{ width: 80, height: 12, borderRadius: 4, background: C.ink, opacity: 0.8 }} />
+                <div style={{ display: "flex", gap: 20 }}>
+                  {[48, 36, 42, 36].map((w, i) => (
+                    <div key={i} style={{ width: w, height: 8, borderRadius: 3, background: C.hair }} />
+                  ))}
+                </div>
+              </div>
+              {/* Mock hero */}
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 48, alignItems: "center" }}>
+                <div>
+                  <div style={{ width: "90%", height: 16, borderRadius: 4, background: C.ink, marginBottom: 10, opacity: 0.85 }} />
+                  <div style={{ width: "70%", height: 16, borderRadius: 4, background: C.ink, marginBottom: 20, opacity: 0.6 }} />
+                  <div style={{ width: "100%", height: 8, borderRadius: 3, background: C.hair, marginBottom: 6 }} />
+                  <div style={{ width: "85%", height: 8, borderRadius: 3, background: C.hair, marginBottom: 6 }} />
+                  <div style={{ width: "90%", height: 8, borderRadius: 3, background: C.hair, marginBottom: 24 }} />
+                  <div style={{ width: 120, height: 36, borderRadius: 99, background: p.accentColor, opacity: 0.8 }} />
+                </div>
+                <div style={{ height: 220, borderRadius: 10, background: `linear-gradient(135deg, ${p.accentColor}22 0%, ${p.accentColor}44 100%)`, border: `1px solid ${C.hair}` }} />
+              </div>
+              {/* Mock sections */}
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 20, marginTop: 40 }}>
+                {[0, 1, 2].map((i) => (
+                  <div key={i} style={{ height: 100, borderRadius: 8, background: C.hair, opacity: 0.4 }} />
                 ))}
               </div>
             </div>
-            {/* Mock hero */}
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 48, alignItems: "center" }}>
-              <div>
-                <div style={{ width: "90%", height: 16, borderRadius: 4, background: C.ink, marginBottom: 10, opacity: 0.85 }} />
-                <div style={{ width: "70%", height: 16, borderRadius: 4, background: C.ink, marginBottom: 20, opacity: 0.6 }} />
-                <div style={{ width: "100%", height: 8, borderRadius: 3, background: C.hair, marginBottom: 6 }} />
-                <div style={{ width: "85%", height: 8, borderRadius: 3, background: C.hair, marginBottom: 6 }} />
-                <div style={{ width: "90%", height: 8, borderRadius: 3, background: C.hair, marginBottom: 24 }} />
-                <div style={{ width: 120, height: 36, borderRadius: 99, background: p.accentColor, opacity: 0.8 }} />
-              </div>
-              <div style={{ height: 220, borderRadius: 10, background: `linear-gradient(135deg, ${p.accentColor}22 0%, ${p.accentColor}44 100%)`, border: `1px solid ${C.hair}` }} />
-            </div>
-            {/* Mock sections */}
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 20, marginTop: 40 }}>
-              {[0, 1, 2].map((i) => (
-                <div key={i} style={{ height: 100, borderRadius: 8, background: C.hair, opacity: 0.4 }} />
-              ))}
-            </div>
-          </div>
+          )}
         </div>
         {/* Title below mockup */}
         <div style={{ textAlign: "center", marginTop: 48 }}>
@@ -137,7 +145,7 @@ export default async function ProjectPage({
       </div>
 
       {/* Meta bar */}
-      <div style={{ padding: "20px 56px", borderTop: `1px solid ${C.hair}`, borderBottom: `1px solid ${C.hair}`, display: "flex", alignItems: "center", gap: 24, flexWrap: "wrap" }}>
+      <div className="px-5 py-4 sm:px-8 lg:px-14 flex items-center gap-4 sm:gap-6 flex-wrap" style={{ borderTop: `1px solid ${C.hair}`, borderBottom: `1px solid ${C.hair}` }}>
         <span className="mono" style={{ fontSize: 11, color: C.sub, letterSpacing: "0.04em" }}>{p.client}</span>
         <span style={{ width: 3, height: 3, borderRadius: "50%", background: C.subLight }} />
         <span className="mono" style={{ fontSize: 11, color: C.sub, letterSpacing: "0.04em" }}>{p.year}</span>
@@ -151,8 +159,8 @@ export default async function ProjectPage({
       </div>
 
       {/* Challenge / Brief */}
-      <div style={{ padding: "112px 56px", borderBottom: `1px solid ${C.hair}` }}>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 2fr", gap: 48 }}>
+      <div className="px-5 py-16 sm:px-8 sm:py-20 lg:px-14 lg:py-28" style={{ borderBottom: `1px solid ${C.hair}` }}>
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-6 lg:gap-12">
           <div>
             <div className="mono" style={{ fontSize: 11, color: C.sub, letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: 16 }}>01 · Challenge</div>
             <h2 style={{ fontSize: 36, fontWeight: 500, color: C.ink, letterSpacing: "-0.02em", lineHeight: 1.1 }}>
@@ -166,8 +174,8 @@ export default async function ProjectPage({
       </div>
 
       {/* Solution / Approach */}
-      <div style={{ padding: "112px 56px", borderBottom: `1px solid ${C.hair}` }}>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 2fr", gap: 48 }}>
+      <div className="px-5 py-16 sm:px-8 sm:py-20 lg:px-14 lg:py-28" style={{ borderBottom: `1px solid ${C.hair}` }}>
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-6 lg:gap-12">
           <div>
             <div className="mono" style={{ fontSize: 11, color: C.sub, letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: 16 }}>02 · Solution</div>
             <h2 style={{ fontSize: 36, fontWeight: 500, color: C.ink, letterSpacing: "-0.02em", lineHeight: 1.1 }}>
@@ -189,7 +197,7 @@ export default async function ProjectPage({
       </div>
 
       {/* Gallery */}
-      <div style={{ padding: "112px 56px", borderBottom: `1px solid ${C.hair}` }}>
+      <div className="px-5 py-16 sm:px-8 sm:py-20 lg:px-14 lg:py-28" style={{ borderBottom: `1px solid ${C.hair}` }}>
         <div className="mono" style={{ fontSize: 11, color: C.sub, letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: 48 }}>03 · Gallery</div>
         <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr", gap: 16 }}>
           {/* Large desktop mockup */}
@@ -226,7 +234,7 @@ export default async function ProjectPage({
       </div>
 
       {/* Results */}
-      <div style={{ padding: "112px 56px", borderBottom: `1px solid ${C.hair}` }}>
+      <div className="px-5 py-16 sm:px-8 sm:py-20 lg:px-14 lg:py-28" style={{ borderBottom: `1px solid ${C.hair}` }}>
         <div className="mono" style={{ fontSize: 11, color: C.sub, letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: 48 }}>04 · Results</div>
         {/* Metric cards */}
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 20, marginBottom: 64 }}>
@@ -247,7 +255,7 @@ export default async function ProjectPage({
 
       {/* Next project */}
       <Link href={`/projects/${next.slug}`} style={{ textDecoration: "none" }}>
-        <div style={{ padding: "80px 56px", background: C.ink }}>
+        <div className="px-5 py-12 sm:px-8 sm:py-16 lg:px-14 lg:py-20" style={{ background: C.ink }}>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
             <div>
               <div className="mono" style={{ fontSize: 11, color: "rgba(251,248,241,0.5)", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: 12 }}>Next project</div>
@@ -260,21 +268,6 @@ export default async function ProjectPage({
           </div>
         </div>
       </Link>
-
-      {/* Footer */}
-      <div style={{ padding: "48px 56px 32px", background: C.ink, borderTop: "1px solid rgba(251,248,241,0.06)" }}>
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-          <Link href="/" style={{ display: "flex", alignItems: "center", gap: 10, textDecoration: "none" }}>
-            <BrightByteLogo size={24} />
-            <span style={{ fontSize: 13, color: "rgba(251,248,241,0.7)" }}>
-              <span style={{ fontWeight: 600, color: C.surface }}>bright</span>
-              <span className="serif" style={{ fontStyle: "italic", color: C.accentSoft }}>byte</span>
-              <span style={{ color: "rgba(251,248,241,0.5)" }}>.berlin</span>
-            </span>
-          </Link>
-          <span className="mono" style={{ fontSize: 11, color: "rgba(251,248,241,0.5)", letterSpacing: "0.04em" }}>© 2026 Brightbyte · Berlin</span>
-        </div>
-      </div>
     </div>
   );
 }

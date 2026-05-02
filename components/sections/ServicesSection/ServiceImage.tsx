@@ -35,13 +35,6 @@ export function ServiceImage({ kind }: { kind: "lp" | "app" | "ai" | "sup" }) {
           </div>
         </div>
         {/* Lighthouse score ring */}
-        <div style={{ position: "absolute", top: 10, right: 12, width: 32, height: 32, borderRadius: "50%", background: "rgba(251,248,241,0.92)", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 2px 8px rgba(20,19,15,0.1)", zIndex: 2 }}>
-          <svg width={26} height={26} viewBox="0 0 26 26">
-            <circle cx={13} cy={13} r={10} fill="none" stroke="#E8E3D6" strokeWidth={2.5} />
-            <circle cx={13} cy={13} r={10} fill="none" stroke={C.green} strokeWidth={2.5} strokeDasharray={`${2 * Math.PI * 10 * 0.98} ${2 * Math.PI * 10}`} strokeLinecap="round" transform="rotate(-90 13 13)" />
-          </svg>
-          <span className="mono" style={{ position: "absolute", fontSize: 7, fontWeight: 700, color: C.ink }}>98</span>
-        </div>
       </div>
     ),
     app: (
@@ -147,11 +140,6 @@ export function ServiceImage({ kind }: { kind: "lp" | "app" | "ai" | "sup" }) {
               </rect>
             </svg>
           </div>
-        </div>
-        {/* Accuracy badge */}
-        <div style={{ position: "absolute", top: 8, right: 10, background: "rgba(20,13,24,0.9)", border: "1px solid rgba(107,57,119,0.3)", borderRadius: 6, padding: "3px 7px", display: "flex", alignItems: "center", gap: 4, zIndex: 2 }}>
-          <div style={{ width: 5, height: 5, borderRadius: "50%", background: C.green }} />
-          <span className="mono" style={{ fontSize: 7, color: C.accentSoft }}>acc: 97.2%</span>
         </div>
       </div>
     ),

@@ -21,16 +21,11 @@ interface ScopeOption {
   ideal: string;
 }
 
-export function ScopeCard({ scope, isMobile }: { scope: ScopeOption; isMobile?: boolean }) {
+export function ScopeCard({ scope }: { scope: ScopeOption }) {
   return (
-    <div style={{
+    <div className="p-5 sm:p-7 lg:p-9 grid grid-cols-1 lg:grid-cols-[1fr_1.6fr] gap-6 lg:gap-12 rounded-2xl" style={{
       background: C.surface,
       border: `1px solid ${C.hair}`,
-      borderRadius: 16,
-      padding: isMobile ? "28px 20px" : "36px 40px",
-      display: "grid",
-      gridTemplateColumns: isMobile ? "1fr" : "1fr 1.6fr",
-      gap: isMobile ? 24 : 48,
     }}>
       {/* Left — identity & CTA */}
       <div style={{ display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
@@ -72,7 +67,7 @@ export function ScopeCard({ scope, isMobile }: { scope: ScopeOption; isMobile?: 
       {/* Right — what's included */}
       <div style={{ display: "flex", flexDirection: "column", justifyContent: "center" }}>
         <div className="mono" style={{ fontSize: 10, color: C.sub, letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: 16 }}>What&apos;s included</div>
-        <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr", gap: "12px 24px" }}>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-x-6">
           {scope.includes.map((f) => (
             <div key={f} style={{ display: "flex", gap: 10, alignItems: "flex-start", fontSize: 14, lineHeight: 1.5, color: C.inkSoft }}>
               <span style={{ color: C.accent, marginTop: 2, flexShrink: 0 }}>✓</span>

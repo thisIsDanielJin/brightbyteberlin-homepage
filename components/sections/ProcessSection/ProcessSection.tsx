@@ -24,23 +24,23 @@ export function ProcessSection() {
   }, [steps.length]);
 
   return (
-    <section id="process" style={{ padding: "112px 56px", background: `radial-gradient(ellipse at 50% 0%, rgba(237,229,240,0.3) 0%, ${C.surface} 70%)`, borderBottom: `1px solid ${C.hair}` }}>
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 2fr", gap: 48, marginBottom: 72, alignItems: "baseline" }}>
+    <section id="process" className="px-5 py-16 sm:px-8 sm:py-20 lg:px-14 lg:py-28" style={{ background: `radial-gradient(ellipse at 50% 0%, rgba(237,229,240,0.3) 0%, ${C.surface} 70%)`, borderBottom: `1px solid ${C.hair}` }}>
+      <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-6 lg:gap-12 mb-12 lg:mb-[72px] items-baseline">
         <div className="mono" style={{ fontSize: 11, color: C.sub, letterSpacing: "0.12em", textTransform: "uppercase" }}>{t.process.label}</div>
         <div>
-          <h2 style={{ fontSize: 56, fontWeight: 500, color: C.ink, letterSpacing: "-0.03em", lineHeight: 1.02, marginBottom: 18 }}>
+          <h2 className="text-3xl sm:text-4xl lg:text-[56px] font-medium tracking-tight leading-tight lg:leading-[1.02] mb-4" style={{ color: C.ink }}>
             {t.process.heading}<br />
             <span className="serif" style={{ fontStyle: "italic", fontWeight: 400 }}>{t.process.headingItalic}</span>
           </h2>
-          <p style={{ fontSize: 17, color: C.sub, maxWidth: 520, lineHeight: 1.6 }}>
+          <p className="text-[15px] lg:text-[17px] max-w-[520px] leading-relaxed" style={{ color: C.sub }}>
             {t.process.subtitle}
           </p>
         </div>
       </div>
-      <div style={{ position: "relative", paddingTop: 32 }}>
-        <div style={{ position: "absolute", left: "calc(12.5% - 1px)", right: "calc(12.5% - 1px)", top: 61, height: 2, background: `repeating-linear-gradient(to right, ${C.hairStrong} 0 4px, transparent 4px 8px)` }} />
-        <div style={{ position: "absolute", left: "calc(12.5% - 1px)", top: 61, height: 2, background: C.accent, width: `calc((100% - 25%) * ${active / (steps.length - 1)})`, transition: "width 1.4s cubic-bezier(0.4,0,0.2,1)" }} />
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 0, position: "relative", zIndex: 1 }}>
+      <div className="relative pt-8">
+        <div className="hidden lg:block absolute left-[calc(12.5%-1px)] right-[calc(12.5%-1px)] top-[61px] h-[2px]" style={{ background: `repeating-linear-gradient(to right, ${C.hairStrong} 0 4px, transparent 4px 8px)` }} />
+        <div className="hidden lg:block absolute left-[calc(12.5%-1px)] top-[61px] h-[2px]" style={{ background: C.accent, width: `calc((100% - 25%) * ${active / (steps.length - 1)})`, transition: "width 1.4s cubic-bezier(0.4,0,0.2,1)" }} />
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-0 relative z-[1]">
           {steps.map((p, i) => {
             const isActive = i === active;
             const isPast = i < active;

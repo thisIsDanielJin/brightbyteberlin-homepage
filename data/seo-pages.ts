@@ -367,14 +367,14 @@ No agency overhead, no weeks of waiting for feedback rounds. One developer who s
     heroHeadlineEn: "Websites for Law Firms ·\nbuild trust, win clients",
     heroSubtext: `Mandanten suchen heute online nach einem Anwalt. Ihre Website ist oft der erste Eindruck — und muss in Sekunden Kompetenz und Seriosität vermitteln. Eine veraltete oder langsame Kanzlei-Website kostet Sie potenzielle Mandanten.
 
-BrightByte baut Kanzlei-Websites, die Vertrauen schaffen: klares, professionelles Design, schnelle Ladezeiten, DSGVO-konforme Kontaktformulare und optionale Online-Terminbuchung. Spezialisiert auf die Bedürfnisse von Anwälten und Kanzleien.
+BrightByte baut Kanzlei-Websites, die Vertrauen schaffen: klares, professionelles Design, schnelle Ladezeiten, DSGVO-konforme Kontaktformulare und optionale Online-Terminbuchung. Spezialisiert auf die Bedürfnisse von Anwälten und Kanzleien. Die Website stellt Ihre Rechtsgebiete strukturiert dar und macht es Mandanten leicht, den richtigen Ansprechpartner zu finden. Jedes Element vermittelt Kompetenz und Seriosität: von der Typografie über die Farbwelt bis zur Bildsprache. Dazu kommen korrekte berufsrechtliche Pflichtangaben im Impressum und eine Datenschutzerklärung, die den aktuellen Anforderungen entspricht.
 
-Sie konzentrieren sich auf Ihre Mandanten. Ich sorge dafür, dass neue Mandanten Sie online finden und sofort Vertrauen fassen.`,
+Sie konzentrieren sich auf Ihre Mandanten. Ich sorge dafür, dass neue Mandanten Sie online finden und sofort Vertrauen fassen. Lokale SEO bringt Sie bei Google nach vorn, wenn potenzielle Mandanten nach Rechtsberatung in Ihrer Region suchen. Über ein einfaches CMS aktualisieren Sie Teamprofile, Rechtsgebiete oder aktuelle Beiträge selbst. Und wenn Sie einen monatlichen Retainer für Updates und Monitoring wünschen, ist das unkompliziert möglich. So bleibt Ihre Kanzlei-Website immer aktuell und professionell, ohne dass Sie sich selbst mit Technik beschäftigen müssen.`,
     heroSubtextEn: `Today's clients search for lawyers online. Your website is often the first impression — and must convey competence and professionalism within seconds. An outdated or slow law firm website costs you potential clients.
 
-BrightByte builds law firm websites that create trust: clear, professional design, fast load times, GDPR-compliant contact forms, and optional online appointment booking. Specialized for the needs of lawyers and law firms.
+BrightByte builds law firm websites that create trust: clear, professional design, fast load times, GDPR-compliant contact forms, and optional online appointment booking. Specialized for the needs of lawyers and law firms. The website presents your practice areas in a structured way and makes it easy for clients to find the right contact person. Every element conveys competence and professionalism: from typography to color palette to imagery. Plus correct mandatory professional information in the legal notice and a privacy policy that meets current requirements.
 
-You focus on your clients. I make sure new clients find you online and immediately trust you.`,
+You focus on your clients. I make sure new clients find you online and immediately trust you. Local SEO puts you ahead on Google when potential clients search for legal counsel in your area. Through a simple CMS, you update team profiles, practice areas, or current articles yourself. And if you'd like a monthly retainer for updates and monitoring, that's easily arranged. This way your law firm website stays current and professional without you having to deal with technology yourself.`,
     faqs: [
       {
         q: "Ist die Website berufsrechtlich konform?",
@@ -423,14 +423,14 @@ You focus on your clients. I make sure new clients find you online and immediate
     heroHeadlineEn: "Real Estate Websites ·\nshowcase properties, attract buyers",
     heroSubtext: `Im Immobilienmarkt entscheidet der erste Eindruck. Interessenten erwarten hochwertige Objekt-Präsentationen, schnelle Kontaktmöglichkeiten und eine Website, die Professionalität ausstrahlt. Ihre Online-Präsenz ist Ihre digitale Visitenkarte.
 
-BrightByte baut Immobilien-Websites, die verkaufen: elegante Objekt-Galerien, Exposé-Downloads, integrierte Kontaktformulare und eine Darstellung, die Ihre Objekte ins beste Licht rückt. Optimiert für mobile Nutzung und lokale Suchen.
+BrightByte baut Immobilien-Websites, die verkaufen: elegante Objekt-Galerien, Exposé-Downloads, integrierte Kontaktformulare und eine Darstellung, die Ihre Objekte ins beste Licht rückt. Optimiert für mobile Nutzung und lokale Suchen. Jedes Objekt bekommt eine eigene Seite mit Bildergalerie, Grundriss, Lagebeschreibung und Download-Option für das Exposé als PDF. Interessenten können direkt über ein Formular eine Besichtigung anfragen, ohne Umwege über Portale. Die Architektur ist so aufgebaut, dass neue Objekte in wenigen Minuten angelegt werden, mit allen relevanten Daten und Bildern.
 
-Ob Maklerbüro, Hausverwaltung oder Projektentwickler — Sie bekommen eine Website, die Vertrauen schafft und Interessenten in Kunden verwandelt.`,
+Ob Maklerbüro, Hausverwaltung oder Projektentwickler — Sie bekommen eine Website, die Vertrauen schafft und Interessenten in Kunden verwandelt. Ihre Objekte werden so präsentiert, wie es ihrem Wert entspricht: hochwertig, übersichtlich und mit allen Informationen, die ein Kaufinteressent oder Mieter braucht. Nach dem Launch verwalten Sie Ihr Portfolio selbst über ein CMS: neue Objekte online stellen, verkaufte markieren, Bilder tauschen. Und die Website wächst mit Ihrem Geschäft, ob zehn oder hundert Objekte im Portfolio.`,
     heroSubtextEn: `In the real estate market, first impressions decide. Prospects expect high-quality property presentations, quick contact options, and a website that radiates professionalism. Your online presence is your digital business card.
 
-BrightByte builds real estate websites that sell: elegant property galleries, exposé downloads, integrated contact forms, and a presentation that showcases your properties in the best light. Optimized for mobile use and local searches.
+BrightByte builds real estate websites that sell: elegant property galleries, exposé downloads, integrated contact forms, and a presentation that showcases your properties in the best light. Optimized for mobile use and local searches. Each property gets its own page with an image gallery, floor plan, location description, and download option for the exposé as PDF. Prospects can request a viewing directly through a form without detours through portals. The architecture is built so that new properties can be created in just a few minutes with all relevant data and images.
 
-Whether you're a brokerage, property manager, or developer — you get a website that builds trust and converts prospects into clients.`,
+Whether you're a brokerage, property manager, or developer — you get a website that builds trust and converts prospects into clients. Your properties are presented at the level they deserve: high-quality, clear, and with all the information a buyer or tenant needs. After launch, you manage your portfolio yourself through a CMS: put new properties online, mark sold ones, swap images. And the website grows with your business, whether you have ten or a hundred properties in your portfolio.`,
     faqs: [
       {
         q: "Kann ich Objekte selbst einstellen und verwalten?",
@@ -480,14 +480,14 @@ Whether you're a brokerage, property manager, or developer — you get a website
     heroHeadlineEn: "Web Design Kreuzberg ·\nfor creatives, gastro & startups",
     heroSubtext: `Kreuzberg ist kreativ, divers und bewegt sich schnell. Ihre Website sollte das widerspiegeln: modern, schnell, individuell. Kein Template von der Stange, sondern ein Design, das zu Ihrem Kiez passt.
 
-BrightByte arbeitet mit Unternehmen in Kreuzberg und kennt die Szene: ob Restaurant am Kottbusser Damm, Startup in der Ritterstraße oder Yoga-Studio am Landwehrkanal. Sie bekommen eine Website, die Ihre Nachbarschaft anspricht und bei lokalen Google-Suchen ganz oben steht.
+BrightByte arbeitet mit Unternehmen in Kreuzberg und kennt die Szene: ob Restaurant am Kottbusser Damm, Startup in der Ritterstraße oder Yoga-Studio am Landwehrkanal. Sie bekommen eine Website, die Ihre Nachbarschaft anspricht und bei lokalen Google-Suchen ganz oben steht. Kreuzberg ist international und mehrsprachig, deshalb biete ich DE/EN und auf Wunsch weitere Sprachen von Anfang an mit an. Das Design greift die kreative Energie des Kiezes auf: mutig, modern und authentisch, ohne dabei die Professionalität zu vernachlässigen, die Ihre Kunden erwarten.
 
-Kurze Wege, persönliche Treffen am Kanal, schnelle Umsetzung. Ein Webdesigner, der versteht was Kreuzberg ausmacht.`,
+Kurze Wege, persönliche Treffen am Kanal, schnelle Umsetzung. Ein Webdesigner, der versteht was Kreuzberg ausmacht. Wir besprechen Ihr Projekt bei einem Kaffee in der Nachbarschaft und ich liefere eine Website, die Ihr Geschäft so zeigt, wie es wirklich ist. Keine generischen Stockfotos, sondern authentische Bilder und Texte, die Ihre Stammkunden wiedererkennen und Neukunden neugierig machen. Von der Idee bis zur fertigen Website vergehen in der Regel nur 2 bis 3 Wochen, und danach sind Sie bei Google für lokale Suchanfragen aus Kreuzberg sichtbar.`,
     heroSubtextEn: `Kreuzberg is creative, diverse, and moves fast. Your website should reflect that: modern, fast, individual. No off-the-shelf template, but a design that fits your neighborhood.
 
-BrightByte works with businesses in Kreuzberg and knows the scene: whether a restaurant on Kottbusser Damm, a startup on Ritterstraße, or a yoga studio by Landwehrkanal. You get a website that speaks to your neighborhood and ranks at the top of local Google searches.
+BrightByte works with businesses in Kreuzberg and knows the scene: whether a restaurant on Kottbusser Damm, a startup on Ritterstraße, or a yoga studio by Landwehrkanal. You get a website that speaks to your neighborhood and ranks at the top of local Google searches. Kreuzberg is international and multilingual, which is why I offer DE/EN and additional languages from the start if needed. The design picks up the creative energy of the neighborhood: bold, modern, and authentic, without neglecting the professionalism your customers expect.
 
-Short distances, personal meetings by the canal, fast delivery. A web designer who understands what makes Kreuzberg tick.`,
+Short distances, personal meetings by the canal, fast delivery. A web designer who understands what makes Kreuzberg tick. We discuss your project over coffee in the neighborhood and I deliver a website that shows your business as it really is. No generic stock photos, but authentic images and texts that your regulars recognize and new customers find intriguing. From idea to finished website, it typically takes just 2 to 3 weeks, and afterward you're visible on Google for local searches from Kreuzberg.`,
     faqs: [
       {
         q: "Kannst du mich in Kreuzberg persönlich treffen?",
@@ -536,14 +536,14 @@ Short distances, personal meetings by the canal, fast delivery. A web designer w
     heroHeadlineEn: "Web Design Charlottenburg ·\nelegant, professional, local",
     heroSubtext: `Charlottenburg steht für Qualität und Beständigkeit. Ihre Website sollte das gleiche Niveau haben: seriös, elegant, professionell. Eine Online-Präsenz, die zu Ihrem etablierten Unternehmen passt.
 
-BrightByte baut Websites für Charlottenburger Unternehmen die Wert auf Qualität legen: Arztpraxen am Kurfürstendamm, Kanzleien in der Kantstraße, traditionsreiche Geschäfte in der Wilmersdorfer. Design mit Klasse, technisch auf dem neuesten Stand.
+BrightByte baut Websites für Charlottenburger Unternehmen die Wert auf Qualität legen: Arztpraxen am Kurfürstendamm, Kanzleien in der Kantstraße, traditionsreiche Geschäfte in der Wilmersdorfer. Design mit Klasse, technisch auf dem neuesten Stand. Die Website spiegelt die Seriosität und den Qualitätsanspruch Ihrer Kundschaft wider: durchdachte Typografie, elegante Farbgebung und eine Struktur, die Professionalität auf den ersten Blick vermittelt. Dazu kommen schnelle Ladezeiten und eine mobiloptimierte Darstellung, die auch auf dem Tablet im Wartezimmer oder am Smartphone unterwegs überzeugt.
 
-Persönliche Betreuung, Treffen vor Ort, ein Ansprechpartner der Ihre Ansprüche versteht. Keine anonyme Agentur, sondern ein Partner auf Augenhöhe.`,
+Persönliche Betreuung, Treffen vor Ort, ein Ansprechpartner der Ihre Ansprüche versteht. Keine anonyme Agentur, sondern ein Partner auf Augenhöhe. Ich nehme mir Zeit für Ihr Projekt und verstehe, dass etablierte Unternehmen andere Anforderungen haben als Startups. Ihre Website muss Bestandskunden bestätigen, dass sie am richtigen Ort sind, und gleichzeitig neue Kunden überzeugen. Nach dem Launch kümmere ich mich auf Wunsch um laufende Updates, technische Wartung und inhaltliche Änderungen, damit Sie sich ganz auf Ihr Kerngeschäft konzentrieren können.`,
     heroSubtextEn: `Charlottenburg stands for quality and permanence. Your website should be at the same level: serious, elegant, professional. An online presence that matches your established business.
 
-BrightByte builds websites for Charlottenburg businesses that value quality: medical practices on Kurfürstendamm, law firms on Kantstraße, traditional shops on Wilmersdorfer. Design with class, technically state-of-the-art.
+BrightByte builds websites for Charlottenburg businesses that value quality: medical practices on Kurfürstendamm, law firms on Kantstraße, traditional shops on Wilmersdorfer. Design with class, technically state-of-the-art. The website reflects the seriousness and quality expectations of your clientele: thoughtful typography, elegant color schemes, and a structure that conveys professionalism at first glance. Plus fast load times and a mobile-optimized display that looks convincing on a tablet in the waiting room or on a smartphone on the go.
 
-Personal support, on-site meetings, one contact who understands your standards. No anonymous agency, but a partner at eye level.`,
+Personal support, on-site meetings, one contact who understands your standards. No anonymous agency, but a partner at eye level. I take time for your project and understand that established businesses have different requirements than startups. Your website needs to confirm to existing customers that they're in the right place while simultaneously convincing new ones. After launch, I handle ongoing updates, technical maintenance, and content changes on request so you can focus entirely on your core business.`,
     faqs: [
       {
         q: "Bietest du Treffen in Charlottenburg an?",
@@ -592,14 +592,14 @@ Personal support, on-site meetings, one contact who understands your standards. 
     heroHeadlineEn: "Web Design Prenzlauer Berg ·\nlocally rooted, digitally strong",
     heroSubtext: `Prenzlauer Berg lebt von seinen lokalen Geschäften: dem Café an der Ecke, der Kinderarztpraxis, dem Yoga-Studio, der kleinen Boutique. Ihre Website sollte diese lokale Verbundenheit widerspiegeln und gleichzeitig bei Google sichtbar sein.
 
-BrightByte baut Websites für Unternehmen in Prenzlauer Berg, die ihre Nachbarschaft ansprechen wollen: authentisch, modern, schnell. Mit lokaler SEO, Google Maps Integration und einem Design, das Vertrauen schafft.
+BrightByte baut Websites für Unternehmen in Prenzlauer Berg, die ihre Nachbarschaft ansprechen wollen: authentisch, modern, schnell. Mit lokaler SEO, Google Maps Integration und einem Design, das Vertrauen schafft. Ob Sie Familien ansprechen, die nach einer Kinderarztpraxis suchen, oder Yogis, die ein neues Studio entdecken wollen: die Website wird auf Ihre spezifische Zielgruppe im Kiez zugeschnitten. Ich optimiere für lokale Suchbegriffe, richte Ihr Google Business Profil ein und sorge dafür, dass Bewertungen und Standortinfos direkt auf Ihrer Website sichtbar sind.
 
-Ein Webdesigner, der Ihren Kiez kennt und Ihre Kunden versteht. Persönliche Beratung, faire Preise, schnelle Ergebnisse.`,
+Ein Webdesigner, der Ihren Kiez kennt und Ihre Kunden versteht. Persönliche Beratung, faire Preise, schnelle Ergebnisse. Wir treffen uns auf einen Kaffee am Helmholtzplatz oder in Ihren Räumlichkeiten und besprechen, was Ihre Website leisten soll. In 2 bis 3 Wochen ist das Ergebnis online. Danach pflegen Sie Inhalte selbst über ein einfaches CMS, und ich stehe für Fragen und Erweiterungen jederzeit bereit. Keine langen Vertragsbindungen, keine Abhängigkeiten, sondern eine Zusammenarbeit, die sich an Ihren Bedürfnissen orientiert.`,
     heroSubtextEn: `Prenzlauer Berg lives from its local businesses: the corner café, the pediatric practice, the yoga studio, the small boutique. Your website should reflect this local connection while being visible on Google.
 
-BrightByte builds websites for businesses in Prenzlauer Berg that want to reach their neighborhood: authentic, modern, fast. With local SEO, Google Maps integration, and a design that builds trust.
+BrightByte builds websites for businesses in Prenzlauer Berg that want to reach their neighborhood: authentic, modern, fast. With local SEO, Google Maps integration, and a design that builds trust. Whether you're targeting families looking for a pediatric practice or yogis discovering a new studio: the website is tailored to your specific target audience in the neighborhood. I optimize for local search terms, set up your Google Business profile, and ensure reviews and location info are visible directly on your website.
 
-A web designer who knows your neighborhood and understands your customers. Personal consultation, fair prices, fast results.`,
+A web designer who knows your neighborhood and understands your customers. Personal consultation, fair prices, fast results. We meet for coffee at Helmholtzplatz or at your location and discuss what your website should accomplish. In 2 to 3 weeks, the result is online. Afterward, you manage content yourself through a simple CMS, and I'm always available for questions and extensions. No long contract commitments, no dependencies, but a collaboration that adapts to your needs.`,
     faqs: [
       {
         q: "Verstehst du die Zielgruppe in Prenzlauer Berg?",
@@ -649,14 +649,14 @@ A web designer who knows your neighborhood and understands your customers. Perso
     heroHeadlineEn: "Website Relaunch ·\nmodernize without losing rankings",
     heroSubtext: `Ihre aktuelle Website ist veraltet, langsam oder nicht mehr mobil-optimiert — aber Sie haben sich über Jahre Google-Rankings aufgebaut, die Sie nicht verlieren wollen. Ein Website Relaunch ist die Lösung, wenn er richtig gemacht wird.
 
-BrightByte führt Relaunches durch, bei denen Ihre bestehenden Rankings geschützt werden: saubere URL-Weiterleitungen, technisches SEO von Anfang an, schrittweise Migration statt Big-Bang. So wird Ihre neue Website besser, ohne dass Sie bei Google abstürzen.
+BrightByte führt Relaunches durch, bei denen Ihre bestehenden Rankings geschützt werden: saubere URL-Weiterleitungen, technisches SEO von Anfang an, schrittweise Migration statt Big-Bang. So wird Ihre neue Website besser, ohne dass Sie bei Google abstürzen. Jede bestehende URL wird erfasst, bewertet und entweder beibehalten oder mit einer permanenten Weiterleitung versehen. Strukturierte Daten, Meta-Tags und interne Verlinkungen werden während des Relaunches optimiert, nicht nur übernommen. Das Ergebnis: in den meisten Fällen verbessern sich Ihre Rankings nach dem Relaunch sogar, weil die neue Seite technisch sauberer und schneller ist als die alte.
 
-Dazu kommen moderne Performance, zeitgemäßes Design und eine Architektur, die für die nächsten Jahre bereit ist. Kein Risiko-Relaunch, sondern ein kontrollierter Übergang.`,
+Dazu kommen moderne Performance, zeitgemäßes Design und eine Architektur, die für die nächsten Jahre bereit ist. Kein Risiko-Relaunch, sondern ein kontrollierter Übergang. Ich arbeite mit einer Staging-Umgebung, auf der Sie die neue Website in Ruhe prüfen können, bevor sie live geht. Ihre alte Seite bleibt bis zum letzten Moment online. Am Tag des Launches ist der Übergang nahtlos: DNS-Wechsel, Redirect-Aktivierung und ein letzter Check, ob alles korrekt funktioniert. In den Wochen danach überwache ich Rankings und Traffic, um sofort reagieren zu können, falls etwas Aufmerksamkeit braucht.`,
     heroSubtextEn: `Your current website is outdated, slow, or not mobile-optimized — but you've built up Google rankings over the years that you don't want to lose. A website relaunch is the solution, when done right.
 
-BrightByte handles relaunches that protect your existing rankings: clean URL redirects, technical SEO from the start, gradual migration instead of big-bang. Your new website gets better without crashing on Google.
+BrightByte handles relaunches that protect your existing rankings: clean URL redirects, technical SEO from the start, gradual migration instead of big-bang. Your new website gets better without crashing on Google. Every existing URL is captured, evaluated, and either kept or given a permanent redirect. Structured data, meta tags, and internal links are optimized during the relaunch, not just carried over. The result: in most cases, your rankings actually improve after the relaunch because the new site is technically cleaner and faster than the old one.
 
-Plus modern performance, contemporary design, and an architecture ready for years to come. No risky relaunch, but a controlled transition.`,
+Plus modern performance, contemporary design, and an architecture ready for years to come. No risky relaunch, but a controlled transition. I work with a staging environment where you can review the new website at your own pace before it goes live. Your old site stays online until the very last moment. On launch day, the transition is seamless: DNS switch, redirect activation, and a final check that everything works correctly. In the weeks that follow, I monitor rankings and traffic to react immediately if anything needs attention.`,
     faqs: [
       {
         q: "Verliere ich meine Google-Rankings beim Relaunch?",
@@ -705,14 +705,14 @@ Plus modern performance, contemporary design, and an architecture ready for year
     heroHeadlineEn: "Landing Page Creation ·\none page, one goal, maximum impact",
     heroSubtext: `Eine Landing Page hat nur eine Aufgabe: Besucher in Kunden verwandeln. Kein Menü-Labyrinth, keine Ablenkung — nur eine klare Botschaft und ein überzeugender Call-to-Action. Ob Produkt-Launch, Kampagne oder Lead-Generierung.
 
-BrightByte baut Landing Pages, die konvertieren: psychologisch durchdachtes Layout, schnelle Ladezeiten, A/B-Test-ready und perfekt auf allen Geräten. Mit React und Next.js — technisch auf dem neuesten Stand.
+BrightByte baut Landing Pages, die konvertieren: psychologisch durchdachtes Layout, schnelle Ladezeiten, A/B-Test-ready und perfekt auf allen Geräten. Mit React und Next.js — technisch auf dem neuesten Stand. Jede Sektion ist strategisch aufgebaut: eine klare Headline über dem Fold, überzeugende Nutzenargumente, Social Proof durch Testimonials oder Logos, und ein Call-to-Action, der ins Auge springt. Die Ladezeit liegt unter 2 Sekunden, was nicht nur die User Experience verbessert, sondern auch Ihren Google Ads Quality Score steigert und damit Ihre Klickkosten senkt.
 
-In 1–2 Wochen haben Sie eine Seite, die arbeitet. Keine Template-Lösung, sondern individuell auf Ihr Angebot und Ihre Zielgruppe zugeschnitten.`,
+In 1–2 Wochen haben Sie eine Seite, die arbeitet. Keine Template-Lösung, sondern individuell auf Ihr Angebot und Ihre Zielgruppe zugeschnitten. Nach dem Launch messen wir gemeinsam die Ergebnisse und optimieren iterativ: welche Headline konvertiert besser, welcher CTA-Text bringt mehr Klicks, an welcher Stelle springen Besucher ab. So wird Ihre Landing Page mit der Zeit immer effektiver. Und wenn eine Kampagne endet und die nächste startet, passen wir die Seite schnell an neue Botschaften und Zielgruppen an.`,
     heroSubtextEn: `A landing page has only one job: convert visitors into customers. No menu maze, no distractions — just a clear message and a compelling call-to-action. Whether it's a product launch, campaign, or lead generation.
 
-BrightByte builds landing pages that convert: psychologically designed layout, fast load times, A/B-test-ready, and perfect on all devices. With React and Next.js — technically state-of-the-art.
+BrightByte builds landing pages that convert: psychologically designed layout, fast load times, A/B-test-ready, and perfect on all devices. With React and Next.js — technically state-of-the-art. Every section is strategically built: a clear headline above the fold, compelling value propositions, social proof through testimonials or logos, and a call-to-action that catches the eye. Load time is under 2 seconds, which not only improves user experience but also boosts your Google Ads Quality Score, thereby reducing your cost per click.
 
-In 1–2 weeks you have a page that works. No template solution, but individually tailored to your offering and target audience.`,
+In 1–2 weeks you have a page that works. No template solution, but individually tailored to your offering and target audience. After launch, we measure results together and optimize iteratively: which headline converts better, which CTA text gets more clicks, at which point visitors drop off. This way your landing page becomes more effective over time. And when one campaign ends and the next begins, we quickly adapt the page to new messaging and target audiences.`,
     faqs: [
       {
         q: "Was ist in einer Landing Page enthalten?",
@@ -761,14 +761,14 @@ In 1–2 weeks you have a page that works. No template solution, but individuall
     heroHeadlineEn: "Fast Website ·\nperformance that Google rewards",
     heroSubtext: `Jede Sekunde Ladezeit kostet Sie Kunden: 53% der mobilen Nutzer verlassen eine Seite, die länger als 3 Sekunden lädt. Google bestraft langsame Websites mit schlechteren Rankings. Performance ist kein Nice-to-have, sondern Pflicht.
 
-BrightByte baut Websites mit Performance-First-Ansatz: optimierte Bilder, minimaler JavaScript-Footprint, Edge-Caching und Server-Side Rendering. Das Ergebnis: Lighthouse-Scores über 95, grüne Core Web Vitals und Ladezeiten unter 2 Sekunden.
+BrightByte baut Websites mit Performance-First-Ansatz: optimierte Bilder, minimaler JavaScript-Footprint, Edge-Caching und Server-Side Rendering. Das Ergebnis: Lighthouse-Scores über 95, grüne Core Web Vitals und Ladezeiten unter 2 Sekunden. Jede Entscheidung in der Entwicklung wird unter dem Gesichtspunkt der Performance getroffen: Welche Bibliotheken werden wirklich gebraucht? Wo kann Code gesplittet werden? Welche Ressourcen können vorab geladen werden? Das Ergebnis ist eine Website, die sich sofort anfühlt, egal ob Ihre Besucher über schnelles WLAN oder mobiles Netz zugreifen.
 
-Nicht durch Tricks, sondern durch solide Architektur mit Next.js und React. Websites die schnell sind und schnell bleiben — auch wenn Inhalte wachsen.`,
+Nicht durch Tricks, sondern durch solide Architektur mit Next.js und React. Websites die schnell sind und schnell bleiben — auch wenn Inhalte wachsen. Die Architektur ist so aufgebaut, dass hunderte von Seiten genauso schnell laden wie zehn. Bilder werden automatisch in modernen Formaten ausgeliefert und für jede Bildschirmgröße optimiert. Und im Gegensatz zu Quick-Fixes, die nach einigen Monaten verfallen, hält die Performance langfristig, weil die Grundlagen stimmen. Nach dem Launch erhalten Sie einen detaillierten Performance-Bericht und die Gewissheit, dass Ihre Website in der schnellsten Liga spielt.`,
     heroSubtextEn: `Every second of load time costs you customers: 53% of mobile users leave a page that takes longer than 3 seconds to load. Google penalizes slow websites with worse rankings. Performance isn't nice-to-have, it's a must.
 
-BrightByte builds websites with a performance-first approach: optimized images, minimal JavaScript footprint, edge caching, and server-side rendering. The result: Lighthouse scores above 95, green Core Web Vitals, and load times under 2 seconds.
+BrightByte builds websites with a performance-first approach: optimized images, minimal JavaScript footprint, edge caching, and server-side rendering. The result: Lighthouse scores above 95, green Core Web Vitals, and load times under 2 seconds. Every development decision is made with performance in mind: Which libraries are actually needed? Where can code be split? Which resources can be preloaded? The result is a website that feels instant, regardless of whether visitors access it via fast WiFi or mobile network.
 
-Not through tricks, but through solid architecture with Next.js and React. Websites that are fast and stay fast — even as content grows.`,
+Not through tricks, but through solid architecture with Next.js and React. Websites that are fast and stay fast — even as content grows. The architecture is built so that hundreds of pages load just as fast as ten. Images are automatically delivered in modern formats and optimized for every screen size. And unlike quick fixes that expire after a few months, the performance holds long-term because the foundations are right. After launch, you receive a detailed performance report and the certainty that your website plays in the fastest league.`,
     faqs: [
       {
         q: "Was bedeutet Lighthouse-Score 95+?",

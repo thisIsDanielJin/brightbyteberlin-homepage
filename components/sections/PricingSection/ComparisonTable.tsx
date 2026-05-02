@@ -18,17 +18,17 @@ export function ComparisonTable() {
   const { t } = useLocale();
 
   return (
-    <div style={{ background: C.surface, border: `1px solid ${C.hair}`, borderRadius: 18, padding: "40px 48px" }}>
-      <div style={{ marginBottom: 28 }}>
-        <h3 style={{ fontSize: 24, fontWeight: 600, color: C.ink, letterSpacing: "-0.02em", marginBottom: 6 }}>
+    <div className="p-5 sm:p-8 lg:p-10 rounded-[18px]" style={{ background: C.surface, border: `1px solid ${C.hair}` }}>
+      <div className="mb-6 lg:mb-7">
+        <h3 className="text-xl sm:text-2xl font-semibold tracking-tight mb-1.5" style={{ color: C.ink }}>
           {t.comparison.title}
         </h3>
-        <p style={{ fontSize: 15, color: C.sub, lineHeight: 1.5 }}>
+        <p className="text-[15px] leading-relaxed" style={{ color: C.sub }}>
           {t.comparison.subtitle}
         </p>
       </div>
 
-      <div style={{ overflowX: "auto" }}>
+      <div className="overflow-x-auto -mx-5 px-5 sm:mx-0 sm:px-0">
         <div style={{ display: "grid", gridTemplateColumns: "160px 1fr 1fr 1fr", gap: 0, minWidth: 600 }}>
           {/* Header row */}
           <div style={{ padding: "16px 20px", borderBottom: `2px solid ${C.hair}` }} />

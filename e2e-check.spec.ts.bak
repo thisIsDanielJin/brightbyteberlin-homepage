@@ -1,0 +1,28 @@
+import { test } from '@playwright/test';
+
+test('donut chart hover', async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto('http://localhost:3000');
+  await page.waitForTimeout(5000);
+  
+  const canvases = await page.locator('canvas').all();
+  const donutBox = await canvases[0].boundingBox();
+  if (!donutBox) throw new Error('Donut chart not found');
+  
+  console.log('Donut box:', JSON.stringify(donutBox));
+  
+  // Hover right side of donut (Organic segment)
+  await page.mouse.move(donutBox.x + donutBox.width * 0.7, donutBox.y + donutBox.height * 0.46);
+  await page.waitForTimeout(500);
+  await page.screenshot({ path: 'screenshots/donut-hover-right.png' });
+  
+  // Hover top of donut
+  await page.mouse.move(donutBox.x + donutBox.width * 0.5, donutBox.y + donutBox.height * 0.28);
+  await page.waitForTimeout(500);
+  await page.screenshot({ path: 'screenshots/donut-hover-top.png' });
+  
+  // Hover left side (smaller segments)
+  await page.mouse.move(donutBox.x + donutBox.width * 0.3, donutBox.y + donutBox.height * 0.55);
+  await page.waitForTimeout(500);
+  await page.screenshot({ path: 'screenshots/donut-hover-left.png' });
+});

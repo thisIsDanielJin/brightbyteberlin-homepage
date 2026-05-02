@@ -54,9 +54,9 @@ export const en = {
     subtitle: "A selection of work shipped in the past 12 months. Real businesses, real outcomes.",
     seeAll: "View all projects",
     items: [
-      { client: "Lindner Bäckerei", kind: "Local business · landing + booking", metric: "+34% bookings", quote: "Daniel delivered in 10 days. Our bookings went up immediately." },
-      { client: "Atlas Studio", kind: "Web app · client portal", metric: "10× faster than legacy", quote: "Finally a developer who speaks plain German and ships on time." },
-      { client: "Verdant Yoga", kind: "Multi-page · class scheduling", metric: "Lighthouse 100", quote: "The site loads instantly. Students notice. We notice." },
+      { client: "Studio Blumenspiess", kind: "Multi-page · portfolio", metric: "+200% inquiries", quote: "The site finally reflects the quality of our work. Clients now find us through Google." },
+      { client: "Learnstep", kind: "Multi-page · booking system", metric: "92% bookings online", quote: "I can focus on my clients instead of admin. The booking system runs itself." },
+      { client: "Lumo Baumpflege", kind: "Landing page · lead generation", metric: "+47% more leads", quote: "Since the new site, twice as many clients call. And booking runs automatically." },
     ],
   },
   about: {
@@ -134,7 +134,7 @@ export const en = {
     messageLabel: "Tell me about it",
     messagePlaceholder: "We’re a small clinic in Mitte and our current site is slow and looks dated. We want to attract new patients and offer online booking…",
     formFooter: "Reply within 24 hours, guaranteed.",
-    submit: "Send brief →",
+    submit: "Send brief",
     submitting: "Sending…",
   },
   footer: {
@@ -208,9 +208,9 @@ export const de = {
     subtitle: "Eine Auswahl der in den letzten 12 Monaten gelieferten Projekte. Echte Unternehmen, echte Ergebnisse.",
     seeAll: "Alle Projekte ansehen",
     items: [
-      { client: "Lindner Bäckerei", kind: "Lokales Geschäft · Landing + Buchung", metric: "+34% Buchungen", quote: "Daniel hat in 10 Tagen geliefert. Unsere Buchungen sind sofort gestiegen." },
-      { client: "Atlas Studio", kind: "Web-App · Kundenportal", metric: "10× schneller als vorher", quote: "Endlich ein Entwickler, der klar kommuniziert und pünktlich liefert." },
-      { client: "Verdant Yoga", kind: "Multi-Page · Kursplanung", metric: "Lighthouse 100", quote: "Die Seite lädt sofort. Die Schüler merken es. Wir merken es." },
+      { client: "Studio Blumenspiess", kind: "Multi-Page · Portfolio", metric: "+200% Anfragen", quote: "Die Seite spiegelt endlich die Qualität unserer Arbeit wider. Kunden finden uns jetzt über Google." },
+      { client: "Learnstep", kind: "Multi-Page · Buchungssystem", metric: "92% Buchungen online", quote: "Ich kann mich endlich auf meine Klienten konzentrieren statt auf Verwaltung." },
+      { client: "Lumo Baumpflege", kind: "Landingpage · Leadgenerierung", metric: "+47% mehr Leads", quote: "Seit der neuen Seite rufen doppelt so viele Kunden an. Und die Buchung läuft automatisch." },
     ],
   },
   about: {
@@ -288,7 +288,7 @@ export const de = {
     messageLabel: "Erzähl mir davon",
     messagePlaceholder: "Wir sind eine kleine Praxis in Mitte und unsere aktuelle Website ist langsam und sieht veraltet aus. Wir wollen neue Patienten gewinnen und Online-Buchung anbieten…",
     formFooter: "Antwort innerhalb von 24 Stunden, garantiert.",
-    submit: "Briefing senden →",
+    submit: "Briefing senden",
     submitting: "Wird gesendet…",
   },
   footer: {

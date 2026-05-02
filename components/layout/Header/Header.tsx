@@ -59,20 +59,12 @@ export function Header() {
   return (
     <>
       <header
+        className="flex items-center justify-between px-5 sm:px-8 lg:px-14 h-[72px] sticky top-0 z-50 transition-[background,border-color,backdrop-filter] duration-350 ease-[cubic-bezier(0.16,1,0.3,1)]"
         style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          padding: "0 56px",
-          height: 72,
           borderBottom: `1px solid ${scrolled ? "var(--color-hair)" : "transparent"}`,
           background: scrolled ? "rgba(245,241,232,0.85)" : "var(--color-bg)",
-          position: "sticky",
-          top: 0,
-          zIndex: 50,
           backdropFilter: scrolled ? "blur(16px) saturate(1.4)" : "none",
           WebkitBackdropFilter: scrolled ? "blur(16px) saturate(1.4)" : "none",
-          transition: "background 0.35s cubic-bezier(0.16,1,0.3,1), border-color 0.35s ease, backdrop-filter 0.35s ease",
         }}
       >
         {/* Logo + Wordmark */}
@@ -96,7 +88,6 @@ export function Header() {
             position: "absolute",
             left: "50%",
             transform: "translateX(-50%)",
-            display: "flex",
             gap: 32,
             fontSize: 14,
             color: "var(--color-ink-soft)",

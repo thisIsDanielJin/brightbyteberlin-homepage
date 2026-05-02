@@ -11,7 +11,7 @@ export function TrustStrip() {
   const { t } = useLocale();
 
   return (
-    <div style={{ display: "flex", justifyContent: "center", gap: 24, flexWrap: "wrap" }}>
+    <div className="flex justify-center gap-4 sm:gap-6 flex-wrap">
       {t.trust.items.map((item, i) => (
         <span key={item} style={{ display: "inline-flex", alignItems: "center", gap: 24 }}>
           {i > 0 && <span style={{ color: C.subLight, fontSize: 10 }}>·</span>}

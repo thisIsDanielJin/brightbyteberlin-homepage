@@ -29,17 +29,17 @@ export function ServicesSection() {
   }, []);
 
   return (
-    <section id="services" style={{ padding: "112px 56px", background: `linear-gradient(180deg, ${C.bg} 0%, #F8F4EC 100%)` }}>
-      <div style={{ marginBottom: 72, paddingBottom: 20, borderBottom: `1px solid ${C.hair}` }}>
+    <section id="services" className="px-5 py-16 sm:px-8 sm:py-20 lg:px-14 lg:py-28" style={{ background: `linear-gradient(180deg, ${C.bg} 0%, #F8F4EC 100%)` }}>
+      <div className="mb-12 lg:mb-[72px] pb-5 border-b" style={{ borderColor: C.hair }}>
         <div className="mono" style={{ fontSize: 11, color: C.sub, letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: 16 }}>{t.services.label}</div>
-        <h2 style={{ fontSize: 44, fontWeight: 500, color: C.ink, letterSpacing: "-0.03em", lineHeight: 1.0, marginBottom: 12, textAlign: "center" }}>
+        <h2 className="text-2xl sm:text-3xl lg:text-[44px] font-medium tracking-tight leading-none mb-3 text-center" style={{ color: C.ink }}>
           {t.services.heading} <span className="serif" style={{ fontStyle: "italic", fontWeight: 400 }}>{t.services.headingItalic}</span>
         </h2>
-        <p style={{ fontSize: 14, color: C.sub, lineHeight: 1.55, maxWidth: 480, margin: "0 auto", textAlign: "center" }}>
+        <p className="text-sm leading-relaxed max-w-[480px] mx-auto text-center" style={{ color: C.sub }}>
           {t.services.subtitle}
         </p>
       </div>
-      <div ref={ref} style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 32 }}>
+      <div ref={ref} className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8">
         {SERVICES.map((s, idx) => (
           <Link key={s.tag} href={`/services/${s.slug}`} style={{ textDecoration: "none", color: "inherit" }}>
             <div className="card-hover" style={{ background: C.surface, borderRadius: 16, overflow: "hidden", display: "flex", flexDirection: "column", cursor: "pointer", height: "100%", opacity: inView ? 1 : 0, transform: inView ? "translateY(0)" : "translateY(20px)", transition: `opacity 0.9s cubic-bezier(0.16,1,0.3,1) ${idx * 0.15}s, transform 0.9s cubic-bezier(0.16,1,0.3,1) ${idx * 0.15}s` }}>

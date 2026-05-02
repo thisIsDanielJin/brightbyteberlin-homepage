@@ -13,9 +13,9 @@ export const PROCESS = [
 ];
 
 export const WORK = [
-  { client: "Lindner Bäckerei", kind: "Local business · landing + booking", metric: "+34% bookings", tag: "lindner" as const, stars: 5, quote: '"Daniel delivered in 10 days. Our bookings went up immediately."' },
-  { client: "Atlas Studio", kind: "Web app · client portal", metric: "10× faster than legacy", tag: "atlas" as const, stars: 5, quote: '"Finally a developer who speaks plain German and ships on time."' },
-  { client: "Verdant Yoga", kind: "Multi-page · class scheduling", metric: "Lighthouse 100", tag: "verdant" as const, stars: 5, quote: '"The site loads instantly. Students notice. We notice."' },
+  { client: "Studio Blumenspiess", kind: "Multi-page · portfolio", metric: "+200% inquiries", tag: "blumenspiess" as const, stars: 5, quote: '"The site finally reflects the quality of our work. Clients now find us through Google."', slug: "studio-blumenspiess" },
+  { client: "Learnstep", kind: "Multi-page · booking system", metric: "92% bookings online", tag: "learnstep" as const, stars: 5, quote: '"I can focus on my clients instead of admin. The booking system runs itself."', slug: "learnstep" },
+  { client: "Lumo Baumpflege", kind: "Landing page · lead generation", metric: "+47% more leads", tag: "lumo" as const, stars: 5, quote: '"Seit der neuen Seite rufen doppelt so viele Kunden an."', slug: "lumo-baumpflege" },
 ];
 
 export const FAQS = [

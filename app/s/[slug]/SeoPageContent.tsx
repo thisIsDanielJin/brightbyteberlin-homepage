@@ -67,7 +67,7 @@ export function SeoPageContent({ page }: { page: SeoPage }) {
   return (
     <div style={{ background: C.bg, color: C.ink, fontFamily: "var(--font-geist)" }}>
       {/* ─── HERO ─── */}
-      <section style={{ padding: "80px 56px 96px", display: "grid", gridTemplateColumns: "1.2fr 1fr", gap: 64, alignItems: "center" }}>
+      <section className="px-5 pt-16 pb-16 sm:px-8 sm:pt-20 sm:pb-20 lg:px-14 lg:pt-20 lg:pb-24 grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-10 lg:gap-16 items-center">
         <div>
           <div
             className="mono"
@@ -85,7 +85,7 @@ export function SeoPageContent({ page }: { page: SeoPage }) {
           >
             {categoryLabels[page.category][locale]}
           </div>
-          <h1 style={{ fontSize: 42, fontWeight: 500, letterSpacing: "-0.03em", lineHeight: 1.08, marginBottom: 24, whiteSpace: "pre-line" }}>
+          <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-medium tracking-tight leading-[1.08] mb-6" style={{ whiteSpace: "pre-line" }}>
             {isEn ? page.heroHeadlineEn : page.heroHeadline}
           </h1>
           <p style={{ fontSize: 17, lineHeight: 1.65, color: C.inkSoft, marginBottom: 32, maxWidth: 520 }}>
@@ -113,7 +113,7 @@ export function SeoPageContent({ page }: { page: SeoPage }) {
         </div>
 
         {/* Right — category image */}
-        <div style={{ aspectRatio: "4/3", borderRadius: 20, overflow: "hidden", position: "relative" }}>
+        <div className="hidden lg:block" style={{ aspectRatio: "4/3", borderRadius: 20, overflow: "hidden", position: "relative" }}>
           <Image
             src={slugImages[page.slug] || categoryImages[page.category]}
             alt={isEn ? page.heroHeadlineEn : page.heroHeadline}
@@ -139,21 +139,23 @@ export function SeoPageContent({ page }: { page: SeoPage }) {
 
       {/* ─── BODY TEXT ─── */}
       {subtextBlocks.length > 1 && (
-        <section style={{ padding: "64px 56px 72px" }}>
-          {subtextBlocks.slice(1).map((block, i) => (
-            <p key={i} style={{ fontSize: 17, lineHeight: 1.8, color: C.inkSoft, marginBottom: i < subtextBlocks.length - 2 ? 28 : 0, maxWidth: 860 }}>
-              {block}
-            </p>
-          ))}
+        <section className="px-5 py-14 sm:px-8 sm:py-16 lg:px-14 lg:py-20">
+          <div className={`grid gap-8 lg:gap-12 ${subtextBlocks.length > 2 ? "grid-cols-1 sm:grid-cols-2" : "grid-cols-1"}`}>
+            {subtextBlocks.slice(1).map((block, i) => (
+              <p key={i} style={{ fontSize: 16, lineHeight: 1.85, color: C.inkSoft, margin: 0 }}>
+                {block}
+              </p>
+            ))}
+          </div>
         </section>
       )}
 
       {/* ─── BENEFITS ─── */}
-      <section style={{ padding: "72px 56px", background: C.surface, borderTop: `1px solid ${C.hair}`, borderBottom: `1px solid ${C.hair}` }}>
+      <section className="px-5 py-14 sm:px-8 sm:py-16 lg:px-14 lg:py-[72px]" style={{ background: C.surface, borderTop: `1px solid ${C.hair}`, borderBottom: `1px solid ${C.hair}` }}>
         <div className="mono" style={{ fontSize: 11, color: C.sub, letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: 32 }}>
           {isEn ? "How BrightByte helps" : "So hilft BrightByte"}
         </div>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {page.benefits.map((b, i) => (
             <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: 14, padding: "20px 24px", background: C.bg, border: `1px solid ${C.hair}`, borderRadius: 14 }}>
               <span style={{ color: C.accent, fontWeight: 700, fontSize: 16, flexShrink: 0, marginTop: 1 }}>✓</span>
@@ -164,11 +166,11 @@ export function SeoPageContent({ page }: { page: SeoPage }) {
       </section>
 
       {/* ─── TESTIMONIALS ─── */}
-      <section style={{ padding: "72px 56px" }}>
+      <section className="px-5 py-14 sm:px-8 sm:py-16 lg:px-14 lg:py-[72px]">
         <div className="mono" style={{ fontSize: 11, color: C.sub, letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: 32, textAlign: "center" }}>
           {isEn ? "What clients say" : "Was Kunden sagen"}
         </div>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 20 }}>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {testimonials.map((t) => (
             <div key={t.id} style={{ padding: "24px 28px", background: C.surface, border: `1px solid ${C.hair}`, borderRadius: 14 }}>
               <div style={{ fontSize: 14, color: "#D4A017", marginBottom: 12, letterSpacing: 2 }}>★★★★★</div>
@@ -190,7 +192,7 @@ export function SeoPageContent({ page }: { page: SeoPage }) {
       </section>
 
       {/* ─── FAQ ─── */}
-      <section style={{ padding: "72px 56px", background: C.surface, borderTop: `1px solid ${C.hair}` }}>
+      <section className="px-5 py-14 sm:px-8 sm:py-16 lg:px-14 lg:py-[72px]" style={{ background: C.surface, borderTop: `1px solid ${C.hair}` }}>
         <div className="mono" style={{ fontSize: 11, color: C.sub, letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: 32 }}>
           {isEn ? "Frequently asked" : "Häufige Fragen"}
         </div>
@@ -201,8 +203,8 @@ export function SeoPageContent({ page }: { page: SeoPage }) {
       </section>
 
       {/* ─── CTA ─── */}
-      <section style={{ padding: "80px 56px 96px", textAlign: "center", background: `linear-gradient(180deg, ${C.bg} 0%, #F0ECE2 100%)` }}>
-        <h2 style={{ fontSize: 36, fontWeight: 500, letterSpacing: "-0.02em", marginBottom: 16 }}>
+      <section className="px-5 py-16 sm:px-8 sm:py-20 lg:px-14 lg:py-24 text-center" style={{ background: `linear-gradient(180deg, ${C.bg} 0%, #F0ECE2 100%)` }}>
+        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium tracking-tight mb-4">
           {isEn ? "Ready to get started?" : "Bereit loszulegen?"}
         </h2>
         <p style={{ fontSize: 17, color: C.sub, maxWidth: 480, margin: "0 auto 32px" }}>
@@ -229,7 +231,7 @@ export function SeoPageContent({ page }: { page: SeoPage }) {
           {isEn ? page.ctaTextEn : page.ctaText}
           <span style={{ color: C.accentSoft }}>→</span>
         </Link>
-        <div style={{ display: "flex", justifyContent: "center", gap: 24, marginTop: 24 }}>
+        <div className="flex justify-center gap-4 sm:gap-6 flex-wrap mt-6">
           {[
             isEn ? "Fixed price" : "Festpreis",
             isEn ? "No obligation" : "Unverbindlich",

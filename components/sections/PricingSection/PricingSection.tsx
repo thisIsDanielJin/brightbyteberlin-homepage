@@ -1,6 +1,5 @@
 "use client";
 
-import { useIsMobile } from "@/hooks/useMediaQuery";
 import { ComparisonTable } from "./ComparisonTable";
 import { TrustStrip } from "./TrustStrip";
 import Link from "next/link";
@@ -16,33 +15,26 @@ const C = {
 };
 
 export function PricingSection() {
-  const isMobile = useIsMobile();
   const { t } = useLocale();
 
   return (
     <section
       id="pricing"
+      className="px-5 py-16 sm:px-8 sm:py-20 lg:px-14 lg:py-24"
       style={{
-        padding: isMobile ? "64px 20px" : "96px 56px",
         background: `linear-gradient(180deg, #F8F4EC 0%, ${C.bg} 100%)`,
         borderBottom: `1px solid ${C.hair}`,
       }}
     >
       {/* Section header */}
-      <div style={{
-        display: "grid",
-        gridTemplateColumns: isMobile ? "1fr" : "1fr 2fr",
-        gap: isMobile ? 12 : 40,
-        marginBottom: 40,
-        alignItems: "baseline",
-      }}>
+      <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-3 lg:gap-10 mb-10 items-baseline">
         <div className="mono" style={{ fontSize: 11, color: C.sub, letterSpacing: "0.12em", textTransform: "uppercase" }}>{t.pricing.label}</div>
         <div>
-          <h2 style={{ fontSize: isMobile ? 36 : 48, fontWeight: 500, color: C.ink, letterSpacing: "-0.03em", lineHeight: 1.02, marginBottom: 12 }}>
+          <h2 className="text-[28px] sm:text-4xl lg:text-[48px] font-medium tracking-tight leading-[1.02] mb-3" style={{ color: C.ink }}>
             {t.pricing.heading}{" "}
             <span className="serif" style={{ fontStyle: "italic", fontWeight: 400 }}>{t.pricing.headingItalic}</span>
           </h2>
-          <p style={{ fontSize: 15, color: C.sub, maxWidth: 480, lineHeight: 1.5 }}>
+          <p className="text-[15px] max-w-[480px] leading-relaxed" style={{ color: C.sub }}>
             {t.pricing.subtitle}
           </p>
         </div>

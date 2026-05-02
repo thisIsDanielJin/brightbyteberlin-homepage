@@ -28,9 +28,6 @@ export function ServiceImage({ kind }: { kind: "lp" | "app" | "ai" | "sup" }) {
             <div style={{ height: 20, width: 72, background: C.accent, borderRadius: 99, marginTop: 4, opacity: 0.85 }} />
           </div>
         </div>
-        <div style={{ position: "absolute", top: 12, right: 14, padding: "3px 8px", background: "rgba(107,57,119,0.85)", borderRadius: 4, backdropFilter: "blur(4px)" }} className="mono">
-          <span style={{ fontSize: 9, color: C.surface, letterSpacing: "0.06em" }}>LIVE · 98/100</span>
-        </div>
       </div>
     );
   }
@@ -67,7 +64,7 @@ export function ServiceImage({ kind }: { kind: "lp" | "app" | "ai" | "sup" }) {
 
   if (kind === "sup") {
     return (
-      <div style={{ width: "100%", height: "100%", background: "linear-gradient(160deg, #F4E0D5 0%, #EDE5F0 100%)", position: "relative", overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "center" }}>
+      <div style={{ width: "100%", height: "100%", background: `linear-gradient(160deg, #F4E0D5 0%, #EDE5F0 100%)`, position: "relative", overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "center" }}>
         <div style={{ width: 224, height: 108, borderRadius: 8, overflow: "hidden", background: C.surface, border: `1px solid ${C.hair}`, boxShadow: "0 8px 24px rgba(20,19,15,0.1)" }}>
           <div style={{ padding: "7px 12px 5px", borderBottom: `1px solid ${C.hair}` }}>
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 5 }}>
@@ -83,22 +80,16 @@ export function ServiceImage({ kind }: { kind: "lp" | "app" | "ai" | "sup" }) {
               ))}
             </div>
           </div>
-          <div style={{ padding: "5px 12px", display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 6 }}>
+          <div style={{ padding: "10px 16px", display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 10 }}>
             {([["FCP", "0.6s", "↓"], ["LCP", "1.1s", "↓"], ["CLS", "0.01", "—"]] as const).map(([k, v, trend]) => (
-              <div key={k}>
-                <div className="mono" style={{ fontSize: 7, color: C.sub, marginBottom: 2, letterSpacing: "0.06em" }}>{k}</div>
-                <div style={{ display: "flex", alignItems: "baseline", gap: 3 }}>
-                  <span style={{ fontSize: 11, fontWeight: 600, color: C.ink }}>{v}</span>
-                  <span style={{ fontSize: 7, color: C.green }}>{trend}</span>
+              <div key={k} style={{ textAlign: "center" }}>
+                <div className="mono" style={{ fontSize: 8, color: C.sub, marginBottom: 4, letterSpacing: "0.06em" }}>{k}</div>
+                <div style={{ display: "flex", alignItems: "baseline", justifyContent: "center", gap: 3 }}>
+                  <span style={{ fontSize: 14, fontWeight: 600, color: C.ink }}>{v}</span>
+                  <span style={{ fontSize: 8, color: C.green }}>{trend}</span>
                 </div>
               </div>
             ))}
-          </div>
-          <div style={{ padding: "3px 12px 5px" }}>
-            <svg width="100%" height={14} viewBox="0 0 200 14" preserveAspectRatio="none">
-              <path d="M0,11 L15,9 L30,10 L45,7 L60,8 L75,5 L90,6 L105,4 L120,5 L135,3 L150,4 L165,2.5 L180,3 L200,1.5" fill="none" stroke={C.accent} strokeWidth={1} opacity={0.4} />
-              <path d="M0,11 L15,9 L30,10 L45,7 L60,8 L75,5 L90,6 L105,4 L120,5 L135,3 L150,4 L165,2.5 L180,3 L200,1.5 L200,14 L0,14 Z" fill={C.accent} opacity={0.05} />
-            </svg>
           </div>
         </div>
       </div>
@@ -163,10 +154,6 @@ export function ServiceImage({ kind }: { kind: "lp" | "app" | "ai" | "sup" }) {
             )}
           </svg>
         </div>
-      </div>
-      <div style={{ position: "absolute", top: 8, right: 10, background: "rgba(20,13,24,0.9)", border: "1px solid rgba(107,57,119,0.3)", borderRadius: 6, padding: "3px 7px", display: "flex", alignItems: "center", gap: 4, zIndex: 2 }}>
-        <div style={{ width: 5, height: 5, borderRadius: "50%", background: C.green }} />
-        <span className="mono" style={{ fontSize: 7, color: C.accentSoft }}>acc: 97.2%</span>
       </div>
     </div>
   );

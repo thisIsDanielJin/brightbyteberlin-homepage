@@ -88,21 +88,14 @@ export function Footer() {
 
     return (
         <footer
+            className="px-5 pt-12 pb-8 sm:px-8 sm:pt-16 sm:pb-9 lg:px-14 lg:pt-[72px] lg:pb-9"
             style={{
-                padding: "72px 56px 36px",
                 background: "var(--color-ink)",
                 color: "var(--color-surface)",
             }}
         >
-            {/* Main 4-column grid */}
-            <div
-                style={{
-                    display: "grid",
-                    gridTemplateColumns: "repeat(4, 1fr)",
-                    gap: 48,
-                    marginBottom: 64,
-                }}
-            >
+            {/* Main grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12 mb-12 lg:mb-16">
                 {/* Brand column */}
                 <div>
                     <div
@@ -137,36 +130,6 @@ export function Footer() {
                     >
                         {t.footer.tagline}
                     </p>
-                    <div
-                        style={{
-                            display: "inline-flex",
-                            alignItems: "center",
-                            gap: 0,
-                            marginTop: 24,
-                            padding: "8px 14px 8px 12px",
-                            background: "rgba(251,248,241,0.06)",
-                            borderLeft: "3px solid var(--color-accent-soft)",
-                            borderRadius: 2,
-                        }}
-                    >
-                        <span
-                            className="mono"
-                            style={{
-                                fontSize: 11,
-                                color: "var(--color-accent-soft)",
-                                marginRight: 8,
-                                fontWeight: 500,
-                            }}
-                        >
-                            ▸
-                        </span>
-                        <span
-                            className="mono"
-                            style={{ fontSize: 11, letterSpacing: "0.04em" }}
-                        >
-                            {t.footer.available}
-                        </span>
-                    </div>
                 </div>
 
                 {/* Product column */}
@@ -293,10 +256,9 @@ export function Footer() {
 
             {/* SEO Explore section */}
             <div
+                className="pt-8 mb-10 lg:mb-12"
                 style={{
-                    paddingTop: 32,
                     borderTop: "1px solid rgba(251,248,241,0.08)",
-                    marginBottom: 48,
                 }}
             >
                 <div
@@ -311,13 +273,7 @@ export function Footer() {
                 >
                     {t.footer.explore}
                 </div>
-                <div
-                    style={{
-                        display: "grid",
-                        gridTemplateColumns: "repeat(4, 1fr)",
-                        gap: 32,
-                    }}
-                >
+                <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
                     {seoLinks.map((section) => (
                         <div key={section.title}>
                             <div
@@ -370,13 +326,9 @@ export function Footer() {
 
             {/* Bottom bar */}
             <div
+                className="pt-6 flex flex-col sm:flex-row sm:flex-wrap gap-4 sm:gap-6 lg:gap-12 items-start sm:items-center"
                 style={{
-                    paddingTop: 24,
                     borderTop: "1px solid rgba(251,248,241,0.1)",
-                    display: "grid",
-                    gridTemplateColumns: "repeat(4, 1fr)",
-                    gap: 48,
-                    alignItems: "center",
                 }}
             >
                 <span

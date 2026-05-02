@@ -38,11 +38,11 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
   return (
     <div style={{ background: C.bg, color: C.ink, fontFamily: "var(--font-geist)", minHeight: "100vh" }}>
       {/* Hero */}
-      <div style={{ padding: "80px 56px 64px" }}>
+      <div className="px-5 pt-12 pb-10 sm:px-8 sm:pt-16 lg:px-14 lg:pt-20 lg:pb-16">
         <Link href="/#services" style={{ display: "inline-flex", alignItems: "center", gap: 6, fontSize: 13, color: C.sub, textDecoration: "none", marginBottom: 32 }}>
           ← All services
         </Link>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 320px", gap: 48, alignItems: "center", marginTop: 32 }}>
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-8 lg:gap-12 items-center mt-8">
           <div>
             <div className="mono" style={{ fontSize: 11, color: C.sub, letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: 16 }}>
               {service.timeline} · {service.pricing}
@@ -61,14 +61,14 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
       </div>
 
       {/* What you get */}
-      <div style={{ padding: "64px 56px", background: C.surface, borderTop: `1px solid ${C.hair}`, borderBottom: `1px solid ${C.hair}` }}>
-        <div style={{ display: "grid", gridTemplateColumns: "240px 1fr", gap: 48 }}>
+      <div className="px-5 py-10 sm:px-8 sm:py-14 lg:px-14 lg:py-16" style={{ background: C.surface, borderTop: `1px solid ${C.hair}`, borderBottom: `1px solid ${C.hair}` }}>
+        <div className="grid grid-cols-1 lg:grid-cols-[240px_1fr] gap-6 lg:gap-12">
           <div>
             <div className="mono" style={{ fontSize: 11, color: C.sub, letterSpacing: "0.12em", textTransform: "uppercase" }}>
               What you get
             </div>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "14px 32px" }}>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-x-8">
             {service.deliverables.map((d) => (
               <div key={d} style={{ display: "flex", alignItems: "baseline", gap: 10, fontSize: 14, color: C.ink, lineHeight: 1.6 }}>
                 <span style={{ color: C.accent, fontWeight: 600, flexShrink: 0 }}>✓</span>
@@ -80,8 +80,8 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
       </div>
 
       {/* Outcomes */}
-      <div style={{ padding: "64px 56px" }}>
-        <div style={{ display: "grid", gridTemplateColumns: "240px 1fr", gap: 48 }}>
+      <div className="px-5 py-10 sm:px-8 sm:py-14 lg:px-14 lg:py-16">
+        <div className="grid grid-cols-1 lg:grid-cols-[240px_1fr] gap-6 lg:gap-12">
           <div>
             <div className="mono" style={{ fontSize: 11, color: C.sub, letterSpacing: "0.12em", textTransform: "uppercase" }}>
               What changes
@@ -99,8 +99,8 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
       </div>
 
       {/* Ideal for */}
-      <div style={{ padding: "64px 56px", background: C.surface, borderTop: `1px solid ${C.hair}`, borderBottom: `1px solid ${C.hair}` }}>
-        <div style={{ display: "grid", gridTemplateColumns: "240px 1fr", gap: 48 }}>
+      <div className="px-5 py-10 sm:px-8 sm:py-14 lg:px-14 lg:py-16" style={{ background: C.surface, borderTop: `1px solid ${C.hair}`, borderBottom: `1px solid ${C.hair}` }}>
+        <div className="grid grid-cols-1 lg:grid-cols-[240px_1fr] gap-6 lg:gap-12">
           <div>
             <div className="mono" style={{ fontSize: 11, color: C.sub, letterSpacing: "0.12em", textTransform: "uppercase" }}>
               Ideal for
@@ -113,7 +113,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
       </div>
 
       {/* CTA */}
-      <div style={{ padding: "80px 56px", textAlign: "center" }}>
+      <div className="px-5 py-12 sm:px-8 sm:py-16 lg:px-14 lg:py-20 text-center">
         <h2 style={{ fontSize: 32, fontWeight: 500, color: C.ink, letterSpacing: "-0.02em", marginBottom: 16 }}>
           Ready to <span className="serif" style={{ fontStyle: "italic", fontWeight: 400 }}>start?</span>
         </h2>

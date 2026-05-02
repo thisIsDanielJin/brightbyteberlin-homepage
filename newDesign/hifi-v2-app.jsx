@@ -228,7 +228,7 @@ const EChart = ({option, style}) => {
   const chartRef = React.useRef(null);
   React.useEffect(() => {
     if (!ref.current || !window.echarts) return;
-    const chart = window.echarts.init(ref.current, null, { renderer: 'svg' });
+    const chart = window.echarts.init(ref.current, null, { renderer: 'canvas' });
     chartRef.current = chart;
     chart.setOption(option);
     const ro = new ResizeObserver(() => chart.resize());
@@ -261,7 +261,7 @@ const Nav = () => {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
   return (
-    <div style={{display:'flex', alignItems:'center', justifyContent:'space-between', padding: scrolled ? '14px 56px' : '22px 56px', borderBottom:`1px solid ${scrolled ? C.hair : 'transparent'}`, background: scrolled ? 'rgba(245,241,232,0.85)' : C.bg, position:'sticky', top:0, zIndex:50, backdropFilter: scrolled ? 'blur(16px) saturate(1.4)' : 'none', transition:'all 0.35s cubic-bezier(0.16,1,0.3,1)', position:'relative'}}>
+    <div style={{display:'flex', alignItems:'center', justifyContent:'space-between', padding: scrolled ? '14px 56px' : '22px 56px', borderBottom:`1px solid ${scrolled ? C.hair : 'transparent'}`, background: scrolled ? 'rgba(245,241,232,0.85)' : 'transparent', position:'fixed', top:0, left:0, width:'100%', zIndex:50, backdropFilter: scrolled ? 'blur(16px) saturate(1.4)' : 'none', transition:'all 0.35s cubic-bezier(0.16,1,0.3,1)'}}>
       <div style={{display:'flex', alignItems:'center', gap:10}}>
         <BrightByteLogo size={scrolled ? 22 : 28} />
         <div style={{fontSize: scrolled ? 14 : 15, letterSpacing:'-0.01em', transition:'font-size 0.35s ease'}}><span style={{fontWeight:600, color:C.ink}}>bright</span><span className="serif" style={{fontStyle:'italic', fontWeight:400, color:C.accent}}>byte</span><span style={{color:C.sub, fontWeight:400}}>.berlin</span></div>
@@ -313,7 +313,7 @@ const Hero = ({onStart, onWork}) => {
   const formatSessions = (n) => n >= 1000 ? (n / 1000).toFixed(1) + 'K' : n;
 
   return (
-    <div style={{padding:'140px 56px 80px', position:'relative', background:'linear-gradient(180deg, #F7F3EB 0%, #F5F1E8 35%, #FAF7F0 100%)', minHeight:'100vh', overflow:'hidden'}}>
+    <div style={{padding:'140px 56px 80px', position:'relative', background:'linear-gradient(180deg, #F7F3EB 0%, #F5F1E8 35%, #FAF7F0 100%)', height:'100vh', overflow:'hidden'}}>
       {/* Plum gradient spotlights — stronger */}
       <div style={{position:'absolute', bottom:0, left:0, width:'60%', height:'65%', background:'radial-gradient(ellipse at 15% 100%, rgba(107,57,119,0.22) 0%, transparent 65%)', pointerEvents:'none'}}/>
       <div style={{position:'absolute', bottom:0, right:0, width:'60%', height:'65%', background:'radial-gradient(ellipse at 85% 100%, rgba(107,57,119,0.22) 0%, transparent 65%)', pointerEvents:'none'}}/>
@@ -493,12 +493,14 @@ const Hero = ({onStart, onWork}) => {
                   animationEasing: 'cubicOut',
                   title: {text:'TRAFFIC', left:0, top:0, textStyle:{fontSize:13, fontFamily:'Geist Mono', color:C.sub, fontWeight:500}},
                   legend: {orient:'horizontal', bottom:4, icon:'circle', itemWidth:8, itemHeight:8, itemGap:10, textStyle:{fontSize:11, fontFamily:'Geist Mono', color:C.sub}},
-                  series:[{type:'pie', radius:['42%','74%'], center:['50%','46%'], avoidLabelOverlap:false, label:{show:false}, data:[
+                  series:[{type:'pie', radius:['42%','74%'], center:['50%','46%'], avoidLabelOverlap:false, label:{show:false},
+                    emphasis:{scale:true, scaleSize:6, itemStyle:{shadowBlur:10, shadowColor:'rgba(0,0,0,0.2)'}},
+                    data:[
                     {value:62, name:'Organic', itemStyle:{color:'#6B3977'}},
                     {value:24, name:'Direct', itemStyle:{color:'rgba(107,57,119,0.55)'}},
                     {value:14, name:'Social', itemStyle:{color:'rgba(107,57,119,0.22)'}}
                   ]}],
-                  tooltip:{show:false}
+                  tooltip:{show:true, trigger:'item', formatter:'{b}: {d}%', backgroundColor:'rgba(20,19,15,0.85)', borderColor:'transparent', textStyle:{color:'#FBF8F1', fontSize:12, fontFamily:'Geist Mono'}}
                 }}/>
               </div>
 
