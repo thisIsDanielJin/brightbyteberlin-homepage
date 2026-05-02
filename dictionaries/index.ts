@@ -89,7 +89,7 @@ export const en = {
       { label: "Ownership", custom: "100% yours on GitHub", platform: "Locked to platform", agency: "Varies (often retained)" },
       { label: "Performance", custom: "95–100 Lighthouse", platform: "60–80 typical", agency: "70–90 typical" },
       { label: "Lock-in", custom: "None", platform: "Export limited/lossy", agency: "Depends on contract" },
-      { label: "Maintenance", custom: "from €60/year", platform: "Platform fee + plugins", agency: "€200–500/mo" },
+      { label: "Maintenance", custom: "from €15/mo", platform: "Platform fee + plugins", agency: "€50–200/mo" },
     ],
   },
   trust: {
@@ -243,7 +243,7 @@ export const de = {
       { label: "Eigentum", custom: "100% deins auf GitHub", platform: "An Plattform gebunden", agency: "Variiert (oft einbehalten)" },
       { label: "Performance", custom: "95–100 Lighthouse", platform: "60–80 typisch", agency: "70–90 typisch" },
       { label: "Lock-in", custom: "Keins", platform: "Export begrenzt/verlustbehaftet", agency: "Abhängig vom Vertrag" },
-      { label: "Wartung", custom: "ab €60/Jahr", platform: "Plattformgebühr + Plugins", agency: "€200–500/Mo" },
+      { label: "Wartung", custom: "ab €15/Mo", platform: "Plattformgebühr + Plugins", agency: "€50–200/Mo" },
     ],
   },
   trust: {

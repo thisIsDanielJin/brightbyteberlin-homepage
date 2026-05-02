@@ -326,7 +326,7 @@ export function Footer() {
 
             {/* Bottom bar */}
             <div
-                className="pt-6 flex flex-col sm:flex-row sm:flex-wrap gap-4 sm:gap-6 lg:gap-12 items-start sm:items-center"
+                className="pt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-12 items-center"
                 style={{
                     borderTop: "1px solid rgba(251,248,241,0.1)",
                 }}

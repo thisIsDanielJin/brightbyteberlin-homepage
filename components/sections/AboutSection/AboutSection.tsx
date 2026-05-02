@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 const C = {
   surface: "#FBF8F1",
   ink: "#14130F",
@@ -14,13 +16,13 @@ export function AboutSection() {
     <section id="about" className="px-5 py-16 sm:px-8 sm:py-20 lg:px-14 lg:py-28" style={{ background: C.surface, borderBottom: `1px solid ${C.hair}` }}>
       <div className="max-w-[1100px] mx-auto grid grid-cols-1 lg:grid-cols-[300px_1fr_180px] gap-8 lg:gap-12 items-start">
         <div>
-          <div className="aspect-square rounded-2xl overflow-hidden" style={{ background: "linear-gradient(135deg, #EDE5F0 0%, #C4ADCF 60%, #6B3977 100%)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+          <div className="aspect-square rounded-2xl overflow-hidden relative" style={{ background: "linear-gradient(135deg, #EDE5F0 0%, #C4ADCF 60%, #6B3977 100%)" }}>
+            <Image
               src="/daniel-profile.jpg"
               alt="Daniel Jin Wodke"
-              style={{ width: "100%", height: "100%", objectFit: "cover" }}
-              onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }}
+              fill
+              sizes="300px"
+              style={{ objectFit: "cover" }}
             />
           </div>
         </div>

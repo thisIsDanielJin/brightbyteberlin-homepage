@@ -36,7 +36,10 @@ export async function generateMetadata({
     return {
         title: `${post.seoTitle || post.title} | BrightByte Berlin`,
         description: post.seoDescription || post.excerpt,
-        alternates: { canonical: `/blog/${slug}` },
+        alternates: {
+            canonical: `/blog/${slug}`,
+            languages: { "de-DE": `/blog/${slug}`, en: `/blog/${slug}?lang=en` },
+        },
         openGraph: {
             title: `${post.seoTitle || post.title} | BrightByte Berlin`,
             description: post.seoDescription || post.excerpt,
@@ -52,7 +55,15 @@ export async function generateMetadata({
                           alt: post.coverImage.alt || post.title,
                       },
                   ]
-                : undefined,
+                : [{ url: "/og-image.png", width: 1200, height: 630, alt: post.title }],
+        },
+        twitter: {
+            card: "summary_large_image",
+            title: `${post.seoTitle || post.title} | BrightByte Berlin`,
+            description: post.seoDescription || post.excerpt,
+            images: post.coverImage?.asset?.url
+                ? [post.coverImage.asset.url]
+                : ["/og-image.png"],
         },
     };
 }

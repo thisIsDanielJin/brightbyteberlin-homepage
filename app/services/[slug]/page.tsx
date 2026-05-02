@@ -26,7 +26,29 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: `${service.title} | BrightByte Berlin`,
     description: service.value,
-    alternates: { canonical: `/services/${service.slug}` },
+    keywords: [service.title.toLowerCase(), "web development", "Berlin", "freelance developer"],
+    alternates: {
+      canonical: `/services/${service.slug}`,
+      languages: {
+        "de-DE": `/services/${service.slug}`,
+        en: `/services/${service.slug}?lang=en`,
+      },
+    },
+    openGraph: {
+      title: `${service.title} | BrightByte Berlin`,
+      description: service.value,
+      url: `https://brightbyte-berlin.com/services/${service.slug}`,
+      type: "website",
+      locale: "de_DE",
+      alternateLocale: "en_US",
+      images: [{ url: "/og-image.png", width: 1200, height: 630, alt: service.title }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${service.title} | BrightByte Berlin`,
+      description: service.value,
+      images: ["/og-image.png"],
+    },
   };
 }
 
@@ -35,8 +57,26 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
   const service = SERVICES_DETAIL.find((s) => s.slug === slug);
   if (!service) notFound();
 
+  const serviceJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: service.title,
+    description: service.value,
+    provider: {
+      "@type": "ProfessionalService",
+      name: "BrightByte Berlin",
+      url: "https://brightbyte-berlin.com",
+    },
+    areaServed: { "@type": "City", name: "Berlin" },
+    url: `https://brightbyte-berlin.com/services/${service.slug}`,
+  };
+
   return (
     <div style={{ background: C.bg, color: C.ink, fontFamily: "var(--font-geist)", minHeight: "100vh" }}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+      />
       {/* Hero */}
       <div className="px-5 pt-12 pb-10 sm:px-8 sm:pt-16 lg:px-14 lg:pt-20 lg:pb-16">
         <Link href="/#services" style={{ display: "inline-flex", alignItems: "center", gap: 6, fontSize: 13, color: C.sub, textDecoration: "none", marginBottom: 32 }}>

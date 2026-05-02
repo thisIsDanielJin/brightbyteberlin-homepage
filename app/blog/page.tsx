@@ -10,12 +10,22 @@ export const metadata: Metadata = {
     title: "Blog | BrightByte Berlin",
     description:
         "Web development tutorials, performance tips, and framework guides from BrightByte Berlin.",
-    alternates: { canonical: "/blog" },
+    alternates: {
+        canonical: "/blog",
+        languages: { "de-DE": "/blog", en: "/blog?lang=en" },
+    },
     openGraph: {
         title: "Blog | BrightByte Berlin",
         description:
             "Web development tutorials, performance tips, and framework guides.",
         url: "https://brightbyte-berlin.com/blog",
+        images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "BrightByte Berlin Blog" }],
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Blog | BrightByte Berlin",
+        description: "Web development tutorials, performance tips, and framework guides.",
+        images: ["/og-image.png"],
     },
 };
 

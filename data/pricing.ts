@@ -76,7 +76,7 @@ export const COMPARISON_ROWS = [
   { label: "Ownership", custom: "100% yours on GitHub", platform: "Locked to platform", agency: "Varies (often retained)" },
   { label: "Performance", custom: "95–100 Lighthouse", platform: "60–80 typical", agency: "70–90 typical" },
   { label: "Lock-in", custom: "None", platform: "Export limited/lossy", agency: "Depends on contract" },
-  { label: "Maintenance", custom: "from €60/year", platform: "Platform fee + plugins", agency: "€500–2,000/mo" },
+  { label: "Maintenance", custom: "from €15/mo", platform: "Platform fee + plugins", agency: "€50–200/mo" },
 ];
 
 export const TRUST_ITEMS = ["Fixed price", "Full ownership", "Reply in 24h", "No surprises"];

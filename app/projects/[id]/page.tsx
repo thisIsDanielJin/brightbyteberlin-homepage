@@ -19,11 +19,21 @@ export async function generateMetadata({
   return {
     title: `${project.title} | BrightByte Berlin`,
     description: project.subtitle,
-    alternates: { canonical: `/projects/${id}` },
+    alternates: {
+      canonical: `/projects/${id}`,
+      languages: { "de-DE": `/projects/${id}`, en: `/projects/${id}?lang=en` },
+    },
     openGraph: {
       title: `${project.title} | BrightByte Berlin`,
       description: project.subtitle,
       url: `https://brightbyte-berlin.com/projects/${id}`,
+      images: [{ url: "/og-image.png", width: 1200, height: 630, alt: project.title }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${project.title} | BrightByte Berlin`,
+      description: project.subtitle,
+      images: ["/og-image.png"],
     },
   };
 }

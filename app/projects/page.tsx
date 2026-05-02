@@ -5,11 +5,21 @@ import { projects } from "@/data/projects";
 export const metadata: Metadata = {
   title: "Projects | BrightByte Berlin",
   description: "A selection of web projects shipped by BrightByte Berlin. Real businesses, real outcomes.",
-  alternates: { canonical: "/projects" },
+  alternates: {
+    canonical: "/projects",
+    languages: { "de-DE": "/projects", en: "/projects?lang=en" },
+  },
   openGraph: {
     title: "Projects | BrightByte Berlin",
     description: "A selection of web projects shipped by BrightByte Berlin.",
     url: "https://brightbyte-berlin.com/projects",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "BrightByte Berlin Projects" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Projects | BrightByte Berlin",
+    description: "A selection of web projects shipped by BrightByte Berlin.",
+    images: ["/og-image.png"],
   },
 };
 

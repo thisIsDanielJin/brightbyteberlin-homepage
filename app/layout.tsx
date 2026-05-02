@@ -23,6 +23,10 @@ export const metadata: Metadata = {
   authors: [{ name: "Daniel Jin Wodke" }],
   alternates: {
     canonical: "/",
+    languages: {
+      "de-DE": "/",
+      en: "/?lang=en",
+    },
     types: {
       "application/rss+xml": "/blog/feed.xml",
     },
