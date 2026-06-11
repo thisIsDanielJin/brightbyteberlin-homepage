@@ -121,22 +121,22 @@ function Hero() {
             }
           >
             <PrismaticBurst
-              intensity={0.85}
-              speed={0.35}
+              intensity={1.6}
+              speed={0.4}
               animationType="rotate3d"
-              colors={["#1a2540", "#3a1840", "#0a0a0a", "#5b3a2a", "#1a2540"]}
-              distort={0.8}
+              colors={["#dcff1e", "#7b3a5c", "#1a2540", "#dcff1e", "#5b3a2a"]}
+              distort={1}
               rayCount={0}
               mixBlendMode="lighten"
             />
           </ShaderBoundary>
         </VisibleOnScreen>
-        {/* layered scrim so the white headline reads cleanly */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_60%_at_50%_55%,rgba(10,10,10,0.65),transparent_70%)]" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a]/40 via-[#0a0a0a]/30 to-[#0a0a0a]" />
-        {/* grain over shader */}
+        {/* Soft vignette only at the edges so center stays vivid */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_90%_75%_at_50%_50%,transparent_45%,rgba(10,10,10,0.55)_85%)]" />
+        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent to-[#0a0a0a]" />
+        {/* faint grain — texture, not opacity */}
         <div
-          className="absolute inset-0 mix-blend-overlay opacity-30"
+          className="absolute inset-0 mix-blend-overlay opacity-15"
           style={{
             backgroundImage:
               "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>\")",
@@ -160,7 +160,7 @@ function Hero() {
           className="display text-[clamp(3.5rem,12vw,11rem)] uppercase text-white"
           style={{
             textShadow:
-              "0 2px 22px rgba(0,0,0,0.55), 0 1px 4px rgba(0,0,0,0.45)",
+              "0 4px 38px rgba(0,0,0,0.7), 0 2px 12px rgba(0,0,0,0.55), 0 1px 2px rgba(0,0,0,0.5)",
           }}
         >
           {lines.map((l) => (
