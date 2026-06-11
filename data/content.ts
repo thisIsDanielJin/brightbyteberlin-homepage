@@ -139,3 +139,140 @@ export const SERVICES_DETAIL = [
     pricing: "Monthly retainer",
   },
 ];
+
+/* ───── Brutalist redesign additions ───── */
+
+export const NAV = [
+  { label: "Work", href: "#work" },
+  { label: "Services", href: "#services" },
+  { label: "Process", href: "#process" },
+  { label: "Pricing", href: "#pricing" },
+  { label: "About", href: "#about" },
+];
+
+export const HERO = {
+  headline: "Websites that\nget you found.",
+  sub: "Stand out online and grow your business. BrightByte Berlin builds high-performance websites that help small businesses get found, build trust, and convert visitors into customers.",
+  primary: { label: "Start a project", href: "#contact" },
+  secondary: { label: "View work", href: "#work" },
+  pillars: [
+    { k: "95+", v: "Lighthouse, every build" },
+    { k: "1–2 wk", v: "Landing page turnaround" },
+    { k: "100%", v: "Code ownership, your GitHub" },
+    { k: "24h", v: "Reply, in writing" },
+  ],
+};
+
+export const MANIFESTO = [
+  {
+    n: "01",
+    t: "No templates",
+    d: "Hand-coded React + Next.js. Every line written for your business — not lifted from a builder.",
+  },
+  {
+    n: "02",
+    t: "Shipped fast",
+    d: "Landing pages in 1–2 weeks. Multi-page in 3–4. Web apps 4–8. Fixed timeline, weekly demos.",
+  },
+  {
+    n: "03",
+    t: "You own it",
+    d: "Code in your GitHub. Domain in your name. Hosting on your account. Take it anywhere, anytime.",
+  },
+  {
+    n: "04",
+    t: "No agency layers",
+    d: "One engineer, one Slack, one bill. No project managers, no account leads, no ticket queues.",
+  },
+];
+
+export const SCOPE = [
+  {
+    id: "landing",
+    title: "Landing page",
+    priceFrom: "€690",
+    tagline: "One focused page that converts",
+    timeline: "1–2 weeks",
+    includes: [
+      "Custom responsive design",
+      "Conversion-optimized layout",
+      "SEO + analytics setup",
+      "Lighthouse 95+ guaranteed",
+      "2 feedback rounds included",
+    ],
+    ideal: "Launches, campaigns, MVPs",
+  },
+  {
+    id: "multipage",
+    title: "Multi-page site",
+    priceFrom: "€2,500",
+    tagline: "Grow without platform limits",
+    timeline: "3–4 weeks",
+    includes: [
+      "5–10 pages, fully custom",
+      "CMS for self-managed content",
+      "Forms + integrations",
+      "Performance baseline + monitoring",
+      "30 days post-launch support",
+    ],
+    ideal: "Established businesses, portfolios, service companies",
+    highlight: true,
+  },
+  {
+    id: "webapp",
+    title: "Web app / MVP",
+    priceFrom: "Let's talk",
+    tagline: "Full-stack, built to scale",
+    timeline: "4–8 weeks",
+    includes: [
+      "Next.js + database + auth",
+      "Admin panel or dashboard",
+      "Payments, automations, APIs",
+      "Weekly progress demos",
+      "Ongoing support available",
+    ],
+    ideal: "SaaS products, portals, internal tools",
+  },
+];
+
+export const ABOUT = {
+  name: "Daniel Jin Wodke",
+  role: "Founder · Engineer",
+  location: "Berlin, Germany",
+  bio: [
+    "I'm a full-stack engineer at SAP Berlin with 5+ years building production web software — enterprise consulting, government apps (Corona Warn App, Berlin citizen services), and research projects with AI and VR.",
+    "BrightByte Berlin is where I build for small businesses that want a real website, not a templated lookalike. Code-only, no platform lock-in, and the same engineering standard I apply to everything else.",
+  ],
+  signals: [
+    "5+ yrs full-stack production",
+    "SAP Berlin · Senior FE",
+    "Code-only, no Webflow",
+    "Reply in 24h",
+  ],
+};
+
+export const FOOTER_LINKS = {
+  product: [
+    { label: "Landing Pages", href: "/services/landing-pages" },
+    { label: "Web Apps", href: "/services/web-apps" },
+    { label: "AI Integration", href: "/services/ai-integrations" },
+    { label: "Ongoing Support", href: "/services/ongoing-support" },
+    { label: "Pricing", href: "/#pricing" },
+  ],
+  company: [
+    { label: "About", href: "/#about" },
+    { label: "Process", href: "/#process" },
+    { label: "Blog", href: "/blog" },
+    { label: "FAQ", href: "/#faq" },
+    { label: "Contact", href: "/#contact" },
+  ],
+  connect: [
+    { label: "LinkedIn", href: "https://linkedin.com/in/danieljinwodke" },
+    { label: "GitHub", href: "https://github.com/danieljinwodke" },
+    { label: "Email", href: "mailto:hello@brightbyte-berlin.com" },
+  ],
+  legal: [
+    { label: "Impressum", href: "/imprint" },
+    { label: "Privacy", href: "/privacy" },
+  ],
+};
