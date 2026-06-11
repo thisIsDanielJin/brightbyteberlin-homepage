@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
-import { geist, geistMono, fraunces } from "@/lib/fonts";
-import { Header } from "@/components/layout/Header/Header";
-import { Footer } from "@/components/layout/Footer/Footer";
+import { geist, geistMono, fraunces, bricolage } from "@/lib/fonts";
 import { LocaleProvider } from "@/contexts/LocaleContext";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.scss";
@@ -72,14 +70,9 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${geist.variable} ${geistMono.variable} ${fraunces.variable} ${geist.className} antialiased`}
-        style={{ background: "var(--color-bg)", color: "var(--color-ink)" }}
+        className={`${geist.variable} ${geistMono.variable} ${fraunces.variable} ${bricolage.variable} ${geist.className} antialiased`}
       >
-        <LocaleProvider>
-          <Header />
-          <main>{children}</main>
-          <Footer />
-        </LocaleProvider>
+        <LocaleProvider>{children}</LocaleProvider>
         <SpeedInsights />
       </body>
     </html>
