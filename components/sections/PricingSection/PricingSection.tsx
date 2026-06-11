@@ -20,14 +20,15 @@ export function PricingSection() {
   return (
     <section
       id="pricing"
-      className="px-5 py-16 sm:px-8 sm:py-20 lg:px-14 lg:py-24"
+      className="px-5 py-20 sm:px-8 sm:py-28 lg:px-14 lg:py-32"
       style={{
         background: `linear-gradient(180deg, #F8F4EC 0%, ${C.bg} 100%)`,
         borderBottom: `1px solid ${C.hair}`,
       }}
     >
+      <div style={{ maxWidth: 820, marginInline: "auto" }}>
       {/* Section header */}
-      <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-3 lg:gap-10 mb-10 items-baseline">
+      <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-3 lg:gap-10 mb-12 items-baseline">
         <div className="mono" style={{ fontSize: 11, color: C.sub, letterSpacing: "0.12em", textTransform: "uppercase" }}>{t.pricing.label}</div>
         <div>
           <h2 className="text-[28px] sm:text-4xl lg:text-[48px] font-medium tracking-tight leading-[1.02] mb-3" style={{ color: C.ink }}>
@@ -42,7 +43,7 @@ export function PricingSection() {
 
       <ComparisonTable />
 
-      <div style={{ marginTop: 24, display: "flex", flexDirection: "column", alignItems: "center", gap: 24 }}>
+      <div style={{ marginTop: 32, display: "flex", flexDirection: "column", alignItems: "center", gap: 24 }}>
         <Link
           href="/#contact"
           className="btn-hover"
@@ -62,6 +63,7 @@ export function PricingSection() {
           {t.pricing.cta} <span style={{ color: C.accent }}>→</span>
         </Link>
         <TrustStrip />
+      </div>
       </div>
     </section>
   );

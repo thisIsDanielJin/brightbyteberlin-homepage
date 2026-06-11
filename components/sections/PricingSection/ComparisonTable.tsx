@@ -18,43 +18,43 @@ export function ComparisonTable() {
   const { t } = useLocale();
 
   return (
-    <div className="p-5 sm:p-8 lg:p-10 rounded-[18px]" style={{ background: C.surface, border: `1px solid ${C.hair}` }}>
-      <div className="mb-6 lg:mb-7">
-        <h3 className="text-xl sm:text-2xl font-semibold tracking-tight mb-1.5" style={{ color: C.ink }}>
+    <div className="p-5 sm:p-7 lg:p-8 rounded-[18px]" style={{ background: C.surface, border: `1px solid ${C.hair}` }}>
+      <div className="mb-5 lg:mb-6">
+        <h3 className="text-lg sm:text-xl font-semibold tracking-tight mb-1.5" style={{ color: C.ink }}>
           {t.comparison.title}
         </h3>
-        <p className="text-[15px] leading-relaxed" style={{ color: C.sub }}>
+        <p className="text-sm leading-relaxed" style={{ color: C.sub }}>
           {t.comparison.subtitle}
         </p>
       </div>
 
       <div className="overflow-x-auto -mx-5 px-5 sm:mx-0 sm:px-0">
-        <div style={{ display: "grid", gridTemplateColumns: "160px 1fr 1fr 1fr", gap: 0, minWidth: 600 }}>
+        <div style={{ display: "grid", gridTemplateColumns: "140px 1fr 1fr 1fr", gap: 0, minWidth: 560 }}>
           {/* Header row */}
-          <div style={{ padding: "16px 20px", borderBottom: `2px solid ${C.hair}` }} />
-          <div style={{ padding: "16px 20px", borderBottom: `2px solid ${C.hair}`, background: C.accentBg, borderRadius: "8px 8px 0 0" }}>
+          <div style={{ padding: "12px 14px", borderBottom: `2px solid ${C.hair}` }} />
+          <div style={{ padding: "12px 14px", borderBottom: `2px solid ${C.hair}`, background: C.accentBg, borderRadius: "8px 8px 0 0" }}>
             <div className="mono" style={{ fontSize: 11, fontWeight: 600, color: C.accent, letterSpacing: "0.04em" }}>{t.comparison.headers[0]}</div>
           </div>
-          <div style={{ padding: "16px 20px", borderBottom: `2px solid ${C.hair}` }}>
+          <div style={{ padding: "12px 14px", borderBottom: `2px solid ${C.hair}` }}>
             <div className="mono" style={{ fontSize: 11, fontWeight: 600, color: C.ink, letterSpacing: "0.04em" }}>{t.comparison.headers[1]}</div>
           </div>
-          <div style={{ padding: "16px 20px", borderBottom: `2px solid ${C.hair}` }}>
+          <div style={{ padding: "12px 14px", borderBottom: `2px solid ${C.hair}` }}>
             <div className="mono" style={{ fontSize: 11, fontWeight: 600, color: C.ink, letterSpacing: "0.04em" }}>{t.comparison.headers[2]}</div>
           </div>
 
           {/* Data rows */}
           {t.comparison.rows.map((row, i) => (
             <Fragment key={row.label}>
-              <div style={{ padding: "18px 20px", fontSize: 14, fontWeight: 600, color: C.ink, borderBottom: `1px solid ${C.hair}`, background: i % 2 === 0 ? "transparent" : C.bg }}>
+              <div style={{ padding: "14px", fontSize: 13, fontWeight: 600, color: C.ink, borderBottom: `1px solid ${C.hair}`, background: i % 2 === 0 ? "transparent" : C.bg }}>
                 {row.label}
               </div>
-              <div style={{ padding: "18px 20px", fontSize: 14, fontWeight: 600, color: C.accent, borderBottom: `1px solid ${C.hair}`, background: i % 2 === 0 ? "rgba(237,229,240,0.3)" : "rgba(237,229,240,0.5)" }}>
+              <div style={{ padding: "14px", fontSize: 13, fontWeight: 600, color: C.accent, borderBottom: `1px solid ${C.hair}`, background: i % 2 === 0 ? "rgba(237,229,240,0.3)" : "rgba(237,229,240,0.5)" }}>
                 {row.custom}
               </div>
-              <div style={{ padding: "18px 20px", fontSize: 14, color: C.inkSoft, borderBottom: `1px solid ${C.hair}`, background: i % 2 === 0 ? "transparent" : C.bg }}>
+              <div style={{ padding: "14px", fontSize: 13, color: C.inkSoft, borderBottom: `1px solid ${C.hair}`, background: i % 2 === 0 ? "transparent" : C.bg }}>
                 {row.platform}
               </div>
-              <div style={{ padding: "18px 20px", fontSize: 14, color: C.inkSoft, borderBottom: `1px solid ${C.hair}`, background: i % 2 === 0 ? "transparent" : C.bg }}>
+              <div style={{ padding: "14px", fontSize: 13, color: C.inkSoft, borderBottom: `1px solid ${C.hair}`, background: i % 2 === 0 ? "transparent" : C.bg }}>
                 {row.agency}
               </div>
             </Fragment>
