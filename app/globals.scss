@@ -36,225 +36,137 @@
 @import "../styles/layout";
 
 /* =================================
-   BRUTALIST REDESIGN (homepage scope)
-   All tokens + utilities namespaced under .brutalist-root
-   so the rest of the site (blog, /services/*, /projects/*)
-   keeps the bone+plum theme.
+   EDITORIAL UTILITIES (homepage)
+   Layered on top of the bone+plum design system.
    ================================= */
-.brutalist-root {
-  --bb-bg: #0a0a0a;
-  --bb-ink: #f5f5f0;
-  --bb-acid: #dcff1e;
-  --bb-dim: #141414;
-  --bb-muted: #888880;
-  --bb-border: #1c1c1c;
-
-  background: var(--bb-bg);
-  color: var(--bb-ink);
-  isolation: isolate;
-}
-/* Override the global h1..h6 ink color (set in _typography for the bone theme) */
-.brutalist-root h1,
-.brutalist-root h2,
-.brutalist-root h3,
-.brutalist-root h4,
-.brutalist-root h5,
-.brutalist-root h6 {
-  color: inherit;
-  font-family: inherit;
-}
-.brutalist-root ::selection {
-  background: var(--bb-acid);
-  color: #0a0a0a;
-}
 
 /* Shader containers */
-.brutalist-root .threads-container,
-.brutalist-root .light-rays-container,
-.brutalist-root .iridescence-container,
-.brutalist-root .beams-container,
-.brutalist-root .plasma-container,
-.brutalist-root .particles-container,
-.brutalist-root .noise-container,
-.brutalist-root .prism-container,
-.brutalist-root .prismatic-burst-container {
+.strands-container,
+.prism-container,
+.prismatic-burst-container {
+  position: relative;
   width: 100%;
   height: 100%;
-  position: absolute;
-  inset: 0;
 }
-.brutalist-root .prism-container canvas,
-.brutalist-root .threads-container canvas,
-.brutalist-root .iridescence-container canvas,
-.brutalist-root .beams-container canvas,
-.brutalist-root .plasma-container canvas,
-.brutalist-root .particles-container canvas,
-.brutalist-root .noise-container canvas,
-.brutalist-root .light-rays-container canvas,
-.brutalist-root .prismatic-burst-container canvas {
+.strands-container canvas,
+.prism-container canvas,
+.prismatic-burst-container canvas {
+  display: block;
   width: 100% !important;
   height: 100% !important;
-  display: block;
 }
 
-/* Client-First spacing */
-.brutalist-root .padding-global {
-  padding-left: clamp(1.5rem, 4vw, 4rem);
-  padding-right: clamp(1.5rem, 4vw, 4rem);
-}
-.brutalist-root .container-large {
-  max-width: 88rem;
-  margin-inline: auto;
-}
-.brutalist-root .padding-section-large {
-  padding-top: clamp(6rem, 10vw, 10rem);
-  padding-bottom: clamp(6rem, 10vw, 10rem);
-}
-
-/* Type utilities */
-.brutalist-root .display {
-  font-family: var(--font-bricolage), var(--font-geist), ui-sans-serif, system-ui, sans-serif;
-  font-weight: 700;
-  letter-spacing: -0.04em;
-  line-height: 0.92;
-}
-.brutalist-root .mono {
-  font-family: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
-}
-.brutalist-root .text-acid { color: var(--bb-acid); }
-.brutalist-root .bg-acid { background: var(--bb-acid); }
-
-/* Eyebrow with leading hairline */
-.brutalist-root .eyebrow {
-  font-family: var(--font-geist-mono);
+/* Eyebrow with leading hairline (uses plum accent) */
+.eyebrow {
+  font-family: var(--font-mono);
   font-size: 11px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--bb-muted);
+  color: var(--color-sub);
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
 }
-.brutalist-root .eyebrow::before {
+.eyebrow::before {
   content: "";
   width: 28px;
   height: 1px;
-  background: var(--bb-acid);
+  background: var(--color-accent);
 }
 
-@keyframes bb-marquee {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
+/* Display utility (Fraunces) */
+.display {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  line-height: 1.02;
 }
-.brutalist-root .marquee-track {
-  animation: bb-marquee 32s linear infinite;
-  width: max-content;
-}
-
-@keyframes bb-rise {
-  from { opacity: 0; transform: translateY(140%); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-.brutalist-root .rise-letter {
-  display: inline-block;
-  opacity: 0;
-  animation: bb-rise 0.85s cubic-bezier(0.2, 0.7, 0.25, 1) forwards;
+.display em,
+.display .display-em {
+  font-style: italic;
+  font-feature-settings: "ss01";
+  color: var(--color-accent);
 }
 
-@keyframes bb-fade-up {
-  from { opacity: 0; transform: translateY(28px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-.brutalist-root .reveal { opacity: 0; }
-.brutalist-root .reveal.in {
-  animation: bb-fade-up 0.9s cubic-bezier(0.2, 0.7, 0.25, 1) both;
+.mono {
+  font-family: var(--font-mono);
 }
 
-.brutalist-root .acid-link {
+/* Section spacing */
+.section-padding {
+  padding-top: clamp(7rem, 12vw, 12rem);
+  padding-bottom: clamp(7rem, 12vw, 12rem);
+}
+
+/* Plum link */
+.link-plum {
   position: relative;
-  color: var(--bb-ink);
-  transition: color 120ms;
+  color: var(--color-ink);
+  transition: color 160ms;
 }
-.brutalist-root .acid-link::after {
+.link-plum::after {
   content: "";
   position: absolute;
   left: 0; right: 0; bottom: -3px;
   height: 1px;
-  background: var(--bb-acid);
+  background: var(--color-accent);
   transform: scaleX(0);
   transform-origin: left;
-  transition: transform 200ms cubic-bezier(0.2, 0.7, 0.25, 1);
+  transition: transform 220ms cubic-bezier(0.2, 0.7, 0.25, 1);
 }
-.brutalist-root .acid-link:hover { color: var(--bb-acid); }
-.brutalist-root .acid-link:hover::after { transform: scaleX(1); }
+.link-plum:hover { color: var(--color-accent); }
+.link-plum:hover::after { transform: scaleX(1); }
 
-.brutalist-root .card-hover {
-  transition: transform 220ms cubic-bezier(0.2, 0.7, 0.25, 1), border-color 220ms;
-}
-.brutalist-root .card-hover:hover {
-  transform: translateY(-4px);
-  border-color: var(--bb-acid);
-}
-
-.brutalist-root .btn-acid {
-  background: var(--bb-acid);
-  color: #0a0a0a;
-  font-family: var(--font-geist-mono);
+/* Plum CTA */
+.btn-plum {
+  background: var(--color-ink);
+  color: var(--color-bg);
+  font-family: var(--font-mono);
   font-size: 12px;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  padding: 0.85rem 1.4rem;
+  letter-spacing: 0.12em;
+  padding: 0.95rem 1.6rem;
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  transition: transform 180ms, box-shadow 180ms;
+  transition: background 200ms, transform 220ms;
 }
-.brutalist-root .btn-acid:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 4px 4px 0 var(--bb-ink);
+.btn-plum:hover {
+  background: var(--color-accent);
+  transform: translateY(-1px);
 }
-.brutalist-root .btn-ghost {
-  border: 1px solid var(--bb-border);
-  color: var(--bb-ink);
-  font-family: var(--font-geist-mono);
+
+.btn-quiet {
+  font-family: var(--font-mono);
   font-size: 12px;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  padding: 0.85rem 1.4rem;
+  letter-spacing: 0.12em;
+  padding: 0.95rem 1.6rem;
+  color: var(--color-ink-soft);
+  border-bottom: 1px solid var(--color-hair-strong);
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  transition: border-color 180ms, color 180ms;
+  transition: color 200ms, border-color 200ms;
 }
-.brutalist-root .btn-ghost:hover {
-  border-color: var(--bb-acid);
-  color: var(--bb-acid);
-}
-.brutalist-root .hr-acid {
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--bb-acid), transparent);
+.btn-quiet:hover {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
 }
 
-.brutalist-root .cta-bg {
-  background:
-    radial-gradient(ellipse 80% 60% at 50% 35%, rgba(220, 255, 30, 0.22), transparent 55%),
-    radial-gradient(ellipse 60% 60% at 80% 80%, rgba(255, 51, 102, 0.10), transparent 60%),
-    conic-gradient(from 180deg at 50% 50%, #0a0a0a, #1a1a08, #0a0a0a, #050505, #0a0a0a);
-  background-size: 100% 100%, 100% 100%, 220% 220%;
-  background-position: 50% 50%, 50% 50%, 0% 0%;
-  animation: bb-cta-drift 28s ease-in-out infinite alternate;
+/* Scroll reveal */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
-@keyframes bb-cta-drift {
-  0%   { background-position: 50% 50%, 50% 50%, 0% 0%; }
-  100% { background-position: 50% 50%, 50% 50%, 100% 100%; }
+.reveal { opacity: 0; }
+.reveal.in {
+  animation: fade-up 0.95s cubic-bezier(0.2, 0.7, 0.25, 1) both;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .brutalist-root .rise-letter,
-  .brutalist-root .reveal,
-  .brutalist-root .reveal.in,
-  .brutalist-root .marquee-track,
-  .brutalist-root .cta-bg {
+  .reveal,
+  .reveal.in {
     animation: none !important;
     opacity: 1 !important;
     transform: none !important;
