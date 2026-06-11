@@ -53,6 +53,16 @@
   color: var(--bb-ink);
   isolation: isolate;
 }
+/* Override the global h1..h6 ink color (set in _typography for the bone theme) */
+.brutalist-root h1,
+.brutalist-root h2,
+.brutalist-root h3,
+.brutalist-root h4,
+.brutalist-root h5,
+.brutalist-root h6 {
+  color: inherit;
+  font-family: inherit;
+}
 .brutalist-root ::selection {
   background: var(--bb-acid);
   color: #0a0a0a;

@@ -24,6 +24,10 @@ import {
 const Prism = dynamic(() => import("@/components/reactbits/Prism"), {
   ssr: false,
 });
+const PrismaticBurst = dynamic(
+  () => import("@/components/reactbits/PrismaticBurst"),
+  { ssr: false }
+);
 
 const WORK_ACCENTS = ["#4A6741", "#7B5E8A", "#5B7B3A"];
 const WORK_PALETTES = [
@@ -116,21 +120,28 @@ function Hero() {
               <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_45%,rgba(220,255,30,0.18),transparent_55%),conic-gradient(from_90deg_at_50%_50%,#0a0a0a,#220033,#003355,#220011,#0a0a0a)]" />
             }
           >
-            <Prism
-              height={3.5}
-              scale={3.6}
-              hueShift={0.6}
-              colorFrequency={1}
-              baseWidth={5.5}
-              animationType="rotate"
-              glow={1.2}
-              noise={0.6}
-              timeScale={0.4}
+            <PrismaticBurst
+              intensity={0.85}
+              speed={0.35}
+              animationType="rotate3d"
+              colors={["#1a2540", "#3a1840", "#0a0a0a", "#5b3a2a", "#1a2540"]}
+              distort={0.8}
+              rayCount={0}
+              mixBlendMode="lighten"
             />
           </ShaderBoundary>
         </VisibleOnScreen>
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_30%,transparent_25%,rgba(10,10,10,0.55)_75%)]" />
-        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent to-[#0a0a0a]" />
+        {/* layered scrim so the white headline reads cleanly */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_60%_at_50%_55%,rgba(10,10,10,0.65),transparent_70%)]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a]/40 via-[#0a0a0a]/30 to-[#0a0a0a]" />
+        {/* grain over shader */}
+        <div
+          className="absolute inset-0 mix-blend-overlay opacity-30"
+          style={{
+            backgroundImage:
+              "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>\")",
+          }}
+        />
       </div>
 
       <div className="padding-global container-large">
@@ -145,7 +156,13 @@ function Hero() {
           <span className="text-white/40">Berlin · CET</span>
         </div>
 
-        <h1 className="display text-[clamp(3.5rem,12vw,11rem)] uppercase">
+        <h1
+          className="display text-[clamp(3.5rem,12vw,11rem)] uppercase text-white"
+          style={{
+            textShadow:
+              "0 2px 22px rgba(0,0,0,0.55), 0 1px 4px rgba(0,0,0,0.45)",
+          }}
+        >
           {lines.map((l) => (
             <span key={l.text} className="block overflow-hidden">
               {renderLine(l.text, l.delay)}
@@ -154,8 +171,9 @@ function Hero() {
         </h1>
 
         <Reveal delay={1300} className="mt-12 grid items-end gap-10 md:grid-cols-12">
-          <p className="md:col-span-6 max-w-xl text-[15px] leading-relaxed text-white/70">
-            {HERO.sub}
+          <p className="md:col-span-6 max-w-xl text-[16px] md:text-[18px] leading-[1.6] text-white/80">
+            Code-built websites for small businesses ready to grow. Shipped in
+            weeks. Owned by you on day one. Berlin-based, working worldwide.
           </p>
           <div className="md:col-span-6 md:col-start-7 flex flex-wrap items-end justify-start gap-3 md:justify-end">
             <a href={HERO.primary.href} className="btn-acid">
@@ -169,17 +187,24 @@ function Hero() {
         </Reveal>
       </div>
 
-      <Reveal delay={1600} className="padding-global container-large mt-16">
-        <div className="grid grid-cols-2 divide-y divide-x divide-white/10 border border-white/10 bg-black/40 backdrop-blur-md md:grid-cols-4 md:divide-y-0">
-          {HERO.pillars.map((p) => (
-            <div key={p.k} className="p-5 md:p-6">
-              <p className="display text-3xl text-acid md:text-5xl">{p.k}</p>
-              <p className="mono mt-2 text-[11px] uppercase tracking-[0.18em] text-white/55">
+      {/* Marquee — replaces metric pillars */}
+      <Reveal delay={1600} className="relative mt-16 overflow-hidden border-y border-white/10 bg-black/40 py-5 backdrop-blur-md">
+        <div className="marquee-track flex items-center gap-12 px-6">
+          {[...HERO.pillars, ...HERO.pillars, ...HERO.pillars].map((p, i) => (
+            <span
+              key={i}
+              className="flex items-center gap-3 whitespace-nowrap"
+            >
+              <span className="display text-2xl text-acid md:text-3xl">{p.k}</span>
+              <span className="mono text-[11px] uppercase tracking-[0.18em] text-white/60">
                 {p.v}
-              </p>
-            </div>
+              </span>
+              <span className="ml-6 inline-block size-1 rotate-45 bg-acid/60" />
+            </span>
           ))}
         </div>
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#0a0a0a] to-transparent" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#0a0a0a] to-transparent" />
       </Reveal>
     </section>
   );
